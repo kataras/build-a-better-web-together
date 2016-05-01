@@ -23,6 +23,8 @@
 * [Gzip](gzip.md)
 * [Custom HTTP Errors](custom-http-errors.md)
 * [Streaming](streaming.md)
+* [Cookies](cookies.md)
+* [Flash messages](flashmessages.md)
 * [Context](context.md)
 * [Logger](logger.md)
 * [HTTP access control](middleware-cors.md)
@@ -37,6 +39,5 @@
 * [Browser based Editor](plugin-editor.md)
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* 
 * [Examples](https:/github.com/iris-contrib/examples)
 
