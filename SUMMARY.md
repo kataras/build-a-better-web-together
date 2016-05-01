@@ -18,7 +18,7 @@
 * [Party](party.md)
 * [Named Parameters](named-parameters.md)
 * [Static files](static-files.md)
-* [Send files](#send-files)
+* [Send files](send-files.md)
 * [Custom HTTP Errors](#custom-http-errors)
 * [Streaming](#streaming)
 * [Graceful](#graceful)
