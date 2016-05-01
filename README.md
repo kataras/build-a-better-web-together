@@ -25,6 +25,7 @@
 * [Streaming](streaming.md)
 * [Cookies](cookies.md)
 * [Flash messages](flashmessages.md)
+* [Body binder](request-body-bind.md)
 * [Context](context.md)
 * [Logger](logger.md)
 * [HTTP access control](middleware-cors.md)
