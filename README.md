@@ -18,7 +18,7 @@ Obviously the net/http package is not enough to build well-designed back-end sys
  - [Using HandlerFuncs](#using-handlerfuncs)
  - [Using Annotated](#using-annotated)
  - [Using native http.Handler](#using-native-httphandler)
-	   - [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc()
+	   - [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
 - [Middlewares](#middlewares)
 - [API](#api)
 - [Declaration & Options](#declaration)
