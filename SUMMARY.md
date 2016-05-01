@@ -23,7 +23,7 @@
 * [Streaming](streaming.md)
 * [Graceful](graceful.md)
 * [Context](context.md)
-* [Plugins](#plugins)
+* [Plugins](plugins.md)
 * [Internationalization and Localization](https:/github.com/iris-contrib/examples/tree/master/middleware_internationalization_i18n)
 * [Examples](https:/github.com/iris-contrib/examples)
 
