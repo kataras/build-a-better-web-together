@@ -14,7 +14,7 @@
        * [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
 * [Middlewares](middlewares.md)
 * [API](api.md)
-* [Declaration & Options](#declaration)
+* [Declaration & Options](declaration.md)
 * [Party](#party)
 * [Named Parameters](#named-parameters)
 * [Static files](#static-files)
