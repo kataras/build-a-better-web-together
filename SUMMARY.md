@@ -19,7 +19,7 @@
 * [Named Parameters](named-parameters.md)
 * [Static files](static-files.md)
 * [Send files](send-files.md)
-* [Custom HTTP Errors](#custom-http-errors)
+* [Custom HTTP Errors](custom-http-errors.md)
 * [Streaming](#streaming)
 * [Graceful](#graceful)
 * [Context](#context)
