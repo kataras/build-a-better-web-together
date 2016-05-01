@@ -12,7 +12,7 @@
    * [Using Annotated](using-annotated.md)
    * [Using native http.Handler](using-native-httphandler.md)
        * [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
-* [Middlewares](#middlewares)
+* [Middlewares](middlewares.md)
 * [API](#api)
 * [Declaration & Options](#declaration)
 * [Party](#party)
