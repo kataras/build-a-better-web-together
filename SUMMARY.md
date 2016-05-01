@@ -16,7 +16,7 @@
 * [API](api.md)
 * [Declaration & Options](declaration.md)
 * [Party](party.md)
-* [Named Parameters](#named-parameters)
+* [Named Parameters](named-parameters.md)
 * [Static files](#static-files)
 * [Send files](#send-files)
 * [Custom HTTP Errors](#custom-http-errors)
