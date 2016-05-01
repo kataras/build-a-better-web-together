@@ -10,7 +10,7 @@
 * **Bindings**: Need a fast way to convert data from body or form into an object? Take a look [here](https://github.com/iris-contrib/examples/tree/master/bind_form_simple)
 * **Streaming**: You have only one option when streaming comes in game[*](#streaming)
 * **Middlewares**: Create and/or use global or per route middlewares with the Iris' simplicity[*](#middlewares)
-* **Sessions**:  Sessions provides a secure way to authenticate your clients/users [*](https://github.com/kataras/iris/tree/development/sessions)
+* **Sessions**:  Sessions provides a secure way to authenticate your clients/users [*](sessions.md)
 * **Realtime**: Realtime is fun when you use websockets[*](websockets.md)
 * **Context**: [Context](#context) is used for storing route params, storing handlers, sharing variables between middlewares, render rich content, send file and much more[*](context.md)
 * **Plugins**: You can build your own plugins to  inject the Iris framework[*](plugins.md)
