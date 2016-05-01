@@ -31,5 +31,5 @@ Obviously the net/http package is not enough to build well-designed back-end sys
 - [Graceful](graceful.md)
 - [Context](context.md)
 - [Plugins](plugins.md)
-- [Internationalization and Localization](internationalization-and-localization.md)
+- [Internationalization and Localization](https:/github.com/iris-contrib/examples/tree/master/internationalization-and-localization.md)
 - [Examples](https://github.com/iris-contrib/examples)
