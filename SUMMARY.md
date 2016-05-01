@@ -9,7 +9,7 @@
 * [Handlers](handlers.md)
    * [Using Handlers](using-handlers.md)
    * [Using HandlerFuncs](using-handlerfuncs.md)
-   * [Using Annotated](#using-annotated)
+   * [Using Annotated](using-annotated.md)
    * [Using native http.Handler](#using-native-httphandler)
        * [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
 * [Middlewares](#middlewares)
