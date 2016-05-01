@@ -16,3 +16,13 @@ func (u *UserHandler) Serve(c *iris.Context) {
 }
 
 ```
+
+```go
+///file: main.go
+//...cache the html files, if you the content of any html file changed, the templates are auto-reloading
+iris.Config().Render.Directory = "./templates"
+//...register the handler
+iris.HandleAnnotated(&UserHandler{})
+//...continue writing your wonderful API
+
+```
