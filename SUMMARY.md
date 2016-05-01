@@ -5,7 +5,7 @@
 * [Versioning](versioning.md)
 * [Install](install.md)
 * [Introduction](introduction.md)
-* [TLS](#tls)
+* [TLS](tls.md)
 * [Handlers](#handlers)
    * [Using Handlers](#using-handlers)
    * [Using HandlerFuncs](#using-handlerfuncs)
