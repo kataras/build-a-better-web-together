@@ -7,7 +7,7 @@
 * [Introduction](introduction.md)
 * [TLS](tls.md)
 * [Handlers](handlers.md)
-   * [Using Handlers](#using-handlers)
+   * [Using Handlers](using-handlers.md)
    * [Using HandlerFuncs](#using-handlerfuncs)
    * [Using Annotated](#using-annotated)
    * [Using native http.Handler](#using-native-httphandler)
