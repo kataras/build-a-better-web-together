@@ -21,7 +21,7 @@ Obviously the net/http package is not enough to build well-designed back-end sys
 	   - [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
 - [Middlewares](#middlewares)
 - [API](#api)
-- [Declaration & Options](#declaration)
+- [Declaration](#declaration)
 - [Party](#party)
 - [Named Parameters](#named-parameters)
 - [Static files](#static-files)
