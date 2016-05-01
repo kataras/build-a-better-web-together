@@ -20,7 +20,7 @@
 * [Static files](static-files.md)
 * [Send files](send-files.md)
 * [Custom HTTP Errors](custom-http-errors.md)
-* [Streaming](#streaming)
+* [Streaming](streaming.md)
 * [Graceful](#graceful)
 * [Context](#context)
 * [Plugins](#plugins)
