@@ -15,7 +15,7 @@
 * [Middlewares](middlewares.md)
 * [API](api.md)
 * [Declaration & Options](declaration.md)
-* [Party](#party)
+* [Party](party.md)
 * [Named Parameters](#named-parameters)
 * [Static files](#static-files)
 * [Send files](#send-files)
