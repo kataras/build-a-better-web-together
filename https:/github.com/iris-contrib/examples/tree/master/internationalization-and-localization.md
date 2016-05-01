@@ -13,7 +13,7 @@ hi = hello, %s
 ``` 
 Contents on locale_el-GR:
 ``` 
-hi = Ãåéá, %s
+hi = Γειά, %s
 ``` 
 
 ```go
