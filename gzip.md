@@ -27,6 +27,8 @@ WriteGzip(w *bufio.Writer) error
 // WriteGzipLevel doesn't flush response to w for performance reasons.
 WriteGzipLevel(w *bufio.Writer, level int) error
 ```
+
+How to use
 ```go
 iris.Get("/something", func(ctx *iris.Context){
     ctx.Response.WriteGzip(...) 
