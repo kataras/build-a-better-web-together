@@ -22,7 +22,7 @@
 * [Custom HTTP Errors](custom-http-errors.md)
 * [Streaming](streaming.md)
 * [Graceful](graceful.md)
-* [Context](#context)
+* [Context](context.md)
 * [Plugins](#plugins)
 * [Internationalization and Localization](https:/github.com/iris-contrib/examples/tree/master/middleware_internationalization_i18n)
 * [Examples](https:/github.com/iris-contrib/examples)
