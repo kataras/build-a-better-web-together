@@ -2,7 +2,7 @@
 
 * **Typescript**: Auto-compile & Watch your client side code via the [typescript plugin](plugin-typescript.md)
 * **Online IDE**: Edit & Compile your client side code when you are not home via the [editor plugin](editor.md)
-* **Iris Online Control**: Web-based interface to control the basics functionalities of your server via the [iriscontrol plugin](iriscontrol.md). Note that Iris control is still young
+* **Iris Online Control**: Web-based interface to control the basics functionalities of your server via the [iriscontrol plugin](plugin-iriscontrol.md). Note that Iris control is still young
 * **Subdomains**: Easy way to express your api via custom and dynamic subdomains[*](subdomains.md)
 * **Named Path Parameters**: Probably you already know what that means. If not, [It's easy to learn about](named-parameters.md)
 * **Custom HTTP Errors**: Define your own html templates or plain messages when http errors occurs[*](custom-http-errors.md)
