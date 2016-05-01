@@ -8,7 +8,7 @@
 * **Custom HTTP Errors**: Define your own html templates or plain messages when http errors occurs[*](#custom-http-errors)
 * **Internationalization**: [i18n](internationalization-and-localization.md)
 * **Bindings**: Need a fast way to convert data from body or form into an object? Take a look [here](https://github.com/iris-contrib/examples/tree/master/bind_form_simple)
-* **Streaming**: You have only one option when streaming comes in game[*](#streaming)
+* **Streaming**: You have only one option when streaming comes in game[*](streaming.md)
 * **Middlewares**: Create and/or use global or per route middlewares with the Iris' simplicity[*](middlewares.md)
 * **Sessions**:  Sessions provides a secure way to authenticate your clients/users [*](sessions.md)
 * **Realtime**: Realtime is fun when you use websockets[*](websockets.md)
