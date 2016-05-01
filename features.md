@@ -4,7 +4,7 @@
 * **Online IDE**: Edit & Compile your client side code when you are not home via the [editor plugin](https://github.com/kataras/iris/tree/development/plugin/editor)
 * **Iris Online Control**: Web-based interface to control the basics functionalities of your server via the [iriscontrol plugin](https://github.com/kataras/iris/tree/development/plugin/iriscontrol). Note that Iris control is still young
 * **Subdomains**: Easy way to express your api via custom and dynamic subdomains[*](https://github.com/iris-contrib/examples/blob/master/subdomains_simple)
-* **Named Path Parameters**: Probably you already know what that means. If not, [It's easy to learn about](#named-parameters)
+* **Named Path Parameters**: Probably you already know what that means. If not, [It's easy to learn about](named-parameters.md)
 * **Custom HTTP Errors**: Define your own html templates or plain messages when http errors occurs[*](custom-http-errors.md)
 * **Internationalization**: [i18n](internationalization-and-localization.md)
 * **Bindings**: Need a fast way to convert data from body or form into an object? Take a look [here](https://github.com/iris-contrib/examples/tree/master/bind_form_simple)
