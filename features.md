@@ -1,6 +1,6 @@
 # Features
 
-* **Typescript**: Auto-compile & Watch your client side code via the [typescript plugin](https://github.com/kataras/iris/tree/development/plugin/typescript)
+* **Typescript**: Auto-compile & Watch your client side code via the [typescript plugin](plugin-typescript.md)
 * **Online IDE**: Edit & Compile your client side code when you are not home via the [editor plugin](editor.md)
 * **Iris Online Control**: Web-based interface to control the basics functionalities of your server via the [iriscontrol plugin](iriscontrol.md). Note that Iris control is still young
 * **Subdomains**: Easy way to express your api via custom and dynamic subdomains[*](subdomains.md)
