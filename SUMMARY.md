@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-   * Subdomains
 * [Features](features.md)
 * [Versioning](versioning.md)
 * [Install](install.md)
