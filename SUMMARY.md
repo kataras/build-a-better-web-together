@@ -24,6 +24,6 @@
 * [Graceful](graceful.md)
 * [Context](context.md)
 * [Plugins](plugins.md)
-* [Internationalization and Localization](https:/github.com/iris-contrib/examples/tree/master/middleware_internationalization_i18n)
+* [Internationalization and Localization](https:/github.com/iris-contrib/examples/tree/master/middlewareinternationalization_i18n.md)
 * [Examples](https:/github.com/iris-contrib/examples)
 
