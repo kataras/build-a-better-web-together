@@ -8,8 +8,8 @@ Obviously the net/http package is not enough to build well-designed back-end sys
 
 ## Table of Contents
 
-- [Features](#features)
-- [Versioning](#versioning)
+- [Features](features.md)
+- [Versioning](versioning.md)
 - [Install](#install)
 - [Introduction](#introduction)
 - [TLS](#tls)
@@ -31,5 +31,5 @@ Obviously the net/http package is not enough to build well-designed back-end sys
 - [Graceful](#graceful)
 - [Context](#context)
 - [Plugins](#plugins)
-- [Internationalization and Localization](https://github.com/iris-contrib/examples/tree/master/middleware_internationalization_i18n)
+- [Internationalization and Localization](Internationalization-and-Localization)
 - [Examples](https://github.com/iris-contrib/examples)
