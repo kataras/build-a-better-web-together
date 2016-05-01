@@ -6,7 +6,7 @@
 * [Install](install.md)
 * [Introduction](introduction.md)
 * [TLS](tls.md)
-* [Handlers](#handlers)
+* [Handlers](handlers.md)
    * [Using Handlers](#using-handlers)
    * [Using HandlerFuncs](#using-handlerfuncs)
    * [Using Annotated](#using-annotated)
