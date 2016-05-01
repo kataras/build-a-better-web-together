@@ -21,7 +21,7 @@
 * [Send files](send-files.md)
 * [Custom HTTP Errors](custom-http-errors.md)
 * [Streaming](streaming.md)
-* [Graceful](#graceful)
+* [Graceful](graceful.md)
 * [Context](#context)
 * [Plugins](#plugins)
 * [Internationalization and Localization](https:/github.com/iris-contrib/examples/tree/master/middleware_internationalization_i18n)
