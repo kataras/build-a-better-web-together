@@ -1,6 +1,6 @@
 ## Gzip
 
-Gzip compression is easy
+Gzip compression is easy.
 
 ```go
 // WriteGzip writes response with gzipped body to w.
