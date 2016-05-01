@@ -1,2 +1,2 @@
-# Declaration & Options
+# Declaration
 
