@@ -35,3 +35,13 @@ func main() {
 }
 
 ```
+
+### Match anything
+
+```go
+// Will match any request which url's preffix is "/anything/" and has content after that
+iris.Get("/anything/*randomName", func(c *iris.Context) { } )
+// Match: /anything/whateverhere/whateveragain , /anything/blablabla
+// c.Param("randomName") will be /whateverhere/whateveragain, blablabla
+// Not Match: /anything , /anything/ , /something
+```
