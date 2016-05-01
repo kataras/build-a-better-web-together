@@ -13,7 +13,7 @@
    * [Using native http.Handler](using-native-httphandler.md)
        * [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
 * [Middlewares](middlewares.md)
-* [API](#api)
+* [API](api.md)
 * [Declaration & Options](#declaration)
 * [Party](#party)
 * [Named Parameters](#named-parameters)
