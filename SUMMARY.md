@@ -4,7 +4,7 @@
 * [Features](features.md)
 * [Versioning](versioning.md)
 * [Install](install.md)
-* [Hi](introduction.md)
+* [Hi](hi.md)
 * [TLS](tls.md)
 * [Handlers](handlers.md)
    * [Using Handlers](using-handlers.md)
