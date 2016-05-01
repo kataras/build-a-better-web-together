@@ -11,7 +11,7 @@
    * [Using HandlerFuncs](using-handlerfuncs.md)
    * [Using Annotated](using-annotated.md)
    * [Using native http.Handler](using-native-httphandler.md)
-       * [Using native http.Handler via iris.ToHandlerFunc()](#Using-native-http.Handler-via-ToHandlerFunc)
+       * [Using native http.Handler via iris.ToHandlerFunc()](using-native-httphandler-via-tohandlerfunc.md)
 * [Middlewares](middlewares.md)
 * [API](api.md)
 * [Declaration & Options](declaration.md)
