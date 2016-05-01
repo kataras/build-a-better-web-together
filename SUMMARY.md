@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Features](features.md)
 * [Versioning](versioning.md)
-* [Install](#install)
+* [Install](install.md)
 * [Introduction](#introduction)
 * [TLS](#tls)
 * [Handlers](#handlers)
