@@ -27,8 +27,7 @@ func main() {
 		c.Write("Hey from no-subdomain yourhost.com")
 	})
 
-	println("Server is listening at: 80")
-	api.Listen(":80")
+	iris.Listen(":80")
 }
 
 
