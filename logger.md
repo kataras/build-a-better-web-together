@@ -9,8 +9,7 @@ Custom(writer io.Writer, prefix string, flag int) iris.HandlerFunc
 Default() iris.HandlerFunc
 ```
 
-Example
-
+How to use
 
 ```go
 package main
