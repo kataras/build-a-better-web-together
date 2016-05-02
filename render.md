@@ -263,17 +263,22 @@ func main() {
 The rendering functions return any errors from the rendering engine.
 By default, they will also write the error to the HTTP response and set the status code to 500. You can disable
 this behavior so that you can handle errors yourself by setting
-`Options.DisableHTTPErrorRendering: true`.
+`RenderConfig.DisableHTTPErrorRendering: true`.
 
 ~~~go
-r := render.New(render.Options{
+renderOptions := &iris.RenderConfig{
   DisableHTTPErrorRendering: true,
-})
+}
+
+iris.SetRenderConfig(renderOptions)
 
 //...
-
-err := r.HTML(ctx, iris.StatusOK "example", "World")
-if err != nil{
-  ctx.Redirect("/my-custom-500", iris.StatusFound)
+func (ctx *iris.Context) {
+  err := ctx.HTML(iris.StatusOK "example", "World")
+  if err != nil{
+    ctx.Redirect("/my-custom-500", iris.StatusFound)
+  }
 }
+
+
 ~~~
