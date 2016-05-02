@@ -1,9 +1,11 @@
 # Logger
 
 
-Below you will find a middleware which logs the requests
+Below you will find a middleware which 
 
 [This is a middleware](https://github.com/kataras/iris/tree/development/middleware/logger)
+
+Logs the incomming requests
 
 ```go
 Custom(writer io.Writer, prefix string, flag int) iris.HandlerFunc
