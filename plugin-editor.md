@@ -36,7 +36,7 @@ func main(){
 
 ```
 
-**Note** for username, password: The Authorization specifies the authentication mechanism (in this case Basic) followed by the username and password.
+**Note for username, password**: The Authorization specifies the authentication mechanism (in this case Basic) followed by the username and password.
 Although, the string aHR0cHdhdGNoOmY= may look encrypted it is simply a base64 encoded version of <username>:<password>.
 Would be readily available to anyone who could intercept the HTTP request. [Read more.](https://www.httpwatch.com/httpgallery/authentication/)
 
