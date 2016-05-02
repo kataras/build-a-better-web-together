@@ -92,7 +92,6 @@ func main() {
         //When deploying to production, be sure to set this to false.
     })
 
-
     iris.UseFunc(func(c *iris.Context) {
         err := s.Process(c)
 
