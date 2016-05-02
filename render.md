@@ -53,15 +53,15 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
       })
 
       iris.Get("/html", func(ctx *iris.Context) {
-          // Assumes you have a template in ./templates called "example.tmpl".
-          // $ mkdir -p templates && echo "<h1>Hello HTML world.</h1>" > templates/example.tmpl
+          // Assumes you have a template in ./templates called "example.html".
+          // $ mkdir -p templates && echo "<h1>Hello HTML world.</h1>" > templates/example.html
           ctx.HTML(iris.StatusOK, "example", nil)
       })
       
       // ctx.Render is the same as ctx.HTML but with default 200 status OK
      iris.Get("/html2", func(ctx *iris.Context) {
-          // Assumes you have a template in ./templates called "example.tmpl".
-          // $ mkdir -p templates && echo "<h1>Hello HTML world.</h1>" > templates/example.tmpl
+          // Assumes you have a template in ./templates called "example.html".
+          // $ mkdir -p templates && echo "<h1>Hello HTML world.</h1>" > templates/example.html
           ctx.Render("example", nil)
       })
 
