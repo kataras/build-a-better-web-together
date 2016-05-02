@@ -54,7 +54,7 @@ func main(){
 }
 ```
 
-Enable [web browser editor](plugin-editor.md) 
+Enable [web browser editor](plugin-editor.md)
 
 ```go
 ts := typescript.Options {
