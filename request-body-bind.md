@@ -2,11 +2,36 @@
 
 Body binder reads values from the body and set them to a specific object.
 
+```go
+// ReadJSON reads JSON from request's body
+ReadJSON(jsonObject interface{}) error
 
-## Forms
+// ReadXML reads XML from request's body
+ReadXML(xmlObject interface{}) error
+
+// ReadForm binds the formObject  to the requeste's form data
+func (ctx *Context) ReadForm(formObject interface{}) error
+```
+
+How to use
+
+### JSON
+
+```go
+
+```
+
+### XML
+
+```go
+
+
+```
+
+### Forms
 The form binding came from a fast third party package named [formam](https://github.com/monoculum/formam).
 
-### Types
+#### Types
 
 The supported field types in the destination struct are:
 
@@ -24,17 +49,20 @@ The supported field types in the destination struct are:
 * `custom types` to one of the above types
 * a `pointer` to one of the above types
 
-**NOTE**: the nesting in `maps`, `structs` and `slices` can be [ad infinitum](https://en.wikipedia.org/wiki/Ad_infinitum).
+> the nesting in `maps`, `structs` and `slices` can be [ad infinitum](https://en.wikipedia.org/wiki/Ad_infinitum).
 
-Custom Marshaling
------------------
+#### Custom Marshaling
+
 
 Is possible unmarshaling data and the key of a map by the `encoding.TextUnmarshaler` interface.
 
-Usage
------
+----
 
-### In form html
+#### Example
+
+
+
+##### In form html
 
 - Use symbol `.` for access a field/key of a structure or map. (i.e, `struct.key`)
 - Use `[int_here]` for access to index of a slice/array. (i.e, `struct.array[0]`)
@@ -60,7 +88,7 @@ Usage
 </form>
 ```
 
-### In golang
+##### Backend
 
 You can use the tag `formam` if the name of a input of form starts lowercase.
 
