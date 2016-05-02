@@ -1,4 +1,4 @@
-## Gzip
+# Gzip
 
 Gzip compression is easy.
 
