@@ -23,7 +23,7 @@ I was wondering if golang wasn't so fast on the web as I was reading, but, befor
 
 I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**].
 
-After two months, I'm writing this intro. 
+**After two months**, I'm writing this intro. 
 
 #### I am writing this book, I am coding with Golang [because Iris has succeed](https://github.com/kataras/iris#benchmarks)
 
