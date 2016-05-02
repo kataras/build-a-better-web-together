@@ -21,10 +21,9 @@ func main() {
 
     iris.Get("/", func(ctx *iris.Context) {
         ctx.Write("Hi, let's panic")
-        panic("errorrrrrrrrrrrrrrr")
+        panic("Something bad!")
     })
 
-    println("Server is running at :8080")
     iris.Listen(":8080")
 }
 
