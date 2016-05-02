@@ -74,5 +74,5 @@ The same day, later the night, I was reading a book about Greek mythology, there
 * [Browser based Editor](plugin-editor.md)
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https:/github.com/iris-contrib/examples)
+* [Examples](https://github.com/iris-contrib/examples)
 
