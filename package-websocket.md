@@ -11,3 +11,33 @@ WebSocket is designed to be implemented in web browsers and web servers, but it 
 
 -----
 
+How to use
+
+```go
+import (
+	"github.com/kataras/iris/websocket"
+	"github.com/kataras/iris"
+)
+
+func chat(c *websocket.Conn) {
+	// defer c.Close()
+	// mt, message, err := c.ReadMessage()
+	// c.WriteMessage(mt, message)
+}
+
+var upgrader = websocket.New(chat) // use default options
+//var upgrader = websocket.Custom(chat, 1024, 1024) // customized options, read and write buffer sizes (int). Default: 4096
+// var upgrader = websocket.New(chat).DontCheckOrigin() // it's useful when you have the websocket server on a different machine
+
+func myChatHandler(ctx *iris.Context) {
+	err := upgrader.Upgrade(ctx)// returns only error, executes the handler you defined on the websocket.New before (the 'chat' function)
+}
+
+func main() {
+  iris.Get("/chat_back", myChatHandler)
+  iris.Listen(":80")
+}
+
+```
+
+The iris/websocket package has been converted from the gorilla/websocket. If you want to see more examples just go [here](https://github.com/gorilla/websocket/tree/master/examples) and make the conversions as you see in 'How to use' before.
