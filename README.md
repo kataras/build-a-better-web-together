@@ -1,4 +1,4 @@
-# Web Development with Iris
+# Iris web framework guide
 
 ![cover](https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/book/cover_1.png)
 
