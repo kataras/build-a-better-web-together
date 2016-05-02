@@ -77,9 +77,7 @@ func main() {
 		sess.Destroy(c)
 	})
 
-	println("Server is listening at :8080")
 	iris.Listen("8080")
-
 }
 
 // session.GetAll() returns all values a map[interface{}]interface{}
@@ -92,9 +90,9 @@ func main() {
 ```
 
 
-## Security: Prevent session hijacking
+### Security: Prevent session hijacking
 
-> This section  was originally written on a book
+> This section  is external
 
 
 **cookie only and token**
@@ -122,6 +120,8 @@ session.Set("token",token)
 
 Another solution is to add a create time for every session, and to replace expired session ids with new ones. This can prevent session hijacking under certain circumstances.
 
+```go
+
 createtime := session.Get("createtime")
 if createtime == nil {
     session.Set("createtime", time.Now().Unix())
@@ -129,6 +129,7 @@ if createtime == nil {
     sess.Destroy(c)
     session = sess.Start(c)
 }
+```
 
 We set a value to save the create time and check if it's expired (I set 60 seconds here). This step can often thwart session hijacking attempts.
 
