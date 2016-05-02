@@ -1,7 +1,5 @@
 # Static files
 
-## Static files
-
 Serve a static directory
 
 ```go
