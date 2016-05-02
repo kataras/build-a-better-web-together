@@ -5,6 +5,23 @@
 **A flash message has a name and a content (AKA key and value). It is an entry of a map**. The name is a string: often "notice", "success", or "error", but it can be anything. The content is usually a string. You can put HTML tags in your message if you display it raw. You can also set the message value to a number or an array: it will be serialized and kept in session like a string.
 
 ```go
+// GetFlash get a flash message by it's key 
+// after this action the messages is removed
+// returns string
+// if the cookie doesn't exists the string is empty
+GetFlash(key string) string
 
+// GetFlashBytes get a flash message by it's key 
+// after this action the messages is removed
+// returns []byte 
+// and an error if the cookie doesn't exists or decode fails
+GetFlashBytes(key string) (value []byte, err error) 
 
+// SetFlash sets a flash message
+// accepts 2 parameters the key and the value (string)
+SetFlash(key string, value string)
+
+// SetFlash sets a flash message
+// accepts 2 parameters the key(string) and the value ([]byte)
+SetFlashBytes(key string, value []byte) 
 ```
