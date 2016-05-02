@@ -15,7 +15,6 @@ This plugin starts it's own server, if Iris server is using TLS then the editor 
 ## How to use
 
 ```go
-
 package main
 
 import (
@@ -24,7 +23,8 @@ import (
 )
 
 func main(){
-	e := editor.New("username","password").Port(4444).Dir("/path/to/the/client/side/directory")
+	e := editor.New("username","password").Port(4444).
+    Dir("/path/to/the/client/side/directory")
 
 	iris.Plugin(e)
 
