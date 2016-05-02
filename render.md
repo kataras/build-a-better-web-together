@@ -146,11 +146,11 @@ templates/
   |
   |__ admin/
   |      |
-  |      |__ index.tmpl
+  |      |__ index.html
   |      |
-  |      |__ edit.tmpl
+  |      |__ edit.html
   |
-  |__ home.tmpl
+  |__ home.html
 ~~~
 
 Will provide the following templates:
