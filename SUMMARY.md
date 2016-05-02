@@ -20,6 +20,7 @@
 * [Named Parameters](named-parameters.md)
 * [Static files](static-files.md)
 * [Send files](send-files.md)
+* [Render](render.md)
 * [Gzip](gzip.md)
 * [Streaming](streaming.md)
 * [Cookies](cookies.md)
