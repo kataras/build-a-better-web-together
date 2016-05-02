@@ -167,14 +167,19 @@ e.g. when generating an asset file using [go-bindata](https://github.com/jteeuwe
 Render provides `yield` and `partial` functions for layouts to access:
 ~~~ go
 // ...
-r := render.New(render.Options{
+
+renderOptions := &iris.RenderConfig{
     Layout: "layout",
-})
+}
+
+iris.SetRenderConfig(renderOptions)
+//or api := iris.New(Render: renderOptions)
+
 // ...
 ~~~
 
 ~~~ html
-<!-- templates/layout.tmpl -->
+<!-- templates/layout.html -->
 <html>
   <head>
     <title>My Layout</title>
@@ -194,7 +199,7 @@ r := render.New(render.Options{
 
 `current` can also be called to get the current template being rendered.
 ~~~ html
-<!-- templates/layout.tmpl -->
+<!-- templates/layout.html -->
 <html>
   <head>
     <title>My Layout</title>
@@ -208,7 +213,7 @@ r := render.New(render.Options{
 Partials are defined by individual templates as seen below. The partial template's
 name needs to be defined as "{partial name}-{template name}".
 ~~~ html
-<!-- templates/home.tmpl -->
+<!-- templates/home.html -->
 {{ define "header-home" }}
 <h1>Home</h1>
 {{ end }}
@@ -220,10 +225,13 @@ name needs to be defined as "{partial name}-{template name}".
 
 By default, the template is not required to define all partials referenced in the
 layout. If you want an error to be returned when a template does not define a
-partial, set `Options.RequirePartials = true`.
+partial, set `RenderConfig.RequirePartials = true`.
 
 ### Character Encodings
-Render will automatically set the proper Content-Type header based on which function you call. See below for an example of what the default settings would output (note that UTF-8 is the default, and binary data does not output the charset):
+Render will automatically set the proper Content-Type header based on which function you call.
+
+In order to change the charset, you can set the `Charset` within the `RenderConfig` to your encoding value, or ```Iris.DefaultCharset = "UTF-8"```
+
 ~~~ go
 // main.go
 package main
@@ -232,7 +240,6 @@ import (
     "encoding/xml"
     "github.com/kataras/iris"
 
-    "github.com/iris-contrib/render"
 )
 
 type ExampleXml struct {
@@ -242,95 +249,13 @@ type ExampleXml struct {
 }
 
 func main() {
-    r := render.New(render.Options{})
+    iris.DefaultCharset = "ISO-8859-1"
+    //or iris.SetRenderConfig(&iris.RenderConfig{ Charset: "ISO-8859-1"})
+  
 
-    // This will set the Content-Type header to "application/octet-stream".
-    // Note that this does not receive a charset value.
-    iris.Get("/data", func(ctx *iris.Context) {
-        r.Data(ctx, iris.StatusOK []byte("Some binary data here."))
-    })
-
-    // This will set the Content-Type header to "application/json; charset=UTF-8".
-    iris.Get("/json", func(ctx *iris.Context) {
-        r.JSON(ctx, iris.StatusOK map[string]string{"hello": "json"})
-    })
-
-    // This will set the Content-Type header to "text/xml; charset=UTF-8".
-    iris.Get("/xml", func(ctx *iris.Context) {
-        r.XML(ctx, iris.StatusOK ExampleXml{One: "hello", Two: "xml"})
-    })
-
-    // This will set the Content-Type header to "text/plain; charset=UTF-8".
-    iris.Get("/text", func(ctx *iris.Context) {
-        r.Text(ctx, iris.StatusOK "Plain text here")
-    })
-
-    // This will set the Content-Type header to "text/html; charset=UTF-8".
-    iris.Get("/html", func(ctx *iris.Context) {
-        // Assumes you have a template in ./templates called "example.tmpl"
-        // $ mkdir -p templates && echo "<h1>Hello {{.}}.</h1>" > templates/example.tmpl
-        r.HTML(ctx, iris.StatusOK "example", "World")
-    })
-
-    iris.Listen("127.0.0.1:3000")
+    //...
 }
 
-
-~~~
-
-In order to change the charset, you can set the `Charset` within the `render.Options` to your encoding value:
-~~~ go
-// main.go
-package main
-
-import (
-    "encoding/xml"
-    "github.com/kataras/iris"
-
-    "github.com/iris-contrib/render"
-)
-
-type ExampleXml struct {
-    XMLName xml.Name `xml:"example"`
-    One     string   `xml:"one,attr"`
-    Two     string   `xml:"two,attr"`
-}
-
-func main() {
-    r := render.New(render.Options{
-        Charset: "ISO-8859-1",
-    })
-
-    // This will set the Content-Type header to "application/octet-stream".
-    // Note that this does not receive a charset value.
-    iris.Get("/data", func(ctx *iris.Context) {
-        r.Data(ctx, iris.StatusOK []byte("Some binary data here."))
-    })
-
-    // This will set the Content-Type header to "application/json; charset=ISO-8859-1".
-    iris.Get("/json", func(ctx *iris.Context) {
-        r.JSON(ctx, iris.StatusOK map[string]string{"hello": "json"})
-    })
-
-    // This will set the Content-Type header to "text/xml; charset=ISO-8859-1".
-    iris.Get("/xml", func(ctx *iris.Context) {
-        r.XML(ctx, iris.StatusOK ExampleXml{One: "hello", Two: "xml"})
-    })
-
-    // This will set the Content-Type header to "text/plain; charset=ISO-8859-1".
-    iris.Get("/text", func(ctx *iris.Context) {
-        r.Text(ctx, iris.StatusOK "Plain text here")
-    })
-
-    // This will set the Content-Type header to "text/html; charset=ISO-8859-1".
-    iris.Get("/html", func(ctx *iris.Context) {
-        // Assumes you have a template in ./templates called "example.tmpl"
-        // $ mkdir -p templates && echo "<h1>Hello {{.}}.</h1>" > templates/example.tmpl
-        r.HTML(w, iris.StatusOK, "example", "World")
-    })
-
-    iris.Listen("127.0.0.1:3000")
-}
 ~~~
 
 ### Error Handling
