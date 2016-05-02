@@ -5,10 +5,6 @@
 
 Enables graceful shutdown.
 
-
-
-How to use:
-
 ```go
 
 package main
