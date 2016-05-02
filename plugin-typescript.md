@@ -1,6 +1,6 @@
 # Typescript
 
-[This is a package](https://github.com/kataras/iris/tree/development/plugin/typescript)
+[This is a plugin](https://github.com/kataras/iris/tree/development/plugin/typescript)
 
 This is an Iris and typescript bridge plugin.
 
@@ -52,4 +52,15 @@ func main(){
 
     iris.Listen()
 }
+```
+
+Enable [web browser editor](plugin-editor.md) 
+
+```go
+ts := typescript.Options {
+    //...
+    Editor: typescript.Editor("username","passowrd")
+    //...
+}
+
 ```
