@@ -44,6 +44,9 @@ func main() {
 
 	iris.Get("/get", func(c *iris.Context) {
 		c.Write("Hello %s", c.GetFlash("name"))
+        // the flash message is being deleted after this request done,
+        // so you can call the c.GetFlash("name") 
+        // many times without problem
 	})
 
 	iris.Get("/test", func(c *iris.Context) {
