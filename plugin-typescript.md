@@ -14,7 +14,7 @@ This is an Iris and typescript bridge plugin.
 6.    If typescript files and no project then build each typescript using tsc $filename
 7.    Watch typescript files if any changes happens, then re-build (5|6)
 
-    >Note: Ignore all typescript files & projects whose path has '/node_modules/'
+ >Note: Ignore all typescript files & projects whose path has '/node_modules/'
 
 
 ### Options
