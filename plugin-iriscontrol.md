@@ -44,6 +44,6 @@ func main() {
 
 
 
-Thanks for reading this e-book!
+#Thanks for reading this e-book!
 
 ## To be continued...
