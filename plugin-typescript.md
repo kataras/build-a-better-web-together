@@ -42,7 +42,6 @@ func main(){
     ts := typescript.Options {
         Dir: "./scripts/src",
         Tsconfig: &typescript.Tsconfig{Module: "commonjs", Target: "es5"}, 
-        
     }
     // or typescript.DefaultTsconfig()
 
