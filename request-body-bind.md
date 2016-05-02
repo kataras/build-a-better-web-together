@@ -18,17 +18,78 @@ How to use
 ### JSON
 
 ```go
+package main
+
+import "github.com/kataras/iris"
+
+type Company struct {
+   Public     bool      `formam:"public"`
+   Website    url.URL   `formam:"website"`
+   Foundation time.Time `formam:"foundation"`
+   Name       string
+   Location   struct {
+     Country  string
+     City     string
+    }
+   Products   []struct {
+     Name string
+     Type string
+   }
+   Founders   []string
+   Employees  int64
+}
+
+func MyHandler(c *iris.Context) {
+  if err := c.ReadJSON(&Company{}); err != nil {
+  	panic(err.Error())
+  }
+}
+  
+func main() {
+  iris.Get("/bind_json", MyHandler)
+  iris.Listen(":8080")
+}
 
 ```
 
 ### XML
 
 ```go
+package main
 
+import "github.com/kataras/iris"
+
+type Company struct {
+   Public     bool      `formam:"public"`
+   Website    url.URL   `formam:"website"`
+   Foundation time.Time `formam:"foundation"`
+   Name       string
+   Location   struct {
+     Country  string
+     City     string
+    }
+   Products   []struct {
+     Name string
+     Type string
+   }
+   Founders   []string
+   Employees  int64
+}
+  
+func MyHandler(c *iris.Context) {  
+  if err := c.ReadXML(&Company{}); err != nil {
+  	panic(err.Error())
+  }
+}
+  
+func main() {
+  iris.Get("/bind_xml", MyHandler)
+  iris.Listen(":8080")
+}
 
 ```
 
-### Forms
+### Form
 The form binding came from a fast third party package named [formam](https://github.com/monoculum/formam).
 
 #### Types
@@ -93,6 +154,8 @@ Is possible unmarshaling data and the key of a map by the `encoding.TextUnmarsha
 You can use the tag `formam` if the name of a input of form starts lowercase.
 
 ```go
+package main
+
 type InterfaceStruct struct {
     ID   int
     Name string
@@ -121,12 +184,14 @@ func MyHandler(c *iris.Context) {
   m := Company{
       Interface: &InterfaceStruct{},
   }
+  
   if err := c.ReadForm(&m); err != nil {
   		panic(err.Error())
   }
 }
-
-iris.Get("/bind_form", MyHandler)
-
-iris.Listen(":8080")
+  
+func main() {
+  iris.Get("/bind_form", MyHandler)
+  iris.Listen(":8080")
+}
 ```
