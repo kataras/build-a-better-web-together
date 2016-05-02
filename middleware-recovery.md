@@ -6,7 +6,7 @@
 Safety recover the server from panic.
 
 ```
-recovery.New(os.Stderr)
+recovery.New(...io.Writer)
 ```
 
 ```go
