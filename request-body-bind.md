@@ -1,10 +1,10 @@
-# Form binder
+# Body binder
 
-Form binder reads values from the form and set them to a specific object.
+Body binder reads values from the body and set them to a specific object.
 
 
 ## Forms
-
+The form binding came from a fast third party package named [formam](https://github.com/monoculum/formam).
 
 ### Types
 
