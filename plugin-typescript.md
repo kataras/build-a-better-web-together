@@ -4,7 +4,7 @@
 
 This is an Iris and typescript bridge plugin.
 
-What's doing?
+### What's doing?
 
 1. Search for typescript files (.ts)
 2.    Search for typescript projects (.tsconfig)
