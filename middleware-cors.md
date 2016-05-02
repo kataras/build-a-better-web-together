@@ -44,5 +44,4 @@ Some security work for you between the requests.
     // Debugging flag adds additional output to debug server side CORS issues
     Debug bool
 
-
 ```
