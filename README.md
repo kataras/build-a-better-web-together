@@ -1,5 +1,7 @@
 # Web Development with Iris
 
+![cover](https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/book/cover_1.png)
+
 Go is a great technology stack for building scalable, web-based, back-end systems for web 
 applications. 
 
