@@ -22,6 +22,14 @@ GetFlashBytes(key string) (value []byte, err error)
 SetFlash(key string, value string)
 
 // SetFlash sets a flash message
-// accepts 2 parameters the key(string) and the value ([]byte)
+// accepts 2 parameters the key(string) and the value([]byte)
 SetFlashBytes(key string, value []byte) 
+```
+
+How to use
+
+```go
+
+
+
 ```
