@@ -49,6 +49,8 @@ Options
 How to use
 
 ```go
+import "github.com/kataras/iris/middleware/cors"
+
 cors.New(cors.Options{})
 ```
 
