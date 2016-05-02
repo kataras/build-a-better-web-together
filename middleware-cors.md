@@ -4,7 +4,7 @@
 Some security work for you between the requests.
 
 
-### Options
+Options
 
 ```go
     // AllowedOrigins is a list of origins a cross-domain request can be executed from.
@@ -43,5 +43,30 @@ Some security work for you between the requests.
     OptionsPassthrough bool
     // Debugging flag adds additional output to debug server side CORS issues
     Debug bool
+
+```
+
+Example
+
+```go
+package main
+
+import (
+    "github.com/kataras/iris"
+    "github.com/kataras/iris/middleware/cors"
+)
+
+func main() {
+
+    crs := cors.New(cors.Options{}) // options here
+
+    iris.Use(crs) // register the middleware
+
+    iris.Get("/home", func(c *iris.Context) {
+        // ...
+    })
+
+    iris.Listen(":8080")
+}
 
 ```
