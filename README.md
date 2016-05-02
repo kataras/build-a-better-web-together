@@ -15,7 +15,9 @@ Obviously the net/http package is not enough to build well-designed back-end sys
 
 I did a little research and benchmarks to choose which framework suits me to start my new project, the results were really hurt me, disappointed me.
 
-I was wondering if golang wasn't so fast on the web as I was reading, but, before let Golang and continue to develop with nodejs I told to my self '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from *others* code, learn the secrets of this language and make *others* to follow your steps!**'  I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**]
+I was wondering if golang wasn't so fast on the web as I was reading, but, before let Golang and continue to develop with nodejs I told to my self '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from *others* code, learn the secrets of this language and make *others* to follow your steps!**'.
+
+I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**].
 
 
 here is where **[Iris web framework](https://github.com/kataras/iris)** comes to play.
