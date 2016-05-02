@@ -19,7 +19,7 @@ I did a big research and benchmarks with 'wrk' and 'ab' in order to choose which
 
 I was wondering if golang wasn't so fast on the web as I was reading... but, before let Golang and continue to develop with nodejs I told myself:
 
-> '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from the slow code you saw earlier, learn the secrets of this language and make *others* follow your steps!**'.
+> '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from the "slow" code you saw earlier, learn the secrets of this language and make *others* follow your steps!**'.
 
 
 
