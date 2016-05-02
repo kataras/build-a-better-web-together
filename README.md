@@ -11,7 +11,7 @@ Then you have to deal with some common situations like the dynamic routing (a.k.
 
 Obviously the net/http package is not enough to build well-designed back-end systems for web. But when you realize that, other thoughts are coming to your head:
 
-- Ok the net/http package doesn't suits me, but they're so many frameworks, which I have choose?!
+- Ok the net/http package doesn't suits me, but they're so many frameworks, which I have to choose from?!
 - Each one of them tells me that it's the best. I don't know what to do!
 
 ####The truth
