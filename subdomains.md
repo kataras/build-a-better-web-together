@@ -1,4 +1,4 @@
-## Subdomains
+# Subdomains
 
 Subdomains in Iris are simple [Parties](party.md).
 
