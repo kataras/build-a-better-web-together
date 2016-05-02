@@ -30,7 +30,7 @@ type Company struct {
    Location   struct {
      Country  string
      City     string
-    }
+   }
    Products   []struct {
      Name string
      Type string
@@ -67,7 +67,7 @@ type Company struct {
    Location   struct {
      Country  string
      City     string
-    }
+   }
    Products   []struct {
      Name string
      Type string
