@@ -21,7 +21,7 @@ import (
 
 func main() {
 
-    iris.Use(recovery.New(os.Stderr)) // optional parameter is the writer which the stack of the panic will be printed
+    iris.Use(recovery.New(os.Stderr)) // optional
 
     iris.Get("/", func(ctx *iris.Context) {
         ctx.Write("Hi, let's panic")
