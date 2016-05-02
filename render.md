@@ -69,7 +69,7 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
 ~~~
 
 ~~~ html
-<!-- templates/example.tmpl -->
+<!-- templates/example.html -->
 <h1>Hello {{.}}.</h1>
 ~~~
 
@@ -84,7 +84,7 @@ renderOptions := &iris.RenderConfig{
       return []byte("template content"), nil
     },
     AssetNames: func() []string { // Return a list of asset names for the Asset function
-      return []string{"filename.tmpl"}
+      return []string{"filename.html"}
     },
     Layout: "layout", // Specify a layout template. Layouts can call {{ yield }} to render the current template or {{ partial "css" }} to render a partial from the current template.
     Extensions: []string{".tmpl", ".html"}, // Specify extensions to load for templates.
