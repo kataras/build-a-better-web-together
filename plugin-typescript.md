@@ -25,4 +25,4 @@ This is an Iris and typescript bridge plugin.
  - **Tsconfig**: &typescript.Tsconfig{}, here you can set all compilerOptions if no tsconfig.json exists inside the 'Dir' 
  - **Editor**: typescript.Editor(), if setted then alm-tools browser-based typescript IDE will be available. Defailt is nil
  
- >All these are optional
+>All these are optional
