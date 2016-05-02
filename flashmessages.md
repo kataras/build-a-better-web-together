@@ -26,7 +26,7 @@ SetFlash(key string, value string)
 SetFlashBytes(key string, value []byte) 
 ```
 
-How to use & example
+Example
 
 ```go
 
