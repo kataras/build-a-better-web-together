@@ -41,7 +41,8 @@ func main() {
     // alllocalhost := info.ByDomain("localhost") -> slice
     // bypath:= info.ByPath("/yourpath") -> slice
     // bydomainandmethod:= info.ByDomainAndMethod("localhost","GET") -> slice
-    // bymethodandpath:= info.ByMethodAndPath("GET","/yourpath") -> single (it could be slice for all domains too but it's not)
+    // bymethodandpath:= info.ByMethodAndPath("GET","/yourpath") ->
+    //single (it could be slice for all domains too but it's not)
 
     println("The first registed route was: ", all[0].Path, "registed at: ", all[0].RegistedAt.String())
     println("All routes info:")
