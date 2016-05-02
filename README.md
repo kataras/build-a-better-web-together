@@ -17,7 +17,7 @@ Obviously the net/http package is not enough to build well-designed back-end sys
 
 I did a big research and benchmarks in order to choose which framework suits me and my new project. The results, sadly, were really beaten me, disappointed me.
 
-I was wondering if golang wasn't so fast on the web as I was reading, but, before let Golang and continue to develop with nodejs I told myself:
+I was wondering if golang wasn't so fast on the web as I was reading... but, before let Golang and continue to develop with nodejs I told myself:
 
 > '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from *others* code, learn the secrets of this language and make *others* to follow your steps!**'.
 
