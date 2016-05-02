@@ -1,6 +1,7 @@
-# Body binder
+# Form binder
 
-Body binder reads values from the body and set them to a specific object.
+Form binder reads values from the form and set them to a specific object.
+
 
 ## Forms
 
@@ -23,7 +24,7 @@ The supported field types in the destination struct are:
 * `custom types` to one of the above types
 * a `pointer` to one of the above types
 
-**NOTE**: the nesting in `maps`, `structs` and `slices` can be ad infinitum.
+**NOTE**: the nesting in `maps`, `structs` and `slices` can be [ad infinitum](https://en.wikipedia.org/wiki/Ad_infinitum).
 
 Custom Marshaling
 -----------------
