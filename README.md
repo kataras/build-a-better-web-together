@@ -25,7 +25,7 @@ I was wondering if golang wasn't so fast on the web as I was reading... but, bef
 
 I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**]. 
 
-The same day, later the night, I was reading a book about Greek mythology, there I see an ancient God's name, insipired immediately and give a name to this new web framework, I was started to write this day earlier, to **Iris**.
+The same day, later the night, I was reading a book about Greek mythology, there I saw an ancient God's name, insipired immediately and give a name to this new web framework, which was started be written earlier the morning, to **Iris**.
 
 **After two months**, I'm writing this intro. 
 
