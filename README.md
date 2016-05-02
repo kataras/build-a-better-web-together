@@ -5,7 +5,7 @@
 Go is a great technology stack for building scalable, web-based, back-end systems for web 
 applications. 
 
-When you think about building web applications and web APIs, or simply building HTTP servers in Go, your mind goes to the standard net/http package? 
+When you think about building web applications and web APIs, or simply building HTTP servers in Go, your mind goes to the standard net/http package(?_ 
 Then you have to deal with some common situations like the dynamic routing (a.k.a parameterized), security and authentication, real-time communication and many others that standard package doesn't provides. 
 
 Obviously the net/http package is not enough to build well-designed back-end systems for web. When you realize that then other thoughs comes to your mind:
