@@ -1,7 +1,7 @@
 # Graceful
 
-Graceful package is not part of the Iris, it's not a Middleware neither a Plugin, so a new repository created,
-which it's a fork of [https://github.com/tylerb/graceful](https://github.com/tylerb/graceful).
+[This is a middleware](https://githu)
+Enables graceful shutdown.
 
 
 
