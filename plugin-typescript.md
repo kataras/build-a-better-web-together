@@ -2,6 +2,7 @@
 
 [This is a package](https://github.com/kataras/iris/tree/development/plugin/typescript)
 
+### Optional
 
  1. **Bin**: string, the typescript installation path/bin/tsc or tsc.cmd, if empty then it will search to the global npm modules
  2. **Dir**: string, Dir set the root, where to search for typescript files/project. Default "./" 
