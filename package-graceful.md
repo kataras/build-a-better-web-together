@@ -1,6 +1,6 @@
 # Graceful
 
-[This is a middleware](https://github.com/kataras/iris/tree/development/middleware/graceful)
+[This is a package](https://github.com/kataras/iris/tree/development/graceful)
 
 
 Enables graceful shutdown.
