@@ -5,6 +5,10 @@
 
 Safety recover the server from panic.
 
+```
+recovery.New(os.Stderr)
+```
+
 ```go
 
 package main
