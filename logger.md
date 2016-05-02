@@ -37,8 +37,6 @@ func main() {
     })
 
     iris.Listen(":80")
-
 }
-
 
 ```
