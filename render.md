@@ -173,7 +173,7 @@ renderOptions := &iris.RenderConfig{
 }
 
 iris.SetRenderConfig(renderOptions)
-//or api := iris.New(Render: renderOptions)
+// or api := iris.New(Render: renderOptions)
 
 // ...
 ~~~
@@ -250,7 +250,7 @@ type ExampleXml struct {
 
 func main() {
     iris.DefaultCharset = "ISO-8859-1"
-    //or iris.SetRenderConfig(&iris.RenderConfig{ Charset: "ISO-8859-1"})
+    // or iris.SetRenderConfig(&iris.RenderConfig{ Charset: "ISO-8859-1"})
   
 
     //...
