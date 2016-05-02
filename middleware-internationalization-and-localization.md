@@ -1,5 +1,7 @@
 # Internationalization and Localization
 
+[This is a middleware](https://github.com/kataras/iris/tree/development/middleware/i18n)
+
 Create folder named 'locales'
 ```
 ///Files: 
