@@ -18,7 +18,7 @@ GetFlash(key string) string
 GetFlashBytes(key string) (value []byte, err error) 
 
 // SetFlash sets a flash message
-// accepts 2 parameters the key and the value (string)
+// accepts 2 parameters the key(string) and the value(string)
 SetFlash(key string, value string)
 
 // SetFlash sets a flash message
