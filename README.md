@@ -1,4 +1,4 @@
-# Iris web framework guide
+# Build a better web
 
 ![cover](https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/book/cover_1.png)
 
