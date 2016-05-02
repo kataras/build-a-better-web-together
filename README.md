@@ -29,7 +29,7 @@ The same day, later the night, I was reading a book about Greek mythology, there
 
 **After two months**, I'm writing this intro. 
 
-#### I am writing this book, I am coding with Golang [because Iris has succeed](https://github.com/kataras/iris#benchmarks)!
+#### I am writing this book, I am coding with Golang [because Iris has succeed to be the fastest go web framework](https://github.com/kataras/iris#benchmarks)!
 
 ## Table of Contents
 
