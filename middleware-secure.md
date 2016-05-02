@@ -5,7 +5,9 @@
 Secure is an HTTP middleware for Go that facilitates some quick security wins.
 
 ```go
+import "github.com/kataras/iris/middleware/secure"
 
+secure.New(secure.Options{}) // options here
 
 ```
 
