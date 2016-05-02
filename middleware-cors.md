@@ -46,6 +46,12 @@ Options
 
 ```
 
+How to use
+
+```go
+cors.New(cors.Options{})
+```
+
 Example
 
 ```go
