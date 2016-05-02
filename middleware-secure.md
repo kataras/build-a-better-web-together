@@ -14,7 +14,6 @@ secure.New(secure.Options{}) // options here
 Example
 
 ```go
-
 package main
 
 import (
@@ -58,9 +57,7 @@ func main() {
         c.Write("Hello from /home")
     })
 
-    println("Server is running at :8080")
     iris.Listen(":8080")
-
 }
 
 
