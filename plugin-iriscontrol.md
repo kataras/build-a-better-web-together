@@ -35,7 +35,7 @@ func main() {
     iris.Post("/something", func(ctx *iris.Context) {
     })
 
-    iris.Listen()
+    iris.Listen(":8080")
 }
 
 ```
