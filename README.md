@@ -23,7 +23,7 @@ I was wondering if golang wasn't so fast on the web as I was reading... but, bef
 
 
 
-I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**]. The same day, a little later, I was reading Greek mythology, I was insipired immediately and name this new web framework to Iris.
+I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**]. The same day, later the night, I was reading a book about Greek mythology, I was insipired immediately and name this new web framework to Iris.
 
 **After two months**, I'm writing this intro. 
 
