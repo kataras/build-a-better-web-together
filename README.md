@@ -8,7 +8,7 @@ applications.
 When you think about building web applications and web APIs, or simply building HTTP servers in Go, your mind goes to the standard net/http package(?)
 Then you have to deal with some common situations like the dynamic routing (a.k.a parameterized), security and authentication, real-time communication and many others that standard package doesn't provides. 
 
-Obviously the net/http package is not enough to build well-designed back-end systems for web. But when you realize that other thoughts comes to your mind:
+Obviously the net/http package is not enough to build well-designed back-end systems for web. But when you realize that other thoughts coming to your mind:
 
 - Ok the net/http package doesn't suits me, but they're so many frameworks I can't choose!
 - Each one of them tells me that it's the best. I don't know what to do!
