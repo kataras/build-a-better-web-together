@@ -3,6 +3,17 @@
 Serve a static directory
 
 ```go
+
+// Static registers a route which serves a system directory
+// it doesn't generate an index page, for this look at StaticFS func
+Static(relative string, systemPath string, stripSlashes int)
+
+// Static registers a route which serves a system directory
+// it generates an index page to view the directory's files
+StaticFS(relative string, systemPath string, stripSlashes int) 
+
+```
+```go
 // first parameter is the request url path (string)
 // second parameter is the system directory (string)
 // third parameter is the level (int) of stripSlashes
@@ -12,6 +23,11 @@ Serve a static directory
 
 iris.Static("/public", "./static/assets/", 1)
 //-> /public/assets/favicon.ico
+```
+
+```go
+iris.StaticFS("/ftp", "./myfiles/public", 1)
+
 ```
 
 Serve static individual file
