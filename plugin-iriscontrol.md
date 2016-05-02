@@ -7,11 +7,13 @@ Which gives  access to your iris server's information via a web interface.
 
 -----
 
+How to use
 ```go
 iriscontrol.Web(port int, authenticatedUsers map[string]string) iris.IPlugin
 ```
 
-How to use
+Example
+
 ```go
 package main
 
