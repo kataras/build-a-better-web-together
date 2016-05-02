@@ -14,7 +14,7 @@ package main
 import (
 	"time"
 
-	"github.com/iris-contrib/graceful"
+	"github.com/kataras/iris/graceful"
 	"github.com/kataras/iris"
 )
 
