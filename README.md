@@ -25,12 +25,7 @@ I'm not kidding, these are pretty much the words I told to myself that day [**13
 
 **After two months**, I'm writing this intro. 
 
-#### I am writing this book, I am coding with Golang [because Iris has succeed](https://github.com/kataras/iris#benchmarks)
-
-.
-
-
-here is where **[Iris web framework](https://github.com/kataras/iris)** comes to play.
+#### I am writing this book, I am coding with Golang [because Iris has succeed](https://github.com/kataras/iris#benchmarks).
 
 ## Table of Contents
 
