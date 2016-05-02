@@ -26,10 +26,37 @@ SetFlash(key string, value string)
 SetFlashBytes(key string, value []byte) 
 ```
 
-How to use
+How to use & example
 
 ```go
 
+package main
 
+import (
+	"github.com/kataras/iris"
+)
+
+func main() {
+
+	iris.Get("/set", func(c *iris.Context) {
+		c.SetFlash("name", "iris")
+	})
+
+	iris.Get("/get", func(c *iris.Context) {
+		c.Write("Hello %s", c.GetFlash("name"))
+	})
+
+	iris.Get("/test", func(c *iris.Context) {
+
+		name := c.GetFlash("name")
+		if name == "" {
+			c.Write("Ok you are comming from /get")
+		} else {
+			c.Write("Ok you are comming from /set: %s", name)
+		}
+	})
+
+	iris.Listen(":8080")
+}
 
 ```
