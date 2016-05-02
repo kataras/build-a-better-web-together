@@ -39,15 +39,12 @@ import (
 )
 
 func main(){
-
     ts := typescript.Options {
         Dir: "./scripts/src",
         Tsconfig: &typescript.Tsconfig{Module: "commonjs", Target: "es5"}, // or typescript.DefaultTsconfig()
     }
 
-    //if you want to change only certain option(s) but you want default to all others then you have to do this:
     ts = typescript.DefaultOptions()
-    //
 
     iris.Plugin(typescript.New(ts)) //or with the default options just: typescript.New()
 
