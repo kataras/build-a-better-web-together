@@ -1,4 +1,4 @@
-# Build a better web
+# Build a better web, togeher.
 
 ![cover](https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/book/cover_1.png)
 
