@@ -26,7 +26,7 @@ import (
 var sess *sessions.Manager
 
 func init() {
-	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute)
+	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute, time.Duration(5) *time.Hour)
 }
 
 func main() {
