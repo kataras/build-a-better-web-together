@@ -18,7 +18,7 @@ Instead of storing large and constantly changing information via cookies in the 
 // temporary memory the value which hasn't be used for a long time(gcDuration)
 // forth is the lifeDuration(time.Duration) 
 // this duration is for the client's Cookie life time(expires)
-New(providerName string, cookieName string, gcDuration time.Duration, lifeDuration time.Duration) *Manager 
+New(provider string, cName string, gcDuration time.Duration, lifeDuration time.Duration) *sessions.Manager 
 
 ```
 
