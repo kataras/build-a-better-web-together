@@ -17,7 +17,7 @@ Instead of storing large and constantly changing information via cookies in the 
 // when this time passes it removes from 
 // temporary memory the value which hasn't be used for a long time(gcDuration)
 // forth is the lifeDuration(time.Duration) 
-// this duration is for the client's Cookie life time(expires)
+// this duration is for the client's/browser's Cookie life time(expires)
 New(provider string, cName string, gcDuration time.Duration, lifeDuration time.Duration) *sessions.Manager 
 
 ```
@@ -41,7 +41,7 @@ import (
 var sess *sessions.Manager
 
 func init() {
-	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute, time.Duration(5) *time.Hour)
+	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute, time.Duration(720) *time.Hour)
 }
 
 func main() {
