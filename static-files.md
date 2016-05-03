@@ -8,7 +8,7 @@ Serve a static directory
 // it doesn't generate an index page, for this look at StaticFS func
 Static(relative string, systemPath string, stripSlashes int)
 
-// Static registers a route which serves a system directory
+// StaticFS registers a route which serves a system directory
 // it generates an index page to view the directory's files
 StaticFS(relative string, systemPath string, stripSlashes int) 
 
