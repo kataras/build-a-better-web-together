@@ -8,6 +8,21 @@ Instead of storing large and constantly changing information via cookies in the 
 
 ----
 
+```go
+// New creates & returns a new Manager and start its GC
+// accepts 4 parameters
+// first is the providerName (string) ["memory","redis"]
+// second is the cookieName, the session's name (string) ["mysessionsecretcookieid"]
+// third is the gcDuration (time.Duration) 
+// when this time passes it removes from 
+// temporary memory the value which hasn't be used for a long time(gcDuration)
+// forth is the lifeDuration(time.Duration) 
+// this duration is for the client's Cookie life time(expires)
+New(providerName string, cookieName string, gcDuration time.Duration, lifeDuration time.Duration) *Manager 
+
+```
+
+
 Example
 
 ```go
