@@ -113,7 +113,9 @@ func main() {
 ```
 
 
-Example **redis**
+Example **redis** with default configuration
+
+The default redis client points to 127.0.0.1:6379
 
 ```go
 
@@ -125,7 +127,9 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/sessions"
 
-	_ "github.com/kataras/iris/sessions/providers/redis" // here we add the redis  provider and store with the default redis client points to 127.0.0.1:6379
+	_ "github.com/kataras/iris/sessions/providers/redis" 
+    // here we add the redis  provider and store 
+    //with the default redis client points to 127.0.0.1:6379
 )
 
 var sess *sessions.Manager
@@ -134,6 +138,56 @@ func init() {
 	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
 }
 
+//... usage same as memory
+```
+
+Example **redis** with custom configuration
+```go
+type Config struct {
+	// Network "tcp"
+	Network string
+	// Addr "127.0.01:6379"
+	Addr string
+	// Password string .If no password then no 'AUTH'. Default ""
+	Password string
+	// If Database is empty "" then no 'SELECT'. Default ""
+	Database string
+	// MaxIdle 0 no limit
+	MaxIdle int
+	// MaxActive 0 no limit
+	MaxActive int
+	// IdleTimeout 5 * time.Minute
+	IdleTimeout time.Duration
+
+	//for storing
+	Prefix string
+	// MaxAgeSeconds how much long the redis should keep the session in seconds, default 2520.0 (42minutes)
+	MaxAgeSeconds int
+}
+```
+
+```go
+package main
+
+import (
+	"time"
+
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/sessions"
+
+     "github.com/kataras/iris/sessions/providers/redis" 
+    // here we add the redis  provider and store 
+    //with the default redis client points to 127.0.0.1:6379
+)
+
+var sess *sessions.Manager
+
+func init() {
+redis.Config
+	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
+}
+
+//...usage same as memory
 ```
 
 ### Security: Prevent session hijacking
