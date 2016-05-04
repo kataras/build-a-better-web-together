@@ -285,3 +285,64 @@ func (ctx *iris.Context) {
 
 
 ~~~
+
+### Example templates
+
+```go
+//
+// FILE: ./main.go
+//
+package main
+
+import (
+	"github.com/kataras/iris"
+)
+
+type mypage struct {
+	Title   string
+	Message string
+}
+
+func main() {
+
+	//optionally - before the load.
+	//iris.Config().Render.Delims = iris.Delims{Left:"${", Right: "}"} this will change the behavior of {{.Property}} to ${.Property}
+	//iris.Config().Render.Funcs = template.FuncMap(...)
+
+	//iris.Config().Render.Directory = "templates"
+
+	iris.Config().Render.Layout = "layout" // Default is ""
+	iris.Config().Render.Gzip = true       // Default is false
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.Render("mypage", mypage{"My Page title", "Hello world!"}) //, iris.HTMLOptions{"otherLayout"}) <- to override
+	})
+
+	println("Server is running at :8080")
+	iris.Listen(":8080")
+}
+```
+
+```html
+<!--
+ FILE: ./templates/layout.html
+-->
+<html>
+  <head>
+    <title>My Layout</title>
+
+  </head>
+  <body>
+    <!-- Render the current template here -->
+    {{ yield }}
+  </body>
+</html>
+
+```
+
+```html
+<!--
+ FILE: ./templates/mypage.html
+-->
+<h1> Title: {{.Title}} <h1>
+<h3> Message : {{.Message}} </h3>
+```
