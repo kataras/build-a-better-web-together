@@ -138,7 +138,7 @@ func init() {
 	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
 }
 
-//... usage same as memory
+//... usage: same as memory
 ```
 
 Example **redis** with custom configuration
@@ -182,16 +182,16 @@ import (
 var sess *sessions.Manager
 
 func init() {
-// you can config the redis after init also, but before any client's request
-// but it's always a good idea to do it before sessions.New...
-redis.Config.Network = "tcp"
-redis.Config.Addr = "127.0.0.1:6379"
-redis.Config.Prefix = "myprefix-for-this-website"
+    // you can config the redis after init also, but before any client's request
+    // but it's always a good idea to do it before sessions.New...
+    redis.Config.Network = "tcp"
+    redis.Config.Addr = "127.0.0.1:6379"
+    redis.Config.Prefix = "myprefix-for-this-website"
 
 	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
 }
 
-//...usage same as memory
+//...usage: same as memory
 ```
 
 ### Security: Prevent session hijacking
