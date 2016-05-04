@@ -91,6 +91,7 @@ renderOptions := &iris.RenderConfig{
     Funcs: []template.FuncMap{AppHelpers}, // Specify helper function maps for templates to access.
     Delims: iris.Delims{"{[{", "}]}"}, // Sets delimiters to the specified strings.
     Charset: "UTF-8", // Sets encoding for json and html content-types. Default is "UTF-8".
+    Gzip: false, // Enable it if you want to render using gzip compression. Default is false
     IndentJSON: true, // Output human readable JSON.
     IndentXML: true, // Output human readable XML.
     PrefixJSON: []byte(")]}',\n"), // Prefixes JSON responses with the given bytes.
@@ -120,6 +121,7 @@ renderOptions = &iris.RenderConfig{
     Funcs: []template.FuncMap{},
     Delims: iris.Delims{"{{", "}}"},
     Charset: "UTF-8",
+    Gzip: false,
     IndentJSON: false,
     IndentXML: false,
     PrefixJSON: []byte(""),
