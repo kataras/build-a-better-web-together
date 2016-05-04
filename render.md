@@ -321,7 +321,7 @@ func main() {
 	iris.Config().Render.Directory = "templates" // Default "templates"
 	iris.Config().Render.Layout = "layout" // Default is ""
 	iris.Config().Render.Gzip = true       // Default is false
-    
+    //...
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Render("mypage", mypage{"My Page title", "Hello world!"}) //, iris.HTMLOptions{"otherLayout"}) <- to override
 	})
