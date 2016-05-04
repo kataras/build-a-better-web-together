@@ -318,7 +318,7 @@ func main() {
 	//iris.Config().Render.Delims = iris.Delims{Left:"${", Right: "}"} this will change the behavior of {{.Property}} to ${.Property}
 	//iris.Config().Render.Funcs = template.FuncMap(...)
 
-	//iris.Config().Render.Directory = "templates"
+	iris.Config().Render.Directory = "templates" // Default "templates"
 
 	iris.Config().Render.Layout = "layout" // Default is ""
 	iris.Config().Render.Gzip = true       // Default is false
