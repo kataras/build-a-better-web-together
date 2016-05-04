@@ -286,7 +286,7 @@ func (ctx *iris.Context) {
 
 ~~~
 
-### Example templates
+### Example-Template
 
 ```go
 //
