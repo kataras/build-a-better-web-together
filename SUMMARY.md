@@ -50,6 +50,6 @@ I am a student at the [University of Central Macedonia](http://teiser.gr/), ther
 
 From a younger age I have dedicated all my time to various open source projects, including, my lovely child, Iris.
 
-If and only IF you think that any information you obtained here is worth something  and you are willing to pay for it, (if you can afford it ofcourse) feel free to send any amount through paypal
+If and only IF you think that any information you obtained here is worth something  and you are willing to pay for it(and you can afford it),  feel free to send any amount through paypal
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=makis%40ideopod%2ecom&lc=GR&item_name=Iris%20web%20framework&item_number=iriswebframeworkdonationid2016&amount=2%2e00&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
