@@ -158,8 +158,7 @@ type Config struct {
 	MaxActive int
 	// IdleTimeout 5 * time.Minute
 	IdleTimeout time.Duration
-
-	//for storing
+	//Prefix "myprefix-for-this-website" . Default ""
 	Prefix string
 	// MaxAgeSeconds how much long the redis should keep the session in seconds, default 2520.0 (42minutes)
 	MaxAgeSeconds int
@@ -183,7 +182,11 @@ import (
 var sess *sessions.Manager
 
 func init() {
-redis.Config
+// you can config the redis after init also, but before any client's request
+// but it's always a good idea to do it before sessions.New...
+redis.Config.Network = "tcp"
+redis.Config.Addr = "127.0.0.1:6379"
+redis.Config.Prefix = "myprefix-for-this-website"
 	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
 }
 
