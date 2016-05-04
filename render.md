@@ -172,6 +172,7 @@ Render provides `yield` and `partial` functions for layouts to access:
 
 renderOptions := &iris.RenderConfig{
     Layout: "layout",
+    Gzip:true,
 }
 
 iris.SetRenderConfig(renderOptions)
