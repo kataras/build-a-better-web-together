@@ -286,7 +286,16 @@ func (ctx *iris.Context) {
 
 ~~~
 
-### Example-Templates
+### Templates
+```go
+// HTML builds up the response from the specified template and bindings.
+HTML(status int, name string, binding interface{}, htmlOpt ...HTMLOptions) error
+// Render same as .HTML but with status to iris.StatusOK (200)
+Render(name string, binding interface{}, htmlOpt ...HTMLOptions) error
+
+```
+
+### Example
 
 ```go
 //
