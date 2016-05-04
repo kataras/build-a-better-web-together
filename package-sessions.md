@@ -31,7 +31,7 @@ New(provider string, cName string, gcDuration time.Duration) *sessions.Manager
 ```
 
 
-Example **memorystore**
+Example **memory**
 
 ```go
 
@@ -43,7 +43,7 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/sessions"
 
-	_ "github.com/kataras/iris/sessions/store/memory" // here we add the memory  store
+	_ "github.com/kataras/iris/sessions/providers/memory" // here we add the memory  store
 )
 
 var sess *sessions.Manager
