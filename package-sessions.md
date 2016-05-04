@@ -26,12 +26,12 @@ Instead of storing large and constantly changing information via cookies in the 
 // temporary memory GC the value which hasn't be used for a long time(gcDuration)
 // this is for the client's/browser's Cookie life time(expires) also
 
-New(provider string, cName string, gcDuration time.Duration, lifeDuration time.Duration) *sessions.Manager 
+New(provider string, cName string, gcDuration time.Duration) *sessions.Manager 
 
 ```
 
 
-Example
+Example **memorystore**
 
 ```go
 
@@ -43,13 +43,13 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/sessions"
 
-	_ "github.com/kataras/iris/sessions/providers/memory" // here we add the memory session store
+	_ "github.com/kataras/iris/sessions/store/memory" // here we add the memory  store
 )
 
 var sess *sessions.Manager
 
 func init() {
-	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute, time.Duration(720) *time.Hour)
+	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute)
 }
 
 func main() {
