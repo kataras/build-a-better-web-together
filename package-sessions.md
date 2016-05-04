@@ -43,7 +43,7 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/sessions"
 
-	_ "github.com/kataras/iris/sessions/providers/memory" // here we add the memory  store
+	_ "github.com/kataras/iris/sessions/providers/memory" // here we add the memory provider and store
 )
 
 var sess *sessions.Manager
@@ -112,6 +112,29 @@ func main() {
 
 ```
 
+
+Example **redis**
+
+```go
+
+package main
+
+import (
+	"time"
+
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/sessions"
+
+	_ "github.com/kataras/iris/sessions/providers/redis" // here we add the redis  provider and store with the default redis client points to 127.0.0.1:6379
+)
+
+var sess *sessions.Manager
+
+func init() {
+	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
+}
+
+```
 
 ### Security: Prevent session hijacking
 
