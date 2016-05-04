@@ -187,6 +187,7 @@ func init() {
 redis.Config.Network = "tcp"
 redis.Config.Addr = "127.0.0.1:6379"
 redis.Config.Prefix = "myprefix-for-this-website"
+
 	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
 }
 
