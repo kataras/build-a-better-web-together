@@ -1,7 +1,7 @@
 # Sessions
 [This is a package](https://github.com/kataras/iris/tree/development/sessions)
 
-This package is new and unique, if you notice a bug or issue please [post it here](https://github.com/kataras/iris/issues)
+This package is new and unique, if you notice a bug or issue [post it here](https://github.com/kataras/iris/issues)
 
 
 - Cleans the temp memory when a sessions is iddle, and re-loccate it , fast, to the temp memory when it's necessary. Also most used/regular sessions are going front in the memory's list.
