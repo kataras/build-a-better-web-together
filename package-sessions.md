@@ -158,9 +158,9 @@ type Config struct {
 	MaxActive int
 	// IdleTimeout 5 * time.Minute
 	IdleTimeout time.Duration
-	//Prefix "myprefix-for-this-website" . Default ""
+	//Prefix "myprefix-for-this-website". Default ""
 	Prefix string
-	// MaxAgeSeconds how much long the redis should keep the session in seconds, default 2520.0 (42minutes)
+	// MaxAgeSeconds how much long the redis should keep the session in seconds. Default 2520.0 (42minutes)
 	MaxAgeSeconds int
 }
 ```
