@@ -8,7 +8,7 @@ Is unique as far as I know, because:
 - Cleans the temp memory when a sessions is iddle, and re-loccate it , fast, to the temp memory when it's necessary. Also most used/regular sessions are going front in the memory's list.
 
 - Supports redisstore and normal memory routing. If redisstore is used but fails to connect then ,automatically, switching to the memory storage.
-- 
+
 
 **A session can be defined as a server-side storage of information that is desired to persist throughout the user's interaction with the web site** or web application. 
 
@@ -23,9 +23,9 @@ Instead of storing large and constantly changing information via cookies in the 
 // second is the cookieName, the session's name (string) ["mysessionsecretcookieid"]
 // third is the gcDuration (time.Duration) 
 // when this time passes it removes from 
-// temporary memory the value which hasn't be used for a long time(gcDuration)
-// forth is the lifeDuration(time.Duration) 
-// this duration is for the client's/browser's Cookie life time(expires)
+// temporary memory GC the value which hasn't be used for a long time(gcDuration)
+// this is for the client's/browser's Cookie life time(expires) also
+
 New(provider string, cName string, gcDuration time.Duration, lifeDuration time.Duration) *sessions.Manager 
 
 ```
