@@ -36,3 +36,5 @@ iris.Get("/something", func(ctx *iris.Context){
 
 
 ```
+
+For auto-gzip all responses, look at  
