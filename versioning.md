@@ -1,6 +1,6 @@
 # Versioning
 
-Current: **v2.1.1**
+Current: **v2.1.2**
 
 Read more about Semantic Versioning 2.0.0
 
