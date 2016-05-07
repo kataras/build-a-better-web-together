@@ -2,6 +2,9 @@
 
 Gzip compression is easy.
 
+
+For **auto-gzip** all responses, look the Gzip option at the iris.RenderConfig [here](render.md)
+
 ```go
 // WriteGzip writes response with gzipped body to w.
 //
@@ -36,5 +39,3 @@ iris.Get("/something", func(ctx *iris.Context){
 
 
 ```
-
-For auto-gzip all responses, look at  
