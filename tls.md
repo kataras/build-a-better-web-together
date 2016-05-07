@@ -7,7 +7,7 @@
 //
 // It panics on error if you need a func to return an error use the ListenWithErr
 // ex: iris.Listen(":8080")
-func Listen(addr string)
+Listen(addr string)
 
 // ListenWithErr starts the standalone http server
 // which listens to the addr parameter which as the form of
@@ -16,7 +16,7 @@ func Listen(addr string)
 // It returns an error you are responsible how to handle this
 // if you need a func to panic on error use the Listen
 // ex: log.Fatal(iris.ListenWithErr(":8080"))
-func ListenWithErr(addr string) error
+ListenWithErr(addr string) error
 
 // ListenTLS Starts a https server with certificates,
 // if you use this method the requests of the form of 'http://' will fail
@@ -26,7 +26,7 @@ func ListenWithErr(addr string) error
 //
 // It panics on error if you need a func to return an error use the ListenTLSWithErr
 // ex: iris.ListenTLS(":8080","yourfile.cert","yourfile.key")
-func ListenTLS(addr string, certFile, keyFile string)
+ListenTLS(addr string, certFile, keyFile string)
 
 // ListenTLSWithErr Starts a https server with certificates,
 // if you use this method the requests of the form of 'http://' will fail
@@ -37,7 +37,7 @@ func ListenTLS(addr string, certFile, keyFile string)
 // It returns an error you are responsible how to handle this
 // if you need a func to panic on error use the ListenTLS
 // ex: log.Fatal(iris.ListenTLS(":8080","yourfile.cert","yourfile.key"))
-func ListenTLSWithErr(addr string, certFile, keyFile string) error
+ListenTLSWithErr(addr string, certFile, keyFile string) error
 
 ```
 ```go
