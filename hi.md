@@ -10,7 +10,7 @@ func main() {
 	iris.Get("/hello", func(c *iris.Context) {
 		c.Write("Hi %s", "iris")
 	})
-	iris.Listen(":8080")
+	iris.Listen(":8080") // or err := iris.ListenWithErr(":8080")
 }
 
 ```
