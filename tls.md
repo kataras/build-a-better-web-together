@@ -36,7 +36,7 @@ ListenTLS(addr string, certFile, keyFile string)
 //
 // It returns an error you are responsible how to handle this
 // if you need a func to panic on error use the ListenTLS
-// ex: log.Fatal(iris.ListenTLS(":8080","yourfile.cert","yourfile.key"))
+// ex: log.Fatal(iris.ListenTLSWithErr(":8080","yourfile.cert","yourfile.key"))
 ListenTLSWithErr(addr string, certFile, keyFile string) error
 
 ```
