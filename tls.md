@@ -45,6 +45,6 @@ iris.Listen(":8080")
 log.Fatal(iris.ListenWithErr(":8080"))
 
 iris.ListenTLS(":8080", "myCERTfile.cert", "myKEYfile.key")
-log.Fatal(iris.ListenTLS(":8080", "myCERTfile.cert", "myKEYfile.key"))
+log.Fatal(iris.ListenTLSWithErr(":8080", "myCERTfile.cert", "myKEYfile.key"))
 
 ```
