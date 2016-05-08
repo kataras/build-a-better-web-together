@@ -1,4 +1,4 @@
-![cover](https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/book/cover_1.png)
+<a href ="https://github.com/kataras/iris"> <img src="https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/book/cover_1.png" width="300" /> </a>
 
 
 ## Table of Contents
@@ -46,15 +46,37 @@
 * [Control panel](plugin-iriscontrol.md)
 * [Examples](https://github.com/iris-contrib/examples)
 
-Donations
----------
 
-I am a student at the [University of Central Macedonia](http://teiser.gr/), therefore I have no income value.
+### Why
 
-From a younger age I have dedicated all my time to various open source projects, including, my lovely child, Iris.
+Go is a great technology stack for building scalable, web-based, back-end systems for web 
+applications. 
 
-**If and only if** you think that any information you obtained here is worth something  and you are willing to pay for it(and you can afford it) feel free to send any amount through paypal
+When you think about building web applications and web APIs, or simply building HTTP servers in Go, your mind goes to the standard net/http package(?)
+Then you have to deal with some common situations like the dynamic routing (a.k.a parameterized), security and authentication, real-time communication and many others that standard package doesn't provides. 
 
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=makis%40ideopod%2ecom&lc=GR&item_name=Iris%20web%20framework&item_number=iriswebframeworkdonationid2016&amount=2%2e00&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
+Obviously the net/http package is not enough to build well-designed back-end systems for web. But when you realize that, other thoughts are coming to your head:
+
+- Ok the net/http package doesn't suits me, but they're so many frameworks, which I have to choose from?!
+- Each one of them tells me that it's the best. I don't know what to do!
+
+##### The truth
+
+I did a big research and benchmarks with 'wrk' and 'ab' in order to choose which framework suits me and my new project. The results, sadly, were really beaten me, disappointed me.
+
+I was wondering if golang wasn't so fast on the web as I was reading... but, before let Golang and continue to develop with nodejs I told myself:
+
+> '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from the "slow" code you saw earlier, learn the secrets of this language and make *others* follow your steps!**'.
+
+
+
+I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**]. 
+
+The same day, later the night, I was reading a book about Greek mythology, there I saw an ancient God's name, insipired immediately and give a name to this new web framework, which was started be written, to **Iris**.
+
+**After two months**, I'm writing this intro. 
+
+ I'm still here [because Iris has succeed to be the fastest go web framework](https://github.com/kataras/iris#benchmarks)
+
 
 
