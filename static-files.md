@@ -54,6 +54,8 @@ iris.StaticFS("/ftp", "./myfiles/public", 1)
 iris.StaticWeb("/","./my_static_html_website", 1)
 ```
 
+### Manual static file serving
+
 Serve static individual file
 
 ```go
@@ -64,7 +66,7 @@ iris.Get("/txt", func(ctx *iris.Context) {
 
 ```
 
-Putting all together, serve static individual files dynamically
+For example if you want manual serve static individual files dynamically you can do something like that: 
 
 ```go
 package main
