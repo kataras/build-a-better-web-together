@@ -5,21 +5,42 @@ Serve a static directory
 ```go
 
 // Static registers a route which serves a system directory
-// it doesn't generate an index page, for this look at StaticFS func
-Static(relative string, systemPath string, stripSlashes int)
-
-// StaticFS registers a route which serves a system directory
-// it generates an index page to view the directory's files
-StaticFS(relative string, systemPath string, stripSlashes int) 
-
-```
-```go
+// this doesn't generates an index page which list all files
+// no compression is used also, for these features look at StaticFS func
+// accepts three parameters
 // first parameter is the request url path (string)
 // second parameter is the system directory (string)
 // third parameter is the level (int) of stripSlashes
 // * stripSlashes = 0, original path: "/foo/bar", result: "/foo/bar"
 // * stripSlashes = 1, original path: "/foo/bar", result: "/bar"
 // * stripSlashes = 2, original path: "/foo/bar", result: ""
+Static(relative string, systemPath string, stripSlashes int)
+
+// StaticFS registers a route which serves a system directory
+// generates an index page which list all files
+// uses compression which file cache, if you use this method it will generate compressed files also
+// think this function as small fileserver with http
+// accepts three parameters
+// first parameter is the request url path (string)
+// second parameter is the system directory (string)
+// third parameter is the level (int) of stripSlashes
+// * stripSlashes = 0, original path: "/foo/bar", result: "/foo/bar"
+// * stripSlashes = 1, original path: "/foo/bar", result: "/bar"
+// * stripSlashes = 2, original path: "/foo/bar", result: ""
+StaticFS(relative string, systemPath string, stripSlashes int)
+
+// StaticWeb same as Static but if index.html exists and request uri is '/' then display the index.html's contents
+// accepts three parameters
+// first parameter is the request url path (string)
+// second parameter is the system directory (string)
+// third parameter is the level (int) of stripSlashes
+// * stripSlashes = 0, original path: "/foo/bar", result: "/foo/bar"
+// * stripSlashes = 1, original path: "/foo/bar", result: "/bar"
+// * stripSlashes = 2, original path: "/foo/bar", result: ""
+StaticWeb(relative string, systemPath string, stripSlashes int)
+
+```
+```go
 
 iris.Static("/public", "./static/assets/", 1)
 //-> /public/assets/favicon.ico
@@ -27,7 +48,10 @@ iris.Static("/public", "./static/assets/", 1)
 
 ```go
 iris.StaticFS("/ftp", "./myfiles/public", 1)
+```
 
+```go
+iris.StaticWeb("/","./my_static_html_website", 1)
 ```
 
 Serve static individual file
