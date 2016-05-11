@@ -79,14 +79,15 @@ func thirdMethod() {
 		Log:                true,
 		Profile:            false,
 		ProfilePath:        DefaultProfilePath,
-		Render: &RenderConfig{
+		TemplateEngine:     TemplateHTML,
+		Render: &render.Config{
 			Directory:                 "templates",
 			Asset:                     nil,
 			AssetNames:                nil,
 			Layout:                    "",
 			Extensions:                []string{".html"},
 			Funcs:                     []template.FuncMap{},
-			Delims:                    Delims{"{{", "}}"},
+			Delims:                    render.Delims{"{{", "}}"},
 			Charset:                   DefaultCharset,
 			IndentJSON:                false,
 			IndentXML:                 false,
@@ -98,7 +99,13 @@ func thirdMethod() {
 			StreamingJSON:             false,
 			RequirePartials:           false,
 			DisableHTTPErrorRendering: false,
-		}}//these are the default values that you can change
+		},
+		Session: &SessionConfig{
+			Provider: "memory", // the default provider is "memory", if you set it to ""  means that sessions are disabled.
+			Secret:   DefaultCookieName,
+			Life:     DefaultCookieDuration,
+		},
+	}//these are the default values that you can change
 	// DefaultProfilePath = "/debug/pprof"
 	// DefaultCharset = "UTF-8"
 
