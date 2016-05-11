@@ -66,6 +66,13 @@ IrisConfig struct {
 		ProfilePath string
 		// Render specify configs for rendering
 		Render iris.RenderConfig
+        
+        // Session the config for sessions
+		// contains 3(three) properties
+		// Provider: (look /sessions/providers)
+		// Secret: cookie's name (string)
+		// Life: cookie life (time.Duration)
+		Session *SessionConfig
 	}
 
 ```
