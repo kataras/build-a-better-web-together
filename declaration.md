@@ -65,7 +65,7 @@ IrisConfig struct {
 		// Default is /debug/pprof , which means yourhost.com/debug/pprof
 		ProfilePath string
 		// Render specify configs for rendering
-		Render iris.RenderConfig
+		Render *render.Config // from github.com/kataras/iris/render
         
         // Session the config for sessions
 		// contains 3(three) properties
