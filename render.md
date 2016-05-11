@@ -55,9 +55,9 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
       iris.Get("/html", func(ctx *iris.Context) {
           // Assumes you have a template in ./templates called "example.html".
           // $ mkdir -p templates && echo "<h1>Hello HTML world.</h1>" > templates/example.html
-          ctx.HTML(iris.StatusOK, "example", nil)
+          ctx.HTML(iris.StatusOK, "example",nil)
       })
-      
+
       // ctx.Render is the same as ctx.HTML but with default 200 status OK
      iris.Get("/html2", func(ctx *iris.Context) {
           // Assumes you have a template in ./templates called "example.html".
@@ -77,8 +77,10 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
 Render comes with a variety of configuration options _(Note: these are not the default option values. See the defaults below.)_:
 
 ~~~ go
+import "github.com/kataras/iris/render"
+
 // ...
-renderOptions := &iris.RenderConfig{
+renderOptions := &render.Config{
     Directory: "templates", // Specify what path to load the templates from.
     Asset: func(name string) ([]byte, error) { // Load from an Asset function instead of file.
       return []byte("template content"), nil
@@ -111,8 +113,9 @@ These are the preset options for Render:
 
 ~~~ go
 // Is the same as the default configuration options:
+import "github.com/kataras/iris/render"
 
-renderOptions = &iris.RenderConfig{
+renderOptions = &render.Config{
     Directory: "templates",
     Asset: nil,
     AssetNames: nil,
@@ -170,15 +173,21 @@ Render provides `yield` and `partial` functions for layouts to access:
 ~~~ go
 // ...
 
-renderOptions := &iris.RenderConfig{
+// 1
+iris.Config().Render.Layout ="layout"
+iris.Config().Render.Gzip = true
+
+// 2
+renderOptions := &render.Config{
     Layout: "layout",
     Gzip:true,
 }
 
-iris.SetRenderConfig(renderOptions)
-// or api := iris.New(Render: renderOptions)
+iris.Config().Render = renderOptions
 
-// ...
+// 3
+api := iris.New(&iris.Config{Render: renderOptions})
+
 ~~~
 
 ~~~ html
@@ -252,11 +261,7 @@ type ExampleXml struct {
 }
 
 func main() {
-    iris.DefaultCharset = "ISO-8859-1"
-    // or iris.SetRenderConfig(&iris.RenderConfig{ Charset: "ISO-8859-1"})
-  
-
-    //...
+    iris.Config().Render.Charset = "ISO-8859-1"
 }
 
 ~~~
@@ -269,11 +274,11 @@ this behavior so that you can handle errors yourself by setting
 `RenderConfig.DisableHTTPErrorRendering: true`.
 
 ~~~go
-renderOptions := &iris.RenderConfig{
+renderOptions := &render.Config{
   DisableHTTPErrorRendering: true,
 }
 
-iris.SetRenderConfig(renderOptions)
+iris.Config().Render = renderOptions
 
 //...
 func (ctx *iris.Context) {
@@ -315,16 +320,19 @@ type mypage struct {
 func main() {
 
 	//optionally - before the load.
-	//iris.Config().Render.Delims = iris.Delims{Left:"${", Right: "}"} this will change the behavior of {{.Property}} to ${.Property}
+	iris.Config().Render.Delims.Left = "${" // Default "{{"
+	iris.Config().Render.Delims.Right = "}" // this will change the behavior of {{.Property}} to ${.Property}. Default "}}"
 	//iris.Config().Render.Funcs = template.FuncMap(...)
 
 	iris.Config().Render.Directory = "templates" // Default "templates"
 	iris.Config().Render.Layout = "layout" // Default is ""
 	iris.Config().Render.Gzip = true       // Default is false
     //...
-    
+
+	//or make a new renderOptions := &render.Config{...} and do iris.Config().Render = renderOptions
+
 	iris.Get("/", func(ctx *iris.Context) {
-		ctx.Render("mypage", mypage{"My Page title", "Hello world!"}) //, iris.HTMLOptions{"otherLayout"}) <- to override
+		ctx.Render("mypage", mypage{"My Page title", "Hello world!"}) //,"mylayout_for_this" <- optionally
 	})
 
 	println("Server is running at :8080")
