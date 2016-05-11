@@ -218,6 +218,20 @@ func main() {
 
 ## How to use - hard way
 
+```go
+// New creates & returns a new Manager and start its GC
+// accepts 4 parameters
+// first is the providerName (string) ["memory","redis"]
+// second is the cookieName, the session's name (string) ["mysessionsecretcookieid"]
+// third is the gcDuration (time.Duration)
+// when this time passes it removes from
+// temporary memory GC the value which hasn't be used for a long time(gcDuration)
+// this is for the client's/browser's Cookie life time(expires) also
+
+New(provider string, cName string, gcDuration time.Duration) *sessions.Manager
+
+```
+
 Example **memory**
 
 ```go
