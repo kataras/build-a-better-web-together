@@ -410,7 +410,7 @@ The second step is to add a token to every request. Similar to the way we dealt 
 
 ```go
 h := md5.New()
-salt:="astaxie%^7&8888"
+salt:="secretkey%^7&8888"
 io.WriteString(h,salt+time.Now().String())
 token:=fmt.Sprintf("%x",h.Sum(nil))
 if r.Form["token"]!=token{
