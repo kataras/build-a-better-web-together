@@ -1,6 +1,6 @@
 # Routes information
 
-[This is a plugin](https://github.com/kataras/iris/tree/development/plugin/routesinfo)
+[This is a plugin](https://github.com/kataras/iris/tree/master/plugin/routesinfo)
 
 Collects & stores all registered routes.
 

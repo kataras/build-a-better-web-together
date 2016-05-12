@@ -1,7 +1,7 @@
 # Websockets
 
 
-[This is a package](https://github.com/kataras/iris/tree/development/websocket)
+[This is a package](https://github.com/kataras/iris/tree/master/websocket)
 
 **WebSocket is a protocol providing full-duplex communication channels over a single TCP connection**. The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C.
 

@@ -1,6 +1,6 @@
 # Internationalization and Localization
 
-[This is a middleware](https://github.com/kataras/iris/tree/development/middleware/i18n)
+[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/i18n)
 
 ## Tutorial
 

@@ -1,5 +1,5 @@
 # Sessions
-[This is a package](https://github.com/kataras/iris/tree/development/sessions)
+[This is a package](https://github.com/kataras/iris/tree/master/sessions)
 
 This package is new and unique, if you notice a bug or issue [post it here](https://github.com/kataras/iris/issues)
 

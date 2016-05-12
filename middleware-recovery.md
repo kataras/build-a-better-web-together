@@ -1,6 +1,6 @@
 # Recovery
 
-[This is a middleware](https://github.com/kataras/iris/tree/development/middleware/recovery)
+[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/recovery)
 
 
 Safety recover the server from panic.

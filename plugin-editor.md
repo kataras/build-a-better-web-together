@@ -1,6 +1,6 @@
 # Editor
 
-[This is a plugin](https://github.com/kataras/iris/tree/development/plugin/editor)
+[This is a plugin](https://github.com/kataras/iris/tree/master/plugin/editor)
 
 Editor Plugin is just a bridge between Iris and [alm-tools](http://alm.tools).
 
@@ -42,6 +42,6 @@ Would be readily available to anyone who could intercept the HTTP request. [Read
 
 > The editor can't work if the directory doesn't contains a [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig.json.html).
 
-> If you are using the [typescript plugin](https://github.com/kataras/iris/tree/development/plugin/typescript) you don't have to call the .Dir(...)
+> If you are using the [typescript plugin](https://github.com/kataras/iris/tree/master/plugin/typescript) you don't have to call the .Dir(...)
 
 

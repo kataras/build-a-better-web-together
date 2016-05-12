@@ -1,6 +1,6 @@
 # Typescript
 
-[This is a plugin](https://github.com/kataras/iris/tree/development/plugin/typescript)
+[This is a plugin](https://github.com/kataras/iris/tree/master/plugin/typescript)
 
 This is an Iris and typescript bridge plugin.
 

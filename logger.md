@@ -1,6 +1,6 @@
 # Logger
 
-[This is a middleware](https://github.com/kataras/iris/tree/development/middleware/logger)
+[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/logger)
 
 Logs the incoming requests
 

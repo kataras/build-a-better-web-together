@@ -94,7 +94,7 @@ iris.Listen(":8080")
 > Note that middlewares must come before route declaration.
 
 
-Make use one of build'n Iris [middlewares](https://github.com/kataras/iris/tree/development/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
+Make use one of build'n Iris [middlewares](https://github.com/kataras/iris/tree/master/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
 
 ```go
 package main

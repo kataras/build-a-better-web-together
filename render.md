@@ -1,6 +1,6 @@
 # Render
 
-[This is a package](https://github.com/kataras/iris/tree/development/render)
+[This is a package](https://github.com/kataras/iris/tree/master/render)
 
 Provides functionality for easily, one line, rendering JSON, XML, text, binary data, and HTML templates.
 
