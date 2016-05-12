@@ -12,7 +12,7 @@
 * **Middlewares**: Create and/or use global or per route middlewares with the Iris' simplicity[*](middlewares.md)
 * **Sessions**:  Sessions provides a secure way to authenticate your clients/users [*](package-sessions.md)
 * **Realtime**: Realtime is fun when you use websockets[*](package-websocket.md)
-* **Context**: [Context](#context) is used for storing route params, storing handlers, sharing variables between middlewares, render rich content, send file and much more[*](context.md)
+* **Context**: [Context](context.md) is used for storing route params, storing handlers, sharing variables between middlewares, render rich content, send file and much more[*](context.md)
 * **Plugins**: You can build your own plugins to  inject the Iris framework[*](plugins.md)
 * **Full API**: All http methods are supported[*](api.md)
 * **Party**:  Group routes when sharing the same resources or middlewares. You can organise a party with domains too! [*](party.md)
