@@ -48,6 +48,8 @@ templateConfig := &iris.TemplateConfig {
 
 // 1. 
 iris.Config().Templates.Engine = iris.PongoEngine
+iris.Config().Templates.Directory = "mytemplates"
+iris.Config().Templates.Pongo.Filters = ...
 // 2. 
 iris.Config().Templates = templateConfig
 ```
