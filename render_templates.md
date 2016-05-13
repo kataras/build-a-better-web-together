@@ -186,3 +186,15 @@ func main() {
 }
 
 ```
+
+```html
+<!-- templates/index.html -->
+
+<html>
+<head><title>Hello Pongo2 from Iris</title></head>
+<body>
+	 {% if is_admin %}<p>{{username}} is an admin!</p>{% endif %}
+</body>
+</html>
+
+```
