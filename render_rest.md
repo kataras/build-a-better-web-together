@@ -6,6 +6,29 @@ Provides functionality for easily, one line, rendering JSON, XML, text and binar
 
 ## Config
 
+
+```go
+    // Appends the given character set to the Content-Type header. Default is "UTF-8".
+	Charset string
+	// Gzip enable it if you want to render with gzip compression. Default is false
+	Gzip bool
+	// Outputs human readable JSON.
+	IndentJSON bool
+	// Outputs human readable XML. Default is false.
+	IndentXML bool
+	// Prefixes the JSON output with the given bytes. Default is false.
+	PrefixJSON []byte
+	// Prefixes the XML output with the given bytes.
+	PrefixXML []byte
+	// Unescape HTML characters "&<>" to their original values. Default is false.
+	UnEscapeHTML bool
+	// Streams JSON responses instead of marshalling prior to sending. Default is false.
+	StreamingJSON bool
+	// Disables automatic rendering of http.StatusInternalServerError
+    // when an error occurs. Default is false.
+	DisableHTTPErrorRendering bool
+
+```
 ```go
 //...
 import (
