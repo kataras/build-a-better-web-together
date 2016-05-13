@@ -46,12 +46,23 @@ templateConfig := &iris.TemplateConfig {
 
 // Set
 
-// 1. 
+// 1. Pongo snippet
 iris.Config().Templates.Engine = iris.PongoEngine
 iris.Config().Templates.Directory = "mytemplates"
 iris.Config().Templates.Pongo.Filters = ...
-// 2. 
+
+// 2. Standar snippet
+iris.Config().Templates.Engine = iris.StandarEngine
+iris.Config().Templates.Layout = "layout/layout.html" //./templates/layout/layout.html
+//...
+
+// 3. 
 iris.Config().Templates = templateConfig
+
+// 4.
+theDefaults := iris.Config().Templates
+theDefaults.Extensions = []string{".myExtension"}
+//...
 ```
 
 ```go
