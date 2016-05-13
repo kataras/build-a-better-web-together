@@ -205,7 +205,6 @@ func main() {
 Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
 ```html
 <!-- OUTPUT -->
-
 <html>
 <head><title>Hello Pongo2 from Iris</title></head>
 <body>
