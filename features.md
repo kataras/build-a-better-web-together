@@ -1,6 +1,6 @@
 # Features
 
-* **Build'n support for html/template & flosch/pongo2**: Select the way you like to parse your html files, switchable via one line configuration, [read more](render_templates.md)
+* **Build'n support for html/template & flosch/pongo2**: Select the way you like to parse your html files, switchable via one-line-configuration, [read more](render_templates.md)
 * **Typescript**: Auto-compile & Watch your client side code via the [typescript plugin](plugin-typescript.md)
 * **Online IDE**: Edit & Compile your client side code when you are not home via the [editor plugin](plugin-editor.md)
 * **Iris Online Control**: Web-based interface to control the basics functionalities of your server via the [iriscontrol plugin](plugin-iriscontrol.md). Note that Iris control is still young
