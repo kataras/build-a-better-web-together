@@ -20,6 +20,7 @@ Let's read about configuration now.
 ```go
 // These are the defaults
 &iris.TemplateConfig {
+  // iris.StandarEngine or iris.PongoEngine
   Engine:  iris.StandarEngine
 
   // Common options for all template engines 
@@ -40,7 +41,7 @@ Let's read about configuration now.
     Funcs: make([]template.FuncMap, 0),
    },
  
- // Option when you're using pongo2 | When Engine == iris.PongoEngine
+  // Option when you're using pongo2 | When Engine == iris.PongoEngine
   Pongo:  &PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
 }
 ```
