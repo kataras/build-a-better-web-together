@@ -1,5 +1,18 @@
 # REST
 
+[This is a package](https://github.com/kataras/iris/tree/master/rest)
+
+Provides functionality for easily, one line, rendering JSON, XML, text and binary data.
+
+
+## Usage
+The rendering functions simply wraps Go's existing functionality for marshaling and rendering data.
+
+- JSON: Uses the [encoding/json](http://golang.org/pkg/encoding/json/) package to marshal data into a JSON-encoded response.
+- XML: Uses the [encoding/xml](http://golang.org/pkg/encoding/xml/) package to marshal data into an XML-encoded response.
+- Binary data: Passes the incoming data straight through to the `iris.Context.Response`.
+- Text: Passes the incoming string straight through to the ``iris.Context.Response``.
+- 
 ~~~ go
  package main
 
