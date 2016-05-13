@@ -117,12 +117,27 @@ func main() {
 ```
 
 ```html
+<!-- templates/page1.html -->
+
+<div style="background-color:black;color:blue">
+
+<h1> Page 1 </h1>
+
+{{ render "partials/page1_partial1.html"}}
+
+</div>
+
+
+```
+
+```html
 <!-- templates/partials/page1_partial1.html -->
 
 <div style="background-color:white;color:red"> <h1> Page 1's Partial 1 </h1> </div>
 
 
 ```
+
 
 ```go
 //
