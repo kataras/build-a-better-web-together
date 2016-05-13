@@ -3,6 +3,45 @@
 Iris gives you the freedom to render templates through  [html/template](https://golang.org/pkg/html/template) or Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2) , via **IrisConfig**.
 
 
+- html/template is the `Standar`
+- flosch/pongo2 is the `Pongo`
+
+A snippet:
+```go
+
+iris.Get("/default_standar", func(ctx *iris.Context){
+  ctx.Render("index.html",nil) // this will render ./templates/index.html
+})
+
+```
+
+Let's read about configuration now.
+
+```go
+Engine:  iris.StandarEngine
+
+// Common options for all template engines 
+Gzip          bool
+IsDevelopment bool
+Directory     string
+Extensions    []string
+ContentType   string
+Charset       string
+Asset         func(name string) ([]byte, error)
+AssetNames    func() []string
+Layout        string
+
+// Options when you're using pongo2 | When Engine == iris.StandarEngine
+Standar: &StandarConfig {
+  Left: "{{", 
+  Right: "}}",
+  Funcs: make([]template.FuncMap, 0),
+ },
+ 
+ // Option when you're using pongo2 | When Engine == iris.PongoEngine
+ Pongo:  &PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
+
+```
 
 ```go
 // HTML builds up the response from the specified template and bindings.
