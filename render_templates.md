@@ -15,7 +15,7 @@ iris.Get("/default_standar", func(ctx *iris.Context){
 
 ```
 
-Let's read and learn how to define the configuration now.
+Let's read and learn how to set the configuration now.
 
 ```go
 // These are the defaults
