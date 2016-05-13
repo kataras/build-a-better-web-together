@@ -138,7 +138,7 @@ func main() {
 <div style="background-color:white;color:red"> <h1> Page 1's Partial 1 </h1> </div>
 ```
 
-Run main.go open browser and navigate to the localhost:8080, this is the **ouput**
+Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
 
 ```html
 <!-- OUTPUT -->
