@@ -43,6 +43,13 @@ templateConfig := &iris.TemplateConfig {
   // Option when you're using pongo2 | When Engine == iris.PongoEngine
   Pongo:  &PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
 }
+
+// Set
+
+// 1. 
+iris.Config().Templates.Engine = iris.PongoEngine
+// 2. 
+iris.Config().Templates = templateConfig
 ```
 
 ```go
