@@ -146,12 +146,11 @@ Run main.go, this is the **ouput**
     
     <div style="background-color:black;color:blue">
 
-<h1> Page 1 </h1>
+    <h1> Page 1 </h1>
 
-<div style="background-color:white;color:red"> <h1> Page 1's Partial 1 </h1> </div>
-
-
-</div>
+    <div style="background-color:white;color:red">
+        <h1> Page 1's Partial 1 </h1> </div>
+    </div>
 
   </body>
 </html>
