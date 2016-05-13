@@ -134,7 +134,7 @@ func main() {
 <div style="background-color:white;color:red"> <h1> Page 1's Partial 1 </h1> </div>
 ```
 
-Run main.go, this is the **ouput**
+Run main.go go to http://localhost:8080, this is the **ouput**
 
 ```html
 <!-- OUTPUT -->
@@ -154,4 +154,34 @@ Run main.go, this is the **ouput**
 
   </body>
 </html>
+```
+
+#### `Pongo`
+
+```go
+package main
+
+import (
+	"github.com/kataras/iris"
+)
+
+func main() {
+
+	iris.Config().Templates.Engine = iris.PongoEngine
+
+	iris.Get("/", func(ctx *iris.Context) {
+
+		err := ctx.Render("index.html", map[string]interface{}{"username": "iris", "is_admin": true})
+		// OR
+		//err := ctx.Render("index.html", pongo2.Context{"username": "iris", "is_admin": true})
+
+		if err != nil {
+			panic(err)
+		}
+	})
+
+	println("Server is running at :8080")
+	iris.Listen(":8080")
+}
+
 ```
