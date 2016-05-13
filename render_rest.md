@@ -2,7 +2,7 @@
 
 [This is a package](https://github.com/kataras/iris/tree/master/rest)
 
-Provides functionality for easily, one line, rendering JSON, XML, text and binary data.
+Provides functionality for easily rendering JSON, XML, text and binary data.
 
 ## Config
 
