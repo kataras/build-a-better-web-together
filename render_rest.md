@@ -2,7 +2,7 @@
 
 Provides functionality for easily rendering JSON, XML, text and binary data.
 
-## Config
+### Config
 
 
 ```go
@@ -53,7 +53,7 @@ iris.Config().Rest = restConfig
 
 
 ```
-## Usage
+### Usage
 The rendering functions simply wraps Go's existing functionality for marshaling and rendering data.
 
 - JSON: Uses the [encoding/json](http://golang.org/pkg/encoding/json/) package to marshal data into a JSON-encoded response.
