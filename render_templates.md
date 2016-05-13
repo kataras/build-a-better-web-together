@@ -18,18 +18,20 @@ iris.Get("/default_standar", func(ctx *iris.Context){
 Let's read about configuration now.
 
 ```go
+// These are the defaults
+
 Engine:  iris.StandarEngine
 
 // Common options for all template engines 
-Gzip          bool
-IsDevelopment bool
-Directory     string
-Extensions    []string
-ContentType   string
-Charset       string
-Asset         func(name string) ([]byte, error)
-AssetNames    func() []string
-Layout        string
+Gzip:          false,
+IsDevelopment: false,
+Directory:     "templates",
+Extensions:    []string{".html"},
+ContentType:   "text/html",
+Charset:       "UTF-8",
+Layout:        "", 
+Asset:         nil, // func(name string) ([]byte, error)
+AssetNames:    nil, // func() []string
 
 // Options when you're using pongo2 | When Engine == iris.StandarEngine
 Standar: &StandarConfig {
