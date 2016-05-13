@@ -19,30 +19,30 @@ Let's read about configuration now.
 
 ```go
 // These are the defaults
+&iris.TemplateConfig {
+  Engine:  iris.StandarEngine
 
-Engine:  iris.StandarEngine
+  // Common options for all template engines 
+  Gzip:          false,
+  IsDevelopment: false,
+  Directory:     "templates",
+  Extensions:    []string{".html"},
+  ContentType:   "text/html",
+  Charset:       "UTF-8",
+  Layout:        "", 
+  Asset:         nil, // func(name string) ([]byte, error)
+  AssetNames:    nil, // func() []string
 
-// Common options for all template engines 
-Gzip:          false,
-IsDevelopment: false,
-Directory:     "templates",
-Extensions:    []string{".html"},
-ContentType:   "text/html",
-Charset:       "UTF-8",
-Layout:        "", 
-Asset:         nil, // func(name string) ([]byte, error)
-AssetNames:    nil, // func() []string
-
-// Options when you're using pongo2 | When Engine == iris.StandarEngine
-Standar: &StandarConfig {
-  Left: "{{", 
-  Right: "}}",
-  Funcs: make([]template.FuncMap, 0),
- },
+  // Options when you're using pongo2 | When Engine == iris.StandarEngine
+  Standar: &StandarConfig {
+    Left: "{{", 
+    Right: "}}",
+    Funcs: make([]template.FuncMap, 0),
+   },
  
  // Option when you're using pongo2 | When Engine == iris.PongoEngine
- Pongo:  &PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
-
+  Pongo:  &PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
+}
 ```
 
 ```go
