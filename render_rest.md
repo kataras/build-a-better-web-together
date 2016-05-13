@@ -4,7 +4,34 @@
 
 Provides functionality for easily, one line, rendering JSON, XML, text and binary data.
 
+## Config
 
+```go
+//...
+import (
+  "github.com/kataras/iris"
+  "github.com/kataras/iris/rest"
+)
+//...
+
+//1.
+iris.Config().Rest.IndentJSON = true
+
+//2.
+restConfig:= &rest.Config{
+	Charset:                   "UTF-8",
+	IndentJSON:                false,
+	IndentXML:                 false,
+	PrefixJSON:                []byte(""),
+	PrefixXML:                 []byte(""),
+	UnEscapeHTML:              false,
+	StreamingJSON:             false,
+	DisableHTTPErrorRendering: false,
+}
+iris.Config().Rest = restConfig
+
+
+```
 ## Usage
 The rendering functions simply wraps Go's existing functionality for marshaling and rendering data.
 
