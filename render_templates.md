@@ -46,7 +46,7 @@ templateConfig := &iris.TemplateConfig {
 
 // Set
 
-// 1. Directly via custom configuration
+// 1. Directly via complete custom configuration
 iris.Config().Templates = templateConfig
 
 // 2. Pongo snippet
