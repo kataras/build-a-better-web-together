@@ -49,12 +49,12 @@ templateConfig := &iris.TemplateConfig {
 // 1. Directly via complete custom configuration
 iris.Config().Templates = templateConfig
 
-// 2. Pongo snippet
+// 2. Fast way - Pongo snippet
 iris.Config().Templates.Engine = iris.PongoEngine
 iris.Config().Templates.Directory = "mytemplates"
 iris.Config().Templates.Pongo.Filters = ...
 
-// 3. Standar snippet
+// 3. Fast way - Standar snippet
 iris.Config().Templates.Engine = iris.StandarEngine
 iris.Config().Templates.Layout = "layout/layout.html" //./templates/layout/layout.html
 //...
