@@ -21,7 +21,7 @@
 * [Static files](static-files.md)
 * [Send files](send-files.md)
 * [Render](render.md)
-   * REST
+   * [REST](render_rest.md)
 * [Gzip](gzip.md)
 * [Streaming](streaming.md)
 * [Cookies](cookies.md)
