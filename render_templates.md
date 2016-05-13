@@ -86,10 +86,14 @@ import (
 	"github.com/kataras/iris"
 )
 
+type mypage struct {
+  Message string
+}
+
 func main() {
 	iris.Config().Templates.Layout = "layouts/layout.html"
 	iris.Get("/", func(ctx *iris.Context) {
-		if err := ctx.Render("page1.html", nil); err != nil {
+		if err := ctx.Render("page1.html", mypage{"Message from page1!"}); err != nil {
 			panic(err)
 		}
 	})
@@ -121,7 +125,7 @@ func main() {
 
 <div style="background-color:black;color:blue">
 
-<h1> Page 1 </h1>
+<h1> The message: {{.Message}} </h1>
 
 {{ render "partials/page1_partial1.html"}}
 
