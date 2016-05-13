@@ -150,7 +150,7 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
     
     <div style="background-color:black;color:blue">
 
-    <h1> Page 1 </h1>
+    <h1> The message: Message from page1! </h1>
 
     <div style="background-color:white;color:red">
         <h1> Page 1's Partial 1 </h1> </div>
