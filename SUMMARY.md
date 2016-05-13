@@ -22,7 +22,7 @@
 * [Send files](send-files.md)
 * [Render](render.md)
    * [REST](render_rest.md)
-   * Templates
+   * [Templates](render_templates.md)
 * [Gzip](gzip.md)
 * [Streaming](streaming.md)
 * [Cookies](cookies.md)
