@@ -16,7 +16,7 @@ import (
 
 //1.
 iris.Config().Rest.IndentJSON = true
-
+iris.Config().Rest...
 //2.
 restConfig:= &rest.Config{
 	Charset:                   "UTF-8",
@@ -39,7 +39,8 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
 - XML: Uses the [encoding/xml](http://golang.org/pkg/encoding/xml/) package to marshal data into an XML-encoded response.
 - Binary data: Passes the incoming data straight through to the `iris.Context.Response`.
 - Text: Passes the incoming string straight through to the ``iris.Context.Response``.
-- 
+
+
 ~~~ go
  package main
 
@@ -76,4 +77,5 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
       })
 
       iris.Listen(":8080")
+  }
 ~~~
