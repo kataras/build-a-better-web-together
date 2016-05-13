@@ -31,7 +31,6 @@ Provides functionality for easily rendering JSON, XML, text and binary data.
 //...
 import (
   "github.com/kataras/iris"
-  "github.com/kataras/iris/rest"
 )
 //...
 
@@ -39,7 +38,7 @@ import (
 iris.Config().Rest.IndentJSON = true
 iris.Config().Rest...
 //2.
-restConfig:= &rest.Config{
+restConfig:= &iris.RestConfig{
 	Charset:                   "UTF-8",
 	IndentJSON:                false,
 	IndentXML:                 false,
