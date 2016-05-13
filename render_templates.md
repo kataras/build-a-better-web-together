@@ -22,7 +22,6 @@ Let's read about configuration now.
 &iris.TemplateConfig {
   // iris.StandarEngine or iris.PongoEngine
   Engine:  iris.StandarEngine
-
   // Common options for all template engines 
   Gzip:          false,
   IsDevelopment: false,
