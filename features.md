@@ -1,6 +1,6 @@
 # Features
 
-* **Support for standar & pongo2**: Select the way you like to parse your html files, switchable via one-line-configuration, [read more](render.md)
+* **Switch the template engine with one-line**: Select the way you like to parse your html files, switchable via one-line-configuration, [read more](render.md)
 * **Typescript**: Auto-compile & Watch your client side code via the [typescript plugin](plugin-typescript.md)
 * **Online IDE**: Edit & Compile your client side code when you are not home via the [editor plugin](plugin-editor.md)
 * **Iris Online Control**: Web-based interface to control the basics functionalities of your server via the [iriscontrol plugin](plugin-iriscontrol.md). Note that Iris control is still young
