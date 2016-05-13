@@ -140,7 +140,6 @@ Run main.go, this is the **ouput**
 <html>
   <head>
     <title>My Layout</title>
-
   </head>
   <body>
     
