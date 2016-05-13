@@ -19,7 +19,7 @@ Let's read about configuration now.
 
 ```go
 // These are the defaults
-&iris.TemplateConfig {
+templateConfig := &iris.TemplateConfig {
   // iris.StandarEngine or iris.PongoEngine
   Engine:  iris.StandarEngine
   // Common options for all template engines 
