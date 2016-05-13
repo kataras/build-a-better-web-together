@@ -116,7 +116,13 @@ func main() {
 
 ```
 
+```html
+<!-- templates/partials/page1_partial1.html -->
 
+<div style="background-color:white;color:red"> <h1> Page 1's Partial 1 </h1> </div>
+
+
+```
 
 ```go
 //
