@@ -137,6 +137,7 @@ func main() {
 Run main.go, this is the **ouput**
 
 ```html
+<!-- OUTPUT -->
 <html>
   <head>
     <title>My Layout</title>
