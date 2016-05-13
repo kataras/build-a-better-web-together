@@ -86,7 +86,6 @@ import (
 	"github.com/kataras/iris"
 )
 
-
 func main() {
 	iris.Config().Templates.Layout = "layouts/layout.html"
 	iris.Get("/", func(ctx *iris.Context) {
