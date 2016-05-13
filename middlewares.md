@@ -108,12 +108,12 @@ type Page struct {
 	Title string
 }
 
-iris.Config().Render.Directory = "./yourpath/templates"
+iris.Config().Templates.Directory = "./yourpath/templates"
 
 iris.Use(logger.Logger())
 
 iris.Get("/", func(c *iris.Context) {
-		c.Render("index", Page{"My Index Title"})
+		c.Render("index.html", Page{"My Index Title"})
 })
 
 iris.Listen(":8080")
