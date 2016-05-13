@@ -21,6 +21,7 @@
 * [Static files](static-files.md)
 * [Send files](send-files.md)
 * [Render](render.md)
+   * render_templates
 * [Gzip](gzip.md)
 * [Streaming](streaming.md)
 * [Cookies](cookies.md)
@@ -41,6 +42,5 @@
 * [Browser based Editor](plugin-editor.md)
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https://github.com/iris-contrib/examples)
-
+* [Examples](https:/github.com/iris-contrib/examples)
 
