@@ -1,5 +1,7 @@
 # Templates
 
+Iris gives you the freedom to choose between [html/template](https://golang.org/pkg/html/template) and Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2) via **IrisConfig**.
+
 
 
 ```go
