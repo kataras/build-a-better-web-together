@@ -35,6 +35,7 @@ package main
 
 import (
     "github.com/kataras/iris"
+    "github.com/kataras/iris/config"
     "github.com/kataras/iris/plugin/typescript"
 )
 
