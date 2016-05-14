@@ -63,7 +63,7 @@ iris.Config().Render.Template.Pongo.Filters = ...
 
 // 3. Fast way - Standar snippet
 iris.Config().Render.Template.Engine = iris.StandarEngine
-iris.Config().Render.Template.Layout = "layout/layout.html" // =./templates/layout/layout.html
+iris.Config().Render.Template.Layout = "layout/layout.html" // = ./templates/layout/layout.html
 //...
  
 // 4.
