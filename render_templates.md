@@ -16,12 +16,19 @@ iris.Get("/default_standar", func(ctx *iris.Context){
 ```
 
 Let's read and learn how to set the configuration now.
+```go
+import (
+    "github.com/kataras/iris/config"
+    //...
+)
+
+```
 
 ```go
 // These are the defaults
 templateConfig := &config.Template {
   // iris.StandarEngine or iris.PongoEngine
-  Engine:  iris.StandarEngine
+  Engine:  config.StandarEngine
   // Common options for all template engines 
   Gzip:          false,
   IsDevelopment: false,
@@ -33,15 +40,15 @@ templateConfig := &config.Template {
   Asset:         nil, // func(name string) ([]byte, error)
   AssetNames:    nil, // func() []string
   
-  // Options when you're using pongo2 | When Engine == iris.StandarEngine
-  Standar: iris.StandarConfig {
+  // Options when you're using html/template | When Engine == config.StandarEngine
+  Standar: config.Standar {
     Left: "{{", 
     Right: "}}",
     Funcs: make([]template.FuncMap, 0),
    },
    
-  // Option when you're using pongo2 | When Engine == iris.PongoEngine
-  Pongo:  iris.PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
+  // Option when you're using pongo2 | When Engine == config.PongoEngine
+  Pongo:  config.Pongo{Filters: make(map[string]pongo2.FilterFunction, 0)}
 }
 
 // Set
