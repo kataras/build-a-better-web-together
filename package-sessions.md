@@ -249,15 +249,17 @@ import (
 	"time"
 
 	"github.com/kataras/iris"
+    "github.com/kataras/iris/config"
 	"github.com/kataras/iris/sessions"
 
-	_ "github.com/kataras/iris/sessions/providers/memory" // here we add the memory provider and store
+	_ "github.com/kataras/iris/sessions/providers/memory"
 )
 
 var sess *sessions.Manager
 
 func init() {
-	sess = sessions.New("memory", "irissessionid", time.Duration(60)*time.Minute)
+    sessConfig := config.Session{Provider: "memory", Cookie: "irissessionid", Expires: config.CookieExpireNever, GcDuration: time.Duration(2) * time.Hour}
+	sess = sessions.New(sessConfig) // or just sessions.New()
 }
 
 func main() {
