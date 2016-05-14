@@ -44,4 +44,5 @@
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
 * [Examples](https:/github.com/iris-contrib/examples)
+* Configuration
 
