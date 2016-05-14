@@ -108,7 +108,7 @@ func main() {
 
 ```
 
-> Note that with 2. & 3. you **can define and listen to more than one Iris station** in the
+> Note that with 2. & 3. you **can define and Listen to more than one Iris station** in the
 > same app, when it's necessary.
 
 
