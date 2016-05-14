@@ -1,5 +1,5 @@
 # Hi
-The name of this framework came from **Greek mythology**, **Iris** was the name of the Greek goddess of the **rainbow**.
+
 
 ```go
 package main
@@ -7,10 +7,48 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
-	iris.Get("/hello", func(c *iris.Context) {
-		c.Write("Hi %s", "iris")
+	iris.Get("/hello", func(ctx *iris.Context) {
+		ctx.Write("Hi %s", "iris")
 	})
-	iris.Listen(":8080") // or err := iris.ListenWithErr(":8080")
+	iris.Listen(":8080")
+    //err := iris.ListenWithErr(":8080")
 }
+
+```
+
+The same
+```go
+package main
+
+import "github.com/kataras/iris"
+
+func main() {
+
+    api := iris.New()
+    
+	api.Get("/hello", func(ctx *iris.Context) {
+		ctx.Write("Hi %s", "iris")
+	})
+    
+	api.Listen(":8080")
+}
+
+```
+
+Rich Hi with `html/template`
+
+```html
+<!-- templates/hi.html -->
+<html><head> <title> Hi Iris [THE TITLE] </title> </head>
+  <body>
+    <h1> Hi {{.Name}}
+  </body>
+</html>
+
+
+```
+
+```go
+
 
 ```
