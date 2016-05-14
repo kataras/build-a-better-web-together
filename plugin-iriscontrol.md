@@ -31,7 +31,7 @@ func main() {
     //or
     // import "github.com/kataras/iris/config"
     // ....
-    //iriscontrol.New(config.IrisControl{...})
+    // iriscontrol.New(config.IrisControl{...})
 
     iris.Get("/", func(ctx *iris.Context) {
     })
