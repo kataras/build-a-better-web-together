@@ -34,9 +34,12 @@ import (
 func main() {
 
 	// these are  the defaults
-	//iris.Config().Session.Provider = "memory" 
-	//iris.Config().Session.Secret = "irissessionid"
-	//iris.Config().Session.Life = time.Duration(60) *time.Minute
+	//iris.Config().Sessions.Provider = "memory" 
+	//iris.Config().Sessions.Secret = "irissessionid"
+    // Expires the date which the cookie must expires. Default infinitive/unlimited life
+	//iris.Config().Sessions.Expires = time.Time....
+    // GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies
+	//iris.Config().Sessions.GcDuration = time.Duration(60) *time.Minute
 	
 	iris.Get("/set", func(c *iris.Context) {
 
