@@ -258,7 +258,12 @@ import (
 var sess *sessions.Manager
 
 func init() {
-    sessConfig := config.Session{Provider: "memory", Cookie: "irissessionid", Expires: config.CookieExpireNever, GcDuration: time.Duration(2) * time.Hour}
+    sessConfig := Sessions{
+		Provider:   "memory", // if you set it to ""  means that sessions are disabled.
+		Cookie:     "yoursessionCOOKIEID",
+		Expires:    config.CookieExpireNever,
+		GcDuration: time.Duration(2) * time.Hour,
+	}
 	sess = sessions.New(sessConfig) // or just sessions.New()
 }
 
