@@ -129,3 +129,5 @@ corrects and redirects the requested path to the registed path
 for example, if /home/ path is requested but no handler for this Route found,
 then the Router checks if /home handler exists, if yes, redirects the client to the correct path /home
 and VICE - VERSA if /home/ is registed but /home is requested then it redirects to /home/ (Default is true)
+
+-  More about configuration [here](configuration.md)
