@@ -36,7 +36,8 @@ func main() {
 	// these are  the defaults
     // when import _ "github.com/kataras/iris/sessions/providers/memory"
 	//iris.Config().Sessions.Provider = "memory" 
-	//iris.Config().Sessions.Secret = "irissessionid"
+    // The cookie name
+	//iris.Config().Sessions.Cookie = "irissessionid"
     // Expires the date which the cookie must expires. Default infinitive/unlimited life
 	//iris.Config().Sessions.Expires = time.Time....
     // GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies
