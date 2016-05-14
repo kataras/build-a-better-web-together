@@ -3,7 +3,7 @@
 Gzip compression is easy.
 
 
-For **auto-gzip** to all rest and template responses, look the Gzip option at the iris.Config().Rest.Gzip and iris.Config().Templates.Gzip [here](render.md)
+For **auto-gzip** to all rest and template responses, look the Gzip option at the iris.Config().Render.Rest.Gzip and iris.Config().Render.Template.Gzip [here](render.md)
 
 ```go
 // WriteGzip writes response with gzipped body to w.
