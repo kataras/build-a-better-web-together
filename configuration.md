@@ -13,7 +13,7 @@ architecture to easy:
 	irisConfig := config.Iris { Profile: true, PathCorrection: false }
 	api := iris.New(irisConfig)
 	```
-- easy to remember: `iris` type takes `config.Iris`, sessions takes `config.Sessions`, `iris.Config().Render` is `config.Render`, `iris.Config().Render.Template` is `config.Template`, `Logger` takes `config.Logger` and so on...
+- easy to remember: `iris` type takes `config.Iris`, sessions takes `config.Sessions`, `iris.Config().Render` is the `config.Render`, `iris.Config().Render.Template` is the `config.Template`, `Logger` takes `config.Logger` and so on...
 
 - easy to find what features are exists and what you can change: just navigate to the config folder and open the type you want to learn about, for example `/iris.go` Iris' type configuration is on `/config/iris.go`
 
