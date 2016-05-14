@@ -68,7 +68,7 @@ Rich Hi with **Django-syntax, flosch/pongo2**
 <!-- ./templates/hi.html -->
 <html><head> <title> Hi Iris [THE TITLE] </title> </head>
   <body>
-    <h1> Hi {{Name}}
+    <h1> Hi {{ Name }}
   </body>
 </html>
 
