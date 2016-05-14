@@ -467,4 +467,4 @@ if createtime == nil {
 
 We set a value to save the create time and check if it's expired (I set 60 seconds here). This step can often thwart session hijacking attempts.
 
-Combine the two solutions above and you will be able to prevent most session hijacking attempts from succeeding. On the one hand, session ids that are frequently reset will result in an attacker always getting expired and useless session ids; on the other hand, by setting the httponly property on cookies and ensuring that session ids can only be passed via cookies, all URL based attacks are mitigated.
+Combine the two solutions above and you will be able to prevent most session hijacking attempts from succeeding. On the one hand, session ids that are frequently reset will result in an attacker always getting expired and useless session ids; on the other hand, by  already setted the httponly property on cookies and ensuring that session ids can only be passed via cookies, all URL based attacks are mitigated.
