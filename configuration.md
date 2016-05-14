@@ -24,6 +24,16 @@ architecture to easy:
 - **(Advanced usage) merge configs**: 
 
 ```go
+//...
+import "github.com/kataras/iris/config"
+//...
+templateFromRoutine1 := config.DefaultTemplate()
+//....
+templateFromOthers := config.Template{ Directory: "views"}
+
+templateConfig := templateFromRoutine1.MergeSingle(templateFromOthers)
+
+iris.Config().Render.Template = templateConfig
 
 
 ```
