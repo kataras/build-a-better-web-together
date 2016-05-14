@@ -91,7 +91,7 @@ package main
 
 import (
 	"github.com/kataras/iris"
-    _ "github.com/kataras/iris/sessions/providers/redis"
+     _ "github.com/kataras/iris/sessions/providers/redis"
 )
 
 func main() {
