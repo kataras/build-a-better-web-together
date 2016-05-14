@@ -180,7 +180,7 @@ func init() {
 
 func main() {
 	
-	iris.Config().Session.Provider = "redis"
+	iris.Config().Sessions.Provider = "redis"
 
 	iris.Get("/set", func(c *iris.Context) {
 
