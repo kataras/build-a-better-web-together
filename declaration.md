@@ -115,7 +115,7 @@ func main() {
 
 
 
-For profiling  there are eight (8) generated pages:
+For profiling  there are eight (8) generated routes & pages:
 
  -   /debug/pprof
  -  /debug/pprof/cmdline
