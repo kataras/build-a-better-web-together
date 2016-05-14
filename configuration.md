@@ -37,4 +37,3 @@ iris.Config().Render.Template = templateConfig
 
 
 ```
-
