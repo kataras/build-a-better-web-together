@@ -7,7 +7,7 @@ Let's make a pause,
 
  1. global **iris.**
  2. declare a new iris station with default config: **iris.New()**
- 3. declare a new iris station with custom config: **iris.New(iris.IrisConfig{...})**
+ 3. declare a new iris station with custom config: **iris.New(config.Iris{...})**
 
 
 
@@ -29,9 +29,21 @@ func secondWay() {
 }
 ```
 
-Before 3rd way, let's take a quick look at the **iris.IrisConfig**:
+Before 3rd way, let's take a quick look at the **[config](configuration.md).Iris**:
 ```go
-IrisConfig struct {
+// Iris configs for the station
+	// All fields can be changed before server's listen except the PathCorrection field
+	//
+	// MaxRequestBodySize is the only options that can be changed after server listen -
+	// using Config().MaxRequestBodySize = ...
+	// Render's rest config can be changed after declaration but before server's listen -
+	// using Config().Render.Rest...
+	// Render's Template config can be changed after declaration but before server's listen -
+	// using Config().Render.Template...
+	// Sessions config can be changed after declaration but before server's listen -
+	// using Config().Sessions...
+	// and so on...
+	Iris struct {
 		// MaxRequestBodySize Maximum request body size.
 		//
 		// The server rejects requests with bodies exceeding this limit.
@@ -40,8 +52,8 @@ IrisConfig struct {
 		MaxRequestBodySize int
 		// PathCorrection corrects and redirects the requested path to the registed path
 		// for example, if /home/ path is requested but no handler for this Route found,
-		// then the Router checks if /home handler exists, if yes, redirects the client to the correct path /home
-		// and VICE - VERSA if /home/ is registed but /home is requested then it redirects to /home/
+		// then the Router checks if /home handler exists, if yes,
+		// (permant)redirects the client to the correct path /home
 		//
 		// Default is true
 		PathCorrection bool
@@ -64,60 +76,33 @@ IrisConfig struct {
 		// ProfilePath change it if you want other url path than the default
 		// Default is /debug/pprof , which means yourhost.com/debug/pprof
 		ProfilePath string
-		// Render specify configs for rendering
-		Render *render.Config // from github.com/kataras/iris/render
-        
-        // Session the config for sessions
+
+		// Sessions the config for sessions
 		// contains 3(three) properties
 		// Provider: (look /sessions/providers)
 		// Secret: cookie's name (string)
 		// Life: cookie life (time.Duration)
-		Session *SessionConfig
-	}
+		Sessions Sessions
 
+		// Render contains the configs for template and rest configuration
+		Render Render
+	}
 ```
 ```go
 // 3.
-func thirdMethod() {
+package main 
 
-	config := &IrisConfig{
-		PathCorrection:     true,
-		MaxRequestBodySize: -1,
-		Log:                true,
-		Profile:            false,
-		ProfilePath:        DefaultProfilePath,
-		TemplateEngine:     TemplateHTML,
-		Render: &render.Config{
-			Directory:                 "templates",
-			Asset:                     nil,
-			AssetNames:                nil,
-			Layout:                    "",
-			Extensions:                []string{".html"},
-			Funcs:                     []template.FuncMap{},
-			Delims:                    render.Delims{"{{", "}}"},
-			Charset:                   DefaultCharset,
-			IndentJSON:                false,
-			IndentXML:                 false,
-			PrefixJSON:                []byte(""),
-			PrefixXML:                 []byte(""),
-			HTMLContentType:           "text/html",
-			IsDevelopment:             false,
-			UnEscapeHTML:              false,
-			StreamingJSON:             false,
-			RequirePartials:           false,
-			DisableHTTPErrorRendering: false,
-		},
-		Session: &SessionConfig{
-			Provider: "memory", // the default provider is "memory", if you set it to ""  means that sessions are disabled.
-			Secret:   DefaultCookieName,
-			Life:     DefaultCookieDuration,
-		},
-	}//these are the default values that you can change
-	// DefaultProfilePath = "/debug/pprof"
-	// DefaultCharset = "UTF-8"
+import (
+  "github.com/kataras/iris"
+  "github.com/kataras/iris/config"
+)
 
+func main() {
+	config := config.Iris{
+		Profile:            true,
+		ProfilePath:        "/mypath/debug",
+	}
 	api := iris.New(config)
-	api.Get("/home",func(c *iris.Context){})
 	api.Listen(":8080")
 }
 
@@ -126,27 +111,9 @@ func thirdMethod() {
 > Note that with 2. & 3. you **can define and use more than one Iris station** in the
 > same app, when it's necessary.
 
-As you can see there are some options that you can chage at your iris declaration.
 
-For example if we do that...
-```go
-package main
 
-import "github.com/kataras/iris"
-
-func main() {
-	config := iris.IrisConfig{
-		Profile:            true,
-		ProfilePath:        "/mypath/debug",
-	}
-
-	api := iris.New(config)
-	api.Listen(":8080")
-}
-```
-run it, then you can open your browser, type '**localhost:8080/mypath/debug/profile**' at the location input field and you should see a webpage  shows you informations about CPU.
-
-For profiling & debug there are seven (7) generated pages ('/debug/pprof/' is the default profile path, which on previous example we changed it to '/mypath/debug'):
+For profiling  there are seven (7) generated pages ('/debug/pprof/' is the default profile path, which on previous example we changed it to '/mypath/debug'):
 
  1. /debug/pprof/cmdline
  2. /debug/pprof/profile
