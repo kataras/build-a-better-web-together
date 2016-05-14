@@ -44,7 +44,7 @@ func main(){
         Dir: "./scripts/src",
         Tsconfig: config.Tsconfig{Module: "commonjs", Target: "es5"}, 
     }
-    // or typescript.DefaultTsconfig()
+    // or config.DefaultTypescript()
 
     iris.Plugins().Add(typescript.New(ts)) //or with the default options just: typescript.New()
 
