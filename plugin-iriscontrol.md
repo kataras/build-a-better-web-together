@@ -28,6 +28,10 @@ func main() {
         "irisusername1": "irispassword1",
         "irisusername2": "irispassowrd2",
     }))
+    //or
+    // import "github.com/kataras/iris/config"
+    // ....
+    //iriscontrol.New(config.IrisControl{...})
 
     iris.Get("/", func(ctx *iris.Context) {
     })
