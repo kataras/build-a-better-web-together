@@ -57,9 +57,9 @@ func main(){
 Enable [web browser editor](plugin-editor.md)
 
 ```go
-ts := typescript.Options {
+ts := config.Typescript {
     //...
-    Editor: typescript.Editor("username","passowrd")
+    Editor: config.Editor{Username:"username", Password: "passowrd"}
     //...
 }
 
