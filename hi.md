@@ -84,7 +84,6 @@ import (
 
 func main() {
     iris.Config().Render.Template.Engine = config.PongoEngine
-    
 	iris.Get("/hi", hi)
 	iris.Listen(":8080")
 }
