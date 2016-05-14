@@ -23,14 +23,13 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
-
     api := iris.New()
-    
-	api.Get("/hello", func(ctx *iris.Context) {
-		ctx.Write("Hi %s", "iris")
-	})
-    
+	api.Get("/hello", hi)
 	api.Listen(":8080")
+}
+
+func hi(ctx *iris.Context){
+   ctx.Write("Hi %s", "iris")
 }
 
 ```
