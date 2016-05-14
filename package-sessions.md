@@ -91,11 +91,12 @@ package main
 
 import (
 	"github.com/kataras/iris"
+    _ "github.com/kataras/iris/sessions/providers/redis"
 )
 
 func main() {
 
-	iris.Config().Session.Provider = "redis"
+	iris.Config().Sessions.Provider = "redis"
 
 	iris.Get("/set", func(c *iris.Context) {
 
