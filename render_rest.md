@@ -2,7 +2,7 @@
 
 Provides functionality for easily rendering JSON, XML, text and binary data.
 
-### Config
+### config.Rest
 
 
 ```go
@@ -31,14 +31,15 @@ Provides functionality for easily rendering JSON, XML, text and binary data.
 //...
 import (
   "github.com/kataras/iris"
+  "github.com/kataras/iris/config"
 )
 //...
 
 //1.
-iris.Config().Rest.IndentJSON = true
-iris.Config().Rest...
+iris.Config().Render.Rest.IndentJSON = true
+iris.Config().Render.Rest...
 //2.
-restConfig:= &iris.RestConfig{
+restConfig:= config.Rest{
 	Charset:                   "UTF-8",
 	IndentJSON:                false,
 	IndentXML:                 false,
@@ -48,6 +49,7 @@ restConfig:= &iris.RestConfig{
 	StreamingJSON:             false,
 	DisableHTTPErrorRendering: false,
 }
+
 iris.Config().Rest = restConfig
 
 
