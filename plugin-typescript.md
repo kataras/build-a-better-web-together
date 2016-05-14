@@ -22,8 +22,8 @@ This is an Iris and typescript bridge plugin.
  - **Bin**: string, the typescript installation path/bin/tsc or tsc.cmd, if empty then it will search to the global npm modules
  - **Dir**: string, Dir set the root, where to search for typescript files/project. Default "./" 
  - **Ignore**: string, comma separated ignore typescript files/project from these directories. Default "" (node_modules are always ignored) 
- - **Tsconfig**: &typescript.Tsconfig{}, here you can set all compilerOptions if no tsconfig.json exists inside the 'Dir' 
- - **Editor**: typescript.Editor(), if setted then alm-tools browser-based typescript IDE will be available. Defailt is nil
+ - **Tsconfig**: config.Tsconfig{}, here you can set all compilerOptions if no tsconfig.json exists inside the 'Dir' 
+ - **Editor**: config.Typescript { Editor: config.Editor{}, if setted then alm-tools browser-based typescript IDE will be available. Defailt is nil
  
  >All these are optional
 
