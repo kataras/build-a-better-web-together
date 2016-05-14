@@ -34,6 +34,7 @@ import (
 func main() {
 
 	// these are  the defaults
+    // when import _ "github.com/kataras/iris/sessions/providers/memory"
 	//iris.Config().Sessions.Provider = "memory" 
 	//iris.Config().Sessions.Secret = "irissessionid"
     // Expires the date which the cookie must expires. Default infinitive/unlimited life
