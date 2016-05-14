@@ -20,7 +20,8 @@ func main() {
 		c.Write("Hello %s", name)
 	})
 
-	// MATCH to /profile/iris/friends/42  (if PathCorrection:true matches also /profile/iris/friends/42/ ,otherwise not match)
+	// MATCH to /profile/iris/friends/42  
+    // (if PathCorrection:true matches also /profile/iris/friends/42/ ,otherwise not match)
 	// NOT match to /profile/ , /profile/something ,
 	// NOT match to /profile/something/friends,  /profile/something/friends ,
 	// NOT match to /profile/anything/friends/42/something
