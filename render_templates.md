@@ -34,14 +34,14 @@ templateConfig := &iris.TemplateConfig {
   AssetNames:    nil, // func() []string
   
   // Options when you're using pongo2 | When Engine == iris.StandarEngine
-  Standar: &StandarConfig {
+  Standar: iris.StandarConfig {
     Left: "{{", 
     Right: "}}",
     Funcs: make([]template.FuncMap, 0),
    },
    
   // Option when you're using pongo2 | When Engine == iris.PongoEngine
-  Pongo:  &PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
+  Pongo:  iris.PongoConfig{Filters: make(map[string]pongo2.FilterFunction, 0)}
 }
 
 // Set
