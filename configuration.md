@@ -21,6 +21,11 @@ architecture to easy:
 
 - so you can do this **without pre-set a config by yourself**: `iris.Config().Render.Template.Engine = config.PongoEngine` or `iris.Config().Render.Template.Pongo.Extensions = []string{".xhtml", ".html"}`.
 
-All of them, same reason why I did standalone config package, I just explained you how it works.
+- **(Advanced usage) merge configs**: 
+
+```go
+
+
+```
 
 
