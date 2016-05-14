@@ -343,8 +343,6 @@ import (
 	"github.com/kataras/iris/sessions"
 
 	_ "github.com/kataras/iris/sessions/providers/redis"
-    // here we add the redis  provider and store
-    //with the default redis client points to 127.0.0.1:6379
 )
 
 var sess *sessions.Manager
