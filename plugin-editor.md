@@ -25,7 +25,7 @@ import (
 
 func main(){
 	e := editor.New() 
-   //or config.Editor{ Username: "admin", Password: "admin!123", Port: 4444, WorkingDir: "/public/scripts"}
+   // config.Editor{ Username: "admin", Password: "admin!123", Port: 4444, WorkingDir: "/public/scripts"}
 
 	iris.Plugins().Add(e)
 
