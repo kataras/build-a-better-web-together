@@ -350,10 +350,10 @@ var sess *sessions.Manager
 
 func init() {
 	sessConfig := Sessions{
-		Provider:   "memory", // if you set it to ""  means that sessions are disabled.
-		Cookie:     "yoursessionCOOKIEID",
-		Expires:    config.CookieExpireNever,
-		GcDuration: time.Duration(2) * time.Hour,
+          Provider:   "redis", 
+          Cookie:     "yoursessionCOOKIEID",
+          Expires:    config.CookieExpireNever,
+          GcDuration: time.Duration(2) * time.Hour,
 	}
     
     sess := sessions.New(sessConfig)
@@ -363,27 +363,31 @@ func init() {
 ```
 
 Example **redis** with custom configuration
+**config.Redis**
 ```go
-type Config struct {
-	// Network "tcp"
-	Network string
-	// Addr "127.0.01:6379"
-	Addr string
-	// Password string .If no password then no 'AUTH'. Default ""
-	Password string
-	// If Database is empty "" then no 'SELECT'. Default ""
-	Database string
-	// MaxIdle 0 no limit
-	MaxIdle int
-	// MaxActive 0 no limit
-	MaxActive int
-	// IdleTimeout 5 * time.Minute
-	IdleTimeout time.Duration
-	//Prefix "myprefix-for-this-website". Default ""
-	Prefix string
-	// MaxAgeSeconds how much long the redis should keep the session in seconds. Default 2520.0 (42minutes)
-	MaxAgeSeconds int
-}
+	// Redis the redis configuration used inside sessions
+	Redis struct {
+		// Network "tcp"
+		Network string
+		// Addr "127.0.01:6379"
+		Addr string
+		// Password string .If no password then no 'AUTH'. Default ""
+		Password string
+		// If Database is empty "" then no 'SELECT'. Default ""
+		Database string
+		// MaxIdle 0 no limit
+		MaxIdle int
+		// MaxActive 0 no limit
+		MaxActive int
+		// IdleTimeout  time.Duration(5) * time.Minute
+		IdleTimeout time.Duration
+		// Prefix "myprefix-for-this-website". Default ""
+		Prefix string
+		// MaxAgeSeconds how much long the redis should keep 
+        // the session in seconds. Default 31556926.0 (1 year)
+		MaxAgeSeconds int
+	}
+
 ```
 
 ```go
@@ -396,8 +400,6 @@ import (
 	"github.com/kataras/iris/sessions"
 
      "github.com/kataras/iris/sessions/providers/redis"
-    // here we add the redis  provider and store
-    //with the default redis client points to 127.0.0.1:6379
 )
 
 var sess *sessions.Manager
@@ -409,7 +411,14 @@ func init() {
     redis.Config.Addr = "127.0.0.1:6379"
     redis.Config.Prefix = "myprefix-for-this-website"
 
-	sess = sessions.New("redis", "irissessionid", time.Duration(60)*time.Minute)
+	sessConfig := Sessions{
+          Provider:   "redis", 
+          Cookie:     "yoursessionCOOKIEID",
+          Expires:    config.CookieExpireNever,
+          GcDuration: time.Duration(2) * time.Hour,
+	}
+    
+    sess := sessions.New(sessConfig)
 }
 
 //...usage: same as memory
