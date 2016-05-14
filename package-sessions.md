@@ -38,8 +38,8 @@ func main() {
 	//iris.Config().Sessions.Provider = "memory" 
     // The cookie name
 	//iris.Config().Sessions.Cookie = "irissessionid"
-    // Expires the date which the cookie must expires. Default infinitive/unlimited life
-	//iris.Config().Sessions.Expires = time.Time.... (default never: config.CookieExpireNever)
+    // Expires the date which the cookie must expires. Default infinitive/unlimited life (config.CookieExpireNever)
+	//iris.Config().Sessions.Expires = time.Time....
     // GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies
 	//iris.Config().Sessions.GcDuration = time.Duration(2) *time.Hour
 	
