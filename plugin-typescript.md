@@ -59,7 +59,7 @@ Enable [web browser editor](plugin-editor.md)
 ```go
 ts := config.Typescript {
     //...
-    Editor: config.Editor{Username:"username", Password: "passowrd"}
+    Editor: config.Editor{Username:"admin", Password: "admin!123"}
     //...
 }
 
