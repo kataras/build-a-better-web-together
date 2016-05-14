@@ -40,9 +40,9 @@ import (
 )
 
 func main(){
-    ts := typescript.Options {
+    ts := config.Typescript {
         Dir: "./scripts/src",
-        Tsconfig: &typescript.Tsconfig{Module: "commonjs", Target: "es5"}, 
+        Tsconfig: config.Tsconfig{Module: "commonjs", Target: "es5"}, 
     }
     // or typescript.DefaultTsconfig()
 
