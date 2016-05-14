@@ -15,6 +15,7 @@
 * [Middlewares](middlewares.md)
 * [API](api.md)
 * [Declaration](declaration.md)
+* [Configuration](configuration.md)
 * [Party](party.md)
 * [Subdomains](subdomains.md)
 * [Named Parameters](named-parameters.md)
@@ -44,5 +45,4 @@
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
 * [Examples](https:/github.com/iris-contrib/examples)
-* [Configuration](configuration.md)
 
