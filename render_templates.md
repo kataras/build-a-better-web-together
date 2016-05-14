@@ -26,7 +26,7 @@ import (
 
 ```go
 // These are the defaults
-templateConfig := &config.Template {
+templateConfig := config.Template {
   // iris.StandarEngine or iris.PongoEngine
   Engine:  config.StandarEngine
   // Common options for all template engines 
