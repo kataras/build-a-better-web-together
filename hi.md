@@ -94,3 +94,6 @@ func hi(ctx *iris.Context){
 }
 
 ```
+
+- More about configuration [here](configuration.md)
+- More about render and templates [here](render.md)
