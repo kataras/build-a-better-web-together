@@ -22,7 +22,7 @@ import (
 func main() {
 
     iris.UseFunc(logger.Default())
-    // iris.UseFunc(logger.Custom(writer io.Writer, prefix string, flag int))
+    // iris.UseFunc(logger.New(config.DefaultLogger()))
 
     iris.Get("/", func(ctx *iris.Context) {
         ctx.Write("hello")
