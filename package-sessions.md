@@ -258,7 +258,7 @@ import (
 var sess *sessions.Manager
 
 func init() {
-    sessConfig := Sessions{
+    sessConfig := config.Sessions{
 		Provider:   "memory", // if you set it to ""  means that sessions are disabled.
 		Cookie:     "yoursessionCOOKIEID",
 		Expires:    config.CookieExpireNever,
@@ -349,7 +349,7 @@ import (
 var sess *sessions.Manager
 
 func init() {
-	sessConfig := Sessions{
+	sessConfig := config.Sessions{
           Provider:   "redis", 
           Cookie:     "yoursessionCOOKIEID",
           Expires:    config.CookieExpireNever,
@@ -397,6 +397,7 @@ import (
 	"time"
 
 	"github.com/kataras/iris"
+    "github.com/kataras/iris/config"
 	"github.com/kataras/iris/sessions"
 
      "github.com/kataras/iris/sessions/providers/redis"
@@ -411,7 +412,7 @@ func init() {
     redis.Config.Addr = "127.0.0.1:6379"
     redis.Config.Prefix = "myprefix-for-this-website"
 
-	sessConfig := Sessions{
+	sessConfig := config.Sessions{
           Provider:   "redis", 
           Cookie:     "yoursessionCOOKIEID",
           Expires:    config.CookieExpireNever,
