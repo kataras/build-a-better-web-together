@@ -37,7 +37,7 @@ iris.Config().Render.Template = templateConfig
 
 ```
 
-Below you will find a list of the config structs
+Below you will find a list of the config structs.
 
 ## Search [All Configs](https://github.com/kataras/iris/tree/master/config)
 ```go
