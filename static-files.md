@@ -29,7 +29,8 @@ Static(relative string, systemPath string, stripSlashes int)
 // * stripSlashes = 2, original path: "/foo/bar", result: ""
 StaticFS(relative string, systemPath string, stripSlashes int)
 
-// StaticWeb same as Static but if index.html exists and request uri is '/' then display the index.html's contents
+// StaticWeb same as Static but if index.html e
+// xists and request uri is '/' then display the index.html's contents
 // accepts three parameters
 // first parameter is the request url path (string)
 // second parameter is the system directory (string)
