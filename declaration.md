@@ -115,8 +115,9 @@ func main() {
 
 
 
-For profiling  there are seven (7) generated pages ('/debug/pprof/' is the default profile path, which on previous example we changed it to '/mypath/debug'):
+For profiling  there are eight (8) generated pages ('/debug/pprof/' is the default profile path, which on previous example we changed it to '/mypath/debug'):
 
+ -   /debug/pprof
  -  /debug/pprof/cmdline
  -  /debug/pprof/profile
  -  /debug/pprof/symbol
