@@ -19,4 +19,5 @@
 * **Party**:  Group routes when sharing the same resources or middlewares. You can organise a party with domains too! [*](party.md)
 * **Transport Layer Security**: Provide privacy and data integrity between your server and the client[*](tls.md)
 * **Multi server instances**: Besides the fact that Iris has a default main server. You can declare as many as you need[*](declaration.md)
+* **Zero configuration**:  No need to configure anything, unless you're forced to. Default configurations everywhere, which you can change with ease, well structured
 * **Zero allocations**: Iris generates zero garbage
