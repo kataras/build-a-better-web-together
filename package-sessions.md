@@ -328,7 +328,7 @@ func main() {
 ```
 
 
-Example **redis** with config.Redis default configuration
+Example **redis** with config.Redis defaults
 
 The default redis client points to 127.0.0.1:6379
 
