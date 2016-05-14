@@ -102,6 +102,8 @@ func main() {
 		Profile:            true,
 		ProfilePath:        "/mypath/debug",
 	}
+    // to get the default: config.Default()
+    
 	api := iris.New(config)
 	api.Listen(":8080")
 }
