@@ -1,6 +1,6 @@
 # Versioning
 
-Current: **v3.0.0-alpha.1**
+Current: **v3.0.0-alpha.2**
 
 Read more about Semantic Versioning 2.0.0
 
