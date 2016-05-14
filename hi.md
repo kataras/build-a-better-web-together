@@ -7,7 +7,7 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
-	iris.Get("/hello", func(ctx *iris.Context) {
+	iris.Get("/hi", func(ctx *iris.Context) {
 		ctx.Write("Hi %s", "iris")
 	})
 	iris.Listen(":8080")
@@ -24,7 +24,7 @@ import "github.com/kataras/iris"
 
 func main() {
     api := iris.New()
-	api.Get("/hello", hi)
+	api.Get("/hi", hi)
 	api.Listen(":8080")
 }
 
@@ -37,7 +37,7 @@ func hi(ctx *iris.Context){
 Rich Hi with `html/template`
 
 ```html
-<!-- templates/hi.html -->
+<!-- ./templates/hi.html -->
 <html><head> <title> Hi Iris [THE TITLE] </title> </head>
   <body>
     <h1> Hi {{.Name}}
@@ -48,6 +48,16 @@ Rich Hi with `html/template`
 ```
 
 ```go
+// ./main.go
+import "github.com/kataras/iris"
 
+func main() {
+	iris.Get("/hi", hi)
+	iris.Listen(":8080")
+}
+
+func hi(ctx *iris.Context){
+   ctx.Render("hi.html", struct { Name string }{ Name: "iris" })
+}
 
 ```
