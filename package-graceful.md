@@ -11,8 +11,9 @@ package main
 
 import (
 	"time"
+    "github.com/kataras/iris"
 	"github.com/kataras/iris/graceful"
-	"github.com/kataras/iris"
+	
 )
 
 func main() {
