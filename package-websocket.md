@@ -15,8 +15,8 @@ How to use
 
 ```go
 import (
+    "github.com/kataras/iris"
 	"github.com/kataras/iris/websocket"
-	"github.com/kataras/iris"
 )
 
 func chat(c *websocket.Conn) {
