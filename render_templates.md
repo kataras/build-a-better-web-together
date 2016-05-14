@@ -53,21 +53,21 @@ templateConfig := &config.Template {
 
 // Set
 
-// 1. Directly via complete custom configuration
-iris.Config().Templates = templateConfig
+// 1. Directly via complete custom configuration field
+iris.Config().Render.Template = templateConfig
 
 // 2. Fast way - Pongo snippet
-iris.Config().Templates.Engine = iris.PongoEngine
-iris.Config().Templates.Directory = "mytemplates"
-iris.Config().Templates.Pongo.Filters = ...
+iris.Config().Render.Template.Engine = iris.PongoEngine
+iris.Config().Render.Template.Directory = "mytemplates"
+iris.Config().Render.Template.Pongo.Filters = ...
 
 // 3. Fast way - Standar snippet
-iris.Config().Templates.Engine = iris.StandarEngine
-iris.Config().Templates.Layout = "layout/layout.html" //./templates/layout/layout.html
+iris.Config().Render.Template.Engine = iris.StandarEngine
+iris.Config().Render.Template.Layout = "layout/layout.html" //./templates/layout/layout.html
 //...
  
 // 4.
-theDefaults := iris.Config().Templates
+theDefaults := config.DefaultTemplate()
 theDefaults.Extensions = []string{".myExtension"}
 //...
 ```
@@ -98,7 +98,7 @@ type mypage struct {
 }
 
 func main() {
-	iris.Config().Templates.Layout = "layouts/layout.html"
+	iris.Config().Render.Template.Layout = "layouts/layout.html"
 	iris.Get("/", func(ctx *iris.Context) {
 		if err := ctx.Render("page1.html", mypage{"Message from page1!"}); err != nil {
 			panic(err)
@@ -175,11 +175,12 @@ package main
 
 import (
 	"github.com/kataras/iris"
+    "github.com/kataras/iris/config"
 )
 
 func main() {
 
-	iris.Config().Templates.Engine = iris.PongoEngine
+	iris.Config().Render.Template.Engine = config.PongoEngine
 
 	iris.Get("/", func(ctx *iris.Context) {
 
