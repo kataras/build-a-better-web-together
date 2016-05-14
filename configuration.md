@@ -35,5 +35,8 @@ templateConfig := templateFromRoutine1.MergeSingle(templateFromOthers)
 
 iris.Config().Render.Template = templateConfig
 
-
 ```
+
+## List of the structures
+
+
