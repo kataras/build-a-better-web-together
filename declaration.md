@@ -117,13 +117,13 @@ func main() {
 
 For profiling  there are seven (7) generated pages ('/debug/pprof/' is the default profile path, which on previous example we changed it to '/mypath/debug'):
 
- 1. /debug/pprof/cmdline
- 2. /debug/pprof/profile
- 3. /debug/pprof/symbol
- 4. /debug/pprof/goroutine
- 5. /debug/pprof/heap
- 6. /debug/pprof/threadcreate
- 7. /debug/pprof/pprof/block
+ -  /debug/pprof/cmdline
+ -  /debug/pprof/profile
+ -  /debug/pprof/symbol
+ -  /debug/pprof/goroutine
+ -  /debug/pprof/heap
+ -  /debug/pprof/threadcreate
+ -  /debug/pprof/pprof/block
 
 
 **PathCorrection**
