@@ -9,7 +9,7 @@ Let's make a pause,
  2. declare a new iris station with default config: **iris.New()** 
  3. declare a new iris station with custom config: ** api := iris.New(config.Iris{...})**
  
-all of their configs can change after declaration with 1&2. `iris.Config().` 3. / `api.Config().` 
+Config can change after declaration with 1&2. `iris.Config().` 3. / `api.Config().` 
 
 
 
