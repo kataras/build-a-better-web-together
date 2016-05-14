@@ -34,7 +34,7 @@ func hi(ctx *iris.Context){
 
 ```
 
-Rich Hi with `html/template`
+Rich Hi with **html/template**
 
 ```html
 <!-- ./templates/hi.html -->
@@ -58,6 +58,39 @@ func main() {
 
 func hi(ctx *iris.Context){
    ctx.Render("hi.html", struct { Name string }{ Name: "iris" })
+}
+
+```
+
+Rich Hi with **Django-syntax, flosch/pongo2**
+
+```html
+<!-- ./templates/hi.html -->
+<html><head> <title> Hi Iris [THE TITLE] </title> </head>
+  <body>
+    <h1> Hi {{Name}}
+  </body>
+</html>
+
+
+```
+
+```go
+// ./main.go
+import (
+    "github.com/kataras/iris"
+    "github.com/kataras/iris/config"
+)
+
+func main() {
+    iris.Config().Render.Template.Engine = config.PongoEngine
+    
+	iris.Get("/hi", hi)
+	iris.Listen(":8080")
+}
+
+func hi(ctx *iris.Context){
+   ctx.Render("hi.html", map[string]interface{}{"Name": "iris"})
 }
 
 ```
