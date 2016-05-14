@@ -98,13 +98,13 @@ import (
 )
 
 func main() {
-	config := config.Iris{
+	c := config.Iris{
 		Profile:            true,
 		ProfilePath:        "/mypath/debug",
 	}
-    // to get the default: config.Default()
+    // to get the default: c := config.Default()
     
-	api := iris.New(config)
+	api := iris.New(c)
 	api.Listen(":8080")
 }
 
