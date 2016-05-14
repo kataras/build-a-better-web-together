@@ -38,7 +38,7 @@ iris.Config().Render.Template = templateConfig
 ```
 
 ## Search [All Configs](https://github.com/kataras/iris/tree/master/config)
-
+```go
 type (
 	// Iris configs for the station
 	// All fields can be changed before server's listen except the PathCorrection field
@@ -109,7 +109,9 @@ type (
 	}
 )
 
+```
 
+```go
 type (
 	// Rest is a struct for specifying configuration options for the rest.Render object.
 	Rest struct {
@@ -129,7 +131,8 @@ type (
 		UnEscapeHTML bool
 		// Streams JSON responses instead of marshalling prior to sending. Default is false.
 		StreamingJSON bool
-		// Disables automatic rendering of http.StatusInternalServerError when an error occurs. Default is false.
+		// Disables automatic rendering of http.StatusInternalServerError when an error occurs. 
+        // Default is false.
 		DisableHTTPErrorRendering bool
 	}
 
@@ -161,11 +164,14 @@ type (
 	}
 
 	Pongo struct {
-		// Filters for pongo2, map[name of the filter] the filter function . The filters are auto register
+		// Filters for pongo2, map[name of the filter] the filter function .
+        // The filters are auto register
 		Filters map[string]pongo2.FilterFunction
 	}
 )
+```
 
+```go
 
 var (
 	universe time.Time // 0001-01-01 00:00:00 +0000 UTC
@@ -208,7 +214,8 @@ type (
 		IdleTimeout time.Duration
 		// Prefix "myprefix-for-this-website". Default ""
 		Prefix string
-		// MaxAgeSeconds how much long the redis should keep the session in seconds. Default 31556926.0 (1 year)
+		// MaxAgeSeconds how much long the redis should keep the session in seconds. 
+        // Default 31556926.0 (1 year)
 		MaxAgeSeconds int
 	}
 
@@ -217,22 +224,28 @@ type (
 	// first is the providerName (string) ["memory","redis"]
 	// second is the cookieName, the session's name (string) ["mysessionsecretcookieid"]
 	// third is the time which the client's cookie expires
-	// forth is the gcDuration (time.Duration) when this time passes it removes the unused sessions from the memory until the user come back
+	// forth is the gcDuration (time.Duration) 
+    // when this time passes it removes the unused sessions from the memory until the user come back
 	Sessions struct {
-		// Provider string, usage iris.Config().Provider = "memory" or "redis". If you wan to customize redis then import the package, and change it's config
+		// Provider string, usage iris.Config().Provider = "memory" or "redis".
+        // If you wan to customize redis then import the package, and change it's config
 		Provider string
 		// Cookie string, the session's client cookie name, for example: "irissessionid"
 		Cookie string
 		//Expires the date which the cookie must expires. Default infinitive/unlimited life
 		Expires time.Time
-		//GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies (GcDuration)
-		//for example: time.Duration(2)*time.Hour. it will check every 2 hours if cookie hasn't be used for 2 hours,
-		// if hasnt then delete it from memory until the user comes back, then the session continue to work as it was
+		//GcDuration every how much duration(GcDuration) 
+        // the memory should be clear for unused cookies (GcDuration)
+		//for example: time.Duration(2)*time.Hour. 
+        // it will check every 2 hours if cookie hasn't be used for 2 hours,
+		// deletes it from memory until the user comes back, 
+        // then the session continue to work as it was
 		//
 		// Default 2 hours
 		GcDuration time.Duration
 	}
 )
+```
 
 ```go
 type (
