@@ -137,7 +137,7 @@ func main() {
 
 ```
 
-Example customized **redis**
+Example customized **config.Redis**
 ```go
 // Config the redis config
 type Config struct {
