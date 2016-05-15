@@ -218,7 +218,7 @@ func main() {
 
 ##### Backend
 
-You can use the tag `formam` if the name of a input of form starts lowercase.
+You can use the tag `form` if the name of a input of form starts lowercase.
 
 ```go
 package main
