@@ -152,7 +152,7 @@ type (
 		Asset         func(name string) ([]byte, error)
 		AssetNames    func() []string
 		Layout        string
-		HTMLTemplate  HTMLTemplate // contains specific configs for standar html/template
+		HTMLTemplate  HTMLTemplate // contains specific configs for HTMLTemplate html/template
 		Pongo         Pongo   // contains specific configs for pongo2
 	}
 
