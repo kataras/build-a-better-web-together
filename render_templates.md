@@ -82,7 +82,7 @@ Render(name string, binding interface{}, layout ...string) error
 
 ### Examples
 
-#### `Standar`
+#### `HTMLTemplate`
 
 ```go
 // main.go
