@@ -141,7 +141,7 @@ type (
 	EngineType uint8
 
 	Template struct {
-		// contains common configs for both standar & pongo
+		// contains common configs for both HTMLEngine & Pongo as their common options
 		Engine        EngineType
 		Gzip          bool
 		IsDevelopment bool
