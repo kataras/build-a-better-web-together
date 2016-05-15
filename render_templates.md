@@ -180,7 +180,7 @@ import (
 
 func main() {
 
-	iris.Config().Render.Template.Engine = config.PongoEngine
+	iris.Config().Render.Template.Engine = config.PongoEngine // or iris.PongoEngine without need to import the config
 
 	iris.Get("/", func(ctx *iris.Context) {
 
