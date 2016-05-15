@@ -79,11 +79,10 @@ Rich Hi with **Django-syntax, flosch/pongo2**
 // ./main.go
 import (
     "github.com/kataras/iris"
-    "github.com/kataras/iris/config"
 )
 
 func main() {
-    iris.Config().Render.Template.Engine = config.PongoEngine
+    iris.Config().Render.Template.Engine = iris.PongoEngine
 	iris.Get("/hi", hi)
 	iris.Listen(":8080")
 }
