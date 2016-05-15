@@ -40,8 +40,8 @@ templateConfig := config.Template {
   Asset:         nil, // func(name string) ([]byte, error)
   AssetNames:    nil, // func() []string
   
-  // Options when you're using html/template | When Engine == config.StandarEngine
-  Standar: config.Standar {
+  // Options when you're using html/template | When Engine == config.HTMLTemplate
+  HTMLTemplate: config.HTMLTemplate {
     Left: "{{", 
     Right: "}}",
     Funcs: make([]template.FuncMap, 0),
@@ -61,8 +61,8 @@ iris.Config().Render.Template.Engine = iris.PongoEngine
 iris.Config().Render.Template.Directory = "mytemplates"
 iris.Config().Render.Template.Pongo.Filters = ...
 
-// 3. Fast way - Standar snippet
-iris.Config().Render.Template.Engine = iris.StandarEngine
+// 3. Fast way - HTMLTemplate snippet
+iris.Config().Render.Template.Engine = iris.HTMLTemplate // or iris.DefaultEngine
 iris.Config().Render.Template.Layout = "layout/layout.html" // = ./templates/layout/layout.html
 //...
  
