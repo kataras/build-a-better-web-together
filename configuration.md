@@ -152,16 +152,16 @@ type (
 		Asset         func(name string) ([]byte, error)
 		AssetNames    func() []string
 		Layout        string
-		Standar       Standar // contains specific configs for standar html/template
+		HTMLTemplate       HTMLTemplate // contains specific configs for standar html/template
 		Pongo         Pongo   // contains specific configs for pongo2
 	}
 
-	Standar struct {
+	HTMLTemplate struct {
 		RequirePartials bool
 		// Delims
 		Left  string
 		Right string
-		// Funcs for Standar
+		// Funcs for HTMLTemplate
 		Funcs []template.FuncMap
 	}
 
