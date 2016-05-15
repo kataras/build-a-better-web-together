@@ -28,7 +28,7 @@ import (
 // These are the defaults
 templateConfig := config.Template {
   // iris.DefaultEngine is the iris.HTMLEngine  or iris.PongoEngine
-  Engine:  config.HTMLEngine
+  Engine:  config.DefaultEngine
   // Common options for all template engines 
   Gzip:          false,
   IsDevelopment: false,
