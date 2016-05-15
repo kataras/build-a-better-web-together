@@ -161,7 +161,7 @@ type (
 		// Delims
 		Left  string
 		Right string
-		// Funcs for HTMLTemplate
+		// Funcs for HTMLTemplate html/template
 		Funcs []template.FuncMap
 	}
 
