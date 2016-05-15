@@ -3,8 +3,8 @@
 Iris gives you the freedom to render templates through  [html/template](https://golang.org/pkg/html/template) or Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2) , via **config.Iris.Render.Template = config.Template{} / iris.Config().Render.Template = config.Template{}**.
 
 
-- html/template is the `HTMLTemplate`
-- flosch/pongo2 is the `Pongo`
+- `HTMLTemplate` is the html/template 
+-  `Pongo` is the flosch/pongo2
 
 A snippet:
 ```go
