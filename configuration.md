@@ -143,7 +143,8 @@ type (
 	Template struct {
 		// contains common configs for both HTMLEngine & Pongo as their common options
 		Engine        EngineType
-		Gzip          bool
+		Gzip          bool // default to false
+        Minify        bool // default to true
 		IsDevelopment bool
 		Directory     string
 		Extensions    []string
