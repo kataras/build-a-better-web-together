@@ -103,7 +103,8 @@ type mypage struct {
 }
 
 func main() {
-	iris.Config().Render.Template.Layout = "layouts/layout.html"
+	iris.Config().Render.Template.Layout = "layouts/layout.html" // default ""
+    iris.Config().Render.Template.HTMLTemplate.Minify = false // default true
 	iris.Get("/", func(ctx *iris.Context) {
 		if err := ctx.Render("page1.html", mypage{"Message from page1!"}); err != nil {
 			panic(err)
