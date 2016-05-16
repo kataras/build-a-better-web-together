@@ -144,7 +144,6 @@ type (
 		// contains common configs for both HTMLEngine & Pongo as their common options
 		Engine        EngineType
 		Gzip          bool // default to false
-        Minify        bool // default to true
 		IsDevelopment bool
 		Directory     string
 		Extensions    []string
@@ -158,6 +157,7 @@ type (
 	}
 
 	HTMLTemplate struct {
+        Minify        bool // default to true
 		RequirePartials bool
 		// Delims
 		Left  string
