@@ -6,7 +6,7 @@ Iris gives you the freedom to render templates through  [html/template](https://
 
 
 - `HTMLTemplate` is the html/template 
-> HTMLTemplate engine's  result  minified automatically for you but you can change this behavior via iris.Config().Render.Template.Minify = false 
+> HTMLTemplate engine's  result  minified automatically for you but you can change this behavior via iris.Config().Render.Template.HTMLTemplate.Minify = false 
 -  `Pongo` is the flosch/pongo2
 ----
 
