@@ -35,7 +35,6 @@ templateConfig := config.Template {
   Engine:  config.DefaultEngine
   // Common options for all template engines 
   Gzip:          false,
-  Minify:        true, // minify the html before server's listen
   IsDevelopment: false,
   Directory:     "templates",
   Extensions:    []string{".html"},
@@ -47,6 +46,7 @@ templateConfig := config.Template {
   
   // Options when you're using html/template | When Engine == config.HTMLTemplate
   HTMLTemplate: config.HTMLTemplate {
+   Minify: true, // minify the html before server's listen
     Left: "{{", 
     Right: "}}",
     Funcs: make([]template.FuncMap, 0),
