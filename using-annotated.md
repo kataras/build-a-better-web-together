@@ -19,7 +19,7 @@ func (u *UserHandler) Serve(c *iris.Context) {
 
 ```go
 ///file: main.go
-iris.Config().Templates.Directory = "templates" // Default is already "templates"
+iris.Config().Render.Template.Directory = "templates" // Default is already "templates"
 //...register the handler
 iris.HandleAnnotated(&UserHandler{})
 //...continue writing your wonderful API
