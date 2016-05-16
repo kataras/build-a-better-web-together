@@ -9,7 +9,6 @@
 * [Handlers](handlers.md)
    * [Using Handlers](using-handlers.md)
    * [Using HandlerFuncs](using-handlerfuncs.md)
-   * [Using Annotated](using-annotated.md)
    * [Using native http.Handler](using-native-httphandler.md)
        * [Using native http.Handler via iris.ToHandlerFunc()](using-native-httphandler-via-tohandlerfunc.md)
 * [Middlewares](middlewares.md)
@@ -44,5 +43,5 @@
 * [Browser based Editor](plugin-editor.md)
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https://github.com/iris-contrib/examples) - https://github.com/iris-contrib/examples
+* [Examples](https:/github.com/iris-contrib/examples)
 
