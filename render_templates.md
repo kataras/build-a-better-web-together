@@ -104,7 +104,7 @@ type mypage struct {
 
 func main() {
 	iris.Config().Render.Template.Layout = "layouts/layout.html" // default ""
-    iris.Config().Render.Template.Minify = false // default is true
+    iris.Config().Render.Template.Minify = false // default is true, but just for example let's disable it
 	iris.Get("/", func(ctx *iris.Context) {
 		if err := ctx.Render("page1.html", mypage{"Message from page1!"}); err != nil {
 			panic(err)
