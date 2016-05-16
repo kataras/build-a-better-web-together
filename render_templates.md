@@ -2,9 +2,12 @@
 
 Iris gives you the freedom to render templates through  [html/template](https://golang.org/pkg/html/template) or Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2) , via **config.Iris.Render.Template = config.Template{} / iris.Config().Render.Template = config.Template{}**.
 
+Template engine's HTML result  minified automatically for you but you can change it via `iris.Config().Render.Template.Minify = false ` 
+
 
 - `HTMLTemplate` is the html/template 
 -  `Pongo` is the flosch/pongo2
+----
 
 A snippet:
 ```go
@@ -31,6 +34,7 @@ templateConfig := config.Template {
   Engine:  config.DefaultEngine
   // Common options for all template engines 
   Gzip:          false,
+  Minify:        true, // minify the html before server's listen
   IsDevelopment: false,
   Directory:     "templates",
   Extensions:    []string{".html"},
