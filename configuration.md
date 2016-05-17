@@ -155,6 +155,7 @@ type (
 		Layout        string
 		HTMLTemplate  HTMLTemplate // contains specific configs for HTMLTemplate html/template
 		Pongo         Pongo   // contains specific configs for pongo2
+        Markdown      Markdown // contains specific configs for markdown
 	}
 
 	HTMLTemplate struct {
@@ -171,6 +172,10 @@ type (
         // The filters are auto register
 		Filters map[string]pongo2.FilterFunction
 	}
+    
+    Markdown struct {
+        Sanitize bool // default false
+    }
 )
 ```
 
