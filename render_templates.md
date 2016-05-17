@@ -272,7 +272,7 @@ func main() {
 
 ```
 
-```markdown
+```
 <!-- templates/index.md -->
 ## Hello Markdown from Iris
 
