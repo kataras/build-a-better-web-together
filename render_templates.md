@@ -1,6 +1,6 @@
 # Templates
 
-Iris gives you the freedom to render templates through  [html/template](https://golang.org/pkg/html/template) or Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2) , via **config.Iris.Render.Template = config.Template{} / iris.Config().Render.Template = config.Template{}**.
+Iris gives you the freedom to render templates through  [html/template](https://golang.org/pkg/html/template), Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2)  or pure Markdown, via **config.Iris.Render.Template = config.Template{} / iris.Config().Render.Template = config.Template{}**.
 
 
 > All template engine's  result  minified automatically for you but you can change this behavior via iris.Config().Render.Template.Minify = false 
