@@ -405,8 +405,10 @@ implements the following extensions:
 ```
 
 Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+
 ```html
 <!-- OUTPUT -->
+
 <h2>Hello Markdown from Iris</h2>
 
 <p>This is an example of Markdown with Iris</p>
