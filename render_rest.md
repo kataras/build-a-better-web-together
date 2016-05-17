@@ -1,6 +1,6 @@
 # REST
 
-Provides functionality for easily rendering JSON, XML, text and binary data.
+Provides functionality for easily rendering JSON, XML, Text, binary data and Markdown.
 
 ### config.Rest
 
@@ -25,6 +25,8 @@ Provides functionality for easily rendering JSON, XML, text and binary data.
 	// Disables automatic rendering of http.StatusInternalServerError
     // when an error occurs. Default is false.
 	DisableHTTPErrorRendering bool
+    // MarkdownSanitize sanitizes the markdown. Default is false.
+    MarkdownSanitize bool
 
 ```
 ```go
