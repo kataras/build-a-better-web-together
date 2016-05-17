@@ -64,9 +64,10 @@ templateConfig := config.Template {
     Right: "}}",
     Funcs: make([]template.FuncMap, 0),
    },
-   
   // Option when you're using pongo2 | When Engine == config.PongoEngine
-  Pongo:  config.Pongo{Filters: make(map[string]pongo2.FilterFunction, 0)}
+  Pongo:  config.Pongo{Filters: make(map[string]pongo2.FilterFunction, 0)},
+  // Option when you're using markdown | When Engine == config.MarkdownEngine
+  Markdown:      Markdown{Sanitize: false},
 }
 
 // Set
