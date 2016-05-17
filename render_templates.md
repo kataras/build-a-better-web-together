@@ -407,10 +407,102 @@ implements the following extensions:
 Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
 ```html
 <!-- OUTPUT -->
-<html>
-<head><title>Hello Pongo2 from Iris</title></head>
-<body>
-	 <p>iris is an admin!</p>
-</body>
-</html>
+<h2>Hello Markdown from Iris</h2>
+
+<p>This is an example of Markdown with Iris</p>
+
+<h2>Features</h2>
+
+<p>All features of Sundown are supported, including:
+* <strong>Compatibility</strong>. The Markdown v1.0.3 test suite passes with
+the <code>--tidy</code> option. Without <code>--tidy</code>, the differences are
+mostly in whitespace and entity escaping, where blackfriday is
+more consistent and cleaner.
+* <strong>Common extensions</strong>, including table support, fenced code
+blocks, autolinks, strikethroughs, non-strict emphasis, etc.
+* <strong>Safety</strong>. Blackfriday is paranoid when parsing, making it safe
+to feed untrusted user input without fear of bad things
+happening. The test suite stress tests this and there are no
+known inputs that make it crash. If you find one, please let me
+know and send me the input that does it.
+NOTE: &ldquo;safety&rdquo; in this context means <em>runtime safety only</em>. In order to
+protect yourself against JavaScript injection in untrusted content, see
+<a href="https://github.com/russross/blackfriday#sanitize-untrusted-content">this example</a>.
+* <strong>Fast processing</strong>. It is fast enough to render on-demand in
+most web applications without having to cache the output.
+* <strong>Thread safety</strong>. You can run multiple parsers in different
+goroutines without ill effect. There is no dependence on global
+shared state.
+* <strong>Minimal dependencies</strong>. Blackfriday only depends on standard
+library packages in Go. The source code is pretty
+self-contained, so it is easy to add to any project, including
+Google App Engine projects.
+* <strong>Standards compliant</strong>. Output successfully validates using the
+W3C validation tool for HTML 4.01 and XHTML 1.0 Transitional.</p>
+
+<h2>Extensions</h2>
+
+<p>In addition to the standard markdown syntax, this package
+implements the following extensions:
+* <strong>Intra-word emphasis supression</strong>. The <code>_</code> character is
+commonly used inside words when discussing code, so having
+markdown interpret it as an emphasis command is usually the
+wrong thing. Blackfriday lets you treat all emphasis markers as
+normal characters when they occur inside a word.
+* <strong>Tables</strong>. Tables can be created by drawing them in the input
+using a simple syntax:</p>
+
+<pre><code>Name | Age
+--------|------
+Bob | 27
+Alice | 23
+</code></pre>
+
+<ul>
+<li><strong>Fenced code blocks</strong>. In addition to the normal 4-space
+indentation to mark code blocks, you can explicitly mark them
+and supply a language (to make syntax highlighting simple). Just
+mark it like this:
+<code>go
+func getTrue() bool {
+return true
+}
+</code>
+You can use 3 or more backticks to mark the beginning of the
+block, and the same number to mark the end of the block.</li>
+<li><strong>Definition lists</strong>. A simple definition list is made of a single-line
+term followed by a colon and the definition for that term.
+Cat</li>
+<li>Fluffy animal everyone likes
+Internet</li>
+<li>Vector of transmission for pictures of cats
+Terms must be separated from the previous definition by a blank line.</li>
+<li><strong>Footnotes</strong>. A marker in the text that will become a superscript number;
+a footnote definition that will be placed in a list of footnotes at the
+end of the document. A footnote looks like this:
+This is a footnote.[^1]
+[^1]: the footnote text.</li>
+<li><strong>Autolinking</strong>. Blackfriday can find URLs that have not been
+explicitly marked as links and turn them into links.</li>
+<li><strong>Strikethrough</strong>. Use two tildes (<code>~~</code>) to mark text that
+should be crossed out.</li>
+<li><strong>Hard line breaks</strong>. With this extension enabled (it is off by
+default in the <code>MarkdownBasic</code> and <code>MarkdownCommon</code> convenience
+functions), newlines in the input translate into line breaks in
+the output.</li>
+<li><strong>Smart quotes</strong>. Smartypants-style punctuation substitution is
+supported, turning normal double- and single-quote marks into
+curly quotes, etc.</li>
+<li><strong>LaTeX-style dash parsing</strong> is an additional option, where <code>--</code>
+is translated into <code>&amp;ndash;</code>, and <code>---</code> is translated into
+<code>&amp;mdash;</code>. This differs from most smartypants processors, which
+turn a single hyphen into an ndash and a double hyphen into an
+mdash.</li>
+<li><strong>Smart fractions</strong>, where anything that looks like a fraction
+is translated into suitable HTML (instead of just a few special
+cases like most smartypant processors). For example, <code>4/5</code>
+becomes <code>&lt;sup&gt;4&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt;</code>, which renders as
+<sup>4</sup>&frasl;<sub>5</sub>.</li>
+</ul>
+
 ```
