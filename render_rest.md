@@ -50,6 +50,7 @@ restConfig:= config.Rest{
 	UnEscapeHTML:              false,
 	StreamingJSON:             false,
 	DisableHTTPErrorRendering: false,
+	MarkdownSanitize: false,
 }
 
 iris.Config().Rest = restConfig
@@ -99,6 +100,11 @@ The rendering functions simply wraps Go's existing functionality for marshaling 
       iris.Get("/xml", func(ctx *iris.Context) {
           ctx.XML(iris.StatusOK, ExampleXml{One: "hello", Two: "xml"})
       })
+      
+      iris.Get("/markdown", func(ctx *iris.Context) {
+          ctx.Markdown(iris.StatusOK, "# Hello Dynamic Markdown Iris")
+      })
+
 
       iris.Listen(":8080")
   }
