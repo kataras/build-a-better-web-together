@@ -334,20 +334,16 @@ implements the following extensions:
 *   **Tables**. Tables can be created by drawing them in the input
     using a simple syntax:
 
-    ```
+ 
     Name    | Age
     --------|------
     Bob     | 27
     Alice   | 23
-    
+ 
 //I stop here in order to be readable
-      
-    ```
+     
+ ```  
 
-
-
-
-```
 
 Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
 
