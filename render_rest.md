@@ -53,7 +53,7 @@ restConfig:= config.Rest{
 	MarkdownSanitize: false,
 }
 
-iris.Config().Rest = restConfig
+iris.Config().Render.Rest = restConfig
 
 
 ```
