@@ -3,8 +3,6 @@
 Iris gives you the freedom to render templates through  [html/template](https://golang.org/pkg/html/template), Django-syntax package [flosch/pongo2](https://github.com/flosch/pongo2)  or raw Markdown, via **config.Iris.Render.Template = config.Template{} / iris.Config().Render.Template = config.Template{}**.
 
 
-> All template engine's  result  minified automatically for you but you can change this behavior via iris.Config().Render.Template.Minify = false 
-
 - `HTMLTemplate` is the html/template 
 -  `Pongo` is the flosch/pongo2
 
@@ -48,7 +46,6 @@ templateConfig := config.Template {
   Engine:  config.DefaultEngine
   // Common options for all template engines 
   Gzip:          false,
-  Minify:        true, // minify the templates before server's listen
   IsDevelopment: false,
   Directory:     "templates",
   Extensions:    []string{".html"},
@@ -118,7 +115,6 @@ type mypage struct {
 
 func main() {
 	iris.Config().Render.Template.Layout = "layouts/layout.html" // default ""
-    iris.Config().Render.Template.Minify = false // default is true, but just for example let's disable it
 	iris.Get("/", func(ctx *iris.Context) {
 		if err := ctx.Render("page1.html", mypage{"Message from page1!"}); err != nil {
 			panic(err)
@@ -256,7 +252,6 @@ func main() {
 	// Markdown engine doesn't supports Layout and context binding
 	iris.Config().Render.Template.Engine = config.MarkdownEngine
 	iris.Config().Render.Template.Extensions = []string{".md"}
-    iris.Config().Render.Template.Minify = false // just for the example
     
 	iris.Get("/", func(ctx *iris.Context) {
 
