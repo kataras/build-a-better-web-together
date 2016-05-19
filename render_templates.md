@@ -27,7 +27,7 @@ A snippet:
 ```go
 
 iris.Get("/default_standar", func(ctx *iris.Context){
-  ctx.Render("index.html", nil) // this will render ./templates/index.html
+  ctx.Render("index.html", nil) // this will render the file ./templates/index.html
 })
 ```
 Let's read and learn how to set the configuration now.
