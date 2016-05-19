@@ -140,7 +140,7 @@ type (
 		MarkdownSanitize bool
 	}
 
-	EngineType uint8
+        EngineType int8
 
 		Template struct {
 		// contains common configs for both HTMLTemplate & Pongo
