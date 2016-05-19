@@ -136,15 +136,16 @@ type (
 		// Disables automatic rendering of http.StatusInternalServerError when an error occurs. 
         // Default is false.
 		DisableHTTPErrorRendering bool
+        // MarkdownSanitize sanitizes the markdown. Default is false.
+		MarkdownSanitize bool
 	}
 
 	EngineType uint8
 
-	Template struct {
-		// contains common configs for both HTMLEngine & Pongo as their common options
-		Engine        EngineType
-		Gzip          bool // default false
-        Minify        bool // default true
+		Template struct {
+		// contains common configs for both HTMLTemplate & Pongo
+		Engine EngineType
+		Gzip   bool
 		IsDevelopment bool
 		Directory     string
 		Extensions    []string
@@ -153,9 +154,13 @@ type (
 		Asset         func(name string) ([]byte, error)
 		AssetNames    func() []string
 		Layout        string
-		HTMLTemplate  HTMLTemplate // contains specific configs for HTMLTemplate html/template
-		Pongo         Pongo   // contains specific configs for pongo2
-        Markdown      Markdown // contains specific configs for markdown
+
+		HTMLTemplate HTMLTemplate // contains specific configs for  HTMLTemplate standard html/template
+		Pongo        Pongo        // contains specific configs for pongo2
+		// Markdown template engine it doesn't supports Layout & binding context
+		Markdown Markdown // contains specific configs for markdown
+		Jade     Jade     // contains specific configs for Jade
+		Amber    Amber    // contains specific configs for Amber
 	}
 
 	HTMLTemplate struct {
@@ -164,18 +169,28 @@ type (
 		Left  string
 		Right string
 		// Funcs for HTMLTemplate html/template
-		Funcs []template.FuncMap
+		Funcs template.FuncMap
 	}
 
 	Pongo struct {
-		// Filters for pongo2, map[name of the filter] the filter function .
-        // The filters are auto register
+		// Filters for pongo2, map[name of the filter] the filter function . The filters are auto register
 		Filters map[string]pongo2.FilterFunction
 	}
-    
-    Markdown struct {
-        Sanitize bool // default false
-    }
+
+	Markdown struct {
+		Sanitize bool // if true then returns safe html, default is false
+	}
+
+	// Jade empty for now
+	// stay tuned
+	Jade struct {
+	}
+
+	Amber struct {
+		// Funcs for the html/template result,
+        // amber default funcs are not overrided so use it without worries
+		Funcs template.FuncMap
+	}
 )
 ```
 
