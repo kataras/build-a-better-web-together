@@ -7,6 +7,7 @@ Iris gives you the freedom to render templates through  **html/template**, Djang
 -  `iris.PongoEngine` is the [flosch/pongo2](https://github.com/flosch/pongo2)
 -  `iris.AmberEngine` is the [eknkc/amber](https://github.com/eknkc/amber)
 -  `iris.JadeEngine` is the [Joker/jade](https://github.com/Joker/jade)
+-  `iris.MarkdownEngine`
 
 ----
 
