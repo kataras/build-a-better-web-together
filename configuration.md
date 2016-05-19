@@ -114,6 +114,21 @@ type (
 ```
 
 ```go
+
+const (
+	NoEngine       EngineType = -1
+	HTMLEngine     EngineType = 0
+	PongoEngine    EngineType = 1
+	MarkdownEngine EngineType = 2
+	JadeEngine     EngineType = 3
+	AmberEngine    EngineType = 4
+
+	DefaultEngine EngineType = HTMLEngine
+
+	// to disable layout for a particular file
+	NoLayout = "@.|.@iris_no_layout@.|.@"
+)
+
 type (
 	// Rest is a struct for specifying configuration options for the rest.Render object.
 	Rest struct {
