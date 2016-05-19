@@ -41,6 +41,21 @@ Below you will find a list of the config structs.
 
 ## Search [All Configs](https://github.com/kataras/iris/tree/master/config)
 ```go
+
+// Inside iris package
+var (
+	HTMLEngine  = config.HTMLEngine
+	PongoEngine = config.PongoEngine
+	JadeEngine  = config.JadeEngine
+	AmberEngine = config.AmberEngine
+
+	DefaultEngine = config.DefaultEngine
+	NoEngine      = config.NoEngine
+	//
+
+	NoLayout = config.NoLayout
+)
+
 type (
 	// Iris configs for the station
 	// All fields can be changed before server's listen except the PathCorrection field
