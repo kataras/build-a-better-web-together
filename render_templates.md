@@ -29,19 +29,14 @@ A snippet:
 iris.Get("/default_standar", func(ctx *iris.Context){
   ctx.Render("index.html",nil) // this will render ./templates/index.html
 })
-
 ```
-
 Let's read and learn how to set the configuration now.
 ```go
+
 import (
     "github.com/kataras/iris/config"
     //...
 )
-
-```
-
-```go
 // These are the defaults
 templateConfig := config.Template {
   		Engine:        DefaultEngine, //or HTMLTemplate
@@ -78,6 +73,7 @@ iris.Config().Render.Template.Layout = "layout/layout.html" // = ./templates/lay
 theDefaults := config.DefaultTemplate()
 theDefaults.Extensions = []string{".myExtension"}
 //...
+
 ```
 
 
