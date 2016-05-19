@@ -337,3 +337,102 @@ Google App Engine projects.
 W3C validation tool for HTML 4.01 and XHTML 1.0 Transitional.</p>
 
 ```
+
+#### `Amber`
+
+```go
+// main.go
+package main
+
+import "github.com/kataras/iris"
+
+func main() {
+
+	iris.Config().Render.Template.Engine = iris.AmberEngine
+	iris.Config().Render.Template.Extensions = []string{".amber"} 
+    // this is optionally, you can just leave it to default which is .html
+
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.Render("basic.amber", map[string]string{"Name": "iris"})
+
+	})
+	println("Server is running at: 8080")
+	iris.Listen(":8080")
+}
+
+
+```
+
+```html
+<!-- templates/basic.amber -->
+
+!!! 5
+html
+    head
+        title Hello #{Name}
+
+        meta[name="description"][value="This is a sample"]
+
+        script[type="text/javascript"]
+            var hw = "Hello #{Name}!"
+            alert(hw)
+
+        style[type="text/css"]
+            body {
+                background: maroon;
+                color: white
+            }
+
+    body
+        header#mainHeader
+            ul
+                li.active
+                    a[href="/"] Main Page
+                        [title="Main Page"]
+            h1
+                 | Hi #{Name}
+
+        footer
+            | Hey
+            br
+            | There
+
+```
+
+Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+```html
+<!-- OUTPUT -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello iris</title>
+		<meta name="description" value="This is a sample" />
+		<script type="text/javascript">
+			var hw = "Hello iris!"
+			alert(hw)
+		</script>
+		<style type="text/css">
+			body {
+				background: maroon;
+				color: white
+			}
+		</style>
+	</head>
+	<body>
+		<header id="mainHeader">
+			<ul>
+				<li class="active">
+					<a href="/" title="Main Page">Main Page</a>
+				</li>
+			</ul>
+			<h1>Hi iris</h1>
+		</header>
+		<footer>
+			Hey
+			<br />
+			There
+		</footer>
+	</body>
+</html>
+
+```
