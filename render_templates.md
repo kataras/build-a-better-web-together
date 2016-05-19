@@ -436,3 +436,116 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 </html>
 
 ```
+
+#### `Jade`
+
+```go
+// main.go
+package main
+
+import (
+	"github.com/kataras/iris"
+)
+
+type Person struct {
+	Name   string
+	Age    int
+	Emails []string
+	Jobs   []*Job
+}
+
+type Job struct {
+	Employer string
+	Role     string
+}
+
+func main() {
+	iris.Config().Render.Template.Extensions = []string{".jade"} 
+    // this is optionally, you can keep .html extension
+	iris.Config().Render.Template.Engine = iris.JadeEngine
+
+	iris.Get("/", func(ctx *iris.Context) {
+
+		job1 := Job{Employer: "Super Employer", Role: "Team leader"}
+		job2 := Job{Employer: "Fast Employer", Role: "Project managment"}
+
+		person := Person{
+			Name:   "name1",
+			Age:    50,
+			Emails: []string{"email1@something.gr", "email2.anything@gmail.com"},
+			Jobs:   []*Job{&job1, &job2},
+		}
+
+		if err := ctx.Render("page.jade", person); err != nil {
+			println(err.Error())
+		}
+	})
+
+	println("Server is running at: 8080")
+	iris.Listen(":8080")
+}
+
+```
+
+```html
+<!-- templates/page.jade -->
+
+doctype html
+html(lang=en)
+	head
+		meta(charset=utf-8)
+		title Title
+	body
+		p ads
+		ul
+			li The name is {{.Name}}.
+			li The age is {{.Age}}.
+
+		range .Emails
+			div An email is {{.}}
+
+		with .Jobs
+			range .
+				div.
+				 An employer is {{.Employer}}
+				 and the role is {{.Role}}
+
+```
+
+Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+```html
+<!-- OUTPUT -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello Amber from Iris</title>
+		<meta name="description" value="This is a sample" />
+		<script type="text/javascript">
+			var hw = "Hello iris!"
+			alert(hw)
+		</script>
+		<style type="text/css">
+			body {
+				background: maroon;
+				color: white
+			}
+		</style>
+	</head>
+	<body>
+		<header id="mainHeader">
+			<ul>
+				<li class="active">
+					<a href="/" title="Main Page">Main Page</a>
+				</li>
+			</ul>
+			<h1>Hi iris</h1>
+		</header>
+		<footer>
+			Hey
+			<br />
+			There
+		</footer>
+	</body>
+</html>
+
+```
