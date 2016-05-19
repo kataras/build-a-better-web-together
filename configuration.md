@@ -114,19 +114,18 @@ type (
 ```
 
 ```go
+// Inside iris package
+var (
+	HTMLEngine  = config.HTMLEngine
+	PongoEngine = config.PongoEngine
+	JadeEngine  = config.JadeEngine
+	AmberEngine = config.AmberEngine
 
-const (
-	NoEngine       EngineType = -1
-	HTMLEngine     EngineType = 0
-	PongoEngine    EngineType = 1
-	MarkdownEngine EngineType = 2
-	JadeEngine     EngineType = 3
-	AmberEngine    EngineType = 4
+	DefaultEngine = config.DefaultEngine
+	NoEngine      = config.NoEngine
+	//
 
-	DefaultEngine EngineType = HTMLEngine
-
-	// to disable layout for a particular file
-	NoLayout = "@.|.@iris_no_layout@.|.@"
+	NoLayout = config.NoLayout
 )
 
 type (
