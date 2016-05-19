@@ -294,29 +294,6 @@ All features of Sundown are supported, including:
 *   **Standards compliant**. Output successfully validates using the
     W3C validation tool for HTML 4.01 and XHTML 1.0 Transitional.
 
-
-Extensions
-----------
-
-In addition to the standard markdown syntax, this package
-implements the following extensions:
-
-*   **Intra-word emphasis supression**. The `_` character is
-    commonly used inside words when discussing code, so having
-    markdown interpret it as an emphasis command is usually the
-    wrong thing. Blackfriday lets you treat all emphasis markers as
-    normal characters when they occur inside a word.
-
-*   **Tables**. Tables can be created by drawing them in the input
-    using a simple syntax:
-
- 
-    Name    | Age
-    --------|------
-    Bob     | 27
-    Alice   | 23
- 
-//I stop here in order to be readable
      
  ```  
 
@@ -358,70 +335,5 @@ self-contained, so it is easy to add to any project, including
 Google App Engine projects.
 * <strong>Standards compliant</strong>. Output successfully validates using the
 W3C validation tool for HTML 4.01 and XHTML 1.0 Transitional.</p>
-
-<h2>Extensions</h2>
-
-<p>In addition to the standard markdown syntax, this package
-implements the following extensions:
-* <strong>Intra-word emphasis supression</strong>. The <code>_</code> character is
-commonly used inside words when discussing code, so having
-markdown interpret it as an emphasis command is usually the
-wrong thing. Blackfriday lets you treat all emphasis markers as
-normal characters when they occur inside a word.
-* <strong>Tables</strong>. Tables can be created by drawing them in the input
-using a simple syntax:</p>
-
-<pre><code>Name | Age
---------|------
-Bob | 27
-Alice | 23
-</code></pre>
-
-<ul>
-<li><strong>Fenced code blocks</strong>. In addition to the normal 4-space
-indentation to mark code blocks, you can explicitly mark them
-and supply a language (to make syntax highlighting simple). Just
-mark it like this:
-<code>go
-func getTrue() bool {
-return true
-}
-</code>
-You can use 3 or more backticks to mark the beginning of the
-block, and the same number to mark the end of the block.</li>
-<li><strong>Definition lists</strong>. A simple definition list is made of a single-line
-term followed by a colon and the definition for that term.
-Cat</li>
-<li>Fluffy animal everyone likes
-Internet</li>
-<li>Vector of transmission for pictures of cats
-Terms must be separated from the previous definition by a blank line.</li>
-<li><strong>Footnotes</strong>. A marker in the text that will become a superscript number;
-a footnote definition that will be placed in a list of footnotes at the
-end of the document. A footnote looks like this:
-This is a footnote.[^1]
-[^1]: the footnote text.</li>
-<li><strong>Autolinking</strong>. Blackfriday can find URLs that have not been
-explicitly marked as links and turn them into links.</li>
-<li><strong>Strikethrough</strong>. Use two tildes (<code>~~</code>) to mark text that
-should be crossed out.</li>
-<li><strong>Hard line breaks</strong>. With this extension enabled (it is off by
-default in the <code>MarkdownBasic</code> and <code>MarkdownCommon</code> convenience
-functions), newlines in the input translate into line breaks in
-the output.</li>
-<li><strong>Smart quotes</strong>. Smartypants-style punctuation substitution is
-supported, turning normal double- and single-quote marks into
-curly quotes, etc.</li>
-<li><strong>LaTeX-style dash parsing</strong> is an additional option, where <code>--</code>
-is translated into <code>&amp;ndash;</code>, and <code>---</code> is translated into
-<code>&amp;mdash;</code>. This differs from most smartypants processors, which
-turn a single hyphen into an ndash and a double hyphen into an
-mdash.</li>
-<li><strong>Smart fractions</strong>, where anything that looks like a fraction
-is translated into suitable HTML (instead of just a few special
-cases like most smartypant processors). For example, <code>4/5</code>
-becomes <code>&lt;sup&gt;4&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt;</code>, which renders as
-<sup>4</sup>&frasl;<sub>5</sub>.</li>
-</ul>
 
 ```
