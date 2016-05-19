@@ -515,37 +515,38 @@ html(lang=en)
 Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
 ```html
 <!-- OUTPUT -->
+
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Hello Amber from Iris</title>
-		<meta name="description" value="This is a sample" />
-		<script type="text/javascript">
-			var hw = "Hello iris!"
-			alert(hw)
-		</script>
-		<style type="text/css">
-			body {
-				background: maroon;
-				color: white
-			}
-		</style>
-	</head>
-	<body>
-		<header id="mainHeader">
-			<ul>
-				<li class="active">
-					<a href="/" title="Main Page">Main Page</a>
-				</li>
-			</ul>
-			<h1>Hi iris</h1>
-		</header>
-		<footer>
-			Hey
-			<br />
-			There
-		</footer>
-	</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <p>ads</p>
+        <ul>
+            <li>The name is name1.</li>
+            <li>The age is 50.</li>
+        </ul>
+        
+            <div>An email is email1@something.gr</div>
+        
+            <div>An email is email2.anything@gmail.com</div>
+        
+        
+            
+                <div>
+                 An employer is Super Employer
+                 and the role is Team leader
+                </div>
+            
+                <div>
+                 An employer is Fast Employer
+                 and the role is Project managment
+                </div>
+            
+        
+    </body>
 </html>
 
 ```
