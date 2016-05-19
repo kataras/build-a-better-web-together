@@ -369,7 +369,7 @@ func main() {
 !!! 5
 html
     head
-        title Hello #{Name}
+        title Hello Amber from Iris
 
         meta[name="description"][value="This is a sample"]
 
@@ -405,7 +405,7 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Hello iris</title>
+		<title>Hello Amber from Iris</title>
 		<meta name="description" value="This is a sample" />
 		<script type="text/javascript">
 			var hw = "Hello iris!"
