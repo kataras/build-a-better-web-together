@@ -3,10 +3,10 @@
 Iris gives you the freedom to render templates through  **html/template**, Django-syntax package **Pongo2**, Raw **Markdown**, **Amber** or **Jade** via ** iris.Config().Render.Template.Engine = iris.___Engine**.
 
 
-- `HTMLTemplate` is the [html/template](https://golang.org/pkg/html/template) 
--  `Pongo` is the [flosch/pongo2](https://github.com/flosch/pongo2)
--  `Amber` is the [eknkc/amber](https://github.com/eknkc/amber)
--  `Jade` is the [Joker/jade](https://github.com/Joker/jade)
+- `iris.HTMLEngine` is the [html/template](https://golang.org/pkg/html/template) 
+-  `iris.PongoEngine` is the [flosch/pongo2](https://github.com/flosch/pongo2)
+-  `iris.AmberEngine` is the [eknkc/amber](https://github.com/eknkc/amber)
+-  `iris.JadeEngine` is the [Joker/jade](https://github.com/Joker/jade)
 
 ----
 
