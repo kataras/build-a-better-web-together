@@ -44,29 +44,19 @@ import (
 ```go
 // These are the defaults
 templateConfig := config.Template {
-  // iris.DefaultEngine is the iris.HTMLEngine  or iris.PongoEngine
-  Engine:  config.DefaultEngine
-  // Common options for all template engines 
-  Gzip:          false,
-  IsDevelopment: false,
-  Directory:     "templates",
-  Extensions:    []string{".html"},
-  ContentType:   "text/html",
-  Charset:       "UTF-8",
-  Layout:        "", 
-  Asset:         nil, // func(name string) ([]byte, error)
-  AssetNames:    nil, // func() []string
-  
-  // Options when you're using html/template | When Engine == config.HTMLTemplate
-  HTMLTemplate: config.HTMLTemplate {
-    Left: "{{", 
-    Right: "}}",
-    Funcs: make([]template.FuncMap, 0),
-   },
-  // Option when you're using pongo2 | When Engine == config.PongoEngine
-  Pongo:  config.Pongo{Filters: make(map[string]pongo2.FilterFunction, 0)},
-  // Option when you're using markdown | When Engine == config.MarkdownEngine
-  Markdown:      Markdown{Sanitize: false},
+  		Engine:        DefaultEngine, //or HTMLTemplate
+		Gzip:          false,
+		IsDevelopment: false,
+		Directory:     "templates",
+		Extensions:    []string{".html"},
+		ContentType:   "text/html",
+		Charset:       "UTF-8",
+		Layout:        "", // currently this is the only config which not working for pongo2 yet but I will find a way
+		HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: template.FuncMap{}},
+		Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0)},
+		Markdown:      Markdown{Sanitize: false},
+		Amber:         Amber{Funcs: template.FuncMap{}},
+        Jade:          Jade{},
 }
 
 // Set
