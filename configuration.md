@@ -46,6 +46,7 @@ Below you will find a list of the config structs.
 var (
 	HTMLEngine  = config.HTMLEngine
 	PongoEngine = config.PongoEngine
+    MarkdownEngine = config.MarkdownEngine
 	JadeEngine  = config.JadeEngine
 	AmberEngine = config.AmberEngine
 
@@ -94,7 +95,7 @@ type (
 		// ctx.Param("project") returns the raw named parameter: Project%2FDelta
 		// which you can escape it manually with net/url:
         // projectName, _ := url.QueryUnescape(c.Param("project").
-		// With PathEscape = true this will redirect to 404 not found error because of the Project/Data
+		// With PathEscape = true this will redirect to 404 not found error because of the Project/2FDelta
 		// Look here: https://github.com/kataras/iris/issues/135
 		//
 		// Default is true
