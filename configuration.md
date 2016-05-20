@@ -76,6 +76,7 @@ type (
 		//
 		// By default request body size is unlimited.
 		MaxRequestBodySize int
+        
 		// PathCorrection corrects and redirects the requested path to the registed path
 		// for example, if /home/ path is requested but no handler for this Route found,
 		// then the Router checks if /home handler exists, if yes,
