@@ -84,11 +84,11 @@ type RouteInfo struct {
 }
 
 type myPlugin struct {
-	routes    []RouteInfo
+	routes    []*RouteInfo
 }
 
 func NewMyPlugin() *myPlugin {
-	return &myPlugin{routes: make([]RouteInfo, 0)}
+	return &myPlugin{routes: make([]*RouteInfo, 0)}
 }
 
 //
@@ -109,8 +109,8 @@ func (i *myPlugin) PostHandle(route iris.IRoute) {
 // PostListen called after the server is started, here you can do a lot of staff
 // you have the right to access the whole iris' Station also, here you can add more routes and do anything you want, for example start a second server too, an admin web interface!
 // for example let's print to the server's stdout the routes we collected...
-func (i *myPlugin) PostListen(s *iris.Station) {
-	s.Logger.Printf("From MyPlugin: You have registed %d routes ", len(i.routes))
+func (i *myPlugin) PostListen(s *iris.Iris) {
+	s.Logger().Printf("From MyPlugin: You have registed %d routes ", len(i.routes))
 	//do what ever you want, you have imagination do more than this!
 }
 
