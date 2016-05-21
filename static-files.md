@@ -163,8 +163,8 @@ StaticServe(systemPath string, requestPath ...string)
 ```
 ```go
 func main() {
-  iris.StaticServe("./assets")
-  // Serves all files inside this directory to the GET&HEAD route: 0.0.0.0:8080/assets
+  iris.StaticServe("./mywebpage")
+  // Serves all files inside this directory to the GET&HEAD route: 0.0.0.0:8080/mywebpage
   // using gzip compression ( no file cache, for file cache with zipped files use the StaticFS)
   iris.Listen(":8080")
 }
@@ -173,8 +173,8 @@ func main() {
 
 ```go
 func main() {
-  iris.StaticServe("./static/myfiles","/assets")
-  // Serves all files inside filesystem path ./static/myfiles to the GET&HEAD route: 0.0.0.0:8080/assets
+  iris.StaticServe("./static/mywebpage","/webpage")
+  // Serves all files inside filesystem path ./static/myfiles to the GET&HEAD route: 0.0.0.0:8080/webpage
   iris.Listen(":8080")
 }
 
