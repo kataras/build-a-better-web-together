@@ -4,6 +4,47 @@ Serve a static directory
 
 ```go
 
+// StaticHandlerFunc returns a HandlerFunc to serve static system directory
+// Accepts 5 parameters
+//
+// first is the systemPath (string)
+// Path to the root directory to serve files from.
+//
+// second is the  stripSlashes (int) level
+// * stripSlashes = 0, original path: "/foo/bar", result: "/foo/bar"
+// * stripSlashes = 1, original path: "/foo/bar", result: "/bar"
+// * stripSlashes = 2, original path: "/foo/bar", result: ""
+//
+// third is the compress (bool)
+// Transparently compresses responses if set to true.
+//
+// The server tries minimizing CPU usage by caching compressed files.
+// It adds FSCompressedFileSuffix suffix to the original file name and
+// tries saving the resulting compressed file under the new file name.
+// So it is advisable to give the server write access to Root
+// and to all inner folders in order to minimze CPU usage when serving
+// compressed responses.
+//
+// fourth is the generateIndexPages (bool)
+// Index pages for directories without files matching IndexNames
+// are automatically generated if set.
+//
+// Directory index generation may be quite slow for directories
+// with many files (more than 1K), so it is discouraged enabling
+// index pages' generation for such directories.
+//
+// fifth is the indexNames ([]string)
+// List of index file names to try opening during directory access.
+//
+// For example:
+//
+//     * index.html
+//     * index.htm
+//     * my-super-index.xml
+//
+StaticHandlerFunc(systemPath string, stripSlashes int, compress bool,
+generateIndexPages bool, indexNames []string) HandlerFunc 
+
 // Static registers a route which serves a system directory
 // this doesn't generates an index page which list all files
 // no compression is used also, for these features look at StaticFS func
@@ -39,6 +80,15 @@ StaticFS(relative string, systemPath string, stripSlashes int)
 // * stripSlashes = 1, original path: "/foo/bar", result: "/bar"
 // * stripSlashes = 2, original path: "/foo/bar", result: ""
 StaticWeb(relative string, systemPath string, stripSlashes int)
+
+// StaticServe serves a directory as web resource
+// it's the simpliest form of the Static* functions
+// Almost same usage as StaticWeb
+// accepts only one required parameter which is the systemPath 
+// ( the same path will be used to register the GET&HEAD routes)
+// if second parameter is empty, otherwise the requestPath is the second parameter
+// it uses gzip compression (compression on each request, no file cache)
+StaticServe(systemPath string, requestPath ...string)
 
 ```
 ```go
