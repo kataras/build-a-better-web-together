@@ -104,17 +104,20 @@ iris.StaticFS("/ftp", "./myfiles/public", 1)
 ```go
 iris.StaticWeb("/","./my_static_html_website", 1)
 ```
+```go
+StaticServe(systemPath string, requestPath ...string)
+```
 
 ### Manual static file serving
 ```go
 // ServeFile serves a view file, to send a file
-to the client you should use the SendFile(serverfilename,clientfilename)
+// to the client you should use the SendFile(serverfilename,clientfilename)
 // receives two parameters
 // filename/path (string)
 // gzipCompression (bool)
 //
 // You can define your own "Content-Type" header also, after this function call
-func (ctx *Context) ServeFile(filename string, gzipCompression bool) error {
+ServeFile(filename string, gzipCompression bool) error 
 ```
 Serve static individual file
 
