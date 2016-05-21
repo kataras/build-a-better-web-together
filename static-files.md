@@ -177,7 +177,7 @@ func main() {
 ```go
 func main() {
   iris.StaticServe("./static/mywebpage","/webpage")
-  // Serves all files inside filesystem path ./static/myfiles to the GET&HEAD route: 0.0.0.0:8080/webpage
+  // Serves all files inside filesystem path ./static/mywebpage to the GET&HEAD route: 0.0.0.0:8080/webpage
   iris.Listen(":8080")
 }
 
