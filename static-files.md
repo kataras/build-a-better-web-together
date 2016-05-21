@@ -43,7 +43,7 @@ Serve a static directory
 //     * my-super-index.xml
 //
 StaticHandlerFunc(systemPath string, stripSlashes int, compress bool,
-generateIndexPages bool, indexNames []string) HandlerFunc 
+                  generateIndexPages bool, indexNames []string) HandlerFunc 
 
 // Static registers a route which serves a system directory
 // this doesn't generates an index page which list all files
