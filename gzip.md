@@ -39,26 +39,6 @@ iris.Get("/something", func(ctx *iris.Context){
 
 ```
 
-## Serve static files with gzip
+## Other
 
-```go
-StaticServe(systemPath string, requestPath ...string)
-```
-```go
-func main() {
-  iris.StaticServe("./assets")
-  // Serves all files inside this directory to the GET&HEAD route: 0.0.0.0:8080/assets
-  // using gzip compression ( no file cache, for file cache with zipped files use the StaticFS)
-  iris.Listen(":8080")
-}
-
-```
-
-```go
-func main() {
-  iris.StaticServe("./static/myfiles","/assets")
-  // Serves all files inside filesystem path ./static/myfiles to the GET&HEAD route: 0.0.0.0:8080/assets
-  iris.Listen(":8080")
-}
-
-```
+See [Static files](static-files.md) and learn how you can serve big files, assets or webpages with gzip compression.
