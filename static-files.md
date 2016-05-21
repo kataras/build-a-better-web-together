@@ -62,7 +62,7 @@ Serve static individual file
 ```go
 
 iris.Get("/txt", func(ctx *iris.Context) {
-	ctx.ServeFile("./myfolder/staticfile.txt")
+	ctx.ServeFile("./myfolder/staticfile.txt", false)
 }
 
 ```
@@ -90,10 +90,33 @@ func main() {
 				return
 			}
 
-			ctx.ServeFile(path)
+			ctx.ServeFile(path, false) // make this true to use gzip compression
 	}
 }
 
 iris.Listen(":8080")
+
+```
+The previous example is almost identical with
+
+```go
+StaticServe(systemPath string, requestPath ...string)
+```
+```go
+func main() {
+  iris.StaticServe("./assets")
+  // Serves all files inside this directory to the GET&HEAD route: 0.0.0.0:8080/assets
+  // using gzip compression ( no file cache, for file cache with zipped files use the StaticFS)
+  iris.Listen(":8080")
+}
+
+```
+
+```go
+func main() {
+  iris.StaticServe("./static/myfiles","/assets")
+  // Serves all files inside filesystem path ./static/myfiles to the GET&HEAD route: 0.0.0.0:8080/assets
+  iris.Listen(":8080")
+}
 
 ```
