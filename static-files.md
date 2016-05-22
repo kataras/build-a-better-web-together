@@ -214,3 +214,4 @@ func main() {
 
 
 ```
+Practical example [here](https://github.com/iris-contrib/examples/tree/master/favicon)
