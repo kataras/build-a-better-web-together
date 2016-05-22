@@ -1,16 +1,6 @@
 # Context
 
-![Iris Context Outline view](http://kataras.github.io/iris/assets/ctx1.png)
-
-![Iris Context Outline view](http://kataras.github.io/iris/assets/ctx2.png)
-
-![Iris Context Outline view](http://kataras.github.io/iris/assets/ctx3.png)
-
-![Iris Context Outline view](http://kataras.github.io/iris/assets/ctx4.png)
-
-![Iris Context Outline view](http://kataras.github.io/iris/assets/ctx5.png)
-
-![Iris Context Outline view](http://kataras.github.io/iris/assets/ctx6.png)
+![Iris Context Outline view](https://raw.githubusercontent.com/kataras/iris/gh-pages/assets/ctx_full.png)
 
 
-Inside the [examples](https://github.com/iris-contrib/examples) you will find practical code
+The [examples](https://github.com/iris-contrib/examples) will give you the direction.
