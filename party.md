@@ -16,7 +16,7 @@ func main() {
     users := iris.Party("/users",func(c *iris.Context) {
 			println("LOG [/users...] This is the middleware for: ", c.PathString())
 			c.Next()
-		}))
+		})
     {
 
 		users.Post("/login", loginHandler)
