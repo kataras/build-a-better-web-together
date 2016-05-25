@@ -147,7 +147,8 @@ func main() {
 	w := websocket.New(api, "/my_endpoint")
 	// for default 'iris.' station use that: w := websocket.New(iris.DefaultIris, "/my_endpoint")
 
-	var myChatRoom = "room1" // here the room name, you can define anything you want, you can make an event to
+	var myChatRoom = "room1" // here the room name, 
+    // you can define anything you want, you can make an event to
 	//  the client to specify which room want join and so on
 
 	w.OnConnection(func(c websocket.Connection) {
@@ -155,7 +156,8 @@ func main() {
 		w.Join(myChatRoom, c) // join this connection to the "room1"
 
 		c.On("chat", func(message st****ring) {
-			//send the message to the whole room, all connections are inside this room will receive this message
+			//send the message to the whole room,
+            // all connections are inside this room will receive this message
 			c.To(myChatRoom).Emit("chat", "From: "+c.ID()+": "+message)
 		})
 
