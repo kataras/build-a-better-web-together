@@ -13,31 +13,104 @@ WebSocket is designed to be implemented in web browsers and web servers, but it 
 
 How to use
 
+**Server-side**
 ```go
-import (
-    "github.com/kataras/iris"
-	"github.com/kataras/iris/websocket"
-)
+import "github.com/kataras/iris/websocket"
+//...
 
-func chat(c *websocket.Conn) {
-	// defer c.Close()
-	// mt, message, err := c.ReadMessage()
-	// c.WriteMessage(mt, message)
-}
+// important staff
 
-var upgrader = websocket.New(chat) // use default options
-//var upgrader = websocket.Custom(chat, 1024, 1024) // customized options, read and write buffer sizes (int). Default: 4096
-// var upgrader = websocket.New(chat).DontCheckOrigin() // it's useful when you have the websocket server on a different machine
+w := websocket.New(api, "/my_endpoint")
+// for default 'iris.' station use that: w := websocket.New(iris.DefaultIris, "/my_endpoint")
 
-func myChatHandler(ctx *iris.Context) {
-	err := upgrader.Upgrade(ctx)// returns only error, executes the handler you defined on the websocket.New before (the 'chat' function)
-}
+w.OnConnection(func(c websocket.Connection) {
+	c.On("chat", func(message string) {
+		c.To(websocket.Broadcast).Emit("chat", "Message from: "+c.ID()+"-> "+message) // to all except this connection
+		// c.To("to a specific connection.ID() [rooms are coming soon]").Emit...
+		c.Emit("chat", "Message from myself: "+message)
+	})
+})
 
-func main() {
-  iris.Get("/chat_back", myChatHandler)
-  iris.Listen(":80")
+//
+
+
+// ...
+
+```
+
+**Client-side**
+
+```js
+// js/chat.js
+var messageTxt;
+var messages;
+
+$(function () {
+
+	messageTxt = $("#messageTxt");
+	messages = $("#messages");
+
+
+	ws = new Ws("ws://" + HOST + "/my_endpoint");
+	ws.OnConnect(function () {
+		console.log("Websocket connection enstablished");
+	});
+
+	ws.OnDisconnect(function () {
+		appendMessage($("<div><center><h3>Disconnected</h3></center></div>"));
+	});
+
+	ws.On("chat", function (message) {
+		appendMessage($("<div>" + message + "</div>"));
+	})
+
+	$("#sendBtn").click(function () {
+		//ws.EmitMessage(messageTxt.val());
+		ws.Emit("chat", messageTxt.val().toString());
+		messageTxt.val("");
+	})
+
+})
+
+
+function appendMessage(messageDiv) {
+    var theDiv = messages[0]
+    var doScroll = theDiv.scrollTop == theDiv.scrollHeight - theDiv.clientHeight;
+    messageDiv.appendTo(messages)
+    if (doScroll) {
+        theDiv.scrollTop = theDiv.scrollHeight - theDiv.clientHeight;
+    }
 }
 
 ```
 
-The iris/websocket package has been converted from the gorilla/websocket. If you want to see more examples just go [here](https://github.com/gorilla/websocket/tree/master/examples) and make the conversions as you see in 'How to use' before.
+
+```html
+
+<html>
+
+<head>
+	<title>My iris-ws</title>
+</head>
+
+<body>
+	<div id="messages" style="border-width:1px;border-style:solid;height:400px;width:375px;">
+
+	</div>
+	<input type="text" id="messageTxt" />
+	<button type="button" id="sendBtn">Send</button>
+	<script type="text/javascript">
+		var HOST = {{.Host}}
+	</script>
+	<script src="js/vendor/jquery-2.2.3.min.js" type="text/javascript"></script>
+	<!-- /iris-ws.js is served automatically by the server -->
+	<script src="/iris-ws.js" type="text/javascript"></script>
+	<!-- -->
+	<script src="js/chat.js" type="text/javascript"></script>
+</body>
+
+</html>
+
+
+```
+View a working example by pressing [here](https://github.com/iris-contrib/examples/tree/master/websocket)
