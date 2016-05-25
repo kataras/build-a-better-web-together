@@ -116,6 +116,8 @@ function appendMessage(messageDiv) {
 
 
 **Server-Side second approach with rooms**
+
+
 Let's use the rooms feature to achieve the same results, no need to modify client, just the **server-side** :
 
 ```go
@@ -149,7 +151,7 @@ func main() {
 
 	var myChatRoom = "room1" // here the room name, 
     // you can define anything you want, you can make an event to
-	//  the client to specify which room want join and so on
+	//  the client to specify which room want join also and so on
 
 	w.OnConnection(func(c websocket.Connection) {
 
