@@ -47,9 +47,10 @@ templateConfig := config.Template {
 		Extensions:    []string{".html"},
 		ContentType:   "text/html",
 		Charset:       "UTF-8",
-		Layout:        "", // currently this is the only config which not working for pongo2 yet but I will find a way
+		Layout:        "", // currently this is working only on HTML
 		HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: template.FuncMap{}},
-		Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0)},
+		Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0),
+                              Globals: make(map[string]interface{}},
 		Markdown:      Markdown{Sanitize: false},
 		Amber:         Amber{Funcs: template.FuncMap{}},
         Jade:          Jade{},
