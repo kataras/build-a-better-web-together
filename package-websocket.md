@@ -83,6 +83,7 @@ Join("anyCustomRoom")
 Leave("anyCustomRoom")
 
 
+// Fired when the connection is closed
 OnDisconnect(func(){})
 
 ```
