@@ -15,7 +15,6 @@ How to use
 
 **Server-side**
 ```go
-
 package main
 
 import (
