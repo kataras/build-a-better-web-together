@@ -14,6 +14,8 @@ WebSocket is designed to be implemented in web browsers and web servers, but it 
 How to use
 
 **Server-side**
+```go
+
 package main
 
 import (
