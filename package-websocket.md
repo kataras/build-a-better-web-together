@@ -61,6 +61,16 @@ Emit("anyCustomEvent", int)
 Emit("anyCustomEvent", bool)
 Emit("anyCustomEvent", anyCustomType)
 
+// Send to specific client(s)
+To("otherConnectionId").Emit...
+To("anyCustomRoom").Emit...
+
+// Send to all opened connections/clients
+To(websocket.All).Emit...
+
+// Send to all opened connections/clients EXCEPT this client(c)
+To(websocket.NotMe).Emit...
+
 // Rooms, group of connections/clients
 Join("anyCustomRoom")
 Leave("anyCustomRoom")
