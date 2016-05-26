@@ -45,7 +45,7 @@ func main() {
 		c.Join(myChatRoom)
 
 		c.On("chat", func(message string) {
-   // to all except this connection
+           // to all except this connection
 			//c.To(websocket.Broadcast).Emit("chat", "Message from: "+c.ID()+"-> "+message) 
          
 			//c.Emit("chat", "Message from myself: "+message)
