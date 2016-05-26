@@ -35,9 +35,11 @@ func main() {
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Render("client.html", clientPage{"Client Page", ctx.HostString()})
 	})
-
-	iris.Config().Websocket.Endpoint = "/my_endpoint" // the path which the websocket client should listen/registed to
-	ws := iris.Websocket()                            // get the websocket server
+    
+    // the path which the websocket client should listen/registed to ->
+	iris.Config().Websocket.Endpoint = "/my_endpoint" 
+    
+	ws := iris.Websocket() // get the websocket server
 
 	var myChatRoom = "room1"
 	ws.OnConnection(func(c websocket.Connection) {
