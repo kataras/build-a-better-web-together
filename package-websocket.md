@@ -55,11 +55,18 @@ On("anyCustomEvent", func(message bool){})
 On("anyCustomEvent", func(message anyCustomType){})
 On("anyCustomEvent", func(){})
 
+// Receive a native websocket message from the client
+// compatible without need of import the iris-ws.js to the .html
+OnMessage("anyMessage",func(message string){})
+
 // Send to the client
 Emit("anyCustomEvent", string)
 Emit("anyCustomEvent", int)
 Emit("anyCustomEvent", bool)
 Emit("anyCustomEvent", anyCustomType)
+
+// Send via native websocket way, compatible without need of import the iris-ws.js to the .html
+EmitMessage("anyMessage")
 
 // Send to specific client(s)
 To("otherConnectionId").Emit/EmitMessage...
