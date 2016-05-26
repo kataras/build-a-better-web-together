@@ -155,7 +155,7 @@ func main() {
 
 	w.OnConnection(func(c websocket.Connection) {
 
-		w.Join(myChatRoom, c) // join this connection to the "room1"
+		c.Join(myChatRoom) // join this connection to the "room1"
 
 		c.On("chat", func(message st****ring) {
 			//send the message to the whole room,
