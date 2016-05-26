@@ -129,6 +129,8 @@ type (
 
 		// Render contains the configs for template and rest configuration
 		Render Render
+        // Websocket contains the configs for the websocket server
+        Websocket Websocket
 	}
 
 	// Render struct keeps organise all configuration about rendering, templates and rest currently.
@@ -416,4 +418,25 @@ type Editor struct {
 	// Password if empty admin!123
 	Password string
 }
+```
+
+```go
+type Websocket struct {
+	// WriteTimeout time allowed to write a message to the connection.
+	// Default value is 10 * time.Second
+	WriteTimeout time.Duration
+	// PongTimeout allowed to read the next pong message from the connection
+	// Default value is 60 * time.Second
+	PongTimeout time.Duration
+	// PingPeriod send ping messages to the connection with this period. Must be less than PongTimeout
+	// Default value is (PongTimeout * 9) / 10
+	PingPeriod time.Duration
+	// MaxMessageSize max message size allowed from connection
+	// Default value is 1024
+	MaxMessageSize int
+	// Endpoint is the path which the websocket server will listen for clients/connections
+	// Default value is empty string, if you don't set it the Websocket server is disabled.
+	Endpoint string
+}
+
 ```
