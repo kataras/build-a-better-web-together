@@ -147,4 +147,4 @@ function appendMessage(messageDiv) {
 ```
 
 
-View a working example by pressing [here](https://github.com/iris-contrib/examples/tree/master/websocket)
+View a working example by navigating [here](https://github.com/iris-contrib/examples/tree/master/websocket) and if you need more than one websocket server [click here](https://github.com/iris-contrib/examples/tree/master/websocket_unlimited_servers)
