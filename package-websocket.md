@@ -47,6 +47,11 @@ OnConnection(func(c websocket.Connection){})
 
 websocket.Connection
 ```go
+On("anyCustomEvent", func(message string) {})
+On("anyCustomEvent", func(message int){})
+On("anyCustomEvent", func(message bool){})
+On("anyCustomEvent", func(message anyCustomType){})
+
 
 ```
 
