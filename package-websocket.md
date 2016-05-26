@@ -65,6 +65,9 @@ Emit("anyCustomEvent", anyCustomType)
 Join("anyCustomRoom")
 Leave("anyCustomRoom")
 
+
+OnDisconnect(func(){})
+
 ```
 
 ## How to use
