@@ -48,6 +48,7 @@ func main() {
             // to all except this connection ->
 			//c.To(websocket.Broadcast).Emit("chat", "Message from: "+c.ID()+"-> "+message) 
          
+            // to the client ->
 			//c.Emit("chat", "Message from myself: "+message)
 
 			//send the message to the whole room,
