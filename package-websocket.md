@@ -52,6 +52,8 @@ On("anyCustomEvent", func(message int){})
 On("anyCustomEvent", func(message bool){})
 On("anyCustomEvent", func(message anyCustomType){})
 
+Join("anyCustomRoom")
+Leave("anyCustomRoom")
 
 ```
 
