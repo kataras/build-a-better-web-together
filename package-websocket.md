@@ -30,6 +30,9 @@ type Websocket struct {
 	// Endpoint is the path which the websocket server will listen for clients/connections
 	// Default value is empty string, if you don't set it the Websocket server is disabled.
 	Endpoint string
+    // Headers  the response headers before upgrader
+	// Default is empty
+	Headers map[string]string
 }
 
 ```
