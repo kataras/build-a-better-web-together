@@ -35,7 +35,7 @@ type Websocket struct {
 ```
 
 ```go
-iris.Config().Webscoket
+iris.Config().Websocket
 
 ```
 
