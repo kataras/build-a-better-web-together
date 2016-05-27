@@ -57,7 +57,7 @@ On("anyCustomEvent", func(){})
 
 // Receive a native websocket message from the client
 // compatible without need of import the iris-ws.js to the .html
-OnMessage("anyMessage",func(message string){})
+OnMessage(func(message []byte){})
 
 // Send to the client
 Emit("anyCustomEvent", string)
