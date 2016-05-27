@@ -66,7 +66,7 @@ Emit("anyCustomEvent", bool)
 Emit("anyCustomEvent", anyCustomType)
 
 // Send via native websocket way, compatible without need of import the iris-ws.js to the .html
-EmitMessage("anyMessage")
+EmitMessage([]byte("anyMessage")
 
 // Send to specific client(s)
 To("otherConnectionId").Emit/EmitMessage...
