@@ -10,7 +10,7 @@ architecture to easy:
 
 - change the configs without need to re-write all of their fields.
 	```go
-	irisConfig := config.Iris { Profile: true, PathCorrection: false }
+	irisConfig := config.Iris { Profile: true, DisablePathCorrection: true }
 	api := iris.New(irisConfig)
 	```
 - **easy to remember**: `iris` type takes `config.Iris`, sessions takes `config.Sessions`, `iris.Config().Render` is the `config.Render`, `iris.Config().Render.Template` is the `config.Template`, `Logger` takes `config.Logger` and so on...
