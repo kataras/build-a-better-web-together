@@ -103,6 +103,8 @@ type (
 
 		// DisableLog turn it to true if you want to disable logger,
 		// Iris prints/logs ONLY errors, so be careful when you enable it
+        // 
+        // Default is false
 		DisableLog bool
 
 		// DisableBanner outputs the iris banner at startup
