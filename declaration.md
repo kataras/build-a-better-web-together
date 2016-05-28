@@ -142,7 +142,7 @@ For profiling  there are eight (8) generated routes with filed pages:
 
 
 **PathCorrection**
-corrects and redirects the requested path to the registered path
+Corrects and redirects the requested path to the registered path
 for example, if /home/ path is requested but no handler for this Route found,
 then the Router checks if /home handler exists, if yes, redirects the client to the correct path /home
 and VICE - VERSA if /home/ is registered but /home is requested then it redirects to /home/ (Default is true)
