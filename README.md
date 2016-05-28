@@ -46,7 +46,7 @@
 * [Browser based Editor](plugin-editor.md)
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https:/github.com/iris-contrib/examples)
+* [Examples](https://github.com/iris-contrib/examples)
 
 
 ### Why
