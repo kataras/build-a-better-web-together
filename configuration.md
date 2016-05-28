@@ -104,6 +104,10 @@ type (
 		// Log turn it to false if you want to disable logger,
 		// Iris prints/logs ONLY errors, so be careful when you disable it
 		Log bool
+        
+        // Banner outputs the iris banner at startup
+        // Default is true
+        Banner bool
 
 		// Profile set to true to enable web pprof (debug profiling)
 		// Default is false, enabling makes available these 7 routes:
