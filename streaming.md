@@ -1,8 +1,26 @@
 # Streaming
 
 
-Fasthttp has very good support for doing progressive rendering via multiple flushes, streaming. Here is an example, taken from [here](https://github.com/valyala/fasthttp/blob/05949704db9b49a6fc7aa30220c983cc1c5f97a6/requestctx_setbodystreamwriter_example_test.go)
+Do  progressive rendering via multiple flushes, streaming.
 
+
+```go
+// StreamWriter registers the given stream writer for populating
+// response body.
+//
+//
+// This function may be used in the following cases:
+//
+//     * if response body is too big (more than 10MB).
+//     * if response body is streamed from slow external sources.
+//     * if response body must be streamed to the client in chunks.
+//     (aka `http server push`).
+StreamWriter(cb func(writer *bufio.Writer))
+
+``` 
+
+
+## Usage example
 ```go
 
 package main
@@ -16,7 +34,7 @@ import(
 
 func main() {
 	iris.Any("/stream",func (ctx *iris.Context){
-		ctx.Stream(stream)
+		ctx.StreamWriter(stream)
 	})
 
 	iris.Listen(":8080")
@@ -33,5 +51,22 @@ func stream(w *bufio.Writer) {
 			time.Sleep(time.Second)
 		}
 }
+
+```
+
+To achieve the oposite make use of the ` StreamReader` 
+```go
+// StreamReader sets response body stream and, optionally body size.
+//
+// If bodySize is >= 0, then the bodyStream must provide exactly bodySize bytes
+// before returning io.EOF.
+//
+// If bodySize < 0, then bodyStream is read until io.EOF.
+//
+// bodyStream.Close() is called after finishing reading all body data
+// if it implements io.Closer.
+//
+// See also StreamReader.
+StreamReader(bodyStream io.Reader, bodySize int)
 
 ```
