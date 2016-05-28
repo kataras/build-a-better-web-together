@@ -86,7 +86,7 @@ type (
 		// Default is false
 		DisablePathCorrection bool
 
-		// DisablePathEscape is false then its escapes the path, the named parameters (if any).
+		// DisablePathEscape when is false then its escapes the path, the named parameters (if any).
 		// Change to true it if you want something like this https://github.com/kataras/iris/issues/135 to work
 		//
 		// When do you need to Disable(true) it:
