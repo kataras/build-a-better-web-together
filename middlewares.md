@@ -6,7 +6,7 @@
 // First point on the static files
 iris.Static("/assets", "./public/assets", 1)
 
-// Then declare which midleware to use (custom or not)
+// Then declare which middleware to use (custom or not)
 iris.Use(myMiddleware)
 iris.UseFunc(myFunc)
 
