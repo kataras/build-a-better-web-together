@@ -81,7 +81,7 @@ func main() {
 
 As you saw you can still get other request values via the *iris.Context, API has all the  flexibility of handler/handlerfunc.
 
-If you want to use **more than one named parameter** you simply do this:
+If you want to use **more than one named parameter**, simply do this:
 ```go
 // users/:param1/:param2
 func (u UserAPI) GetBy(id string, otherParameter string) {}
