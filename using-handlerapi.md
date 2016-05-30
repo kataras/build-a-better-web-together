@@ -37,6 +37,7 @@ type UserAPI struct {
 	*iris.Context
 }
 
+// GET /users
 func (u UserAPI) Get() {
 	u.Write("Get from /users")
 	// u.JSON(iris.StatusOK,myDb.AllUsers())
