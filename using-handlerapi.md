@@ -83,7 +83,7 @@ func (u UserAPI) DeleteBy(id string) {
 
 func main() {
 	iris.API("/users", UserAPI{})
-	iris.Listen(":80")
+	iris.Listen(":8080")
 }
 
 ```
@@ -101,7 +101,7 @@ API receives a third parameter which are the middlewares, is optional parameter:
 ```go
 func main() {
 	iris.API("/users", UserAPI{}, myUsersMiddleware1, myUsersMiddleware2)
-	iris.Listen(":80")
+	iris.Listen(":8080")
 }
 
 func myUsersMiddleware1(ctx *iris.Context) {
