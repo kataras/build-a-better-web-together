@@ -96,6 +96,25 @@ If you want to use **more than one named parameter**, simply do this:
 func (u UserAPI) GetBy(id string, otherParameter string) {}
 ```
 
+API receives a third parameter which are the middlewares, is optional parameter:
+
+```go
+func main() {
+	iris.API("/users", UserAPI{}, myUsersMiddleware1, myUsersMiddleware2)
+	iris.Listen(":8080")
+}
+
+func myUsersMiddleware1(ctx *iris.Context) {
+	println("From users middleware 1 ")
+	ctx.Next()
+}
+func myUsersMiddleware2(ctx *iris.Context) {
+	println("From users middleware 2 ")
+	ctx.Next()
+}
+
+```
+
 Available methods: "GET", "POST", "PUT", "DELETE", "CONNECT", "HEAD", "PATCH", "OPTIONS", "TRACE" should use this **naming conversion**:  **Get/GetBy, Post/PostBy, Put/PutBy** and so on...
 
 
