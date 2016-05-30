@@ -65,7 +65,7 @@ func (u UserAPI) PostBy(id string) {
 	println("Post from /users/" + id)
 }
 
-// DELETE /:param1
+// DELETE /users/:param1
 func (u UserAPI) DeleteBy(id string) {
 	// myDb.DeleteUser(id)
 	println("Delete from /" + id)
