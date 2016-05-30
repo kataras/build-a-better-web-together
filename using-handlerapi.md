@@ -49,6 +49,7 @@ func (u UserAPI) GetBy(id string) { // id equals to u.Param("param1")
 
 }
 
+// PUT /users
 func (u UserAPI) Put() {
 	name := u.FormValue("name")
 	// myDb.InsertUser(...)
@@ -56,7 +57,7 @@ func (u UserAPI) Put() {
 	println("Put from /users")
 }
 
-// POST /:param1
+// POST /users/:param1
 func (u UserAPI) PostBy(id string) {
 	name := u.FormValue("name") // you can still use the whole Context's features!
 	// myDb.UpdateUser(...)
@@ -75,9 +76,9 @@ func main() {
 	iris.Listen(":80")
 }
 
-
-
 ```
+
+> 
 
 
 
