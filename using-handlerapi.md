@@ -23,7 +23,6 @@ iris.Put("/users",...)
 iris.Post("/users/:id", ...)
 
 iris.Delete("/users/:id", ...)
-
 ```
 
 
