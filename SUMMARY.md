@@ -9,6 +9,7 @@
 * [Handlers](handlers.md)
    * [Using Handlers](using-handlers.md)
    * [Using HandlerFuncs](using-handlerfuncs.md)
+   * [Using custom struct for a complete API](using-handlerapi.md)
    * [Using native http.Handler](using-native-httphandler.md)
        * [Using native http.Handler via iris.ToHandlerFunc()](using-native-httphandler-via-tohandlerfunc.md)
 * [Middlewares](middlewares.md)
