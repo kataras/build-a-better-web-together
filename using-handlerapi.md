@@ -101,7 +101,7 @@ API receives a third parameter which are the middlewares, is optional parameter:
 ```go
 func main() {
 	iris.API("/users", UserAPI{}, myUsersMiddleware1, myUsersMiddleware2)
-	iris.Listen(":8080")
+	iris.Listen(":80")
 }
 
 func myUsersMiddleware1(ctx *iris.Context) {
