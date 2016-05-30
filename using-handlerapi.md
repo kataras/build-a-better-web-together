@@ -24,6 +24,62 @@ iris.Post("/users/:id", ...)
 iris.Delete("/users/:id", ...)
 ```
 
+**But** with API you can do this instead: 
+
+```go
+package main
+
+import (
+	"github.com/kataras/iris"
+)
+
+type UserAPI struct {
+	*iris.Context
+}
+
+func (u UserAPI) Get() {
+	u.Write("Get from /users")
+	// u.JSON(iris.StatusOK,myDb.AllUsers())
+}
+
+// GET /:param1 which its value passed to the id argument
+func (u UserAPI) GetBy(id string) { // id equals to u.Param("param1")
+	u.Write("Get from /users/%s", id)
+	// u.JSON(iris.StatusOK, myDb.GetUserById(id))
+
+}
+
+func (u UserAPI) Put() {
+	name := u.FormValue("name")
+	// myDb.InsertUser(...)
+	println(string(name))
+	println("Put from /users")
+}
+
+// POST /:param1
+func (u UserAPI) PostBy(id string) {
+	name := u.FormValue("name") // you can still use the whole Context's features!
+	// myDb.UpdateUser(...)
+	println(string(name))
+	println("Post from /users/" + id)
+}
+
+// DELETE /:param1
+func (u UserAPI) DeleteBy(id string) {
+	// myDb.DeleteUser(id)
+	println("Delete from /" + id)
+}
+
+func main() {
+
+	iris.API("/users", UserAPI{})
+
+	iris.Listen(":80")
+}
+
+
+
+```
 
 
 
