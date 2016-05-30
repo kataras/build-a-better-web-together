@@ -87,6 +87,8 @@ If you want to use **more than one named parameter**, simply do this:
 func (u UserAPI) GetBy(id string, otherParameter string) {}
 ```
 
+Available methods: "GET", "POST", "PUT", "DELETE", "CONNECT", "HEAD", "PATCH", "OPTIONS", "TRACE" -> **Get/GetBy, Post/PostBy, Put/PutBy** and so on...
+
 
 
 
