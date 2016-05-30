@@ -14,7 +14,6 @@ Instead of writing Handlers/HandlerFuncs for eachone API routes, you can use the
 Normally, with HandlerFuncs you should do something like this:
 
 ```go
-
 iris.Get("/users", func(ctx *iris.Context){})
 iris.Get("/users/:id", func(ctx *iris.Context){ id := ctx.Param("id) })
 
