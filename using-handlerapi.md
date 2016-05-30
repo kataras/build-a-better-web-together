@@ -17,8 +17,11 @@ Normally, with HandlerFuncs you should do something like this:
 
 iris.Get("/users", func(ctx *iris.Context){})
 iris.Get("/users/:id", func(ctx *iris.Context){ id := ctx.Param("id) })
+
 iris.Put("/users",...)
+
 iris.Post("/users/:id", ...)
+
 iris.Delete("/users/:id", ...)
 
 ```
