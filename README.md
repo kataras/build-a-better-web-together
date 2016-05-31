@@ -56,31 +56,29 @@
 Go is a great technology stack for building scalable, web-based, back-end systems for web 
 applications. 
 
-When you think about building web applications and web APIs, or simply building HTTP servers in Go, your mind goes to the standard net/http package(?)
-Then you have to deal with some common situations like the dynamic routing (a.k.a parameterized), security and authentication, real-time communication and many others that standard package doesn't provides. 
+When you think about building web applications and web APIs, or simply building HTTP servers in Go, does your mind go to the standard net/http package?
+Then you have to deal with some common situations like dynamic routing (a.k.a parameterized), security and authentication, real-time communication and many other issues that net/http doesn't solve. 
 
-Obviously the net/http package is not enough to build well-designed back-end systems for web. But when you realize that, other thoughts are coming to your head:
+The net/http package is not complete enough to quickly build well-designed back-end web systems. When you realize this, you might be thinking along these lines:
 
-- Ok the net/http package doesn't suits me, but they're so many frameworks, which I have to choose from?!
-- Each one of them tells me that it's the best. I don't know what to do!
+- Ok, the net/http package doesn't suit me, but there are so many frameworks, which one will work for me?!
+- Each one of them tells me that it is the best. I don't know what to do!
 
 ##### The truth
 
-I did a big research and benchmarks with 'wrk' and 'ab' in order to choose which framework suits me and my new project. The results, sadly, were really beaten me, disappointed me.
+I did some deep research and benchmarks with 'wrk' and 'ab' in order to choose which framework would suit me and my new project. The results, sadly, were really disappointing to me.
 
-I was wondering if golang wasn't so fast on the web as I was reading... but, before let Golang and continue to develop with nodejs I told myself:
+I started wondering if golang wasn't as fast on the web as I had read... but, before I let Golang go and continued to develop with nodejs, I told myself:
 
-> '**Makis, don't lose your hope, give at least a chance to the Golang. Try to build something totally alone without being affected from the "slow" code you saw earlier, learn the secrets of this language and make *others* follow your steps!**'.
+> '**Makis, don't lose hope, give at least a chance to Golang. Try to build something totally new without basing it off the "slow" code you saw earlier; learn the secrets of this language and make *others* follow your steps!**'.
 
+These are the words I told myself that day [**13 March 2016**]. 
 
+The same day, later the night, I was reading a book about Greek mythology. I saw an ancient goddess' name and was inspired immediately to give a name to this new web framework (which I had already started writing) - **Iris**.
 
-I'm not kidding, these are pretty much the words I told to myself that day [**13 March 2016**]. 
+**Two months later**, I'm writing this intro. 
 
-The same day, later the night, I was reading a book about Greek mythology, there I saw an ancient God's name, inspired immediately and give a name to this new web framework, which was started be written, to **Iris**.
-
-**After two months**, I'm writing this intro. 
-
- I'm still here [because Iris has succeed to be the fastest go web framework](https://github.com/kataras/iris#benchmarks)
+ I'm still here [because Iris has succeed in being the fastest go web framework](https://github.com/kataras/iris#benchmarks)
 
 
 
