@@ -24,6 +24,7 @@
 * [Named Parameters](named-parameters.md)
 * [Static files](static-files.md)
 * [Send files](send-files.md)
+* [Send e-mails](mail.md)
 * [Render](render.md)
    * [REST](render_rest.md)
    * [Templates](render_templates.md)
