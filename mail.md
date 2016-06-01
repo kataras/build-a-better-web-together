@@ -4,7 +4,7 @@ Sending plain or rich content e-mails is an easy process with Iris.
 
 **Example**
 
-> Note that this is not working (panic: EOF) until you define your own (host,port), username, password and recipients.
+> Note that this is not working (panic: EOF) until you define your own  host ,port, username, password and recipients.
 
 File: ` ./main.go ` 
 ```go
