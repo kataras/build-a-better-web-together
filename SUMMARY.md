@@ -21,6 +21,7 @@
 * [Named Parameters](named-parameters.md)
 * [Static files](static-files.md)
 * [Send files](send-files.md)
+* [Send e-mails](mail.md)
 * [Render](render.md)
    * [REST](render_rest.md)
    * [Templates](render_templates.md)
@@ -45,5 +46,5 @@
 * [Browser based Editor](plugin-editor.md)
 * [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https:/github.com/iris-contrib/examples)
+* [Examples](https://github.com/iris-contrib/examples)
 

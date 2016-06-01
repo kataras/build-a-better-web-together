@@ -138,6 +138,9 @@ type (
 		Render Render
         // Websocket contains the configs for the websocket server
         Websocket Websocket
+        
+        // Mail contains the config for the mail sender service
+		Mail Mail
 	}
 
 	// Render struct keeps organise all configuration about rendering, templates and rest currently.
@@ -449,4 +452,19 @@ type Websocket struct {
 	Headers map[string]string
 }
 
+```
+
+
+```go
+// Mail keeps the configs for mail sender service
+type Mail struct {
+	// Host is the server mail host, IP or address
+	Host string
+	// Port is the listening port
+	Port int
+	// Username is the auth username@domain.com for the sender
+	Username string
+	// Password is the auth password for the sender
+	Password string
+}
 ```
