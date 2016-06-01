@@ -1,9 +1,9 @@
-# Middlewares
+# Middleware
 
 **Quick view**
 
 ```go
-// First point on the static files
+// First point to the static files
 iris.Static("/assets", "./public/assets", 1)
 
 // Then declare which middleware to use (custom or not)
@@ -22,8 +22,8 @@ iris.Listen(":8080")
 ```
 
 
-Middlewares in Iris are not complicated, imagine them as simple Handlers.
-They should implement the Handler interface as well:
+Middleware in Iris is not complicated, they are similar to simple Handlers.
+They implement the Handler interface as well:
 
 ```go
 type Handler interface {
@@ -84,17 +84,17 @@ iris.Get("/dashboard", func(c *iris.Context) {
         c.Next()
     }
 }, mySecondMiddleware, func (c *iris.Context){
-    c.Write("The last HandlerFunc is the main handler, all before that are the middlewares for this route /dashboard")
+    c.Write("The last HandlerFunc is the main handler, everything before that is middleware for this route /dashboard")
 })
 
 iris.Listen(":8080")
 
 ```
 
-> Note that middlewares must come before route declaration.
+> Note that middleware must come before route declaration.
 
 
-Make use one of build'n Iris [middlewares](https://github.com/kataras/iris/tree/master/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
+Make use of the built-in Iris [middleware](https://github.com/kataras/iris/tree/master/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
 
 ```go
 package main
