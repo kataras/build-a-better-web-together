@@ -1,9 +1,9 @@
 # Declaration
 
-Let's make a pause,
+You have wondered this:
 
-- Q: Other frameworks needs more lines to start a server, why Iris is different?
-- A: Iris gives you the freedom to choose between three ways to declare to use Iris
+- Q: Other frameworks need more lines to start a server, why is Iris different?
+- A: Iris gives you the freedom to choose between three ways to use Iris
 
  1. global **iris.**
  2. declare a new iris station with default config: **iris.New()** 
@@ -31,7 +31,7 @@ func secondWay() {
 }
 ```
 
-Before 3rd way, let's take a quick look at the **[config](configuration.md).Iris**:
+Before looking at the 3rd way, let's take a quick look at the **[config](configuration.md).Iris**:
 ```go
 // Iris configs for the station
 	// All fields can be changed before server's listen except the DisablePathCorrection field
@@ -124,14 +124,14 @@ func main() {
 
 ```
 
-> Note that with 2. & 3. you **can define and Listen to more than one Iris station** in the
+> Note that with 2. & 3. you **can define and Listen with more than one Iris server** in the
 > same app, when it's necessary.
 
 
 
-For profiling  there are eight (8) generated routes with filed pages:
+For profiling there are eight (8) generated routes with pages filled with info:
 
- -   /debug/pprof
+ -  /debug/pprof
  -  /debug/pprof/cmdline
  -  /debug/pprof/profile
  -  /debug/pprof/symbol
@@ -139,12 +139,5 @@ For profiling  there are eight (8) generated routes with filed pages:
  -  /debug/pprof/heap
  -  /debug/pprof/threadcreate
  -  /debug/pprof/pprof/block
-
-
-**PathCorrection**
-Corrects and redirects the requested path to the registered path
-for example, if /home/ path is requested but no handler for this Route found,
-then the Router checks if /home handler exists, if yes, redirects the client to the correct path /home
-and VICE - VERSA if /home/ is registered but /home is requested then it redirects to /home/ (**DisablePathCorrection** which defaults to false)
 
 -  More about configuration [here](configuration.md)
