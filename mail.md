@@ -1,6 +1,7 @@
 # Send e-mails
 Example for mail send, this is not working (panic: EOF) until you define your own username, password and recipients.
 
+./main.go 
 ```go
 package main
 
@@ -40,4 +41,18 @@ func main() {
 	iris.Listen(":8080")
 }
 
+```
+
+./templates/mail_body.html
+
+```html
+<html>
+<head></head>
+<body>
+
+	<h1> From iris server:</h1>
+	<p>{{.Message}}</p>
+
+</body>
+</html>
 ```
