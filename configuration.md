@@ -458,7 +458,7 @@ type Websocket struct {
 ```go
 // Mail keeps the configs for mail sender service
 type Mail struct {
-	// Host is the server mail host
+	// Host is the server mail host, IP or address
 	Host string
 	// Port is the listening port
 	Port int
