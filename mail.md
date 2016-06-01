@@ -1,7 +1,7 @@
 # Send e-mails
 Example for mail send, this is not working (panic: EOF) until you define your own username, password and recipients.
 
-./main.go 
+File: ` ./main.go ` 
 ```go
 package main
 
@@ -43,7 +43,7 @@ func main() {
 
 ```
 
-./templates/mail_body.html
+File: `./templates/mail_body.html` 
 
 ```html
 <html>
