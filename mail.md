@@ -1,7 +1,7 @@
 # Send e-mails
 Sending plain or rich content e-mails is an easy process with Iris.
 
-Configuration 
+**Configuration** 
 
 ```go
 // Mail keeps the configs for mail sender service
