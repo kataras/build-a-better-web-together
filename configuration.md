@@ -466,5 +466,10 @@ type Mail struct {
 	Username string
 	// Password is the auth password for the sender
 	Password string
+    // UseCommand enable it if you want to send e-mail with the mail command  instead of smtp
+	//
+	// Host,Port & Password will be ignored
+	// ONLY FOR UNIX
+	UseCommand bool
 }
 ```
