@@ -1,6 +1,12 @@
 # Subdomains
 
-Subdomains in Iris are simple [Parties](party.md).
+
+Subdomains are splitted to two categories, first is the static subdomain and second is the dynamic static domain.
+
+- static : when you know the subdomain, usage: `controlpanel.mydomain.com` 
+- dynamic : when you don't know the subdomain, usage: `user1993.mydomain.com` 
+
+Static Subdomains in Iris are simple [Parties](party.md).
 
 ```go
 package main
