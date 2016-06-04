@@ -83,14 +83,14 @@ func main() {
 }
 
 func dynamicSubdomainHandler(ctx *iris.Context) {
-	username := ctx.GetSubdomain()
+	username := ctx.Subdomain()
 	ctx.Write("Hello from dynamic subdomain path: %s, here you can handle the route for dynamic subdomains, handle the user: %s", ctx.PathString(), username)
 	// if  http://admin.yourhost.com:8080/ prints:
 	// Hello from dynamic subdomain path: /, here you can handle the route for dynamic subdomains, handle the user: admin
 }
 
 func dynamicSubdomainHandlerWithParam(ctx *iris.Context) {
-	username := ctx.GetSubdomain()
+	username := ctx.Subdomain()
 	ctx.Write("Hello from dynamic subdomain path: %s, here you can handle the route for dynamic subdomains, handle the user: %s", ctx.PathString(), username)
 	ctx.Write("THE PARAM1 is: %s", ctx.Param("param1"))
 }
