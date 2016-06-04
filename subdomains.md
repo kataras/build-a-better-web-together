@@ -6,7 +6,7 @@ Subdomains are splitted to two categories, first is the static subdomain and sec
 - static : when you know the subdomain, usage: `controlpanel.mydomain.com` 
 - dynamic : when you don't know the subdomain, usage: `user1993.mydomain.com` 
 
-Static subdomains in Iris are simple [Parties](party.md).
+Subdomains in Iris are simple [Parties](party.md).
 
 ```go
 package main
