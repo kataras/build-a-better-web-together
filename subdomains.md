@@ -6,7 +6,7 @@ Subdomains are splitted to two categories, first is the static subdomain and sec
 - static : when you know the subdomain, usage: `controlpanel.mydomain.com` 
 - dynamic : when you don't know the subdomain, usage: `user1993.mydomain.com`, `otheruser.mydomain.com` 
 
-Iris has one of the best known support for subdomains, are simple [Parties](party.md).
+Iris has the simplest known form for subdomains, are simple [Parties](party.md).
 
 **Static**
 ```go
