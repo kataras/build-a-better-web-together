@@ -20,9 +20,9 @@ func main() {
 	// first the subdomains.
 	admin := iris.Party("admin.127.0.0.1")
 	{
-		//this will only success on admin.yourhost.com/hey
+		//this will only success on admin.127.0.0.1/hey
 		admin.Get("/", func(c *iris.Context) {
-			c.Write("Welcome to admin.yourhost.com")
+			c.Write("Welcome to admin.127.0.0.1/")
 		})
 		//this will only success on admin.yourhost.com/hey2
 		admin.Get("/hey", func(c *iris.Context) {
