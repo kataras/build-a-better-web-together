@@ -6,7 +6,7 @@ Subdomains are splitted to two categories, first is the static subdomain and sec
 - static : when you know the subdomain, usage: `controlpanel.mydomain.com` 
 - dynamic : when you don't know the subdomain, usage: `user1993.mydomain.com` 
 
-Static Subdomains in Iris are simple [Parties](party.md).
+Static subdomains in Iris are simple [Parties](party.md).
 
 ```go
 package main
@@ -38,3 +38,5 @@ func main() {
 
 
 ```
+
+Dynamic subdomains also easy but you have to define them with other way
