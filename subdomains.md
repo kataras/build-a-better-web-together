@@ -97,3 +97,5 @@ func dynamicSubdomainHandlerWithParam(ctx *iris.Context) {
 
 
 ```
+
+> You can set unlimitted number of middleware/handlers to the dynamic subdomains also! 
