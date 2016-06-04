@@ -4,7 +4,7 @@
 Subdomains are splitted to two categories, first is the static subdomain and second is the dynamic subdomain.
 
 - static : when you know the subdomain, usage: `controlpanel.mydomain.com` 
-- dynamic : when you don't know the subdomain, usage: `user1993.mydomain.com` 
+- dynamic : when you don't know the subdomain, usage: `user1993.mydomain.com`, `otheruser.mydomain.com` 
 
 Subdomains in Iris are simple [Parties](party.md).
 
