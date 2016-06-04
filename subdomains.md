@@ -18,7 +18,7 @@ import (
 
 func main() {
 	// first the subdomains.
-	admin := iris.Party("admin.yourhost.com")
+	admin := iris.Party("admin.127.0.0.1")
 	{
 		//this will only success on admin.yourhost.com/hey
 		admin.Get("/", func(c *iris.Context) {
