@@ -45,13 +45,15 @@ func main() {
 ```go
 // Package main an example on how to catch dynamic subdomains - wildcard.
 // On the first example (subdomains_1) we saw how to create routes for static subdomains, subdomains you know that you will have.
-// Here we will see an example how to catch unknown subdomains, dynamic subdomains, like username.mysite.com.
+// Here we will see an example how to catch unknown subdomains, 
+// dynamic subdomains, like username.mysite.com.
 package main
 
 import "github.com/kataras/iris"
 
 // register a dynamic-wildcard subdomain to your server machine(dns/...) first.
-// run this file and try to redirect: http://admin.yourhost.com:8080/ , http://admin.yourhost.com:8080/something, http://admin.yourhost.com:8080/something/sadsadsa
+// run this file and try to redirect: http://admin.yourhost.com:8080/ ,
+// http://admin.yourhost.com:8080/something, http://admin.yourhost.com:8080/something/sadsadsa
 
 func main() {
 
