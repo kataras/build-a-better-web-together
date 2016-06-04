@@ -17,26 +17,32 @@ import (
 )
 
 func main() {
+	api := iris.New()
+
 	// first the subdomains.
-	admin := iris.Party("admin.127.0.0.1")
+	admin := api.Party("admin.127.0.0.1")
 	{
-		//this will only success on admin.127.0.0.1/hey
+		// admin.127.0.0.1.com
 		admin.Get("/", func(c *iris.Context) {
-			c.Write("Welcome to admin.127.0.0.1/")
+			c.Write("HEY FROM admin.127.0.0.1")
 		})
-		//this will only success on admin.yourhost.com/hey2
+		// admin.127.0.0.1/hey
 		admin.Get("/hey", func(c *iris.Context) {
-			c.Write("Hey from admin.yourhost.com")
+			c.Write("HEY FROM admin.127.0.0.1/hey")
+		})
+		// admin.127.0.0.1/hey2
+		admin.Get("/hey2", func(c *iris.Context) {
+			c.Write("HEY SECOND FROM admin.127.0.0.1/hey")
 		})
 	}
 
-	iris.Get("/hey", func(c *iris.Context) {
-		c.Write("Hey from no-subdomain yourhost.com")
+	// 127.0.0.1/hey
+	api.Get("/hey", func(c *iris.Context) {
+		c.Write("HEY FROM no-subdomain hey")
 	})
 
-	iris.Listen(":80")
+	api.Listen("127.0.0.1:80")
 }
-
 
 ```
 
