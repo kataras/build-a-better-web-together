@@ -65,8 +65,11 @@ func main() {
 
 		dynamicSubdomains.Get("/something/:param1", dynamicSubdomainHandlerWithParam)
 	}
-	// or iris.Wildcard("GET", "/", dynamicSubdomainHandler)
-	// ...
+    
+	// without party:
+	// iris.Wildcard("GET", "/", dynamicSubdomainHandler)
+	// iris.Wildcard("GET", "/something", dynamicSubdomainHandler)
+	// iris.Wildcard("GET", "/something/:param1", dynamicSubdomainHandlerWithParam)
 
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Write("Hello from localhost path: %s", ctx.PathString())
