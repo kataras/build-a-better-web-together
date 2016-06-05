@@ -226,10 +226,8 @@ type (
 		Sanitize bool // if true then returns safe html, default is false
 	}
 
-	// Jade empty for now
-	// stay tuned
-	Jade struct {
-	}
+    // Jade is using the same configs with HTMLEngine
+	Jade HTMLTemplate
 
 	Amber struct {
 		// Funcs for the html/template result,
