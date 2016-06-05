@@ -226,7 +226,7 @@ type (
 		Sanitize bool // if true then returns safe html, default is false
 	}
 
-    // Jade is using the same configs with HTMLEngine
+    // Jade is using the same configs with HTMLEngine/HTMTemplate confics
 	Jade HTMLTemplate
 
 	Amber struct {
