@@ -25,7 +25,6 @@ type Mail struct {
 
 **Example**
 
-> Note that this is not working (panic: EOF) until you define your own  host, port, username, password and recipients.
 
 File: ` ./main.go ` 
 ```go
