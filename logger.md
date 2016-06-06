@@ -109,3 +109,29 @@ Logger struct {
 
 
 ```
+
+The ` config.DefaultLogger()`  returns
+
+```go
+	return Logger{
+		Out:      os.Stdout,
+		Prefix:   DefaultLoggerPrefix,
+		Disabled: false,
+		// foreground colors
+		ColorFgDefault: int(color.FgHiWhite),
+		ColorFgInfo:    int(color.FgCyan),
+		ColorFgSuccess: int(color.FgHiGreen),
+		ColorFgWarning: int(color.FgHiMagenta),
+		ColorFgDanger:  int(color.FgHiRed),
+		// background colors
+		ColorBgDefault: int(color.BgHiBlack),
+		ColorBgInfo:    int(color.BgHiBlack),
+		ColorBgSuccess: int(color.BgHiBlack),
+		ColorBgWarning: int(color.BgHiBlack),
+		ColorBgDanger:  int(color.BgHiWhite),
+		// banner colors
+		ColorFgBanner: int(color.FgHiBlue),
+     }
+
+
+```
