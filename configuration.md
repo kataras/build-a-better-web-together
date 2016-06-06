@@ -314,7 +314,8 @@ type (
 ```
 
 ```go
-// Logger contains the full configuration options fields for the Logger
+type (
+	// Logger contains the full configuration options fields for the Logger
 	Logger struct {
 		// Out the writer which the messages/logs will printed to
 		Out io.Writer
@@ -355,6 +356,7 @@ type (
 		// ColorFgBanner the background color for the banner
 		ColorBgBanner int
 	}
+)
 ```
 
 ```go
