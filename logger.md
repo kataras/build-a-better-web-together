@@ -5,8 +5,7 @@
 Logs the incoming requests
 
 ```go
-Custom(writer io.Writer, prefix string, flag int) iris.HandlerFunc
-Default() iris.HandlerFunc
+ New(theLogger *logger.Logger, options ...Options) iris.HandlerFunc
 ```
 
 How to use
@@ -15,28 +14,39 @@ How to use
 package main
 
 import (
-    "github.com/kataras/iris"
-    "github.com/kataras/iris/middleware/logger"
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/middleware/logger"
 )
 
 func main() {
 
-    iris.UseFunc(logger.Default())
-    // iris.UseFunc(logger.New(config.DefaultLogger()))
+	iris.Use(logger.New(iris.Logger()))
 
-    iris.Get("/", func(ctx *iris.Context) {
-        ctx.Write("hello")
-    })
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.Write("hello")
+	})
 
-    iris.Get("/1", func(ctx *iris.Context) {
-        ctx.Write("hello")
-    })
+	iris.Get("/1", func(ctx *iris.Context) {
+		ctx.Write("hello")
+	})
 
-    iris.Get("/3", func(ctx *iris.Context) {
-        ctx.Write("hello")
-    })
+	iris.Get("/3", func(ctx *iris.Context) {
+		ctx.Write("hello")
+	})
 
-    iris.Listen(":80")
+	// log http errors
+	errorLogger := logger.New(iris.Logger(), logger.Options{Latency: false}) //here we just disable to log the latency, no need for error pages
+	// yes we have options look at the logger.Options inside kataras/iris/middleware/logger.go
+	iris.OnError(iris.StatusNotFound, func(ctx *iris.Context) {
+		errorLogger.Serve(ctx)
+		ctx.Write("My Custom 404 error page ")
+	})
+	//
+
+	iris.Listen(":8080")
+
+}
+
 }
 
 ```
