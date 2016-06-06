@@ -66,3 +66,46 @@ iris.Use(mLogger.New(theLogger))
 
 The configuration for the ` config.Logger` 
 
+```go
+Logger struct {
+		// Out the (file) writer which the messages/logs will printed to
+		// Default is os.Stdout
+		Out *os.File
+		// Prefix the prefix for each message
+		Prefix string
+		// Disabled default is false
+		Disabled bool
+
+		// foreground colors single SGR Code
+
+		// ColorFgDefault the foreground color for the normal message bodies
+		ColorFgDefault int
+		// ColorFgInfo the foreground  color for info messages
+		ColorFgInfo int
+		// ColorFgSuccess the foreground color for success messages
+		ColorFgSuccess int
+		// ColorFgWarning the foreground color for warning messages
+		ColorFgWarning int
+		// ColorFgDanger the foreground color for error messages
+		ColorFgDanger int
+
+		// background colors single SGR Code
+
+		// ColorBgDefault the background color for the normal message bodies
+		ColorBgDefault int
+		// ColorBgInfo the background  color for info messages
+		ColorBgInfo int
+		// ColorBgSuccess the background color for success messages
+		ColorBgSuccess int
+		// ColorBgWarning the background color for warning messages
+		ColorBgWarning int
+		// ColorBgDanger the background color for error messages
+		ColorBgDanger int
+
+		// banners are the force printed/written messages, doesn't care about Disabled field
+		// ColorFgBanner the foreground color for the banner
+		ColorFgBanner int
+	}
+
+
+```
