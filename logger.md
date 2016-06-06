@@ -66,7 +66,7 @@ iris.Use(mLogger.New(theLogger))
 
 >Note that: The logger middleware uses the ColorBgOther and ColorFgOther fields.
 
-The configuration for the ` config.Logger` 
+The configuration for the ` iris/logger` is `iris/config/logger`  
 
 ```go
 	Logger struct {
