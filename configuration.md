@@ -355,7 +355,8 @@ type (
 		ColorBgOther int
 
 		// banners are the force printed/written messages, doesn't care about Disabled field
-		// ColorFgBanner the foreground color for the banner
+		
+        // ColorFgBanner the foreground color for the banner
 		ColorFgBanner int
 	}
 )
