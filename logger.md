@@ -110,7 +110,7 @@ Logger struct {
 
 ```
 
-The ` config.DefaultLogger()`  returns
+The ` config.DefaultLogger()`  returns config.Logger: 
 
 ```go
 	return Logger{
