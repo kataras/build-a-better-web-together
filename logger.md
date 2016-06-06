@@ -64,7 +64,7 @@ theLogger := logger.New(config.DefaultLogger())
 iris.Use(mLogger.New(theLogger))
 ```
 
->Note that: The logger middleware uses the ColorBgOther and ColorFgOther fields to print out.
+>Note that: The logger middleware uses the ColorBgOther and ColorFgOther fields.
 
 The configuration for the ` config.Logger` 
 
