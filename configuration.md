@@ -324,35 +324,35 @@ type (
 		// foreground colors single SGR Code
 
 		// ColorFgDefault the foreground color for the normal message bodies
-		ColorFgDefault int
+		ColorFgDefault color.Attribute
 		// ColorFgSuccess the foreground color for success messages
-		ColorFgSuccess int
+		ColorFgSuccess color.Attribute
 		// ColorFgInfo the foreground  color for info messages
-		ColorFgInfo int
+		ColorFgInfo color.Attribute
 		// ColorFgWarning the foreground color for warning messages
-		ColorFgWarning int
+		ColorFgWarning color.Attribute
 		// ColorFgDanger the foreground color for error messages
-		ColorFgDanger int
+		ColorFgDanger color.Attribute
 
 		// background colors single SGR Code
 
 		// ColorBgDefault the background color for the normal message bodies
-		ColorBgDefault int
+		ColorBgDefault color.Attribute
 		// ColorBgSuccess the background color for success messages
-		ColorBgSuccess int
+		ColorBgSuccess color.Attribute
 		// ColorBgInfo the background  color for info messages
-		ColorBgInfo int
+		ColorBgInfo color.Attribute
 		// ColorBgWarning the background color for warning messages
-		ColorBgWarning int
+		ColorBgWarning color.Attribute
 		// ColorBgDanger the background color for error messages
-		ColorBgDanger int
+		ColorBgDanger color.Attribute
 
 		// banner foreground/background colors
 		// bannesr are the force printed/written messages, doesn't care about Disabled field
 		// ColorFgBanner the foreground color for the banner
-		ColorFgBanner int
+		ColorFgBanner color.Attribute
 		// ColorFgBanner the background color for the banner
-		ColorBgBanner int
+		ColorBgBanner color.Attribute
 	}
 )
 ```
