@@ -64,14 +64,17 @@ theLogger := logger.New(config.DefaultLogger())
 iris.Use(mLogger.New(theLogger))
 ```
 
+>Note that: The logger middleware uses the ColorBgOther and ColorFgOther fields to print out.
+
 The configuration for the ` config.Logger` 
 
 ```go
-Logger struct {
+	Logger struct {
 		// Out the (file) writer which the messages/logs will printed to
 		// Default is os.Stdout
 		Out *os.File
 		// Prefix the prefix for each message
+		// Default is ""
 		Prefix string
 		// Disabled default is false
 		Disabled bool
@@ -88,10 +91,12 @@ Logger struct {
 		ColorFgWarning int
 		// ColorFgDanger the foreground color for error messages
 		ColorFgDanger int
+		// OtherFgColor the foreground color for the rest of the message types
+		ColorFgOther int
 
 		// background colors single SGR Code
 
-		// ColorBgDefault the background color for the normal message bodies
+		// ColorBgDefault the background color for the normal messages
 		ColorBgDefault int
 		// ColorBgInfo the background  color for info messages
 		ColorBgInfo int
@@ -101,14 +106,18 @@ Logger struct {
 		ColorBgWarning int
 		// ColorBgDanger the background color for error messages
 		ColorBgDanger int
+		// OtherFgColor the background color for the rest of the message types
+		ColorBgOther int
 
 		// banners are the force printed/written messages, doesn't care about Disabled field
+
 		// ColorFgBanner the foreground color for the banner
 		ColorFgBanner int
 	}
 
 
 ```
+
 
 The ` config.DefaultLogger()`  returns config.Logger: 
 
