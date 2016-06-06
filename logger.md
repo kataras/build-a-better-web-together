@@ -50,3 +50,19 @@ func main() {
 }
 
 ```
+
+You can create your **own Logger** to use
+```go
+
+import (
+    "github.com/kataras/iris/logger"
+     mLogger "github.com/kataras/iris/middleware/logger"
+)
+
+theLogger := logger.New(config.DefaultLogger())
+
+iris.Use(mLogger.New(theLogger))
+```
+
+The configuration for the ` config.Logger` 
+
