@@ -115,7 +115,7 @@ The ` config.DefaultLogger()`  returns config.Logger:
 ```go
 	return Logger{
 		Out:      os.Stdout,
-		Prefix:   DefaultLoggerPrefix,
+		Prefix:   "",
 		Disabled: false,
 		// foreground colors
 		ColorFgDefault: int(color.FgHiWhite),
@@ -123,15 +123,17 @@ The ` config.DefaultLogger()`  returns config.Logger:
 		ColorFgSuccess: int(color.FgHiGreen),
 		ColorFgWarning: int(color.FgHiMagenta),
 		ColorFgDanger:  int(color.FgHiRed),
+		ColorFgOther:   int(color.FgHiYellow),
 		// background colors
 		ColorBgDefault: int(color.BgHiBlack),
 		ColorBgInfo:    int(color.BgHiBlack),
 		ColorBgSuccess: int(color.BgHiBlack),
 		ColorBgWarning: int(color.BgHiBlack),
 		ColorBgDanger:  int(color.BgHiWhite),
-		// banner colors
+		ColorBgOther:   int(color.BgHiBlack),
+		// banner color
 		ColorFgBanner: int(color.FgHiBlue),
-     }
+	}
 
 
 ```
