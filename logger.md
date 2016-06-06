@@ -119,7 +119,7 @@ The configuration struct for the ` iris/logger` is the `iris/config/logger`
 ```
 
 
-The ` config.DefaultLogger()`  returns config.Logger: 
+The ` config.DefaultLogger()`  returns ` config.Logger` : 
 
 ```go
 	return Logger{
