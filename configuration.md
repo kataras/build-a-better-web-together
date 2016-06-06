@@ -322,14 +322,15 @@ type (
 		Prefix string
 		// Disabled default is false
 		Disabled bool
+
 		// foreground colors single SGR Code
 
 		// ColorFgDefault the foreground color for the normal message bodies
 		ColorFgDefault int
-		// ColorFgSuccess the foreground color for success messages
-		ColorFgSuccess int
 		// ColorFgInfo the foreground  color for info messages
 		ColorFgInfo int
+		// ColorFgSuccess the foreground color for success messages
+		ColorFgSuccess int
 		// ColorFgWarning the foreground color for warning messages
 		ColorFgWarning int
 		// ColorFgDanger the foreground color for error messages
@@ -339,10 +340,10 @@ type (
 
 		// ColorBgDefault the background color for the normal message bodies
 		ColorBgDefault int
-		// ColorBgSuccess the background color for success messages
-		ColorBgSuccess int
 		// ColorBgInfo the background  color for info messages
 		ColorBgInfo int
+		// ColorBgSuccess the background color for success messages
+		ColorBgSuccess int
 		// ColorBgWarning the background color for warning messages
 		ColorBgWarning int
 		// ColorBgDanger the background color for error messages
