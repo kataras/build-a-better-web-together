@@ -315,8 +315,9 @@ type (
 type (
 	// Logger contains the full configuration options fields for the Logger
 	Logger struct {
-		// Out the writer which the messages/logs will printed to
-		Out io.Writer
+		// Out the (file) writer which the messages/logs will printed to
+		// Default is os.Stdout
+		Out *os.File
 		// Prefix the prefix for each message
 		Prefix string
 		// Disabled default is false
