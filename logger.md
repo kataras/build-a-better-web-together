@@ -119,7 +119,7 @@ The ` config.DefaultLogger()`  returns config.Logger:
 		Disabled: false,
 		// foreground colors
 		ColorFgDefault: int(color.FgHiWhite),
-		ColorFgInfo:    int(color.FgCyan),
+		ColorFgInfo:    int(color.FgHiCyan),
 		ColorFgSuccess: int(color.FgHiGreen),
 		ColorFgWarning: int(color.FgHiMagenta),
 		ColorFgDanger:  int(color.FgHiRed),
