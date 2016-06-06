@@ -25,6 +25,10 @@ type Mail struct {
 
 ```
 
+```go
+Send(to []string, subject, body string) error
+```
+
 **Example**
 
 
