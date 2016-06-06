@@ -71,14 +71,7 @@ type (
 	// using Config().Sessions...
 	// and so on...
 	Iris struct {
-		// MaxRequestBodySize Maximum request body size.
-		//
-		// The server rejects requests with bodies exceeding this limit.
-		//
-		// By default request body size is -1, unlimited.
-		MaxRequestBodySize int
-        
-				// DisablePathCorrection corrects and redirects the requested path to the registed path
+		// DisablePathCorrection corrects and redirects the requested path to the registed path
 		// for example, if /home/ path is requested but no handler for this Route found,
 		// then the Router checks if /home handler exists, if yes,
 		// (permant)redirects the client to the correct path /home
@@ -87,8 +80,7 @@ type (
 		DisablePathCorrection bool
 
 		// DisablePathEscape when is false then its escapes the path, the named parameters (if any).
-		// Change to true it if you want something like this
-        // https://github.com/kataras/iris/issues/135 to work
+		// Change to true it if you want something like this https://github.com/kataras/iris/issues/135 to work
 		//
 		// When do you need to Disable(true) it:
 		// accepts parameters with slash '/'
@@ -101,16 +93,17 @@ type (
 		// Default is false
 		DisablePathEscape bool
 
-		// DisableLog turn it to true if you want to disable logger,
-		// Iris prints/logs ONLY errors, so be careful when you enable it
-        // 
-        // Default is false
-		DisableLog bool
-
 		// DisableBanner outputs the iris banner at startup
 		//
 		// Default is false
 		DisableBanner bool
+
+		// MaxRequestBodySize Maximum request body size.
+		//
+		// The server rejects requests with bodies exceeding this limit.
+		//
+		// By default request body size is -1, unlimited.
+		MaxRequestBodySize int64
 
 		// Profile set to true to enable web pprof (debug profiling)
 		// Default is false, enabling makes available these 7 routes:
@@ -127,6 +120,10 @@ type (
 		// Default is /debug/pprof , which means yourhost.com/debug/pprof
 		ProfilePath string
 
+		// Logger the configuration for the logger
+		// Iris logs ONLY errors and the banner if enabled
+		Logger Logger
+
 		// Sessions the config for sessions
 		// contains 3(three) properties
 		// Provider: (look /sessions/providers)
@@ -136,10 +133,11 @@ type (
 
 		// Render contains the configs for template and rest configuration
 		Render Render
-        // Websocket contains the configs for the websocket server
-        Websocket Websocket
-        
-        // Mail contains the config for the mail sender service
+
+		// Websocket contains the configs for Websocket's server integration
+		Websocket Websocket
+
+		// Mail contains the config for the mail sender service
 		Mail Mail
 	}
 
