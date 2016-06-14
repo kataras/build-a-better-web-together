@@ -44,7 +44,6 @@
 * [Internationalization and Localization](middleware-internationalization-and-localization.md)
 * [Easy Typescript](plugin-typescript.md)
 * [Browser based Editor](plugin-editor.md)
-* [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https://github.com/iris-contrib/examples)
+* Examples here: http://.github.com/iris-contrib/examples 
 

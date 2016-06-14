@@ -10,7 +10,7 @@ ReadJSON(jsonObject interface{}) error
 ReadXML(xmlObject interface{}) error
 
 // ReadForm binds the formObject  to the requeste's form data
-func (ctx *Context) ReadForm(formObject interface{}) error
+ReadForm(formObject interface{}) error
 ```
 
 How to use
@@ -152,7 +152,6 @@ func main() {
 		fmt.Printf("\n Visitor: %v", visitor)
 	})
 
-	fmt.Println("Server is running at :8080")
 	iris.Listen(":8080")
 }
 

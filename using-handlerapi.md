@@ -8,7 +8,7 @@ HandlerAPI is any custom struct which has an `*iris.Context` field.
 Instead of writing Handlers/HandlerFuncs for eachone API routes, you can use the ` iris.API` function.
 
 ```go
-API(path string, controller HandlerAPI, middlewares ...HandlerFunc) error
+API(path string, api HandlerAPI, middleware ...HandlerFunc) error
 ```
 
 

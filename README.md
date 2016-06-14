@@ -47,9 +47,8 @@
 * [Internationalization and Localization](middleware-internationalization-and-localization.md)
 * [Easy Typescript](plugin-typescript.md)
 * [Browser based Editor](plugin-editor.md)
-* [Routes info](plugin-routesinfo.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https://github.com/iris-contrib/examples)
+* Examples here: http://.github.com/iris-contrib/examples
 
 
 ### Why
@@ -81,5 +80,16 @@ The same day, later the night, I was reading a book about Greek mythology. I saw
 
  I'm still here [because Iris has succeed in being the fastest go web framework](https://github.com/kataras/iris#benchmarks)
 
+![](comment1.png)
+
+![](comment2.png)
+![](comment3.png)
+![](comment4.png)
+
+
+
+![](comment5.png)
+
+![](comment6.png)
 
 

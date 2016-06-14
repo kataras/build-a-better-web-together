@@ -27,7 +27,7 @@ func main(){
 	e := editor.New() 
    // config.Editor{ Username: "admin", Password: "admin!123", Port: 4444, WorkingDir: "/public/scripts"}
 
-	iris.Plugins().Add(e)
+	iris.Plugins.Add(e)
 
 	iris.Get("/", func (ctx *iris.Context){})
 

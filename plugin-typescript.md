@@ -46,7 +46,7 @@ func main(){
     }
     // or config.DefaultTypescript()
 
-    iris.Plugins().Add(typescript.New(ts)) //or with the default options just: typescript.New()
+    iris.Plugins.Add(typescript.New(ts)) //or with the default options just: typescript.New()
 
     iris.Get("/", func (ctx *iris.Context){})
 

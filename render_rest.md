@@ -38,8 +38,8 @@ import (
 //...
 
 //1.
-iris.Config().Render.Rest.IndentJSON = true
-iris.Config().Render.Rest...
+iris.Config.Render.Rest.IndentJSON = true
+iris.Config.Render.Rest...
 //2.
 restConfig:= config.Rest{
 	Charset:                   "UTF-8",
@@ -53,7 +53,7 @@ restConfig:= config.Rest{
 	MarkdownSanitize: false,
 }
 
-iris.Config().Render.Rest = restConfig
+iris.Config.Render.Rest = restConfig
 
 
 ```

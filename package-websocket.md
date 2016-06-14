@@ -118,7 +118,7 @@ func main() {
 	})
 
 	// the path which the websocket client should listen/registed to ->
-	iris.Config().Websocket.Endpoint = "/my_endpoint"
+	iris.Config.Websocket.Endpoint = "/my_endpoint"
 
 	ws := iris.Websocket() // get the websocket server
 
@@ -144,7 +144,6 @@ func main() {
 		})
 	})
 
-	fmt.Println("Server is listening at: 8080")
 	iris.Listen(":8080")
 }
 

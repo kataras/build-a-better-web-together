@@ -12,15 +12,18 @@ Iris gives you the freedom to render templates through  **html/template**, Djang
 ----
 
 ```go
-// HTML builds up the response from the specified template and bindings.
-HTML(status int, name string, binding interface{}, layout ...string) error
+// RenderWithStatus builds up the response from the specified template and bindings.
+RenderWithStatus(status int, name string, binding interface{}, layout ...string) error
 
-// Render same as .HTML but with status to iris.StatusOK (200)
+// Render same as .RenderWithStatus but with status to iris.StatusOK (200)
 Render(name string, binding interface{}, layout ...string) error 
 
-// RenderString same as Render but instead of client render, returns the result 
-RenderString(name string, binding interface{}, layout ...string) (string,error)
+// TemplateString same as Render but instead of client render, returns the result 
+TemplateString(name string, binding interface{}, layout ...string) (string,error)
 
+// Render same as .Render but
+// returns 500 internal server error and logs the error if parse failed
+MustRender(name string, binding interface{}, layout ...string) 
 
 ```
 
@@ -40,7 +43,7 @@ import (
 )
 // These are the defaults
 templateConfig := config.Template {
-  		Engine:        DefaultEngine, //or HTMLTemplate
+  	  Engine:        DefaultEngine, //or HTMLTemplate
 		Gzip:          false,
 		IsDevelopment: false,
 		Directory:     "templates",
@@ -59,16 +62,16 @@ templateConfig := config.Template {
 // Set
 
 // 1. Directly via complete custom configuration field
-iris.Config().Render.Template = templateConfig
+iris.Config.Render.Template = templateConfig
 
 // 2. Fast way - Pongo snippet
-iris.Config().Render.Template.Engine = iris.PongoEngine
-iris.Config().Render.Template.Directory = "mytemplates"
-iris.Config().Render.Template.Pongo.Filters = ...
+iris.Config.Render.Template.Engine = iris.PongoEngine
+iris.Config.Render.Template.Directory = "mytemplates"
+iris.Config.Render.Template.Pongo.Filters = ...
 
 // 3. Fast way - HTMLTemplate snippet
-iris.Config().Render.Template.Engine = iris.HTMLTemplate // or iris.DefaultEngine
-iris.Config().Render.Template.Layout = "layout/layout.html" // = ./templates/layout/layout.html
+iris.Config.Render.Template.Engine = iris.HTMLTemplate // or iris.DefaultEngine
+iris.Config.Render.Template.Layout = "layout/layout.html" // = ./templates/layout/layout.html
 //...
  
 // 4.
@@ -97,11 +100,9 @@ type mypage struct {
 }
 
 func main() {
-	iris.Config().Render.Template.Layout = "layouts/layout.html" // default ""
+	iris.Config.Render.Template.Layout = "layouts/layout.html" // default ""
 	iris.Get("/", func(ctx *iris.Context) {
-		if err := ctx.Render("page1.html", mypage{"Message from page1!"}); err != nil {
-			panic(err)
-		}
+		 ctx.MustRender("page1.html", mypage{"Message from page1!"})
 	})
 
 	println("Server is running at: 8080")
@@ -179,17 +180,10 @@ import (
 
 func main() {
 
-	iris.Config().Render.Template.Engine = config.PongoEngine // or iris.PongoEngine without need to import the config
+	iris.Config.Render.Template.Engine = config.PongoEngine // or iris.PongoEngine without need to import the config
 
 	iris.Get("/", func(ctx *iris.Context) {
-
-		err := ctx.Render("index.html", map[string]interface{}{"username": "iris", "is_admin": true})
-		// OR
-		//err := ctx.Render("index.html", pongo2.Context{"username": "iris", "is_admin": true})
-
-		if err != nil {
-			panic(err)
-		}
+		ctx.MustRender("index.html", map[string]interface{}{"username": "iris", "is_admin": true})
 	})
 
 	println("Server is running at :8080")
@@ -233,8 +227,8 @@ import (
 
 func main() {
 	// Markdown engine doesn't supports Layout and context binding
-	iris.Config().Render.Template.Engine = config.MarkdownEngine
-	iris.Config().Render.Template.Extensions = []string{".md"}
+	iris.Config.Render.Template.Engine = config.MarkdownEngine
+	iris.Config.Render.Template.Extensions = []string{".md"}
     
 	iris.Get("/", func(ctx *iris.Context) {
 
@@ -350,15 +344,15 @@ import "github.com/kataras/iris"
 
 func main() {
 
-	iris.Config().Render.Template.Engine = iris.AmberEngine
-	iris.Config().Render.Template.Extensions = []string{".amber"} 
+	iris.Config.Render.Template.Engine = iris.AmberEngine
+	iris.Config.Render.Template.Extensions = []string{".amber"} 
     // this is optionally, you can just leave it to default which is .html
 
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Render("basic.amber", map[string]string{"Name": "iris"})
 
 	})
-	println("Server is running at: 8080")
+
 	iris.Listen(":8080")
 }
 
@@ -462,9 +456,9 @@ type Job struct {
 }
 
 func main() {
-	iris.Config().Render.Template.Extensions = []string{".jade"} 
+	iris.Config.Render.Template.Extensions = []string{".jade"} 
     // this is optionally, you can keep .html extension
-	iris.Config().Render.Template.Engine = iris.JadeEngine
+	iris.Config.Render.Template.Engine = iris.JadeEngine
 
 	iris.Get("/", func(ctx *iris.Context) {
 
@@ -478,12 +472,9 @@ func main() {
 			Jobs:   []*Job{&job1, &job2},
 		}
 
-		if err := ctx.Render("page.jade", person); err != nil {
-			println(err.Error())
-		}
+		ctx.MustRender("page.jade", person)
 	})
 
-	println("Server is running at: 8080")
 	iris.Listen(":8080")
 }
 

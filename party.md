@@ -3,47 +3,42 @@
 Let's party with Iris web framework!
 
 ```go
+package main
+
+import "github.com/kataras/iris"
+
 func main() {
+	admin := iris.Party("/admin")
+	{
+		// add a silly middleware
+		admin.UseFunc(func(c *iris.Context) {
+			//your authentication logic here...
+			println("from ", c.PathString())
+			authorized := true
+			if authorized {
+				c.Next()
+			} else {
+				c.Text(401, c.PathString()+" is not authorized for you")
+			}
 
-    //log everything middleware
-
-    iris.UseFunc(func(c *iris.Context) {
-		println("[Global log] the requested url path is: ", c.PathString())
-		c.Next()
-	})
-
-    // manage all /users
-    users := iris.Party("/users",func(c *iris.Context) {
-			println("LOG [/users...] This is the middleware for: ", c.PathString())
-			c.Next()
 		})
-    {
+		admin.Get("/", func(c *iris.Context) {
+			c.Write("from /admin/ or /admin if you pathcorrection on")
+		})
+		admin.Get("/dashboard", func(c *iris.Context) {
+			c.Write("/admin/dashboard")
+		})
+		admin.Delete("/delete/:userId", func(c *iris.Context) {
+			c.Write("admin/delete/%s", c.Param("userId"))
+		})
+	}
 
-		users.Post("/login", loginHandler)
-        users.Get("/:userId", singleUserHandler)
-        users.Delete("/:userId", userAccountRemoveUserHandler)
-    }
+	beta := admin.Party("/beta")
+	beta.Get("/hey", func(c *iris.Context) { c.Write("hey from /admin/beta/hey") })
 
+	//for subdomains goto: ../subdomains_1/main.go
 
+	iris.Listen(":8080")
 
-    // Party inside an existing Party example:
-
-    beta:= iris.Party("/beta")
-
-    admin := beta.Party("/admin")
-    {
-		/// GET: /beta/admin/
-		admin.Get("/", func(c *iris.Context){})
-		/// POST: /beta/admin/signin
-        admin.Post("/signin", func(c *iris.Context){})
-		/// GET: /beta/admin/dashboard
-        admin.Get("/dashboard", func(c *iris.Context){})
-		/// PUT: /beta/admin/users/add
-        admin.Put("/users/add", func(c *iris.Context){})
-    }
-
-
-
-    iris.Listen(":8080")
 }
 ```

@@ -3,143 +3,144 @@
 Plugins are modules that you can build to inject the Iris' flow. Think it like a middleware for the Iris framework itself, not only the requests. Middleware starts it's actions after the server listen, Plugin on the other hand starts working when you registed them, from the begin, to the end. Look how it's interface looks:
 
 ```go
-	// IPluginGetName implements the GetName() string method
-	IPluginGetName interface {
+type (
+	// Plugin just an empty base for plugins
+	// A Plugin can be added with: .Add(PreListenFunc(func(*Framework))) and so on... or
+	// .Add(myPlugin{},myPlugin2{}) which myPlugin is  a struct with any of the methods below or
+	//.PostListen(func(*Framework)) and so on...
+	Plugin interface {
+	}
+
+	// pluginGetName implements the GetName() string method
+	pluginGetName interface {
 		// GetName has to returns the name of the plugin, a name is unique
 		// name has to be not dependent from other methods of the plugin,
 		// because it is being called even before the Activate
 		GetName() string
 	}
 
-	// IPluginGetDescription implements the GetDescription() string method
-	IPluginGetDescription interface {
+	// pluginGetDescription implements the GetDescription() string method
+	pluginGetDescription interface {
 		// GetDescription has to returns the description of what the plugins is used for
 		GetDescription() string
 	}
 
-	// IPluginGetDescription implements the Activate(IPluginContainer) error method
-	IPluginActivate interface {
+	// pluginActivate implements the Activate(pluginContainer) error method
+	pluginActivate interface {
 		// Activate called BEFORE the plugin being added to the plugins list,
 		// if Activate returns none nil error then the plugin is not being added to the list
 		// it is being called only one time
 		//
 		// PluginContainer parameter used to add other plugins if that's necessary by the plugin
-		Activate(IPluginContainer) error
+		Activate(PluginContainer) error
 	}
-
-	// IPluginPreHandle implements the PreHandle(IRoute) method
-	IPluginPreHandle interface {
-		// PreHandle it's being called every time BEFORE a Route is registed to the Router
-		//
-		//  parameter is the Route
-		PreHandle(IRoute)
-	}
-	// IPluginPostHandle implements the PostHandle(IRoute) method
-	IPluginPostHandle interface {
-		// PostHandle it's being called every time AFTER a Route successfully registed to the Router
-		//
-		// parameter is the Route
-		PostHandle(IRoute)
-	}
-	// IPluginPreListen implements the PreListen(*Station) method
-	IPluginPreListen interface {
+	// pluginPreListen implements the PreListen(*Framework) method
+	pluginPreListen interface {
 		// PreListen it's being called only one time, BEFORE the Server is started (if .Listen called)
 		// is used to do work at the time all other things are ready to go
 		//  parameter is the station
-		PreListen(*Station)
+		PreListen(*Framework)
 	}
-	// IPluginPostListen implements the PostListen(*Station) method
-	IPluginPostListen interface {
+	// PreListenFunc implements the simple function listener for the PreListen(*Framework)
+	PreListenFunc func(*Framework)
+	// pluginPostListen implements the PostListen(*Framework) method
+	pluginPostListen interface {
 		// PostListen it's being called only one time, AFTER the Server is started (if .Listen called)
 		// parameter is the station
-		PostListen(*Station)
+		PostListen(*Framework)
 	}
-	// IPluginPreClose implements the PreClose(*Station) method
-	IPluginPreClose interface {
+	// PostListenFunc implements the simple function listener for the PostListen(*Framework)
+	PostListenFunc func(*Framework)
+	// pluginPreClose implements the PreClose(*Framework) method
+	pluginPreClose interface {
 		// PreClose it's being called only one time, BEFORE the Iris .Close method
 		// any plugin cleanup/clear memory happens here
 		//
 		// The plugin is deactivated after this state
-		PreClose(*Station)
+		PreClose(*Framework)
 	}
+	// PreCloseFunc implements the simple function listener for the PreClose(*Framework)
+	PreCloseFunc func(*Framework)
+
+	// pluginPreDownload It's for the future, not being used, I need to create
+	// and return an ActivatedPlugin type which will have it's methods, and pass it on .Activate
+	// but now we return the whole pluginContainer, which I can't determinate which plugin tries to
+	// download something, so we will leave it here for the future.
+	pluginPreDownload interface {
+		// PreDownload it's being called every time a plugin tries to download something
+		//
+		// first parameter is the plugin
+		// second parameter is the download url
+		// must return a boolean, if false then the plugin is not permmited to download this file
+		PreDownload(plugin Plugin, downloadURL string) // bool
+	}
+
+	// PreDownloadFunc implements the simple function listener for the PreDownload(plugin,string)
+	PreDownloadFunc func(Plugin, string)
+
+)
 ```
 
-A small example, imagine that you want to get all routes registered to your server (OR modify them at runtime),  with their time registed, methods, (sub)domain  and the path, what whould you do on other frameworks when you want something from the framework which it doesn't supports out of the box? and what you can do with Iris:
-
 ```go
-//file myplugin.go
 package main
 
 import (
-	"time"
+	"fmt"
 
 	"github.com/kataras/iris"
 )
 
-type RouteInfo struct {
-	Method       string
-	Domain       string
-	Path         string
-	TimeRegisted time.Time
-}
-
-type myPlugin struct {
-	routes    []*RouteInfo
-}
-
-func NewMyPlugin() *myPlugin {
-	return &myPlugin{routes: make([]*RouteInfo, 0)}
-}
-
-//
-// Implement our plugin, you can view your inject points - listeners on the /kataras/iris/plugin.go too.
-//
-// Implement the PostHandle, because this is what we need now, we need to collect the information after a route is registed to our server so we do:
-func (i *myPlugin) PostHandle(route iris.IRoute) {
-	myRouteInfo := &RouteInfo{}
-	myRouteInfo.Method = route.GetMethod()
-	myRouteInfo.Domain = route.GetDomain()
-	myRouteInfo.Path = route.GetPath()
-
-	myRouteInfo.TimeRegisted = time.Now()
-
-	i.routes = append(i.routes, myRouteInfo)
-}
-
-// PostListen called after the server is started, here you can do a lot of staff
-// you have the right to access the whole iris' Station also, here you can add more routes and do anything you want, for example start a second server too, an admin web interface!
-// for example let's print to the server's stdout the routes we collected...
-func (i *myPlugin) PostListen(s *iris.Iris) {
-	s.Logger().Printf("From MyPlugin: You have registed %d routes ", len(i.routes))
-	//do what ever you want, you have imagination do more than this!
-}
-
-//
-
-```
-Let's register our plugin:
-```go
-
-//file main.go
-package main
-
-import "github.com/kataras/iris"
-
 func main() {
-   iris.Plugins().Add(NewMyPlugin())
-   //the plugin is running and saves all these routes
-   iris.Get("/", func(c *iris.Context){})
-   iris.Post("/login", func(c *iris.Context){})
-   iris.Get("/login", func(c *iris.Context){})
-   iris.Get("/something", func(c *iris.Context){})
+	// first way:
+	// simple way for simple things
+	// PreListen before a station is listening ( iris.Listen/TLS...)
+	iris.Plugins.PreListen(func(s *iris.Framework) {
+		for _, route := range s.Lookups() {
+			fmt.Printf("Func: Route Method: %s | Subdomain %s | Path: %s is going to be registed with %d handler(s). \n", route.Method(), route.Subdomain(), route.Path(), len(route.Middleware()))
+		}
+	})
 
-   iris.Listen(":8080")
+	// second way:
+	// structured way for more things
+	plugin := myPlugin{}
+	iris.Plugins.Add(plugin)
+
+	iris.Get("/first_route", aHandler)
+
+	iris.Post("/second_route", aHandler)
+
+	iris.Put("/third_route", aHandler)
+
+	iris.Get("/fourth_route", aHandler)
+
+	iris.Listen(":8080")
 }
 
+func aHandler(ctx *iris.Context) {
+	ctx.Write("Hello from: %s", ctx.PathString())
+}
+
+type myPlugin struct{}
+
+// PostListen after a station is listening ( iris.Listen/TLS...)
+func (pl myPlugin) PostListen(s *iris.Framework) {
+	fmt.Printf("myPlugin: server is listening on host: %s", s.HTTPServer.Host())
+}
+
+//list:
+/*
+	Activate(iris.PluginContainer)
+	GetName() string
+	GetDescription() string
+	PreListen(*iris.Framework)
+	PostListen(*iris.Framework)
+	PreClose(*iris.Framework)
+	PreDownload(thePlugin iris.Plugin, downloadUrl string)
+	// for custom events
+	On(string,...func())
+	Call(string)
+*/
 
 ```
-Output:
-
->From MyPlugin: You have registed 4 routes
 
 An example of one plugin which is under development is the Iris control, a web interface that gives you control to your server remotely. You can find it's code [here](https://github.com/kataras/iris/tree/master/plugins/iriscontrol)

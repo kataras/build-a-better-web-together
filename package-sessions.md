@@ -35,13 +35,13 @@ func main() {
 
 	
     // when import _ "github.com/kataras/iris/sessions/providers/memory"
-	//iris.Config().Sessions.Provider = "memory" 
+	//iris.Config.Sessions.Provider = "memory" 
     // The cookie name
-	//iris.Config().Sessions.Cookie = "irissessionid"
+	//iris.Config.Sessions.Cookie = "irissessionid"
     // Expires the date which the cookie must expires. Default infinitive/unlimited life (config.CookieExpireNever)
-	//iris.Config().Sessions.Expires = time.Time....
+	//iris.Config.Sessions.Expires = time.Time....
     // GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies
-	//iris.Config().Sessions.GcDuration = time.Duration(2) *time.Hour
+	//iris.Config.Sessions.GcDuration = time.Duration(2) *time.Hour
 	
 	iris.Get("/set", func(c *iris.Context) {
 
@@ -76,8 +76,7 @@ func main() {
 		c.SessionDestroy()
 	})
 
-	println("Server is listening at :8080")
-	iris.Listen("8080")
+	iris.Listen(":8080")
 }
 
 
@@ -96,7 +95,7 @@ import (
 
 func main() {
 
-	iris.Config().Sessions.Provider = "redis"
+	iris.Config.Sessions.Provider = "redis"
 
 	iris.Get("/set", func(c *iris.Context) {
 
@@ -131,8 +130,7 @@ func main() {
 		c.SessionDestroy()
 	})
 
-	println("Server is listening at :8080")
-	iris.Listen("8080")
+	iris.Listen(":8080")
 }
 
 ```
@@ -180,7 +178,7 @@ func init() {
 
 func main() {
 	
-	iris.Config().Sessions.Provider = "redis"
+	iris.Config.Sessions.Provider = "redis"
 
 	iris.Get("/set", func(c *iris.Context) {
 
@@ -315,7 +313,7 @@ func main() {
 		sess.Destroy(c)
 	})
 
-	iris.Listen("8080")
+	iris.Listen(":8080")
 }
 
 // session.GetAll() returns all values a map[interface{}]interface{}

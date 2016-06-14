@@ -9,7 +9,7 @@ You have wondered this:
  2. declare a new iris station with default config: **iris.New()** 
  3. declare a new iris station with custom config: ** api := iris.New(config.Iris{...})**
  
-Config can change after declaration with 1&2. `iris.Config().` 3. / `api.Config().` 
+Config can change after declaration with 1&2. `iris.Config.` 3. / `api.Config.` 
 
 
 
@@ -33,27 +33,22 @@ func secondWay() {
 
 Before looking at the 3rd way, let's take a quick look at the **[config](configuration.md).Iris**:
 ```go
-// Iris configs for the station
+type (
+	// Iris configs for the station
 	// All fields can be changed before server's listen except the DisablePathCorrection field
 	//
 	// MaxRequestBodySize is the only options that can be changed after server listen -
-	// using Config().MaxRequestBodySize = ...
+	// using Config.MaxRequestBodySize = ...
 	// Render's rest config can be changed after declaration but before server's listen -
-	// using Config().Render.Rest...
+	// using Config.Render.Rest...
 	// Render's Template config can be changed after declaration but before server's listen -
-	// using Config().Render.Template...
+	// using Config.Render.Template...
 	// Sessions config can be changed after declaration but before server's listen -
-	// using Config().Sessions...
+	// using Config.Sessions...
 	// and so on...
 	Iris struct {
-// MaxRequestBodySize Maximum request body size.
-		//
-		// The server rejects requests with bodies exceeding this limit.
-		//
-		// By default request body size is -1, unlimited.
-		MaxRequestBodySize int
-        
-				// DisablePathCorrection corrects and redirects the requested path to the registed path
+
+		// DisablePathCorrection corrects and redirects the requested path to the registed path
 		// for example, if /home/ path is requested but no handler for this Route found,
 		// then the Router checks if /home handler exists, if yes,
 		// (permant)redirects the client to the correct path /home
@@ -62,8 +57,7 @@ Before looking at the 3rd way, let's take a quick look at the **[config](configu
 		DisablePathCorrection bool
 
 		// DisablePathEscape when is false then its escapes the path, the named parameters (if any).
-		// Change to true it if you want something like this
-        // https://github.com/kataras/iris/issues/135 to work
+		// Change to true it if you want something like this https://github.com/kataras/iris/issues/135 to work
 		//
 		// When do you need to Disable(true) it:
 		// accepts parameters with slash '/'
@@ -76,30 +70,62 @@ Before looking at the 3rd way, let's take a quick look at the **[config](configu
 		// Default is false
 		DisablePathEscape bool
 
-		// DisableLog turn it to true if you want to disable logger,
-		// Iris prints/logs ONLY errors, so be careful when you enable it
-        // 
-        // Default is false
-		DisableLog bool
-
 		// DisableBanner outputs the iris banner at startup
 		//
 		// Default is false
 		DisableBanner bool
 
-		// ProfilePath change it if you want other url path than the default
-		// Default is /debug/pprof , which means yourhost.com/debug/pprof
+		// MaxRequestBodySize Maximum request body size.
+		//
+		// The server rejects requests with bodies exceeding this limit.
+		//
+		// By default request body size is -1, unlimited.
+		MaxRequestBodySize int64
+
+		// ProfilePath a the route path, set it to enable http pprof tool
+		// Default is empty, if you set it to a $path, these routes will handled:
+		// $path/cmdline
+		// $path/profile
+		// $path/symbol
+		// $path/goroutine
+		// $path/heap
+		// $path/threadcreate
+		// $path/pprof/block
+		// for example if '/debug/pprof'
+		// http://yourdomain:PORT/debug/pprof/
+		// http://yourdomain:PORT/debug/pprof/cmdline
+		// http://yourdomain:PORT/debug/pprof/profile
+		// http://yourdomain:PORT/debug/pprof/symbol
+		// http://yourdomain:PORT/debug/pprof/goroutine
+		// http://yourdomain:PORT/debug/pprof/heap
+		// http://yourdomain:PORT/debug/pprof/threadcreate
+		// http://yourdomain:PORT/debug/pprof/pprof/block
+		// it can be a subdomain also, for example, if 'debug.'
+		// http://debug.yourdomain:PORT/
+		// http://debug.yourdomain:PORT/cmdline
+		// http://debug.yourdomain:PORT/profile
+		// http://debug.yourdomain:PORT/symbol
+		// http://debug.yourdomain:PORT/goroutine
+		// http://debug.yourdomain:PORT/heap
+		// http://debug.yourdomain:PORT/threadcreate
+		// http://debug.yourdomain:PORT/pprof/block
 		ProfilePath string
 
-		// Sessions the config for sessions
-		// contains 3(three) properties
-		// Provider: (look /sessions/providers)
-		// Secret: cookie's name (string)
-		// Life: cookie life (time.Duration)
+		// Logger the configuration for the logger
+		// Iris logs ONLY SEMANTIC errors and the banner if enabled
+		Logger Logger
+
+		// Sessions contains the configs for sessions
 		Sessions Sessions
 
 		// Render contains the configs for template and rest configuration
 		Render Render
+
+		// Websocket contains the configs for Websocket's server integration
+		Websocket *Websocket
+
+		// Mail contains the configs for the mail sender service
+		Mail Mail
 	}
 ```
 ```go
@@ -113,7 +139,6 @@ import (
 
 func main() {
 	c := config.Iris{
-		Profile:            true,
 		ProfilePath:        "/mypath/debug",
 	}
     // to get the default: c := config.Default()
@@ -131,13 +156,13 @@ func main() {
 
 For profiling there are eight (8) generated routes with pages filled with info:
 
- -  /debug/pprof
- -  /debug/pprof/cmdline
- -  /debug/pprof/profile
- -  /debug/pprof/symbol
- -  /debug/pprof/goroutine
- -  /debug/pprof/heap
- -  /debug/pprof/threadcreate
- -  /debug/pprof/pprof/block
+ -  /mypath/debug/
+ -  /mypath/debug/cmdline
+ -  /mypath/debug/profile
+ -  /mypath/debug/symbol
+ -  /mypath/debug/goroutine
+ -  /mypath/debug/heap
+ -  /mypath/debug/threadcreate
+ -  /mypath/debug/pprof/block
 
 -  More about configuration [here](configuration.md)

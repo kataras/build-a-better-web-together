@@ -4,7 +4,7 @@ Serve a static directory
 
 ```go
 
-// StaticHandlerFunc returns a HandlerFunc to serve static system directory
+// StaticHandler returns a HandlerFunc to serve static system directory
 // Accepts 5 parameters
 //
 // first is the systemPath (string)
@@ -42,7 +42,7 @@ Serve a static directory
 //     * index.htm
 //     * my-super-index.xml
 //
-StaticHandlerFunc(systemPath string, stripSlashes int, compress bool,
+StaticHandler(systemPath string, stripSlashes int, compress bool,
                   generateIndexPages bool, indexNames []string) HandlerFunc 
 
 // Static registers a route which serves a system directory
@@ -194,21 +194,12 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
-	err := iris.Favicon("./static/favicons/iris_favicon_32_32.ico")
-	// This will serve the ./static/favicons/iris_favicon_32_32.ico to: localhost:8080/favicon.ico
-
-	// err := iris.Favicon("./static/favicons/iris_favicon_32_32.ico", "/favicon_32_32.ico")
-	// This will serve the ./static/favicons/iris_favicon_32_32.ico to: localhost:8080/favicon_32_32.ico
-
-	if err != nil {
-		iris.Logger().Panicf("Error when trying to set static favicon %s", err.Error())
-	}
+	iris.Favicon("./static/favicons/iris_favicon_32_32.ico")
 
 	iris.Get("/", func(ctx *iris.Context) {
-		ctx.WriteHTML(iris.StatusOK, "You should see the favicon now at the side of your browser.")
+		ctx.HTML(iris.StatusOK, "You should see the favicon now at the side of your browser.")
 	})
 
-	println("Server is running at: 8080")
 	iris.Listen(":8080")
 }
 
