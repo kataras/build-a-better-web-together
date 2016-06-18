@@ -47,3 +47,15 @@
 * [Control panel](plugin-iriscontrol.md)
 * Examples here: https://github.com/iris-contrib/examples
 
+
+
+**Latest comments**
+
+![](comment1.png)
+![](comment2.png)
+![](comment3.png)
+![](comment4.png)
+![](comment5.png)
+![](comment6.png)
+![](comment7.png)
+![](comment8.png)
