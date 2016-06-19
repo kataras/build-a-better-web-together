@@ -9,7 +9,7 @@ Which gives  access to your iris server's information via a web interface.
 
 How to use
 ```go
-iriscontrol.Web(port int, authenticatedUsers map[string]string) iris.IPlugin
+iriscontrol.New(port int, authenticatedUsers map[string]string) iris.IPlugin
 ```
 
 Example
@@ -24,7 +24,7 @@ import (
 
 func main() {
 
-    iris.Plugins.Add(iriscontrol.Web(9090, map[string]string{
+    iris.Plugins.Add(iriscontrol.New(9090, map[string]string{
         "irisusername1": "irispassword1",
         "irisusername2": "irispassowrd2",
     }))
