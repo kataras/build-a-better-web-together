@@ -1,6 +1,6 @@
 # Graceful
 
-[This is a package](https://github.com/iris-contrib/graceful)
+[This is a package](https://github.com/iris-contrib/graceful).
 
 
 Enables graceful shutdown.
