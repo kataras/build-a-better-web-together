@@ -47,7 +47,7 @@ Options
 ```
 
 ```go
-import "github.com/kataras/iris/middleware/cors"
+import "github.com/iris-contrib/middleware/cors"
 
 cors.New(cors.Options{})
 ```
@@ -59,7 +59,7 @@ package main
 
 import (
     "github.com/kataras/iris"
-    "github.com/kataras/iris/middleware/cors"
+    "github.com/iris-contrib/middleware/cors"
 )
 
 func main() {

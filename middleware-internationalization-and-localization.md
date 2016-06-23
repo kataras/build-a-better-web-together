@@ -1,6 +1,6 @@
 # Internationalization and Localization
 
-[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/i18n)
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/i18n)
 
 ## Tutorial
 
@@ -27,18 +27,16 @@ hi = Γειά, %s
 	import (
 		"fmt"
 		"github.com/kataras/iris"
-		"github.com/kataras/iris/middleware/i18n"
+		"github.com/iris-contrib/middleware/i18n"
 	)
 
 	func main() {
 
-		iris.Use(i18n.I18nHandler(i18n.Options{Default: "en-US",
+		iris.Use(i18n.New(i18n.Config{Default: "en-US",
 			Languages: map[string]string{
 				"en-US": "./locales/locale_en-US.ini",
 				"el-GR": "./locales/locale_el-GR.ini",
 				"zh-CN": "./locales/locale_zh-CN.ini"}}))	
-		// or iris.UseFunc(i18n.I18n(....))
-		// or iris.Get("/",i18n.I18n(....), func (ctx *iris.Context){}) 
 		
 		iris.Get("/", func(ctx *iris.Context) {
 			hi := ctx.GetFmt("translate")("hi", "maki") // hi is the key, 'maki' is the %s, the second parameter is optional

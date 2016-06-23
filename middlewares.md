@@ -94,14 +94,14 @@ iris.Listen(":8080")
 > Note that middleware must come before route declaration.
 
 
-Make use of the built-in Iris [middleware](https://github.com/kataras/iris/tree/master/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
+Make use of the [middleware](https://github.com/iris-contrib/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
 
 ```go
 package main
 
 import (
  "github.com/kataras/iris"
- "github.com/kataras/iris/middleware/logger"
+ "github.com/iris-contrib/middleware/logger"
 )
 
 type Page struct {
