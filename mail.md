@@ -55,6 +55,7 @@ func main() {
 	var to = []string{"kataras2006@hotmail.com", "social@ideopod.com"}
 
 	// standalone
+	//iris.Must(mail.Send("iris e-mail test subject", "</h1>outside of context before server's listen!</h1>", to...))
 
 	//inside handler
 	iris.Get("/send", func(ctx *iris.Context) {
