@@ -123,9 +123,6 @@ type (
 
 		// Websocket contains the configs for Websocket's server integration
 		Websocket *Websocket
-
-		// Mail contains the configs for the mail sender service
-		Mail Mail
 	}
 ```
 ```go
