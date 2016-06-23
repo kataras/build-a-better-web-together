@@ -1,6 +1,6 @@
 # Plugins
 
-Plugins are modules that you can build to inject the Iris' flow. Think it like a middleware for the Iris framework itself, not only the requests. Middleware starts it's actions after the server listen, Plugin on the other hand starts working when you registed them, from the begin, to the end. Look how it's interface looks:
+Plugins are modules that you can build to inject the Iris' flow. Think it like a middleware for the Iris framework itself, not the requests. Middleware starts it's actions after the server listen and executes itself on every request, Plugin on the other hand starts working when you registered it, it has to do with framework's code, it has access to the *iris.Framework, so it can register routes, start a second server, read the iris' configs or edit them and all things you can do with Iris. Look how it's interface looks:
 
 ```go
 type (
