@@ -99,7 +99,6 @@ The same day, later the night, I was reading a book about Greek mythology. I saw
 
 ![](comment17.png)
 
-![](comment17.png)
 
 ![](comment21.png)
 
