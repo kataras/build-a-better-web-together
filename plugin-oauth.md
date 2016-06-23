@@ -58,7 +58,7 @@ This plugin helps you to be able to connect your clients using famous websites l
 	// register the plugin to iris
 	iris.Plugins.Add(authentication)
 
-
+    // came from yourhost:port/auth/theprovidername/callback
 	authentication.Success(func(ctx *iris.Context) {
 		user := authentication.User(ctx) // returns the goth.User
     })
