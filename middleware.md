@@ -52,7 +52,7 @@ func (m *myMiddleware) Serve(c *iris.Context){
 iris.Use(&myMiddleware{})
 
 iris.Get("/home", func (c *iris.Context){
-	c.WriteHTML(iris.StatusOK,"<h1>Hello from /home </h1>")
+	c.HTML(iris.StatusOK,"<h1>Hello from /home </h1>")
 })
 
 iris.Listen(":8080")
