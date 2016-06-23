@@ -1,6 +1,6 @@
 # Recovery
 
-[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/recovery)
+[This is a middleware](https://github.com/kataras/iris-contrib/middleware/tree/master/recovery)
 
 
 Safety recover the server from panic.
@@ -15,7 +15,7 @@ package main
 
 import (
     "github.com/kataras/iris"
-    "github.com/kataras/iris/middleware/recovery"
+    "github.com/iris-contrib/middleware/recovery"
     "os"
 )
 

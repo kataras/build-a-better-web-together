@@ -1,11 +1,11 @@
 # Logger
 
-[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/logger)
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/logger)
 
 Logs the incoming requests
 
 ```go
- New(theLogger *logger.Logger, options ...Options) iris.HandlerFunc
+ New(theLogger *logger.Logger, config ...Config) iris.HandlerFunc
 ```
 
 How to use
@@ -15,13 +15,13 @@ package main
 
 import (
 	"github.com/kataras/iris"
-	"github.com/kataras/iris/middleware/logger"
+	"github.com/iris-contrib/middleware/logger"
 )
 
 /*
-With options:
+With configs:
 
-errorLogger := logger.New(iris.Logger, logger.Options{
+errorLogger := logger.New(iris.Logger, logger.Config{
 		EnableColors: false, //enable it to enable colors for all, disable colors by iris.Logger.ResetColors(), defaults to false
 		// Status displays status code
 		Status: true,
@@ -35,7 +35,7 @@ errorLogger := logger.New(iris.Logger, logger.Options{
 
 iris.Use(errorLogger)
 
-With default options:
+With default configs:
 
 iris.Use(logger.New(iris.Logger))
 */
@@ -58,7 +58,7 @@ func main() {
 	// log http errors
 	errorLogger := logger.New(iris.Logger)
 
-	// yes we have options look at the logger.Options inside kataras/iris/middleware/logger.go
+
 	iris.OnError(iris.StatusNotFound, func(ctx *iris.Context) {
 		errorLogger.Serve(ctx)
 		ctx.Write("My Custom 404 error page ")
@@ -77,7 +77,7 @@ You can create your **own Logger** to use
 
 import (
     "github.com/kataras/iris/logger"
-     mLogger "github.com/kataras/iris/middleware/logger"
+     mLogger "github.com/iris-contrib/middleware/logger"
 )
 
 theLogger := logger.New(config.DefaultLogger())
@@ -155,12 +155,12 @@ The ` config.DefaultLogger()`  returns ` config.Logger` :
 		ColorFgDanger:  int(color.FgHiRed),
 		ColorFgOther:   int(color.FgHiYellow),
 		// background colors
-		ColorBgDefault: int(color.BgHiBlack),
-		ColorBgInfo:    int(color.BgHiBlack),
-		ColorBgSuccess: int(color.BgHiBlack),
-		ColorBgWarning: int(color.BgHiBlack),
-		ColorBgDanger:  int(color.BgHiWhite),
-		ColorBgOther:   int(color.BgHiBlack),
+		ColorBgDefault: 0,
+		ColorBgInfo:    0,
+		ColorBgSuccess: 0,
+		ColorBgWarning: 0,
+		ColorBgDanger:  0,
+		ColorBgOther:   0,
 		// banner color
 		ColorFgBanner: int(color.FgHiBlue),
 	}
