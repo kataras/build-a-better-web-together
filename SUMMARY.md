@@ -12,7 +12,7 @@
    * [Using custom struct for a complete API](using-handlerapi.md)
    * [Using native http.Handler](using-native-httphandler.md)
        * [Using native http.Handler via iris.ToHandlerFunc()](using-native-httphandler-via-tohandlerfunc.md)
-* [Middlewares](middlewares.md)
+* [Middleware](middlewares.md)
 * [API](api.md)
 * [Declaration](declaration.md)
 * [Configuration](configuration.md)
@@ -47,15 +47,3 @@
 * [Control panel](plugin-iriscontrol.md)
 * Examples here: https://github.com/iris-contrib/examples
 
-
-
-**Latest comments**
-
-![](comment1.png)
-![](comment2.png)
-![](comment3.png)
-![](comment4.png)
-![](comment5.png)
-![](comment6.png)
-![](comment7.png)
-![](comment8.png)
