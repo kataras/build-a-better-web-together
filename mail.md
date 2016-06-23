@@ -1,4 +1,7 @@
 # Send e-mails
+
+This is a [package](https://github.com/iris-contrib/mail).
+
 Sending plain or rich content e-mails is an easy process with Iris.
 
 **Configuration** 
