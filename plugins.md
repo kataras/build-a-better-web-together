@@ -143,4 +143,6 @@ func (pl myPlugin) PostListen(s *iris.Framework) {
 
 ```
 
-An example of one plugin which is under development is the Iris control, a web interface that gives you control to your server remotely. You can find it's code [here](https://github.com/kataras/iris/tree/master/plugins/iriscontrol)
+An example of one plugin which is under development is the Iris control, a web interface that gives you control to your server remotely. You can find it's code [here](https://github.com/kataras/iris/tree/master/plugins/iriscontrol).
+
+Take a look at [the real plugins](https://github.com/iris-contrib/plugin), easy to make your own.
