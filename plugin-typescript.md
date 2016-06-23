@@ -1,6 +1,6 @@
 # Typescript
 
-[This is a plugin](https://github.com/kataras/iris/tree/master/plugin/typescript)
+[This is a plugin](https://github.com/iris-contrib/plugin/tree/master/typescript)
 
 This is an Iris and typescript bridge plugin.
 
@@ -35,16 +35,15 @@ package main
 
 import (
     "github.com/kataras/iris"
-    "github.com/kataras/iris/config"
-    "github.com/kataras/iris/plugin/typescript"
+    "github.com/iris-contrib/plugin/typescript"
 )
 
 func main(){
-    ts := config.Typescript {
+    ts := typescript.Config {
         Dir: "./scripts/src",
-        Tsconfig: config.Tsconfig{Module: "commonjs", Target: "es5"}, 
+        Tsconfig: typescript.Tsconfig{Module: "commonjs", Target: "es5"}, 
     }
-    // or config.DefaultTypescript()
+    // or typescript.DefaultConfig()
 
     iris.Plugins.Add(typescript.New(ts)) //or with the default options just: typescript.New()
 
@@ -57,9 +56,9 @@ func main(){
 Enable [web browser editor](plugin-editor.md)
 
 ```go
-ts := config.Typescript {
+ts := typescript.Typescript {
     //...
-    Editor: config.Editor{Username:"admin", Password: "admin!123"}
+    Editor: typescript.Editor{Username:"admin", Password: "admin!123"}
     //...
 }
 

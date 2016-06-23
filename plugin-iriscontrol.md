@@ -1,6 +1,6 @@
 # Control panel
 
-[This is a plugin](https://github.com/kataras/iris/tree/master/plugin/iriscontrol) which is working but not finished.
+[This is a plugin](https://github.com/iris-contrib/plugin/tree/master/iriscontrol) which is working but not finished yet.
 
 Which gives  access to your iris server's information via a web interface.
 > You need internet connection the first time you will run this plugin, because the assets don't exists to this repository but [here](https://github.com/iris-contrib/iris-control-assets). The plugin will install these for you at the first run.
@@ -19,7 +19,7 @@ package main
 
 import (
     "github.com/kataras/iris"
-    "github.com/kataras/iris/plugin/iriscontrol"
+    "github.com/iris-contrib/plugin/iriscontrol"
 )
 
 func main() {
@@ -29,9 +29,8 @@ func main() {
         "irisusername2": "irispassowrd2",
     }))
     //or
-    // import "github.com/kataras/iris/config"
     // ....
-    // iriscontrol.New(config.IrisControl{...})
+    // iriscontrol.New(iriscontrol.Config{...})
 
     iris.Get("/", func(ctx *iris.Context) {
     })

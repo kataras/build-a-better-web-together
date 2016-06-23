@@ -1,6 +1,6 @@
 # Editor
 
-[This is a plugin](https://github.com/kataras/iris/tree/master/plugin/editor)
+[This is a plugin](https://github.com/iris-contrib/plugin/editor)
 
 Editor Plugin is just a bridge between Iris and [alm-tools](http://alm.tools).
 
@@ -19,13 +19,12 @@ package main
 
 import (
 	"github.com/kataras/iris"
-    "github.com/kataras/iris/config"
-	"github.com/kataras/iris/plugin/editor"
+	"github.com/iris-contrib/plugin/editor"
 )
 
 func main(){
 	e := editor.New() 
-   // config.Editor{ Username: "admin", Password: "admin!123", Port: 4444, WorkingDir: "/public/scripts"}
+   // editor.Config{ Username: "admin", Password: "admin!123", Port: 4444, WorkingDir: "/public/scripts"}
 
 	iris.Plugins.Add(e)
 
@@ -43,6 +42,6 @@ Would be readily available to anyone who could intercept the HTTP request. [Read
 
 > The editor can't work if the directory doesn't contains a [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig.json.html).
 
-> If you are using the [typescript plugin](https://github.com/kataras/iris/tree/master/plugin/typescript) you don't have to call the .Dir(...)
+> If you are using the [typescript plugin](https://github.com/iris-contrib/plugin/tree/master/typescript) you don't have to call the .Dir(...)
 
 
