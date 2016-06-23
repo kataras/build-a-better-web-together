@@ -40,7 +40,7 @@ This plugin helps you to be able to connect your clients using famous websites l
 
 ## How to use - high level
 ```go
-    oauth.Config{
+    configs := oauth.Config{
       Path: "/auth", //defaults to /auth
 
       GithubKey:    "YOUR_GITHUB_KEY",
@@ -58,7 +58,7 @@ This plugin helps you to be able to connect your clients using famous websites l
 	// register the plugin to iris
 	iris.Plugins.Add(authentication)
 
-    // came from yourhost:port/auth/theprovidername/callback
+    // came from yourhost:port/configs.Path/theprovidername/callback
 	authentication.Success(func(ctx *iris.Context) {
 		user := authentication.User(ctx) // returns the goth.User
     })
