@@ -35,6 +35,7 @@
 * [Logger](logger.md)
 * [HTTP access control](middleware-cors.md)
 * [Basic Authentication](basic-authentication.md)
+* [OAuth, OAuth2](plugin-oauth.md)
 * [Secure](middleware-secure.md)
 * [Sessions](package-sessions.md)
 * [Websockets](package-websocket.md)
