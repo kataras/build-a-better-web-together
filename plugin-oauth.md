@@ -3,7 +3,7 @@
 
 This is a [plugin](https://github.com/iris-contrib/plugin/tree/master/oauth).
 
-This plugin helps you to be able to connect your clients using famous websites login APIs, it is a bridge to the [goth](https://github.com/markbates/goth) .
+This plugin helps you to be able to connect your clients using famous websites login APIs, it is a bridge to the [goth](https://github.com/markbates/goth).
 
 ## Supported Providers
 
