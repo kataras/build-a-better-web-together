@@ -1,6 +1,6 @@
 # Editor
 
-[This is a plugin](https://github.com/iris-contrib/plugin/editor).
+[This is a plugin](https://github.com/iris-contrib/plugin/tree/master/editor).
 
 Editor Plugin is just a bridge between Iris and [alm-tools](http://alm.tools).
 
