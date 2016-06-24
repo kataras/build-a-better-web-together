@@ -55,5 +55,4 @@ func SecuredPingHandler(ctx *iris.Context) {
 	// user:= myJwtMiddleware.Get(ctx) or context.Get("jwt").(*jwt.Token)
 	ctx.JSON(iris.StatusOK, response)
 }
-
 ```
