@@ -39,6 +39,7 @@
 * [HTTP access control](middleware-cors.md)
 * [Basic Authentication](basic-authentication.md)
 * [OAuth, OAuth2](plugin-oauth.md)
+* [JSON Web Tokens(JWT)](jwt.md)
 * [Secure](middleware-secure.md)
 * [Sessions](package-sessions.md)
 * [Websockets](package-websocket.md)
