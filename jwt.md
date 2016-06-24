@@ -36,7 +36,6 @@ func main() {
 	iris.Get("/ping", PingHandler)
 	iris.Get("/secured/ping", jwtMiddleware.Serve, SecuredPingHandler)
 	iris.Listen(":8080")
-
 }
 
 type Response struct {
