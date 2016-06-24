@@ -1,7 +1,7 @@
 ## JSON Web Tokens
 
 
-This is a [middleware](https://github.com/iris-contrib/middleware/jwt).
+This is a [middleware](https://github.com/iris-contrib/middleware/tree/master/jwt).
 
 ## What is it?
 
