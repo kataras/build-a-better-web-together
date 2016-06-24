@@ -51,4 +51,4 @@ func SecuredPingHandler(ctx *iris.Context) {
 	response := Response{"All good. You only get this message if you're authenticated"}
 	ctx.JSON(iris.StatusOK, response)
 }
-```go
+```
