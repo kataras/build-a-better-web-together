@@ -21,3 +21,4 @@
 * **Multi server instances**: Not only does Iris have a default main server, you can declare as many as you need[*](declaration.md)
 * **Zero configuration**:  No need to configure anything for typical usage. Well-structured default configurations everywhere, which you can change with ease
 * **Zero allocations**: Iris generates zero garbage
+* and much more, take a fast look to all sections
