@@ -26,7 +26,7 @@ import (
 
 func main() {
 
-	jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Config{
+	myJwtMiddleware := jwtmiddleware.New(jwtmiddleware.Config{
 		ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
 			return []byte("My Secret"), nil
 		},
@@ -34,7 +34,7 @@ func main() {
 	})
 
 	iris.Get("/ping", PingHandler)
-	iris.Get("/secured/ping", jwtMiddleware.Serve, SecuredPingHandler)
+	iris.Get("/secured/ping", myJwtMiddleware.Serve, SecuredPingHandler)
 	iris.Listen(":8080")
 }
 
