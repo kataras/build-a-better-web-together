@@ -3,7 +3,7 @@
 
 This is a [middleware](https://github.com/iris-contrib/middleware/jwt).
 
-## Some general information
+## What is it?
 
 [JWT.io](https://jwt.io) has a great [introduction](https://jwt.io/introduction/) to JSON Web Tokens.
 
