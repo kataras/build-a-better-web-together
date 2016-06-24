@@ -1,5 +1,9 @@
 ## JSON Web Tokens
 
+
+This is a [middleware](https://github.com/iris-contrib/middleware/jwt).
+
+
 [JWT.io](https://jwt.io) has a great [introduction](https://jwt.io/introduction/) to JSON Web Tokens.
 
 In short, it's a signed JSON object that does something useful (for example, authentication). It's commonly used for Bearer tokens in Oauth 2. A token is made of three parts, separated by .'s. The first two parts are JSON objects, that have been base64url encoded. The last part is the signature, encoded the same way.
