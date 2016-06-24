@@ -71,11 +71,10 @@ This plugin helps you to be able to connect your clients using famous websites l
 Example:
 
 ```go
-
+// main.go
 package main
 
 import (
-	"html/template"
 	"sort"
 	"strings"
 
@@ -85,7 +84,7 @@ import (
 
 // register your auth via configs, providers with non-empty values will be registered to goth automatically by Iris
 var configs = oauth.Config{
-	Path: "/auth", //defaults to /auth
+	Path: "/auth", //defaults to /oauth
 
 	GithubKey:    "YOUR_GITHUB_KEY",
 	GithubSecret: "YOUR_GITHUB_SECRET",
@@ -94,6 +93,16 @@ var configs = oauth.Config{
 	FacebookKey:    "YOUR_FACEBOOK_KEY",
 	FacebookSecret: "YOUR_FACEBOOK_KEY",
 	FacebookName:   "facebook", // defaults to facebook
+}
+
+func init() {
+	iris.Config.Sessions.Provider = "memory"
+}
+
+// ProviderIndex ...
+type ProviderIndex struct {
+	Providers    []string
+	ProvidersMap map[string]string
 }
 
 func main() {
@@ -116,39 +125,37 @@ func main() {
 
 	// set a  login success handler( you can use more than one handler)
 	// if user succeed to logged in
-	// client comes here from: localhost:3000/auth/lowercase_provider_name/callback
+	// client comes here from: localhost:3000/config.RouteName/lowercase_provider_name/callback 's first handler, but the  previous url is the localhost:3000/config.RouteName/lowercase_provider_name
 	authentication.Success(func(ctx *iris.Context) {
 		// if user couldn't validate then server sends StatusUnauthorized, which you can handle by:  authentication.Fail OR iris.OnError(iris.StatusUnauthorized, func(ctx *iris.Context){})
 		user := authentication.User(ctx)
 
-		// you can get the url by the predefined-named-route 'oauth' which you can change by Config's field: RouteName
-		println("came from " + iris.URL("oauth", strings.ToLower(user.Provider)))
-
-		t, _ := template.New("foo").Parse(userTemplate)
-		ctx.ExecuteTemplate(t, user)
+		// you can get the url by the named-route 'oauth' which you can change by Config's field: RouteName
+		println("came from " + authentication.URL(strings.ToLower(user.Provider)))
+		ctx.Render("user.html", user)
 	})
 
 	// customize the error page using: authentication.Fail(func(ctx *iris.Context){....})
 
 	iris.Get("/", func(ctx *iris.Context) {
-		t, _ := template.New("foo").Parse(indexTemplate)
-		ctx.ExecuteTemplate(t, providerIndex)
+		ctx.Render("index.html", providerIndex)
 	})
 
 	iris.Listen(":3000")
 }
 
-// ProviderIndex ...
-type ProviderIndex struct {
-	Providers    []string
-	ProvidersMap map[string]string
-}
+```
+View: 
+```html
+<!-- ./templates/index.html -->
 
-var indexTemplate = `{{range $key,$value:=.Providers}}
-    <p><a href="` + configs.Path + `/{{$value}}">Log in with {{index $.ProvidersMap $value}}</a></p>
-{{end}}`
+{{range $key,$value:=.Providers}}
+    <p><a href="{{ url "oauth" $value}}">Log in with {{index $.ProvidersMap $value}}</a></p>
+{{end}}
 
-var userTemplate = `
+```
+```html
+<!-- ./templates/user.html -->
 <p>Name: {{.Name}}</p>
 <p>Email: {{.Email}}</p>
 <p>NickName: {{.NickName}}</p>
@@ -159,7 +166,7 @@ var userTemplate = `
 <p>AccessToken: {{.AccessToken}}</p>
 <p>ExpiresAt: {{.ExpiresAt}}</p>
 <p>RefreshToken: {{.RefreshToken}}</p>
-`
+
 ```
 
 ## How to use - low level
