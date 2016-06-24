@@ -14,7 +14,7 @@ The part in the middle is the interesting bit. It's called the Claims and contai
 
 
 ## Example
-
+```go
 package main
 
 import (
@@ -51,3 +51,4 @@ func SecuredPingHandler(ctx *iris.Context) {
 	response := Response{"All good. You only get this message if you're authenticated"}
 	ctx.JSON(iris.StatusOK, response)
 }
+```go
