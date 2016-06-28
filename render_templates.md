@@ -547,6 +547,7 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 
 
 #### `Handlebars`
+For a more complete example with party, no layout, different layouts and partials go [here](https://github.com/iris-contrib/examples/tree/master/templates_handlebars).
 
 ```go
 // main.go
