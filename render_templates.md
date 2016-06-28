@@ -608,37 +608,17 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 ```html
 <!-- OUTPUT -->
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Title</title>
-    </head>
-    <body>
-        <p>ads</p>
-        <ul>
-            <li>The name is name1.</li>
-            <li>The age is 50.</li>
-        </ul>
-        
-            <div>An email is email1@something.gr</div>
-        
-            <div>An email is email2.anything@gmail.com</div>
-        
-        
-            
-                <div>
-                 An employer is Super Employer
-                 and the role is Team leader
-                </div>
-            
-                <div>
-                 An employer is Fast Employer
-                 and the role is Project managment
-                </div>
-            
-        
-    </body>
+
+<html>
+  <head>
+    <title>My Home page</title>
+
+  </head>
+  <body>
+	Name: <b> Iris</b> <br/>
+	Type: <b> Web</b>
+  </body>
 </html>
+
 
 ```
