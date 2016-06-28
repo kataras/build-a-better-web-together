@@ -544,3 +544,101 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 </html>
 
 ```
+
+
+#### `Handlebars`
+
+```go
+// main.go
+//Package main a basic and simple example on how to use handlebars with Iris
+
+package main
+
+import (
+	"github.com/aymerick/raymond"
+
+	"github.com/kataras/iris"
+)
+
+func main() {
+	// set the template engine
+	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
+
+	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond" when you need to return and render html
+	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
+		return raymond.SafeString("<b> " + input + "</b>")
+	}
+
+	// NOTE:
+	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
+	// so  avoid custom url and urlpath helpers.
+
+	iris.Get("/", func(ctx *iris.Context) {
+		// optionally, set a context  for the template
+		mycontext := iris.Map{"Name": "Iris", "Type": "Web"}
+
+		ctx.Render("home.html", mycontext)
+	})
+	iris.Listen(":8080")
+}
+
+/*
+MORE DOCS CAN BE FOUND HERE: https://github.com/aymerick/raymond
+*/
+
+```
+
+```html
+<!-- templates/home.html -->
+
+<html>
+  <head>
+    <title>My Home page</title>
+
+  </head>
+  <body>
+	Name: {{boldme Name}} <br/>
+	Type: {{boldme Type}}
+  </body>
+</html>
+
+```
+
+Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+```html
+<!-- OUTPUT -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <p>ads</p>
+        <ul>
+            <li>The name is name1.</li>
+            <li>The age is 50.</li>
+        </ul>
+        
+            <div>An email is email1@something.gr</div>
+        
+            <div>An email is email2.anything@gmail.com</div>
+        
+        
+            
+                <div>
+                 An employer is Super Employer
+                 and the role is Team leader
+                </div>
+            
+                <div>
+                 An employer is Fast Employer
+                 and the role is Project managment
+                </div>
+            
+        
+    </body>
+</html>
+
+```
