@@ -608,7 +608,6 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 ```html
 <!-- OUTPUT -->
 
-
 <html>
   <head>
     <title>My Home page</title>
@@ -619,6 +618,5 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 	Type: <b> Web</b>
   </body>
 </html>
-
 
 ```
