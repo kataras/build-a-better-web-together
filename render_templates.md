@@ -44,20 +44,20 @@ import (
 )
 // These are the defaults
 templateConfig := config.Template {
-  	  Engine:        DefaultEngine, //or HTMLTemplate
+		Engine:        DefaultEngine, //or HTMLTemplate
 		Gzip:          false,
 		IsDevelopment: false,
 		Directory:     "templates",
 		Extensions:    []string{".html"},
 		ContentType:   "text/html",
 		Charset:       "UTF-8",
-		Layout:        "", // currently this is working only on HTML
-		HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: template.FuncMap{}},
-		Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0),
-                              Globals: make(map[string]interface{}},
+		Layout:        "", // currently this is the only config which not working for pongo2 yet but I will find a way
+		HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
+		Jade:          Jade{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
+		Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0), Globals: make(map[string]interface{}, 0)},
 		Markdown:      Markdown{Sanitize: false},
 		Amber:         Amber{Funcs: template.FuncMap{}},
-        Jade:          Jade{},
+		Handlebars:    Handlebars{Helpers: make(map[string]interface{}, 0)},
 }
 
 // Set
