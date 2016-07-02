@@ -8,25 +8,17 @@
 
 
 ```go
-// GetFlash get a flash message by it's key 
-// after this action the messages is removed
-// returns string
-// if the cookie doesn't exists the string is empty
-GetFlash(key string) string
 
-// GetFlashBytes get a flash message by it's key 
-// after this action the messages is removed
-// returns []byte 
-// and an error if the cookie doesn't exists or decode fails
-GetFlashBytes(key string) (value []byte, err error) 
-
-// SetFlash sets a flash message
-// accepts 2 parameters the key(string) and the value(string)
+// SetFlash sets a flash message, accepts 2 parameters the key(string) and the value(string)
+// the value will be available on the NEXT request
 SetFlash(key string, value string)
 
-// SetFlash sets a flash message
-// accepts 2 parameters the key(string) and the value([]byte)
-SetFlashBytes(key string, value []byte) 
+// GetFlash get a flash message by it's key
+// returns the value as string and an error
+//
+// if the cookie doesn't exists the string is empty and the error is filled
+// after the request's life the value is removed
+GetFlash(key string) (value string, err error)
 ```
 
 Example
@@ -43,26 +35,33 @@ func main() {
 
 	iris.Get("/set", func(c *iris.Context) {
 		c.SetFlash("name", "iris")
+		c.Write("Message setted, is available for the next request")
 	})
 
 	iris.Get("/get", func(c *iris.Context) {
-		c.Write("Hello %s", c.GetFlash("name"))
-        // the flash message is being deleted after this request done,
-        // so you can call the c.GetFlash("name") 
-        // many times without problem
+		name, err := c.GetFlash("name")
+		if err != nil {
+			c.Write(err.Error())
+			return
+		}
+		c.Write("Hello %s", name)
 	})
 
 	iris.Get("/test", func(c *iris.Context) {
 
-		name := c.GetFlash("name")
-		if name == "" {
-			c.Write("Ok you are comming from /get")
-		} else {
-			c.Write("Ok you are comming from /set: %s", name)
+		name, err := c.GetFlash("name")
+		if err != nil {
+			c.Write(err.Error())
+			return
 		}
+
+		c.Write("Ok you are comming from /set ,the value of the name is %s", name)
+		c.Write(", and again from the same context: %s", name)
+
 	})
 
 	iris.Listen(":8080")
 }
+
 
 ```
