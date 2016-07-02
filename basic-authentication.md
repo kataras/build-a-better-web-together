@@ -13,24 +13,35 @@ HTTP Basic authentication (BA) implementation is the simplest technique for enfo
 package main
 
 import (
-	"github.com/kataras/iris"
 	"github.com/iris-contrib/middleware/basicauth"
+	"github.com/kataras/iris"
 )
 
 func main() {
 	authentication := basicauth.Default(map[string]string{"myusername": "mypassword", "mySecondusername": "mySecondpassword"})
 
-	// to global iris.UseFunc(authentication)
+	// to global iris.Use(authentication)
 	// to party: iris.Party("/secret", authentication) { ... }
 
 	// to routes
-	iris.Get("/mysecret", authentication, func(ctx *iris.Context) {
-		username := ctx.GetString("auth") // this can be changed, you will see at the middleware_basic_auth_2 folder
+	iris.Get("/secret", authentication, func(ctx *iris.Context) {
+		username := ctx.GetString("user") // this can be changed, you will see at the middleware_basic_auth_2 folder
 		ctx.Write("Hello authenticated user: %s ", username)
+	})
+
+	iris.Get("/secret/profile", authentication, func(ctx *iris.Context) {
+		username := ctx.GetString("user")
+		ctx.Write("Hello authenticated user: %s from localhost:8080/secret/profile ", username)
+	})
+
+	iris.Get("/othersecret", authentication, func(ctx *iris.Context) {
+		username := ctx.GetString("user")
+		ctx.Write("Hello authenticated user: %s from localhost:8080/othersecret ", username)
 	})
 
 	iris.Listen(":8080")
 }
+
 
 ```
 
@@ -42,25 +53,25 @@ package main
 import (
 	"time"
 
+	"github.com/iris-contrib/middleware/basicauth"
 	"github.com/kataras/iris"
-	"github.com/kataras/iris-contrib/middleware/basicauth"
 )
 
 func main() {
 	authConfig := basicauth.Config{
 		Users:      map[string]string{"myusername": "mypassword", "mySecondusername": "mySecondpassword"},
 		Realm:      "Authorization Required", // if you don't set it it's "Authorization Required"
-		ContextKey: "user",                   // if you don't set it it's "auth"
+		ContextKey: "mycustomkey",            // if you don't set it it's "user"
 		Expires:    time.Duration(30) * time.Minute,
 	}
 
 	authentication := basicauth.New(authConfig)
 
-	// to global iris.UseFunc(authentication)
+	// to global iris.Use(authentication)
 	// to routes
 	/*
 		iris.Get("/mysecret", authentication, func(ctx *iris.Context) {
-			username := ctx.GetString("user") //  the Contextkey from the authConfig
+			username := ctx.GetString("mycustomkey") //  the Contextkey from the authConfig
 			ctx.Write("Hello authenticated user: %s ", username)
 		})
 	*/
@@ -70,23 +81,24 @@ func main() {
 	needAuth := iris.Party("/secret", authentication)
 	{
 		needAuth.Get("/", func(ctx *iris.Context) {
-			username := ctx.GetString("user") //  the Contextkey from the authConfig
+			username := ctx.GetString("mycustomkey") //  the Contextkey from the authConfig
 			ctx.Write("Hello authenticated user: %s from localhost:8080/secret ", username)
 		})
 
 		needAuth.Get("/profile", func(ctx *iris.Context) {
-			username := ctx.GetString("user") //  the Contextkey from the authConfig
+			username := ctx.GetString("mycustomkey") //  the Contextkey from the authConfig
 			ctx.Write("Hello authenticated user: %s from localhost:8080/secret/profile ", username)
 		})
 
 		needAuth.Get("/settings", func(ctx *iris.Context) {
-			username := ctx.GetString("user") //  the Contextkey from the authConfig
+			username := ctx.GetString("mycustomkey") //  the Contextkey from the authConfig
 			ctx.Write("Hello authenticated user: %s from localhost:8080/secret/settings ", username)
 		})
 	}
 
 	iris.Listen(":8080")
 }
+
 
 
 ```
