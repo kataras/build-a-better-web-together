@@ -40,7 +40,7 @@ Rich Hi with **html/template**
 <!-- ./templates/hi.html -->
 <html><head> <title> Hi Iris [THE TITLE] </title> </head>
   <body>
-    <h1> Hi {{.Name}}
+    <h1> Hi {{.Name}} </h1>
   </body>
 </html>
 
