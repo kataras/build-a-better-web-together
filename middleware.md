@@ -44,7 +44,7 @@ func (m *myMiddleware) Serve(c *iris.Context){
 	if shouldContinueToTheNextHandler {
 		c.Next()
 	}else{
-	    c.WriteText(403,"Forbidden !!")
+	    c.Text(403,"Forbidden !!")
 	}
 
 }
