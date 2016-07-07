@@ -1,6 +1,6 @@
 # Versioning
 
-Current: **v3.0.0-rc.4**
+Current: **v3.0.0-pre.release**
 
 Read more about Semantic Versioning 2.0.0
 
