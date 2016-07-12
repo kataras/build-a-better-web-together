@@ -43,7 +43,7 @@ iris.Config().Websocket
 ```
 
 ## Outline
-websocket.Server / iris.Websocket() 
+websocket.Server / iris.Websocket
 ```go
 OnConnection(func(c websocket.Connection){})
 ```
@@ -120,7 +120,7 @@ func main() {
 	// the path which the websocket client should listen/registed to ->
 	iris.Config.Websocket.Endpoint = "/my_endpoint"
 
-	ws := iris.Websocket() // get the websocket server
+	ws := iris.Websocket // get the websocket server
 
 	var myChatRoom = "room1"
 	ws.OnConnection(func(c websocket.Connection) {
