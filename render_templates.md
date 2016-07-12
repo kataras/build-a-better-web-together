@@ -1,16 +1,15 @@
 # Templates
 
-Iris gives you the freedom to render templates through  **html/template**, Django-syntax package **Pongo2**, Raw **Markdown**, **Amber**, **Jade** or **Handlebars**  via ** iris.Config().Render.Template.Engine = iris.___Engine**.
+Iris gives you the freedom to render templates through  **html\/template**, Django-syntax package **Pongo2**, Raw **Markdown**, **Amber**, **Jade** or **Handlebars**  via ** iris.Config\(\).Render.Template.Engine = iris.\_\_\_Engine**.
 
+* `iris.HTMLEngine` is the [html\/template](https://golang.org/pkg/html/template) 
+* `iris.PongoEngine` is the [flosch\/pongo2](https://github.com/flosch/pongo2)
+* `iris.AmberEngine` is the [eknkc\/amber](https://github.com/eknkc/amber)
+* `iris.JadeEngine` is the [Joker\/jade](https://github.com/Joker/jade)
+* `iris.Handlebars` is the [aymerick\/raymond](https://github.com/aymerick/raymond)
+* `iris.MarkdownEngine`
 
-- `iris.HTMLEngine` is the [html/template](https://golang.org/pkg/html/template) 
--  `iris.PongoEngine` is the [flosch/pongo2](https://github.com/flosch/pongo2)
--  `iris.AmberEngine` is the [eknkc/amber](https://github.com/eknkc/amber)
--  `iris.JadeEngine` is the [Joker/jade](https://github.com/Joker/jade)
--  `iris.Handlebars` is the [aymerick/raymond](https://github.com/aymerick/raymond)
--  `iris.MarkdownEngine`
-
-----
+---
 
 ```go
 // RenderWithStatus builds up the response from the specified template and bindings.
@@ -20,7 +19,7 @@ RenderWithStatus(status int, name string, binding interface{}, layout ...string)
 Render(name string, binding interface{}, layout ...string) error 
 
 // TemplateString same as Render but instead of client render, returns the result 
-TemplateString(name string, binding interface{}, layout ...string) (string,error)
+TemplateString(name string, binding interface{}, layout ...string) (string)
 
 // Render same as .Render but
 // returns 500 internal server error and logs the error if parse failed
@@ -29,13 +28,16 @@ MustRender(name string, binding interface{}, layout ...string)
 ```
 
 A snippet:
+
 ```go
 
 iris.Get("/default_standar", func(ctx *iris.Context){
   ctx.Render("index.html", nil) // this will render the file ./templates/index.html
 })
 ```
+
 Let's read and learn how to set the configuration now.
+
 ```go
 
 import (
@@ -44,20 +46,20 @@ import (
 )
 // These are the defaults
 templateConfig := config.Template {
-		Engine:        DefaultEngine, //or HTMLTemplate
-		Gzip:          false,
-		IsDevelopment: false,
-		Directory:     "templates",
-		Extensions:    []string{".html"},
-		ContentType:   "text/html",
-		Charset:       "UTF-8",
-		Layout:        "", // currently this is the only config which not working for pongo2 yet but I will find a way
-		HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
-		Jade:          Jade{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
-		Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0), Globals: make(map[string]interface{}, 0)},
-		Markdown:      Markdown{Sanitize: false},
-		Amber:         Amber{Funcs: template.FuncMap{}},
-		Handlebars:    Handlebars{Helpers: make(map[string]interface{}, 0)},
+        Engine:        DefaultEngine, //or HTMLTemplate
+        Gzip:          false,
+        IsDevelopment: false,
+        Directory:     "templates",
+        Extensions:    []string{".html"},
+        ContentType:   "text/html",
+        Charset:       "UTF-8",
+        Layout:        "", // currently this is the only config which not working for pongo2 yet but I will find a way
+        HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
+        Jade:          Jade{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
+        Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0), Globals: make(map[string]interface{}, 0)},
+        Markdown:      Markdown{Sanitize: false},
+        Amber:         Amber{Funcs: template.FuncMap{}},
+        Handlebars:    Handlebars{Helpers: make(map[string]interface{}, 0)},
 }
 
 // Set
@@ -74,14 +76,13 @@ iris.Config.Render.Template.Pongo.Filters = ...
 iris.Config.Render.Template.Engine = iris.HTMLTemplate // or iris.DefaultEngine
 iris.Config.Render.Template.Layout = "layout/layout.html" // = ./templates/layout/layout.html
 //...
- 
+
 // 4.
 theDefaults := config.DefaultTemplate()
 theDefaults.Extensions = []string{".myExtension"}
 //...
 
 ```
-
 
 ### Examples
 
@@ -93,7 +94,7 @@ theDefaults.Extensions = []string{".myExtension"}
 package main
 
 import (
-	"github.com/kataras/iris"
+    "github.com/kataras/iris"
 )
 
 type mypage struct {
@@ -101,13 +102,13 @@ type mypage struct {
 }
 
 func main() {
-	iris.Config.Render.Template.Layout = "layouts/layout.html" // default ""
-	iris.Get("/", func(ctx *iris.Context) {
-		 ctx.MustRender("page1.html", mypage{"Message from page1!"})
-	})
+    iris.Config.Render.Template.Layout = "layouts/layout.html" // default ""
+    iris.Get("/", func(ctx *iris.Context) {
+         ctx.MustRender("page1.html", mypage{"Message from page1!"})
+    })
 
-	println("Server is running at: 8080")
-	iris.Listen(":8080")
+    println("Server is running at: 8080")
+    iris.Listen(":8080")
 }
 
 ```
@@ -146,7 +147,7 @@ func main() {
 <div style="background-color:white;color:red"> <h1> Page 1's Partial 1 </h1> </div>
 ```
 
-Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+Run main.go open browser and navigate to the localhost:8080 -&gt; view page source, this is the **output**:
 
 ```html
 <!-- OUTPUT -->
@@ -155,7 +156,7 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
     <title>My Layout</title>
   </head>
   <body>
-    
+
     <div style="background-color:black;color:blue">
 
     <h1> The message: Message from page1! </h1>
@@ -175,20 +176,20 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 package main
 
 import (
-	"github.com/kataras/iris"
+    "github.com/kataras/iris"
     "github.com/kataras/iris/config"
 )
 
 func main() {
 
-	iris.Config.Render.Template.Engine = config.PongoEngine // or iris.PongoEngine without need to import the config
+    iris.Config.Render.Template.Engine = config.PongoEngine // or iris.PongoEngine without need to import the config
 
-	iris.Get("/", func(ctx *iris.Context) {
-		ctx.MustRender("index.html", map[string]interface{}{"username": "iris", "is_admin": true})
-	})
+    iris.Get("/", func(ctx *iris.Context) {
+        ctx.MustRender("index.html", map[string]interface{}{"username": "iris", "is_admin": true})
+    })
 
-	println("Server is running at :8080")
-	iris.Listen(":8080")
+    println("Server is running at :8080")
+    iris.Listen(":8080")
 }
 
 ```
@@ -199,18 +200,19 @@ func main() {
 <html>
 <head><title>Hello Pongo2 from Iris</title></head>
 <body>
-	 {% if is_admin %}<p>{{username}} is an admin!</p>{% endif %}
+     {% if is_admin %}<p>{{username}} is an admin!</p>{% endif %}
 </body>
 </html>
 ```
 
-Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+Run main.go open browser and navigate to the localhost:8080 -&gt; view page source, this is the **output**:
+
 ```html
 <!-- OUTPUT -->
 <html>
 <head><title>Hello Pongo2 from Iris</title></head>
 <body>
-	 <p>iris is an admin!</p>
+     <p>iris is an admin!</p>
 </body>
 </html>
 ```
@@ -222,80 +224,77 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 package main
 
 import (
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/config"
+    "github.com/kataras/iris"
+    "github.com/kataras/iris/config"
 )
 
 func main() {
-	// Markdown engine doesn't supports Layout and context binding
-	iris.Config.Render.Template.Engine = config.MarkdownEngine
-	iris.Config.Render.Template.Extensions = []string{".md"}
-    
-	iris.Get("/", func(ctx *iris.Context) {
+    // Markdown engine doesn't supports Layout and context binding
+    iris.Config.Render.Template.Engine = config.MarkdownEngine
+    iris.Config.Render.Template.Extensions = []string{".md"}
 
-		err := ctx.Render("index.md", nil) // doesnt' supports any context binding, just pure markdown
-		if err != nil {
-			panic(err)
-		}
-	})
+    iris.Get("/", func(ctx *iris.Context) {
 
-	println("Server is running at :8080")
-	iris.Listen(":8080")
+        err := ctx.Render("index.md", nil) // doesnt' supports any context binding, just pure markdown
+        if err != nil {
+            panic(err)
+        }
+    })
+
+    println("Server is running at :8080")
+    iris.Listen(":8080")
 }
 
 ```
 
-```
-<!-- templates/index.md -->
-## Hello Markdown from Iris
+    <!-- templates/index.md -->
+    ## Hello Markdown from Iris
 
-This is an example of Markdown with Iris
-
+    This is an example of Markdown with Iris
 
 
-Features
---------
 
-All features of Sundown are supported, including:
+    Features
+    --------
 
-*   **Compatibility**. The Markdown v1.0.3 test suite passes with
-    the `--tidy` option.  Without `--tidy`, the differences are
-    mostly in whitespace and entity escaping, where blackfriday is
-    more consistent and cleaner.
+    All features of Sundown are supported, including:
 
-*   **Common extensions**, including table support, fenced code
-    blocks, autolinks, strikethroughs, non-strict emphasis, etc.
+    *   **Compatibility**. The Markdown v1.0.3 test suite passes with
+        the `--tidy` option.  Without `--tidy`, the differences are
+        mostly in whitespace and entity escaping, where blackfriday is
+        more consistent and cleaner.
 
-*   **Safety**. Blackfriday is paranoid when parsing, making it safe
-    to feed untrusted user input without fear of bad things
-    happening. The test suite stress tests this and there are no
-    known inputs that make it crash.  If you find one, please let me
-    know and send me the input that does it.
+    *   **Common extensions**, including table support, fenced code
+        blocks, autolinks, strikethroughs, non-strict emphasis, etc.
 
-    NOTE: "safety" in this context means *runtime safety only*. In order to
-    protect yourself against JavaScript injection in untrusted content, see
-    [this example](https://github.com/russross/blackfriday#sanitize-untrusted-content).
+    *   **Safety**. Blackfriday is paranoid when parsing, making it safe
+        to feed untrusted user input without fear of bad things
+        happening. The test suite stress tests this and there are no
+        known inputs that make it crash.  If you find one, please let me
+        know and send me the input that does it.
 
-*   **Fast processing**. It is fast enough to render on-demand in
-    most web applications without having to cache the output.
+        NOTE: "safety" in this context means *runtime safety only*. In order to
+        protect yourself against JavaScript injection in untrusted content, see
+        [this example](https://github.com/russross/blackfriday#sanitize-untrusted-content).
 
-*   **Thread safety**. You can run multiple parsers in different
-    goroutines without ill effect. There is no dependence on global
-    shared state.
+    *   **Fast processing**. It is fast enough to render on-demand in
+        most web applications without having to cache the output.
 
-*   **Minimal dependencies**. Blackfriday only depends on standard
-    library packages in Go. The source code is pretty
-    self-contained, so it is easy to add to any project, including
-    Google App Engine projects.
+    *   **Thread safety**. You can run multiple parsers in different
+        goroutines without ill effect. There is no dependence on global
+        shared state.
 
-*   **Standards compliant**. Output successfully validates using the
-    W3C validation tool for HTML 4.01 and XHTML 1.0 Transitional.
+    *   **Minimal dependencies**. Blackfriday only depends on standard
+        library packages in Go. The source code is pretty
+        self-contained, so it is easy to add to any project, including
+        Google App Engine projects.
 
-     
- ```  
+    *   **Standards compliant**. Output successfully validates using the
+        W3C validation tool for HTML 4.01 and XHTML 1.0 Transitional.
 
 
-Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+
+Run main.go open browser and navigate to the localhost:8080 -&gt; view page source, this is the **output**:
 
 ```html
 <!-- OUTPUT -->
@@ -345,16 +344,16 @@ import "github.com/kataras/iris"
 
 func main() {
 
-	iris.Config.Render.Template.Engine = iris.AmberEngine
-	iris.Config.Render.Template.Extensions = []string{".amber"} 
+    iris.Config.Render.Template.Engine = iris.AmberEngine
+    iris.Config.Render.Template.Extensions = []string{".amber"} 
     // this is optionally, you can just leave it to default which is .html
 
-	iris.Get("/", func(ctx *iris.Context) {
-		ctx.Render("basic.amber", map[string]string{"Name": "iris"})
+    iris.Get("/", func(ctx *iris.Context) {
+        ctx.Render("basic.amber", map[string]string{"Name": "iris"})
 
-	})
+    })
 
-	iris.Listen(":8080")
+    iris.Listen(":8080")
 }
 
 
@@ -396,40 +395,41 @@ html
 
 ```
 
-Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+Run main.go open browser and navigate to the localhost:8080 -&gt; view page source, this is the **output**:
+
 ```html
 <!-- OUTPUT -->
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Hello Amber from Iris</title>
-		<meta name="description" value="This is a sample" />
-		<script type="text/javascript">
-			var hw = "Hello iris!"
-			alert(hw)
-		</script>
-		<style type="text/css">
-			body {
-				background: maroon;
-				color: white
-			}
-		</style>
-	</head>
-	<body>
-		<header id="mainHeader">
-			<ul>
-				<li class="active">
-					<a href="/" title="Main Page">Main Page</a>
-				</li>
-			</ul>
-			<h1>Hi iris</h1>
-		</header>
-		<footer>
-			Hey
-			<br />
-			There
-		</footer>
-	</body>
+    <head>
+        <title>Hello Amber from Iris</title>
+        <meta name="description" value="This is a sample" />
+        <script type="text/javascript">
+            var hw = "Hello iris!"
+            alert(hw)
+        </script>
+        <style type="text/css">
+            body {
+                background: maroon;
+                color: white
+            }
+        </style>
+    </head>
+    <body>
+        <header id="mainHeader">
+            <ul>
+                <li class="active">
+                    <a href="/" title="Main Page">Main Page</a>
+                </li>
+            </ul>
+            <h1>Hi iris</h1>
+        </header>
+        <footer>
+            Hey
+            <br />
+            There
+        </footer>
+    </body>
 </html>
 
 ```
@@ -441,42 +441,42 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 package main
 
 import (
-	"github.com/kataras/iris"
+    "github.com/kataras/iris"
 )
 
 type Person struct {
-	Name   string
-	Age    int
-	Emails []string
-	Jobs   []*Job
+    Name   string
+    Age    int
+    Emails []string
+    Jobs   []*Job
 }
 
 type Job struct {
-	Employer string
-	Role     string
+    Employer string
+    Role     string
 }
 
 func main() {
-	iris.Config.Render.Template.Extensions = []string{".jade"} 
+    iris.Config.Render.Template.Extensions = []string{".jade"} 
     // this is optionally, you can keep .html extension
-	iris.Config.Render.Template.Engine = iris.JadeEngine
+    iris.Config.Render.Template.Engine = iris.JadeEngine
 
-	iris.Get("/", func(ctx *iris.Context) {
+    iris.Get("/", func(ctx *iris.Context) {
 
-		job1 := Job{Employer: "Super Employer", Role: "Team leader"}
-		job2 := Job{Employer: "Fast Employer", Role: "Project managment"}
+        job1 := Job{Employer: "Super Employer", Role: "Team leader"}
+        job2 := Job{Employer: "Fast Employer", Role: "Project managment"}
 
-		person := Person{
-			Name:   "name1",
-			Age:    50,
-			Emails: []string{"email1@something.gr", "email2.anything@gmail.com"},
-			Jobs:   []*Job{&job1, &job2},
-		}
+        person := Person{
+            Name:   "name1",
+            Age:    50,
+            Emails: []string{"email1@something.gr", "email2.anything@gmail.com"},
+            Jobs:   []*Job{&job1, &job2},
+        }
 
-		ctx.MustRender("page.jade", person)
-	})
+        ctx.MustRender("page.jade", person)
+    })
 
-	iris.Listen(":8080")
+    iris.Listen(":8080")
 }
 
 ```
@@ -486,27 +486,28 @@ func main() {
 
 doctype html
 html(lang=en)
-	head
-		meta(charset=utf-8)
-		title Title
-	body
-		p ads
-		ul
-			li The name is {{.Name}}.
-			li The age is {{.Age}}.
+    head
+        meta(charset=utf-8)
+        title Title
+    body
+        p ads
+        ul
+            li The name is {{.Name}}.
+            li The age is {{.Age}}.
 
-		range .Emails
-			div An email is {{.}}
+        range .Emails
+            div An email is {{.}}
 
-		with .Jobs
-			range .
-				div.
-				 An employer is {{.Employer}}
-				 and the role is {{.Role}}
+        with .Jobs
+            range .
+                div.
+                 An employer is {{.Employer}}
+                 and the role is {{.Role}}
 
 ```
 
-Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+Run main.go open browser and navigate to the localhost:8080 -&gt; view page source, this is the **output**:
+
 ```html
 <!-- OUTPUT -->
 
@@ -522,31 +523,31 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
             <li>The name is name1.</li>
             <li>The age is 50.</li>
         </ul>
-        
+
             <div>An email is email1@something.gr</div>
-        
+
             <div>An email is email2.anything@gmail.com</div>
-        
-        
-            
+
+
+
                 <div>
                  An employer is Super Employer
                  and the role is Team leader
                 </div>
-            
+
                 <div>
                  An employer is Fast Employer
                  and the role is Project managment
                 </div>
-            
-        
+
+
     </body>
 </html>
 
 ```
 
-
 #### `Handlebars`
+
 For a more complete example with party, no layout, different layouts and partials go [here](https://github.com/iris-contrib/examples/tree/master/templates_handlebars).
 
 ```go
@@ -556,31 +557,31 @@ For a more complete example with party, no layout, different layouts and partial
 package main
 
 import (
-	"github.com/aymerick/raymond"
+    "github.com/aymerick/raymond"
 
-	"github.com/kataras/iris"
+    "github.com/kataras/iris"
 )
 
 func main() {
-	// set the template engine
-	iris.Config.Render.Template.Engine = iris.HandlebarsEngine
+    // set the template engine
+    iris.Config.Render.Template.Engine = iris.HandlebarsEngine
 
-	// optionaly set handlebars helpers by importing "github.com/aymerick/raymond" when you need to return and render html
-	iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
-		return raymond.SafeString("<b> " + input + "</b>")
-	}
+    // optionaly set handlebars helpers by importing "github.com/aymerick/raymond" when you need to return and render html
+    iris.Config.Render.Template.Handlebars.Helpers["boldme"] = func(input string) raymond.SafeString {
+        return raymond.SafeString("<b> " + input + "</b>")
+    }
 
-	// NOTE:
-	// the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
-	// so  avoid custom url and urlpath helpers.
+    // NOTE:
+    // the Iris' route framework {{url "my-routename" myparams}} and {{urlpath "my-routename" myparams}} are working like all other template engines,
+    // so  avoid custom url and urlpath helpers.
 
-	iris.Get("/", func(ctx *iris.Context) {
-		// optionally, set a context  for the template
-		mycontext := iris.Map{"Name": "Iris", "Type": "Web"}
+    iris.Get("/", func(ctx *iris.Context) {
+        // optionally, set a context  for the template
+        mycontext := iris.Map{"Name": "Iris", "Type": "Web"}
 
-		ctx.Render("home.html", mycontext)
-	})
-	iris.Listen(":8080")
+        ctx.Render("home.html", mycontext)
+    })
+    iris.Listen(":8080")
 }
 
 /*
@@ -598,14 +599,15 @@ MORE DOCS CAN BE FOUND HERE: https://github.com/aymerick/raymond
 
   </head>
   <body>
-	Name: {{boldme Name}} <br/>
-	Type: {{boldme Type}}
+    Name: {{boldme Name}} <br/>
+    Type: {{boldme Type}}
   </body>
 </html>
 
 ```
 
-Run main.go open browser and navigate to the localhost:8080 -> view page source, this is the **output**: 
+Run main.go open browser and navigate to the localhost:8080 -&gt; view page source, this is the **output**:
+
 ```html
 <!-- OUTPUT -->
 
@@ -615,9 +617,10 @@ Run main.go open browser and navigate to the localhost:8080 -> view page source,
 
   </head>
   <body>
-	Name: <b> Iris</b> <br/>
-	Type: <b> Web</b>
+    Name: <b> Iris</b> <br/>
+    Type: <b> Web</b>
   </body>
 </html>
 
 ```
+
