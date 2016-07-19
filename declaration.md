@@ -33,9 +33,6 @@ func secondWay() {
 Before looking at the 3rd way, let's take a quick look at the [**config**](configuration.md)**.Iris**:
 
 ```go
- // DisablePathEscape when is false then its escapes the path, the named parameters (if any). // Change to true it if you want something like this https://github.com/kataras/iris/issues/135 to work // // When do you need to Disable(true) it: // accepts parameters with slash '/' // Request: http://localhost:8080/details/Project%2FDelta // ctx.Param("project") returns the raw named parameter: Project%2FDelta // which you can escape it manually with net/url: // projectName, _ := url.QueryUnescape(c.Param("project"). // Look here: https://github.com/kataras/iris/issues/135 for more // // Default is false DisablePathEscape bool ��6�o#
-
-
 type (
  // Iris configs for the station
  // All fields can be changed before server's listen except the DisablePathCorrection field
