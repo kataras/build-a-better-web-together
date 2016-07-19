@@ -115,6 +115,7 @@ type (
  // Websocket contains the configs for Websocket's server integration
  Websocket *Websocket
  }
+)
 ```
 
 ```go
