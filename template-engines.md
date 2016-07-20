@@ -369,8 +369,9 @@ is the subdomain part instead of named parameter-->
 
 
 ```
+I will add hosts files contens only once, here, you can imagine the rest.
 
-Windows: Drive:/Windows/system32/drivers/etc/hosts, on Linux: /etc/hosts
+**File location is Windows: Drive:/Windows/system32/drivers/etc/hosts, on Linux: /etc/hosts **
 ```sh
 # localhost name resolution is handled within DNS itself.
 127.0.0.1       localhost
