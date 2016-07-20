@@ -346,8 +346,112 @@ func main() {
 
 ** JSONP Response Engine **
 
+```go
+package main
+
+import "github.com/kataras/iris"
+
+type myjson struct {
+	Name string `json:"name"`
+}
+
+func main() {
+
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.JSONP(iris.StatusOK, "callbackName", iris.Map{"name": "iris"})
+	})
+
+	iris.Get("/alternative_1", func(ctx *iris.Context) {
+		ctx.JSONP(iris.StatusOK, "callbackName", myjson{Name: "iris"})
+	})
+
+	iris.Get("/alternative_2", func(ctx *iris.Context) {
+		ctx.Render("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName"})
+	})
+
+	iris.Get("/alternative_3", func(ctx *iris.Context) {
+		ctx.RenderWithStatus(iris.StatusOK, "application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName"})
+	})
+
+	iris.Get("/alternative_4", func(ctx *iris.Context) {
+		// logs if any error and sends http status '500 internal server error' to the client
+		ctx.MustRender("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName", "charset": "UTF-8"}) // UTF-8 is the default.
+	})
+
+	iris.Listen(":8080")
+}
+
+```
+
+
+```go
+
+package main
+
+import (
+	"github.com/iris-contrib/response/jsonp"
+	"github.com/kataras/iris"
+)
+
+type myjson struct {
+	Name string `json:"name"`
+}
+
+func main() {
+	iris.Config.Charset = "UTF-8" // this is the default, which you can change
+
+	//first example
+	// this is one of the reasons you need to import a default engine,(template engine or response engine)
+	/*
+		type Config struct {
+			Indent   bool
+			Callback string // the callback can be override by the context's options or parameter on context.JSONP
+		}
+	*/
+	iris.UseResponse(jsonp.New(jsonp.Config{
+		Indent: true,
+	}), jsonp.ContentType)
+	// you can use anything as the second parameter,
+	// the jsonp.ContentType is the string "application/javascript",
+	// the context.JSONP renders with this engine's key.
+
+	handlerSimple := func(ctx *iris.Context) {
+		ctx.JSONP(iris.StatusOK, "callbackName", myjson{Name: "iris"})
+	}
+
+	handlerWithRender := func(ctx *iris.Context) {
+		// you can also change the charset for a specific render action with RenderOptions
+		ctx.Render("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName", "charset": "8859-1"})
+	}
+
+	//second example,
+	// but we also want a different renderer, but again "application/javascript" as content type, with Callback option setted globaly:
+	iris.UseResponse(jsonp.New(jsonp.Config{Callback: "callbackName"}), "jsonp2")("application/javascript")
+	// yes the UseResponse returns a function which you can map the content type if it's not declared on the key
+	handlerJsonp2 := func(ctx *iris.Context) {
+		ctx.Render("jsonp2", myjson{Name: "My iris"})
+	}
+
+	iris.Get("/", handlerSimple)
+
+	iris.Get("/render", handlerWithRender)
+
+	iris.Get("/jsonp2", handlerJsonp2)
+
+	iris.Listen(":8080")
+}
+
+
+```
 
 
 
+** XML Response Engine **
+
+
+```go
+ package main import "github.com/kataras/iris" type myxml struct { XMLName xml.Name `xml:"xml_example"` First string `xml:"first,attr"` Second string `xml:"second,attr"` } func main() { iris.Get("/", func(ctx *iris.Context) { ctx.XML(iris.StatusOK, iris.Map{"first": "first attr ", "second": "second attr"}) }) iris.Get("/alternative_1", func(ctx *iris.Context) { ctx.XML(iris.StatusOK, myxml{First: "first attr", Second: "second attr"}) }) iris.Get("/alternative_2", func(ctx *iris.Context) { ctx.Render("text/xml", myxml{First: "first attr", Second: "second attr"}) }) iris.Get("/alternative_3", func(ctx *iris.Context) { ctx.RenderWithStatus(iris.StatusOK, "text/xml", myxml{First: "first attr", Second: "second attr"}) }) iris.Get("/alternative_4", func(ctx *iris.Context) { ctx.Render("text/xml", myxml{First: "first attr", Second: "second attr"}, iris.RenderOptions{"charset": "UTF-8"}) // UTF-8 is the default. }) iris.Get("/alternative_5", func(ctx *iris.Context) { // logs if any error and sends http status '500 internal server error' to the client ctx.MustRender("text/xml", myxml{First: "first attr", Second: "second attr"}, iris.RenderOptions{"charset": "UTF-8"}) }) iris.Listen(":8080") } �X=��
+
+```
 
 
