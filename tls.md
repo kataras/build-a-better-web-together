@@ -45,10 +45,9 @@ Close() error
 
 ```go
 iris.Listen(":8080")
-log.Fatal(iris.ListenWithErr(":8080"))
+err := iris.ListenTo(config.Server{ListeningAddr: ":8080"})
 
 iris.ListenTLS(":8080", "myCERTfile.cert", "myKEYfile.key")
-log.Fatal(iris.ListenTLSWithErr(":8080", "myCERTfile.cert", "myKEYfile.key"))
-
+err := iris.ListenTo(config.Server{ListeningAddr: ":8080", CertFile: "myCERTfile.cert", KeyFile: "myKEYfile.key"})
 ```
 
