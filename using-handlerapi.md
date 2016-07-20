@@ -2,9 +2,9 @@
 
 HandlerAPI is any custom struct which has an `*iris.Context` field and known methods signatures.
 
-Before continue I will liked to notice you that this method is slower than \`iris.Get\/Post...\/Handle\/HandleFunc\`.
+Before continue I will liked to notice you that this method is slower than `iris.Get, Post..., Handle, HandleFunc`.
 
-I know maybe sounds awful but I, my self not using it, I did it because developers used to use frameworks with 'MVC' pattern, so think it like the 'C\|Controller'. If you don't care about performance\(~ms\) and you like to spent some code time, you're free to use it.
+I know maybe sounds awful but I, my self not using it, I did it because developers used to use frameworks with 'MVC' pattern, so think it like the 'C\|Controller'. If you don't care about performance(~ms) and you like to spent some code time, you're free to use it.
 
 Instead of writing Handlers\/HandlerFuncs for eachone API routes, you can use the `iris.API` function.
 
