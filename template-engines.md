@@ -19,21 +19,61 @@ You will see first the template file's code, after the main.go code
 
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/hi.html -->
 
+<html>
+<head>
+<title>Hi Iris [THE TITLE]</title>
+</head>
+<body>
+	<h1>Hi {{.Name}}
+</body>
+</html>
 
 ```
 
 ```go
 // ./main.go
+package main
+
+import "github.com/kataras/iris"
+
+// nothing to do, defaults to ./templates and .html extension, no need to import any template engine because HTML engine is the default
+// if anything else has been registered
+func main() {
+	iris.Config.IsDevelopment = true // this will reload the templates on each request, defaults to false
+	iris.Get("/hi", hi)
+	iris.Listen(":8080")
+}
+
+func hi(ctx *iris.Context) {
+	ctx.MustRender("hi.html", struct{ Name string }{Name: "iris"})
+}
 
 
 ```
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/layout.html -->
+<html>
+<head>
+<title>My Layout</title>
 
+</head>
+<body>
+	<h1>Body is:</h1>
+	<!-- Render the current template here -->
+	{{ yield }}
+</body>
+</html>
+```
 
+```html
+ <!-- ./templates/mypage.html --> 
+<h1>
+	Title: {{.Title}}
+</h1>
+<h3>Message : {{.Message}} </h3>
 ```
 
 ```go
