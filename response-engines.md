@@ -1,4 +1,6 @@
-First of all let's see what are the built'n response by content-type context's methods using the defaults only, unchanged, response engines.
+First of all don't be scary about the 'big' article here, a response engine works very simple and is easy to understand how.
+
+Let's see what are the built'n response by content-type context's methods using the defaults only, unchanged, response engines.
 
 
 ```go
@@ -49,7 +51,7 @@ func main() {
 ```
 
 
-Bellow you will, propably, see how 'good' are my english (joke...), but at the end we're coders and some of us programmers too, so I hope you will be able to understand at least, the code snippets ( a lot of them, simple as much as I can ).
+Bellow you will, propably, see how 'good' are my english (joke...), but at the end we're coders and some of us programmers too, so I hope you will be able to understand at least, the code snippets ( a lot of them, you will tired to this simplicity ).
 
 
 
