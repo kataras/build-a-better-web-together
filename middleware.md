@@ -117,8 +117,6 @@ type Page struct {
     Title string
 }
 
-iris.Config.Render.Template.Directory = "./yourpath/templates"
-
 iris.Use(logger.New(iris.Logger))
 
 iris.Get("/", func(c *iris.Context) {
