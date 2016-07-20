@@ -15,5 +15,5 @@ Easy and fast way to render any type of data. **JSON, JSONP, XML, Text, Data, Ma
 
 ### [Template Engines](/template-engines.md)
 
-Iris gives you the freedom to render templates through 6+ built'n template engines, you can create your own and 'inject' that to the iris, you can also use more than one template engines at the same time \(when the file extension is different from the other\).
+Iris gives you the freedom to render templates through 6+ built'n template engines, you can create your own and 'inject' that to the iris station, you can also use more than one template engines at the same time \(when the file extension is different from the other\).
 
