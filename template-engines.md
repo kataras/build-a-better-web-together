@@ -212,13 +212,63 @@ func main() {
 ```
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/layouts/layout.html -->
+
+<html>
+<head>
+<title>My Layout</title>
+
+</head>
+<body>
+	<!-- Render the current template here -->
+	{{ yield }}
+</body>
+</html>
+
+```
+
+```html
+<!-- ./templates/partials/page1_partial1.html -->
+<div style="background-color: white; color: red">
+	<h1>Page 1's Partial 1</h1>
+</div>
+
+
+```
+
+```html
+<!-- ./templates/page1.html -->
+<div style="background-color: black; color: blue">
+
+	<h1>Page 1</h1>
+
+	{{ render "partials/page1_partial1.html"}}
+
+</div>
 
 
 ```
 
 ```go
 // ./main.go
+package main
+
+import (
+	"github.com/iris-contrib/template/html"
+	"github.com/kataras/iris"
+)
+
+func main() {
+	// directory and extensions defaults to ./templates, .html for all template engines
+	iris.UseTemplate(html.New(html.Config{Layout: "layouts/layout.html"}))
+
+	iris.Get("/", func(ctx *iris.Context) {
+		s := iris.TemplateString("page1.html", nil)
+		ctx.Write("The plain content of the template is: %s", s)
+	})
+
+	iris.Listen(":8080")
+}
 
 
 ```
