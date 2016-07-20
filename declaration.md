@@ -30,7 +30,7 @@ func secondWay() {
 }
 ```
 
-Before looking at the 3rd way, let's take a quick look at the [**config**](configuration.md)**.Iris**:
+Before looking at the 3rd way, let's take a quick look at the **[config](configuration.md)****.Iris**:
 
 ```go
 type (
@@ -169,4 +169,5 @@ For profiling there are eight \(8\) generated routes with pages filled with info
 * \/mypath\/debug\/pprof\/block
 
 * More about configuration [here](configuration.md)
+
 
