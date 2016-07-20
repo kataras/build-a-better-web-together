@@ -131,7 +131,8 @@ func main() {
 
 	// register a response engine: iris.ResponseEngine 
 	iris.UseResponse(&CustomTextEngine{}, text.ContentType)
-	// register a response engine with func
+	
+    // register a response engine with func
 	iris.UseResponse(iris.ResponseEngineFunc(func(val interface{}, options ...map[string]interface{}) ([]byte, error) {
 		return []byte("\nThis is the static SECOND AND LAST suffix!"), nil
 	}), text.ContentType)
