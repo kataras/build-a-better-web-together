@@ -91,6 +91,7 @@ StaticWeb(relative string, systemPath string, stripSlashes int)
 StaticServe(systemPath string, requestPath ...string)
 
 ```
+
 ```go
 
 iris.Static("/public", "./static/assets/", 1)
@@ -104,11 +105,13 @@ iris.StaticFS("/ftp", "./myfiles/public", 1)
 ```go
 iris.StaticWeb("/","./my_static_html_website", 1)
 ```
+
 ```go
 StaticServe(systemPath string, requestPath ...string)
 ```
 
 ### Manual static file serving
+
 ```go
 // ServeFile serves a view file, to send a file
 // to the client you should use the SendFile(serverfilename,clientfilename)
@@ -119,51 +122,54 @@ StaticServe(systemPath string, requestPath ...string)
 // You can define your own "Content-Type" header also, after this function call
 ServeFile(filename string, gzipCompression bool) error 
 ```
+
 Serve static individual file
 
 ```go
 
 iris.Get("/txt", func(ctx *iris.Context) {
-	ctx.ServeFile("./myfolder/staticfile.txt", false)
+    ctx.ServeFile("./myfolder/staticfile.txt", false)
 }
 
 ```
 
-For example if you want manual serve static individual files dynamically you can do something like that: 
+For example if you want manual serve static individual files dynamically you can do something like that:
 
 ```go
 package main
 
 import (
-	"strings"
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/utils"
+    "strings"
+    "github.com/kataras/iris"
+    "github.com/kataras/iris/utils"
 )
 
 func main() {
 
-	iris.Get("/*file", func(ctx *iris.Context) {
-	  	   requestpath := ctx.Param("file")
+    iris.Get("/*file", func(ctx *iris.Context) {
+            requestpath := ctx.Param("file")
 
-			path := strings.Replace(requestpath, "/", utils.PathSeperator, -1)
+            path := strings.Replace(requestpath, "/", utils.PathSeperator, -1)
 
-			if !utils.DirectoryExists(path) {
-				ctx.NotFound()
-				return
-			}
+            if !utils.DirectoryExists(path) {
+                ctx.NotFound()
+                return
+            }
 
-			ctx.ServeFile(path, false) // make this true to use gzip compression
-	}
+            ctx.ServeFile(path, false) // make this true to use gzip compression
+    }
 }
 
 iris.Listen(":8080")
 
 ```
+
 The previous example is almost identical with
 
 ```go
 StaticServe(systemPath string, requestPath ...string)
 ```
+
 ```go
 func main() {
   iris.StaticServe("./mywebpage")
@@ -185,7 +191,7 @@ func main() {
 
 ## Favicon
 
-Imagine that we have a folder named `static` which has subfolder `favicons` and this folder contains a favicon, for example ` iris_favicon_32_32.ico`.
+Imagine that we have a folder named `static` which has subfolder `favicons` and this folder contains a favicon, for example `iris_favicon_32_32.ico`.
 
 ```go
 // ./main.go
@@ -194,15 +200,17 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
-	iris.Favicon("./static/favicons/iris_favicon_32_32.ico")
+    iris.Favicon("./static/favicons/iris_favicon_32_32.ico")
 
-	iris.Get("/", func(ctx *iris.Context) {
-		ctx.HTML(iris.StatusOK, "You should see the favicon now at the side of your browser.")
-	})
+    iris.Get("/", func(ctx *iris.Context) {
+        ctx.HTML(iris.StatusOK, "You should see the favicon now at the side of your browser.")
+    })
 
-	iris.Listen(":8080")
+    iris.Listen(":8080")
 }
 
 
 ```
+
 Practical example [here](https://github.com/iris-contrib/examples/tree/master/favicon)
+
