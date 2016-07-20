@@ -1,7 +1,6 @@
 # Context
 
 ```go
-
 	IContext interface {
                // it contains all fasthttp's RequestCtx's functions
                *fasthttp.RequestCtx
