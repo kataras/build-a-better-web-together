@@ -344,7 +344,7 @@ func main() {
 ```
 
 
-** XML Response Engine **
+** JSONP Response Engine **
 
 
 
