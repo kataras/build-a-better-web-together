@@ -74,6 +74,22 @@ The simplest implementation, which you can look as example, is the Markdown Engi
 
 Executes and parses the template but instead of rendering to the client, it returns the contents. Useful when you want to send a template via e-mail or anything you can imagine.
 
+```html
+<!-- ./templates/mypage.html -->
+<html>
+<head>
+<title>Hello Django from Iris</title>
+
+</head>
+<body>
+	{% if is_admin %}
+	<p>{{username}} is an admin!</p>
+	{% endif %}
+</body>
+</html>
+
+```
+
 
 ```go
 
