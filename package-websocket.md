@@ -13,7 +13,7 @@ WebSocket is designed to be implemented in web browsers and web servers, but it 
 ```go
 type Websocket struct {
 	// WriteTimeout time allowed to write a message to the connection.
-	// Default value is 10 * time.Second
+	// Default value is 15 * time.Second
 	WriteTimeout time.Duration
 	// PongTimeout allowed to read the next pong message from the connection
 	// Default value is 60 * time.Second
@@ -23,29 +23,31 @@ type Websocket struct {
 	PingPeriod time.Duration
 	// MaxMessageSize max message size allowed from connection
 	// Default value is 1024
-	MaxMessageSize int
+	MaxMessageSize int64
 	// Endpoint is the path which the websocket server will listen for clients/connections
 	// Default value is empty string, if you don't set it the Websocket server is disabled.
 	Endpoint string
-    // Headers  the response headers before upgrader
+	// Headers  the response headers before upgrader
 	// Default is empty
 	Headers map[string]string
+	// ReadBufferSize is the buffer size for the underline reader
+	ReadBufferSize int
+	// WriteBufferSize is the buffer size for the underline writer
+	WriteBufferSize int
 }
 
 ```
 
 ```go
-iris.Config().Websocket
-
+iris.Config.Websocket.Endpoint = "/myEndpoint"
 ```
 
 ## Outline
-websocket.Server / iris.Websocket() 
 ```go
-OnConnection(func(c websocket.Connection){})
+ iris.Websocket.OnConnection(func(c iris.WebsocketConnection){})
 ```
 
-websocket.Connection
+WebsocketConnection's methods
 ```go
 
 // Receive from the client
