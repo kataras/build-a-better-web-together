@@ -12,6 +12,9 @@ $ go get -u github.com/iris-contrib/template/$THE_ENGINE
 Most examples are written for the HTML Template Engine(default and built'n template engine for iris) but works for the rest of the engines also.
 
 
+You will see first the template file's code, after the main.go code
+
+
 ** HTML Template Engine, and general **
 
 
