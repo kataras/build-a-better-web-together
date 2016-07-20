@@ -4,7 +4,7 @@
 
 WebSocket is designed to be implemented in web browsers and web servers, but it can be used by any client or server application. The WebSocket Protocol is an independent TCP-based protocol. Its only relationship to HTTP is that its handshake is interpreted by HTTP servers as an Upgrade request. The WebSocket protocol makes more interaction between a browser and a website possible, **facilitating the real-time data transfer from and to the server**. 
 
-[Read more about Websockets](https://en.wikipedia.org/wiki/WebSocket)
+[Read more about Websockets via wiki](https://en.wikipedia.org/wiki/WebSocket)
 
 -----
 
