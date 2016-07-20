@@ -37,10 +37,7 @@ func main() {
     beta := admin.Party("/beta")
     beta.Get("/hey", func(c *iris.Context) { c.Write("hey from /admin/beta/hey") })
 
-    //for subdomains goto: ../subdomains_1/main.go
-
     iris.Listen(":8080")
-
 }
 ```
 
