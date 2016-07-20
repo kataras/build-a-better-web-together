@@ -20,7 +20,7 @@ iris.Get("/secondroute", myMiddlewareFunc, myRouteHandlerfunc)
 iris.Listen(":8080")
 
 
-//myMiddleware will be like
+// myMiddleware will be like that
 
 type myMiddleware struct {
   // your 'stateless' fields here
@@ -31,8 +31,6 @@ func (m *myMiddleware) Serve(ctx *iris.Context){
 }
 
 ```
-
-
 
 Middleware in Iris is not complicated, they are similar to simple Handlers.
 They implement the Handler interface as well:
