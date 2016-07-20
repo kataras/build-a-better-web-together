@@ -1,13 +1,10 @@
 # Websockets
 
-
-[This is a package](https://github.com/kataras/iris/tree/master/websocket)
-
 **WebSocket is a protocol providing full-duplex communication channels over a single TCP connection**. The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C.
 
 WebSocket is designed to be implemented in web browsers and web servers, but it can be used by any client or server application. The WebSocket Protocol is an independent TCP-based protocol. Its only relationship to HTTP is that its handshake is interpreted by HTTP servers as an Upgrade request. The WebSocket protocol makes more interaction between a browser and a website possible, **facilitating the real-time data transfer from and to the server**. 
 
-[Read more about Websockets](https://en.wikipedia.org/wiki/WebSocket)
+[Read more about Websockets via wikipedia](https://en.wikipedia.org/wiki/WebSocket)
 
 -----
 
@@ -16,7 +13,7 @@ WebSocket is designed to be implemented in web browsers and web servers, but it 
 ```go
 type Websocket struct {
 	// WriteTimeout time allowed to write a message to the connection.
-	// Default value is 10 * time.Second
+	// Default value is 15 * time.Second
 	WriteTimeout time.Duration
 	// PongTimeout allowed to read the next pong message from the connection
 	// Default value is 60 * time.Second
@@ -26,29 +23,31 @@ type Websocket struct {
 	PingPeriod time.Duration
 	// MaxMessageSize max message size allowed from connection
 	// Default value is 1024
-	MaxMessageSize int
+	MaxMessageSize int64
 	// Endpoint is the path which the websocket server will listen for clients/connections
 	// Default value is empty string, if you don't set it the Websocket server is disabled.
 	Endpoint string
-    // Headers  the response headers before upgrader
+	// Headers  the response headers before upgrader
 	// Default is empty
 	Headers map[string]string
+	// ReadBufferSize is the buffer size for the underline reader
+	ReadBufferSize int
+	// WriteBufferSize is the buffer size for the underline writer
+	WriteBufferSize int
 }
 
 ```
 
 ```go
-iris.Config().Websocket
-
+iris.Config.Websocket.Endpoint = "/myEndpoint"
 ```
 
 ## Outline
-websocket.Server / iris.Websocket
 ```go
-OnConnection(func(c websocket.Connection){})
+ iris.Websocket.OnConnection(func(c iris.WebsocketConnection){})
 ```
 
-websocket.Connection
+WebsocketConnection's methods
 ```go
 
 // Receive from the client
@@ -95,13 +94,13 @@ OnDisconnect(func(){})
 
 **Server-side**
 ```go
+// ./main.go
 package main
 
 import (
 	"fmt"
 
 	"github.com/kataras/iris"
-	"github.com/kataras/iris/websocket"
 )
 
 type clientPage struct {
@@ -110,7 +109,6 @@ type clientPage struct {
 }
 
 func main() {
-
 	iris.Static("/js", "./static/js", 1)
 
 	iris.Get("/", func(ctx *iris.Context) {
@@ -119,11 +117,11 @@ func main() {
 
 	// the path which the websocket client should listen/registed to ->
 	iris.Config.Websocket.Endpoint = "/my_endpoint"
-
-	ws := iris.Websocket // get the websocket server
+	// for Allow origin you can make use of the middleware
+	//iris.Config().Websocket.Headers["Access-Control-Allow-Origin"] = "*"
 
 	var myChatRoom = "room1"
-	ws.OnConnection(func(c websocket.Connection) {
+	iris.Websocket.OnConnection(func(c iris.WebsocketConnection) {
 
 		c.Join(myChatRoom)
 
