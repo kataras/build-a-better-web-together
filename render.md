@@ -9,11 +9,11 @@ The render actions, are separated in two iris-theoretical 'categories'
 * Templates using Template Engines, by 'filename'.
 
 
-### [Response Engines](render_rest.md)
+### [Response Engines](/response-engines.md)
 
 Easy and fast way to render any type of data. **JSON, JSONP, XML, Text, Data, Markdown** .or any custom type
 
-### [Template Engines](render_templates.md)
+### [Template Engines](/template-engines.md)
 
 Iris gives you the freedom to render templates through 6+ built'n template engines, you can create your own and 'inject' that to the iris, you can also use more than one template engines at the same time \(when the file extension is different from the other\).
 
