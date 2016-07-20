@@ -2,7 +2,7 @@
 "gitbook": ">=3.0.0-pre.0",
 "links": {
 "sidebar": {
-"Powered by Golang": "http://golang.org",
+"Free Open source projects need your support": "https://github.com/kataras/iris/blob/master/DONATIONS.md",
 "Don't forget to 🌟": "https://github.com/kataras/iris"
  }
  }
