@@ -47,3 +47,10 @@ func main() {
 
 
 ```
+
+
+Bellow you will see how 'good' are my english (joke...), but we're coders and some of us programmers also, so I hope you will understand, at least the code snippets :)
+
+
+
+
