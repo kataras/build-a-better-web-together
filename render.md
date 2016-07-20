@@ -13,11 +13,11 @@ The render actions, are separated in two iris-theoretical 'categories'
 
 Easy and fast way to render any type of data. **JSON, JSONP, XML, Text, Data, Markdown** .or any custom type. 
 
-- examples [here](https://github.com/iris-contrib/examples/tree/master/response_engines/)
+- examples are located [here](https://github.com/iris-contrib/examples/tree/master/response_engines/)
 
 ### [Template Engines](/template-engines.md)
 
 Iris gives you the freedom to render templates through 6+ built'n template engines, you can create your own and 'inject' that to the iris station, you can also use more than one template engines at the same time \(when the file extension is different from the other\). 
 
-- examples [here](https://github.com/iris-contrib/examples/tree/master/template_engines/) 
+- examples are located [here](https://github.com/iris-contrib/examples/tree/master/template_engines/) 
 
