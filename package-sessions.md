@@ -91,17 +91,26 @@ func main() {
 Example with **redis session database**, which located [here](https://github.com/iris-contrib/sessiondb/tree/master/redis)
 
 ```go
-
 package main
 
 import (
+	"github.com/iris-contrib/sessiondb/redis"
+	"github.com/iris-contrib/sessiondb/redis/service"
 	"github.com/kataras/iris"
-     _ "github.com/kataras/iris/sessions/providers/redis"
 )
 
 func main() {
+	db := redis.New(service.Config{Network: service.DefaultRedisNetwork,
+		Addr:          service.DefaultRedisAddr,
+		Password:      "",
+		Database:      "",
+		MaxIdle:       0,
+		MaxActive:     0,
+		IdleTimeout:   service.DefaultRedisIdleTimeout,
+		Prefix:        "",
+		MaxAgeSeconds: service.DefaultRedisMaxAgeSeconds}) // optionally configure the bridge between your redis server
 
-	iris.Config.Sessions.Provider = "redis"
+	iris.UseSessionDB(db)
 
 	iris.Get("/set", func(c *iris.Context) {
 
@@ -113,20 +122,18 @@ func main() {
 	})
 
 	iris.Get("/get", func(c *iris.Context) {
+		// get a specific key, as string, if no found returns just an empty string
 		name := c.Session().GetString("name")
 
 		c.Write("The name on the /set was: %s", name)
 	})
 
 	iris.Get("/delete", func(c *iris.Context) {
-		//get the session for this context
-
+		// delete a specific key
 		c.Session().Delete("name")
-
 	})
 
 	iris.Get("/clear", func(c *iris.Context) {
-
 		// removes all entries
 		c.Session().Clear()
 	})
@@ -134,342 +141,12 @@ func main() {
 	iris.Get("/destroy", func(c *iris.Context) {
 		//destroy, removes the entire session and cookie
 		c.SessionDestroy()
+		c.Log("You have to refresh the page to completely remove the session (on browsers), so the name should NOT be empty NOW, is it?\n ame: %s\n\nAlso check your cookies in your browser's cookies, should be no field for localhost/127.0.0.1 (or what ever you use)", c.Session().GetString("name"))
+		c.Write("You have to refresh the page to completely remove the session (on browsers), so the name should NOT be empty NOW, is it?\nName: %s\n\nAlso check your cookies in your browser's cookies, should be no field for localhost/127.0.0.1 (or what ever you use)", c.Session().GetString("name"))
+
 	})
 
 	iris.Listen(":8080")
 }
 
 ```
-
-Example customized **config.Redis**
-```go
-	// Redis the redis configuration used inside sessions
-	Redis struct {
-		// Network "tcp"
-		Network string
-		// Addr "127.0.01:6379"
-		Addr string
-		// Password string .If no password then no 'AUTH'. Default ""
-		Password string
-		// If Database is empty "" then no 'SELECT'. Default ""
-		Database string
-		// MaxIdle 0 no limit
-		MaxIdle int
-		// MaxActive 0 no limit
-		MaxActive int
-		// IdleTimeout  time.Duration(5) * time.Minute
-		IdleTimeout time.Duration
-		// Prefix "myprefix-for-this-website". Default ""
-		Prefix string
-		// MaxAgeSeconds how much long the redis should keep 
-        // the session in seconds. Default 31556926.0 (1 year)
-		MaxAgeSeconds int
-	}
-
-```
-
-```go
-
-package main
-
-import (
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/sessions/providers/redis"
-)
-
-func init() {
-	redis.Config.Addr = "127.0.0.1:2222"
-	redis.Config.MaxAgeSeconds = 5000.0
-}
-
-func main() {
-	
-	iris.Config.Sessions.Provider = "redis"
-
-	iris.Get("/set", func(c *iris.Context) {
-
-		//set session values
-		c.Session().Set("name", "iris")
-
-		//test if setted here
-		c.Write("All ok session setted to: %s", c.Session().GetString("name"))
-	})
-
-	iris.Get("/get", func(c *iris.Context) {
-		name := c.Session().GetString("name")
-
-		c.Write("The name on the /set was: %s", name)
-	})
-
-	iris.Get("/delete", func(c *iris.Context) {
-		//get the session for this context
-
-		c.Session().Delete("name")
-
-	})
-
-	iris.Get("/clear", func(c *iris.Context) {
-
-		// removes all entries
-		c.Session().Clear()
-	})
-
-	iris.Get("/destroy", func(c *iris.Context) {
-		//destroy, removes the entire session and cookie
-		c.SessionDestroy()
-	})
-
-	println("Server is listening at :8080")
-	iris.Listen("8080")
-}
-
-```
-
-
-
-## How to use - hard way
-
-```go
-// New creates & returns a new Manager and start its GC
-// accepts 4 parameters
-// first is the providerName (string) ["memory","redis"]
-// second is the cookieName, the session's name (string) ["mysessionsecretcookieid"]
-// third is the gcDuration (time.Duration)
-// when this time passes it removes from
-// temporary memory GC the value which hasn't be used for a long time(gcDuration)
-// this is for the client's/browser's Cookie life time(expires) also
-
-New(provider string, cName string, gcDuration time.Duration) *sessions.Manager
-
-```
-
-Example **memory**
-
-```go
-
-package main
-
-import (
-	"time"
-
-	"github.com/kataras/iris"
-    "github.com/kataras/iris/config"
-	"github.com/kataras/iris/sessions"
-
-	_ "github.com/kataras/iris/sessions/providers/memory"
-)
-
-var sess *sessions.Manager
-
-func init() {
-    sessConfig := config.Sessions{
-		Provider:   "memory", // if you set it to ""  means that sessions are disabled.
-		Cookie:     "yoursessionCOOKIEID",
-		Expires:    config.CookieExpireNever,
-		GcDuration: time.Duration(2) * time.Hour,
-	}
-	sess = sessions.New(sessConfig) // or just sessions.New()
-}
-
-func main() {
-
-	iris.Get("/set", func(c *iris.Context) {
-		//get the session for this context
-		session := sess.Start(c)
-
-		//set session values
-		session.Set("name", "kataras")
-
-		//test if setted here
-		c.Write("All ok session setted to: %s", session.Get("name"))
-	})
-
-	iris.Get("/get", func(c *iris.Context) {
-		//get the session for this context
-		session := sess.Start(c)
-
-		var name string
-
-		//get the session value
-		if v := session.Get("name"); v != nil {
-			name = v.(string)
-		}
-		// OR just name = session.GetString("name")
-
-		c.Write("The name on the /set was: %s", name)
-	})
-
-		iris.Get("/delete", func(c *iris.Context) {
-		//get the session for this context
-		session := sess.Start(c)
-
-		session.Delete("name")
-
-	})
-
-	iris.Get("/clear", func(c *iris.Context) {
-		//get the session for this context
-		session := sess.Start(c)
-		// removes all entries
-		session.Clear()
-	})
-
-	iris.Get("/destroy", func(c *iris.Context) {
-		//destroy, removes the entire session and cookie
-		sess.Destroy(c)
-	})
-
-	iris.Listen(":8080")
-}
-
-// session.GetAll() returns all values a map[interface{}]interface{}
-// session.VisitAll(func(key interface{}, value interface{}) { /* loops for each entry */})
-
-}
-
-
-
-```
-
-
-Example **redis** with config.Redis defaults
-
-The default redis client points to 127.0.0.1:6379
-
-```go
-
-package main
-
-import (
-	"time"
-
-	"github.com/kataras/iris"
-    "github.com/kataras/iris/config"
-	"github.com/kataras/iris/sessions"
-
-	_ "github.com/kataras/iris/sessions/providers/redis"
-)
-
-var sess *sessions.Manager
-
-func init() {
-	sessConfig := config.Sessions{
-          Provider:   "redis", 
-          Cookie:     "yoursessionCOOKIEID",
-          Expires:    config.CookieExpireNever,
-          GcDuration: time.Duration(2) * time.Hour,
-	}
-    
-    sess := sessions.New(sessConfig)
-}
-
-//... usage: same as memory
-```
-
-Example **redis** with custom configuration
-**config.Redis**
-```go
-	// Redis the redis configuration used inside sessions
-	Redis struct {
-		// Network "tcp"
-		Network string
-		// Addr "127.0.01:6379"
-		Addr string
-		// Password string .If no password then no 'AUTH'. Default ""
-		Password string
-		// If Database is empty "" then no 'SELECT'. Default ""
-		Database string
-		// MaxIdle 0 no limit
-		MaxIdle int
-		// MaxActive 0 no limit
-		MaxActive int
-		// IdleTimeout  time.Duration(5) * time.Minute
-		IdleTimeout time.Duration
-		// Prefix "myprefix-for-this-website". Default ""
-		Prefix string
-		// MaxAgeSeconds how much long the redis should keep 
-        // the session in seconds. Default 31556926.0 (1 year)
-		MaxAgeSeconds int
-	}
-
-```
-
-```go
-package main
-
-import (
-	"time"
-
-	"github.com/kataras/iris"
-    "github.com/kataras/iris/config"
-	"github.com/kataras/iris/sessions"
-
-     "github.com/kataras/iris/sessions/providers/redis"
-)
-
-var sess *sessions.Manager
-
-func init() {
-    // you can config the redis after init also, but before any client's request
-    // but it's always a good idea to do it before sessions.New...
-    redis.Config.Network = "tcp"
-    redis.Config.Addr = "127.0.0.1:6379"
-    redis.Config.Prefix = "myprefix-for-this-website"
-
-	sessConfig := config.Sessions{
-          Provider:   "redis", 
-          Cookie:     "yoursessionCOOKIEID",
-          Expires:    config.CookieExpireNever,
-          GcDuration: time.Duration(2) * time.Hour,
-	}
-    
-    sess := sessions.New(sessConfig)
-}
-
-//...usage: same as memory
-```
-
-### Security: Prevent session hijacking
-
-> This section  is external
-
-
-**cookie only and token**
-
-Through this simple example of hijacking a session, you can see that it's very dangerous because it allows attackers to do whatever they want. So how can we prevent session hijacking?
-
-The first step is to only set session ids in cookies, instead of in URL rewrites. Also, Iris has already set the httponly cookie property to true. This restricts client side scripts that want access to the session id. Using these techniques, cookies cannot be accessed by XSS and it won't be as easy as we showed to get a session id from a cookie manager.
-
-The second step is to add a token to every request. Similar to the way we dealt with repeat forms in previous sections, we add a hidden field that contains a token. When a request is sent to the server, we can verify this token to prove that the request is unique.
-
-```go
-h := md5.New()
-salt:="secretkey%^7&8888"
-io.WriteString(h,salt+time.Now().String())
-token:=fmt.Sprintf("%x",h.Sum(nil))
-if r.Form["token"]!=token{
-    // ask to log in
-}
-session.Set("token",token)
-
-```
-
-
-**Session id timeout**
-
-Another solution is to add a create time for every session, and to replace expired session ids with new ones. This can prevent session hijacking under certain circumstances.
-
-```go
-
-createtime := session.Get("createtime")
-if createtime == nil {
-    session.Set("createtime", time.Now().Unix())
-} else if (createtime.(int64) + 60) < (time.Now().Unix()) {
-    sess.Destroy(c)
-    session = sess.Start(c)
-}
-```
-
-We set a value to save the create time and check if it's expired (I set 60 seconds here). This step can often thwart session hijacking attempts.
-
-Combine the two solutions above and you will be able to prevent most session hijacking attempts from succeeding. On the one hand, session ids that are frequently reset will result in an attacker always getting expired and useless session ids; on the other hand, by  already setted the httponly property on cookies and ensuring that session ids can only be passed via cookies, all URL based attacks are mitigated.
