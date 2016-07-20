@@ -84,7 +84,7 @@ func main() {
             "Footer":  "The footer of this e-mail!",
         }, iris.RenderOptions{"charset" :"UTF-8"}) 
             // iris.RenderOptions are optional parameter,
-            // defaults to UTF-8 but you can change it for a 
+            // "charset" defaults to UTF-8 but you can change it for a 
             // particular mail receiver
 
         err := mailService.Send("iris e-mail just t3st subject", content, to...)
