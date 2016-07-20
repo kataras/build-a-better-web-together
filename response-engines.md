@@ -49,7 +49,7 @@ func main() {
 ```
 
 
-Bellow you will see how 'good' are my english (joke...), but at the end we're coders and some of us programmers too, so I hope you will be able to understand at least, the code snippets :)
+Bellow you will see how 'good' are my english (joke...), but at the end we're coders and some of us programmers too, so I hope you will be able to understand at least, the code snippets ( a lot of them, I made them as simple as I could) :)
 
 
 
