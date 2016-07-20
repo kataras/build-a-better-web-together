@@ -30,6 +30,139 @@ You will see first the template file's code, after the main.go code
 
 ```
 
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
+
+```html
+<!-- ./templates/.html -->
+
+
+```
+
+```go
+// ./main.go
+
+
+```
 
 
 ** Custom template engine** 
