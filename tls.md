@@ -19,7 +19,7 @@ Listen(addr string)
 // ex: err := iris.ListenTo(":8080","yourfile.cert","yourfile.key")
 ListenTLS(addr string, certFile string, keyFile string)
 
-// ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
+// ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
 //
 // It panics on error if you need a func to return an error, use the ListenTo
 // ex: err := iris.ListenTo(":8080", Mode: os.FileMode)
