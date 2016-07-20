@@ -110,7 +110,7 @@ say for example, that you want a static'footer/suffix' on your content.
 
 IF a response engine has the same key and the same content type then the contents are appended and the final result will be rendered to the client.
 
-Let's do this with ` text/plain` content type, because you can see its results easly, the first engine will use this "text/plain" as key also, the second & third will use other key but for the same ContentType.
+Let's do this with ` text/plain` content type, because you can see its results easly, the first engine will use this "text/plain" as key, the second & third will use the same key, which is the ContentType also.
 ```go
 
 package main
