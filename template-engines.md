@@ -92,7 +92,7 @@ Executes and parses the template but instead of rendering to the client, it retu
 
 
 ```go
-
+// ./main.go
 package main
 
 import (
