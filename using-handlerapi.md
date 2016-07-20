@@ -1,24 +1,28 @@
 # Using Handler API
 
+HandlerAPI is any custom struct which has an `*iris.Context` field and known methods signatures.
 
 
 
-HandlerAPI is any custom struct which has an `*iris.Context` field.
+Before continue I will liked to notice you that this method is slower than\` iris.Get\/Post...\/Handle\/HandleFunc \`.
 
-Instead of writing Handlers/HandlerFuncs for eachone API routes, you can use the ` iris.API` function.
+I know maybe sounds awful but I, my self not using it, I did it because developers used to use frameworks with 'MVC' pattern, so think it like the 'C\|Controller'. If you don't care about performance\(~ms\) and you like to spent some code time, you're free to use it.
+
+
+
+Instead of writing Handlers\/HandlerFuncs for eachone API routes, you can use the `iris.API` function.
 
 ```go
 API(path string, api HandlerAPI, middleware ...HandlerFunc) error
 ```
 
-
 **For example**, for a user API you need some of these routes:
 
-- GET `/users` , for selecting all
-- GET`/users/:id` , for selecting specific
-- PUT `/users` , for inserting
-- POST `/users/:id` , for updating
-- DELETE `/users/:id` , for deleting
+* GET `/users` , for selecting all
+* GET`/users/:id` , for selecting specific
+* PUT `/users` , for inserting
+* POST `/users/:id` , for updating
+* DELETE `/users/:id` , for deleting
 
 Normally, with HandlerFuncs you should do something like this:
 
@@ -33,64 +37,65 @@ iris.Post("/users/:id", ...)
 iris.Delete("/users/:id", ...)
 ```
 
-**But** with API you can do this instead: 
+**But** with API you can do this instead:
 
 ```go
 package main
 
 import (
-	"github.com/kataras/iris"
+    "github.com/kataras/iris"
 )
 
 type UserAPI struct {
-	*iris.Context
+    *iris.Context
 }
 
 // GET /users
 func (u UserAPI) Get() {
-	u.Write("Get from /users")
-	// u.JSON(iris.StatusOK,myDb.AllUsers())
+    u.Write("Get from /users")
+    // u.JSON(iris.StatusOK,myDb.AllUsers())
 }
 
 // GET /:param1 which its value passed to the id argument
 func (u UserAPI) GetBy(id string) { // id equals to u.Param("param1")
-	u.Write("Get from /users/%s", id)
-	// u.JSON(iris.StatusOK, myDb.GetUserById(id))
+    u.Write("Get from /users/%s", id)
+    // u.JSON(iris.StatusOK, myDb.GetUserById(id))
 
 }
 
 // PUT /users
 func (u UserAPI) Put() {
-	name := u.FormValue("name")
-	// myDb.InsertUser(...)
-	println(string(name))
-	println("Put from /users")
+    name := u.FormValue("name")
+    // myDb.InsertUser(...)
+    println(string(name))
+    println("Put from /users")
 }
 
 // POST /users/:param1
 func (u UserAPI) PostBy(id string) {
-	name := u.FormValue("name") // you can still use the whole Context's features!
-	// myDb.UpdateUser(...)
-	println(string(name))
-	println("Post from /users/" + id)
+    name := u.FormValue("name") // you can still use the whole Context's features!
+    // myDb.UpdateUser(...)
+    println(string(name))
+    println("Post from /users/" + id)
 }
 
 // DELETE /users/:param1
 func (u UserAPI) DeleteBy(id string) {
-	// myDb.DeleteUser(id)
-	println("Delete from /" + id)
+    // myDb.DeleteUser(id)
+    println("Delete from /" + id)
 }
 
 func main() {
-	iris.API("/users", UserAPI{})
-	iris.Listen(":8080")
+    iris.API("/users", UserAPI{})
+    iris.Listen(":8080")
 }
 
 ```
 
-As you saw you can still get other request values via the *iris.Context, API has all the  flexibility of handler/handlerfunc.
+As you saw you can still get other request values via the \*iris.Context, API has all the  flexibility of handler\/handlerfunc.
 
 If you want to use **more than one named parameter**, simply do this:
+
 ```go
 // users/:param1/:param2
 func (u UserAPI) GetBy(id string, otherParameter string) {}
@@ -100,23 +105,20 @@ API receives a third parameter which are the middlewares, is optional parameter:
 
 ```go
 func main() {
-	iris.API("/users", UserAPI{}, myUsersMiddleware1, myUsersMiddleware2)
-	iris.Listen(":8080")
+    iris.API("/users", UserAPI{}, myUsersMiddleware1, myUsersMiddleware2)
+    iris.Listen(":8080")
 }
 
 func myUsersMiddleware1(ctx *iris.Context) {
-	println("From users middleware 1 ")
-	ctx.Next()
+    println("From users middleware 1 ")
+    ctx.Next()
 }
 func myUsersMiddleware2(ctx *iris.Context) {
-	println("From users middleware 2 ")
-	ctx.Next()
+    println("From users middleware 2 ")
+    ctx.Next()
 }
 
 ```
 
-Available methods: "GET", "POST", "PUT", "DELETE", "CONNECT", "HEAD", "PATCH", "OPTIONS", "TRACE" should use this **naming conversion**:  **Get/GetBy, Post/PostBy, Put/PutBy** and so on...
-
-
-
+Available methods: "GET", "POST", "PUT", "DELETE", "CONNECT", "HEAD", "PATCH", "OPTIONS", "TRACE" should use this **naming conversion**:  **Get\/GetBy, Post\/PostBy, Put\/PutBy** and so on...
 
