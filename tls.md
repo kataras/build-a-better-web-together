@@ -34,7 +34,8 @@ ListenVirtual(optionalAddr ...string) *Server
 // returns an error, you're responsible to handle that
 // or use the iris.Must(iris.ListenTo(config.Server{}))
 //
-// it's a blocking funcListenTo(cfg config.Server) (err error) 
+// it's a blocking func
+ListenTo(cfg config.Server) (err error) 
 
 // Close terminates all the registered servers and returns an error if any
 // if you want to panic on this error use the iris.Must(iris.Close())
