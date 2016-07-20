@@ -151,7 +151,7 @@ type CustomTextEngine struct{}
 
 // Implement the iris.ResponseEngine
 func (e *CustomTextEngine) Response(val interface{}, options ...map[string]interface{}) ([]byte, error) {
-	// we don't need the val, because we want only to append, so what to do?
+	// we don't need the val, because we want only to append, so what we should do?
 	// just return the []byte we want to be appended after the first registered text/plain engine
 
 	return []byte("\nThis is the static FIRST suffix!"), nil
