@@ -111,13 +111,102 @@ func main() {
 ```
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/layouts/layout.html -->
+<html>
+<head>
+<title>Layout</title>
+
+</head>
+<body>
+	<h1>This is the global layout</h1>
+	<br />
+	<!-- Render the current template here -->
+	{{ yield }}
+</body>
+</html>
+
+
+```
+
+```html
+<!-- ./templates/layouts/mylayout.html -->
+<html>
+<head>
+<title>my Layout</title>
+
+</head>
+<body>
+	<h1>This is the layout for the /my/ and /my/other routes only</h1>
+	<br />
+	<!-- Render the current template here -->
+	{{ yield }}
+</body>
+</html>
+
+
+```
+
+```html
+<!-- ./templates/partials/page1_partial1.html -->
+<div style="background-color: white; color: red">
+	<h1>Page 1's Partial 1</h1>
+</div>
+
+
+```
+
+```html
+<!-- ./templates/page1.html -->
+<div style="background-color: black; color: blue">
+
+	<h1>Page 1</h1>
+
+	{{ render "partials/page1_partial1.html"}}
+
+</div>
 
 
 ```
 
 ```go
 // ./main.go
+package main
+
+import (
+	"github.com/iris-contrib/template/html"
+	"github.com/kataras/iris"
+)
+
+func main() {
+	// directory and extensions defaults to ./templates, .html for all template engines
+	iris.UseTemplate(html.New(html.Config{Layout: "layouts/layout.html"}))
+	//iris.Config.Render.Template.Gzip = true
+	iris.Get("/", func(ctx *iris.Context) {
+		if err := ctx.Render("page1.html", nil); err != nil {
+			println(err.Error())
+		}
+	})
+
+	// remove the layout for a specific route
+	iris.Get("/nolayout", func(ctx *iris.Context) {
+		if err := ctx.Render("page1.html", nil, iris.RenderOptions{"layout": iris.NoLayout}); err != nil {
+			println(err.Error())
+		}
+	})
+
+	// set a layout for a party, .Layout should be BEFORE any Get or other Handle party's method
+	my := iris.Party("/my").Layout("layouts/mylayout.html")
+	{
+		my.Get("/", func(ctx *iris.Context) {
+			ctx.MustRender("page1.html", nil)
+		})
+		my.Get("/other", func(ctx *iris.Context) {
+			ctx.MustRender("page1.html", nil)
+		})
+	}
+
+	iris.Listen(":8080")
+}
 
 
 ```
