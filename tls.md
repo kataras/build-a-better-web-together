@@ -30,6 +30,12 @@ ListenUNIX(addr string, mode os.FileMode)
 // it is not blocking the app
 ListenVirtual(optionalAddr ...string) *Server
 
+// ListenTo listens to a server but acceots the full server's configuration
+// returns an error, you're responsible to handle that
+// or use the iris.Must(iris.ListenTo(config.Server{}))
+//
+// it's a blocking funcListenTo(cfg config.Server) (err error) 
+
 // Close terminates all the registered servers and returns an error if any
 // if you want to panic on this error use the iris.Must(iris.Close())
 Close() error 
