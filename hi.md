@@ -1,22 +1,22 @@
 # Hi
 
-
 ```go
 package main
 
 import "github.com/kataras/iris"
 
 func main() {
-	iris.Get("/hi", func(ctx *iris.Context) {
-		ctx.Write("Hi %s", "iris")
-	})
-	iris.Listen(":8080")
+    iris.Get("/hi", func(ctx *iris.Context) {
+        ctx.Write("Hi %s", "iris")
+    })
+    iris.Listen(":8080")
     //err := iris.ListenWithErr(":8080")
 }
 
 ```
 
 The same
+
 ```go
 package main
 
@@ -24,8 +24,8 @@ import "github.com/kataras/iris"
 
 func main() {
     api := iris.New()
-	api.Get("/hi", hi)
-	api.Listen(":8080")
+    api.Get("/hi", hi)
+    api.Listen(":8080")
 }
 
 func hi(ctx *iris.Context){
@@ -34,7 +34,7 @@ func hi(ctx *iris.Context){
 
 ```
 
-Rich Hi with **html/template**
+Rich Hi with **html\/template**
 
 ```html
 <!-- ./templates/hi.html -->
@@ -52,8 +52,8 @@ Rich Hi with **html/template**
 import "github.com/kataras/iris"
 
 func main() {
-	iris.Get("/hi", hi)
-	iris.Listen(":8080")
+    iris.Get("/hi", hi)
+    iris.Listen(":8080")
 }
 
 func hi(ctx *iris.Context){
@@ -62,11 +62,11 @@ func hi(ctx *iris.Context){
 
 ```
 
-Rich Hi with **Django-syntax, flosch/pongo2**
+Rich Hi with **Django-syntax**
 
 ```html
 <!-- ./templates/hi.html -->
-<html><head> <title> Hi Iris [THE TITLE] </title> </head>
+<html><head> <title> Hi Iris </title> </head>
   <body>
     <h1> Hi {{ Name }}
   </body>
@@ -79,12 +79,13 @@ Rich Hi with **Django-syntax, flosch/pongo2**
 // ./main.go
 import (
     "github.com/kataras/iris"
+    "github.com/iris-contrib/template/django"
 )
 
 func main() {
-    iris.Config.Render.Template.Engine = iris.PongoEngine
-	iris.Get("/hi", hi)
-	iris.Listen(":8080")
+    iris.UseTemplate(django.New())
+    iris.Get("/hi", hi)
+    iris.Listen(":8080")
 }
 
 func hi(ctx *iris.Context){
@@ -93,5 +94,6 @@ func hi(ctx *iris.Context){
 
 ```
 
-- More about configuration [here](configuration.md)
-- More about render and template engines [here](render.md)
+* More about configuration [here](configuration.md)
+* More about render and template engines [here](render.md)
+
