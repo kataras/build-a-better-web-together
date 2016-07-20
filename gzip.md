@@ -8,7 +8,7 @@ just set the `iris.Config.Gzip = true`, which you can also change for specific r
 
 ```go
 //...
-context.Render("myfile.html", bindingStruct{}, iris.RenderOptions{"gzip": false})
+context.Render("mytemplate.html", bindingStruct{}, iris.RenderOptions{"gzip": false})
 context.Render("my-custom-response", iris.Map{"anything":"everything"} , iris.RenderOptions{"gzip": false}) 
 ```
 
