@@ -11,7 +11,7 @@ $ go get -u github.com/iris-contrib/template/$THE_ENGINE
 
 
 
-## How can I make my own iris template engine?
+## Custom template engine
 
 Simply, you have to implement only **3  functions**, for load and execute the templates. One optionally (**Funcs() map[string]interface{}**) which is used to register the iris' helpers funcs like `{{ url }}` and `{{ urlpath }}`.
 
