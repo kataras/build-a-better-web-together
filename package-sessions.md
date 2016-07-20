@@ -1,12 +1,10 @@
 # Sessions
-[This is a package](https://github.com/kataras/iris/tree/master/sessions)
-
-This package is new and unique, if you notice a bug or issue [post it here](https://github.com/kataras/iris/issues)
+If you notice a bug or issue [post it here](https://github.com/kataras/iris/issues)
 
 
-- Cleans the temp memory when a sessions is iddle, and re-loccate it , fast, to the temp memory when it's necessary. Also most used/regular sessions are going front in the memory's list.
+- Cleans the temp memory when a sessions is iddle, and re-allocate it , fast, to the temp memory when it's necessary. Also most used/regular sessions are going front in the memory's list.
 
-- Supports redisstore and normal memory routing. If redisstore is used but fails to connect then ,automatically, switching to the memory storage.
+- Supports any type of database, currently only [redis](https://github.com/iris-contrib/sessiondb/.
 
 
 **A session can be defined as a server-side storage of information that is desired to persist throughout the user's interaction with the web site** or web application.
