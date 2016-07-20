@@ -9,7 +9,7 @@ $ go get -u github.com/iris-contrib/template/$THE_ENGINE
 
 ## How to use
 
-Most examples are written with html (default and built'n template engine for iris) but works for the rest of the engines also.
+Most examples are written for html (default and built'n template engine for iris) but works for the rest of the engines also.
 
 
 
