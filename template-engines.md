@@ -847,7 +847,37 @@ func emptyHandler(ctx *iris.Context) {
 >  Note than you can see more Pug/Jade syntax examples by navigating [here](https://github.com/Joker/jade)
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/basic.amber -->
+!!! 5
+html
+    head
+        title Hello Amber from Iris
+
+        meta[name="description"][value="This is a sample"]
+
+        script[type="text/javascript"]
+            var hw = "Hello #{Name}!"
+            alert(hw)
+
+        style[type="text/css"]
+            body {
+                background: maroon;
+                color: white
+            }
+
+    body
+        header#mainHeader
+            ul
+                li.active
+                    a[href="/"] Main Page
+                        [title="Main Page"]
+            h1
+                 | Hi #{Name}
+
+        footer
+            | Hey
+            br
+            | There
 
 
 ```
@@ -855,6 +885,27 @@ func emptyHandler(ctx *iris.Context) {
 
 ```go
 // ./main.go
+package main
+
+import (
+	"github.com/iris-contrib/template/amber"
+	"github.com/kataras/iris"
+)
+
+type mypage struct {
+	Name string
+}
+
+func main() {
+
+	iris.UseTemplate(amber.New()).Directory("./templates", ".amber")
+
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.Render("basic.amber", mypage{"iris"}, iris.RenderOptions{"gzip": true})
+	})
+
+	iris.Listen(":8080")
+}
 
 
 ```
