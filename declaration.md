@@ -117,7 +117,7 @@ type (
         Websocket *Websocket
 
         // Tester contains the configs for the test framework, so far we have only one because all test framework's configs are setted by the iris itself
-        // You will find example on the https://github.com/kataras/iris/glob/master/context_test.go
+        // You can find example on the https://github.com/kataras/iris/glob/master/context_test.go
         Tester Tester
     }
 )
