@@ -682,13 +682,90 @@ func main() {
 ** Pug/Jade Template Engine **
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/partials/page1_partial1.jade -->
+#footer
+  p Copyright (c) foobar
+
+
+```
+
+```html
+<!-- ./templates/page.jade -->
+doctype html
+html(lang=en)
+	head
+		meta(charset=utf-8)
+		title Title
+	body
+		p ads
+		ul
+			li The name is {{bold .Name}}.
+			li The age is {{.Age}}.
+
+		range .Emails
+			div An email is {{.}}
+
+		with .Jobs
+			range .
+				div.
+				 An employer is {{.Employer}}
+				 and the role is {{.Role}}
+
+		{{ render "partials/page1_partial1.jade"}}
 
 
 ```
 
 ```go
 // ./main.go
+package main
+
+import (
+	"html/template"
+
+	"github.com/iris-contrib/template/pug"
+	"github.com/kataras/iris"
+)
+
+type Person struct {
+	Name   string
+	Age    int
+	Emails []string
+	Jobs   []*Job
+}
+
+type Job struct {
+	Employer string
+	Role     string
+}
+
+func main() {
+	// set the configuration for this template engine  (all template engines has its configuration)
+	cfg := pug.DefaultConfig()
+	cfg.Funcs["bold"] = func(content string) (template.HTML, error) {
+		return template.HTML("<b>" + content + "</b>"), nil
+	}
+
+	iris.UseTemplate(pug.New(cfg)).
+		Directory("./templates", ".jade")
+
+	iris.Get("/", func(ctx *iris.Context) {
+
+		job1 := Job{Employer: "Super Employer", Role: "Team leader"}
+		job2 := Job{Employer: "Fast Employer", Role: "Project managment"}
+
+		person := Person{
+			Name:   "name1",
+			Age:    50,
+			Emails: []string{"email1@something.gr", "email2.anything@gmail.com"},
+			Jobs:   []*Job{&job1, &job2},
+		}
+		ctx.MustRender("page.jade", person)
+
+	})
+
+	iris.Listen(":8080")
+}
 
 
 ```
@@ -696,13 +773,73 @@ func main() {
 
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/page.jade -->
+a(href='{{url "dynamic-subdomain1" "username1"}}') username1.127.0.0.1:8080/mypath
+p.
+ a(href='{{url "dynamic-subdomain2" "username2" "theParam1" "theParam2"}}') username2.127.0.0.1:8080/mypath2/:param1/:param2
+
+p.
+ a(href='{{url "dynamic-subdomain3" "username3" "theParam1" "theParam2AfterStatic"}}') username3.127.0.0.1:8080/mypath3/:param1/statichere/:param2
+
+p.
+ a(href='{{url "dynamic-subdomain4" "username4" "theParam1" "theparam2AfterStatic" "otherParam" "matchAnything"}}') username4.127.0.0.1:8080/mypath4/:param1/statichere/:param2/:otherparam/*something
+
+p.
+ a(href='{{url "dynamic-subdomain5" .ParamsAsArray }}') username5.127.0.0.1:8080/mypath6/:param1/:param2/staticParam/:param3AfterStatic
 
 
 ```
 
 ```go
 // ./main.go
+// Package main same example as template_html_5 but for pug/jade
+package main
+
+import (
+	"github.com/iris-contrib/template/pug"
+	"github.com/kataras/iris"
+)
+
+func main() {
+	iris.UseTemplate(pug.New()).Directory("./templates", ".jade")
+
+	wildcard := iris.Party("*.")
+	{
+		wildcard.Get("/mypath", emptyHandler)("dynamic-subdomain1")
+		wildcard.Get("/mypath2/:param1/:param2", emptyHandler)("dynamic-subdomain2")
+		wildcard.Get("/mypath3/:param1/statichere/:param2", emptyHandler)("dynamic-subdomain3")
+		wildcard.Get("/mypath4/:param1/statichere/:param2/:otherparam/*something", emptyHandler)("dynamic-subdomain4")
+		wildcard.Get("/mypath5/:param1/:param2/staticParam/:param3AfterStatic", emptyHandler)("dynamic-subdomain5")
+	}
+
+	iris.Get("/", func(ctx *iris.Context) {
+		// for dynamic_subdomain:8080/mypath5...
+		// the first parameter is always the subdomain part
+		paramsAsArray := []string{"username5", "theParam1", "theParam2", "theParam3"}
+
+		if err := ctx.Render("page.jade", iris.Map{"ParamsAsArray": paramsAsArray}); err != nil {
+			panic(err)
+		}
+	})
+
+	iris.Get("/redirect/:namedRoute/:subdomain", func(ctx *iris.Context) {
+		routeName := ctx.Param("namedRoute")
+		subdomain := ctx.Param("subdomain")
+		println("The full uri of " + routeName + "is: " + iris.URL(routeName, subdomain))
+		// if routeName == "dynamic-subdomain1" && subdomain == "username1"
+		// prints: The full uri ofd ynamic-subdomain1 is: http://username1.127.0.0.1:8080/mypath
+		ctx.RedirectTo(routeName, subdomain) // the second parameter is the arguments, the first argument for dynamic subdomains is the subdomain part, after this, the named parameters
+		// http://127.0.0.1:8080/redirect/my-subdomain1 will redirect to ->  http://username1.127.0.0.1:8080/mypath
+	})
+
+	iris.Listen("127.0.0.1:8080")
+}
+
+func emptyHandler(ctx *iris.Context) {
+	ctx.Write("[SUBDOMAIN: %s]Hello from Path: %s.", ctx.Subdomain(), ctx.PathString())
+}
+
+// Note than you can see more Pug/Jade syntax examples by navigating to https://github.com/Joker/jade
 
 
 ```
