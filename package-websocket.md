@@ -94,13 +94,13 @@ OnDisconnect(func(){})
 
 **Server-side**
 ```go
+// ./main.go
 package main
 
 import (
 	"fmt"
 
 	"github.com/kataras/iris"
-	"github.com/kataras/iris/websocket"
 )
 
 type clientPage struct {
@@ -109,7 +109,6 @@ type clientPage struct {
 }
 
 func main() {
-
 	iris.Static("/js", "./static/js", 1)
 
 	iris.Get("/", func(ctx *iris.Context) {
@@ -118,11 +117,11 @@ func main() {
 
 	// the path which the websocket client should listen/registed to ->
 	iris.Config.Websocket.Endpoint = "/my_endpoint"
-
-	ws := iris.Websocket() // get the websocket server
+	// for Allow origin you can make use of the middleware
+	//iris.Config().Websocket.Headers["Access-Control-Allow-Origin"] = "*"
 
 	var myChatRoom = "room1"
-	ws.OnConnection(func(c websocket.Connection) {
+	iris.Websocket.OnConnection(func(c iris.WebsocketConnection) {
 
 		c.Join(myChatRoom)
 
