@@ -64,7 +64,7 @@ func hi(ctx *iris.Context){
 Rich Hi with **Django-syntax**
 
 ```html
-<!-- ./templates/hi.html -->
+<!-- ./mytemplates/hi.html -->
 <html><head> <title> Hi Iris </title> </head>
   <body>
     <h1> Hi {{ Name }}
@@ -82,7 +82,7 @@ import (
 )
 
 func main() {
-    iris.UseTemplate(django.New())
+    iris.UseTemplate(django.New()).Directory("./mytemplates", ".html")
     iris.Get("/hi", hi)
     iris.Listen(":8080")
 }
