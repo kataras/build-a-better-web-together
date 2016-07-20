@@ -557,17 +557,129 @@ func emptyHandler(ctx *iris.Context) {
 ** Handlebars Template Engine **
 
 ```html
-<!-- ./templates/.html -->
+<!-- ./templates/layouts/layout.html -->
+
+<html>
+<head>
+<title>Layout</title>
+
+</head>
+<body>
+	<h1>This is the global layout</h1>
+	<br />
+	<!-- Render the current template here -->
+	{{ yield }}
+</body>
+</html>
+
+```
+
+```html
+<!-- ./templates/layouts/mylayout.html -->
+<html>
+<head>
+<title>my Layout</title>
+
+</head>
+<body>
+	<h1>This is the layout for the /my/ and /my/other routes only</h1>
+	<br />
+	<!-- Render the current template here -->
+	{{ yield }}
+</body>
+</html>
 
 
 ```
+
+
+```html
+<!-- ./templates/partials/home_partial.html -->
+<div style="background-color: white; color: red">
+	<h1>Home's' Partial here!!</h1>
+</div>
+
+
+```
+
+```html
+<!-- ./templates/home.html -->
+<div style="background-color: black; color: white">
+
+	Name: {{boldme Name}} <br /> Type: {{boldme Type}} <br /> Path:
+	{{boldme Path}} <br />
+	<hr />
+
+	The partial is: {{ render "partials/home_partial.html"}}
+
+</div>
+
+```
+
 
 ```go
 // ./main.go
+package main
+
+import (
+	"github.com/aymerick/raymond"
+	"github.com/iris-contrib/template/handlebars"
+	"github.com/kataras/iris"
+)
+
+type mypage struct {
+	Title   string
+	Message string
+}
+
+func main() {
+	// set the configuration for this template engine  (all template engines has its configuration)
+	config := handlebars.DefaultConfig()
+	config.Layout = "layouts/layout.html"
+	config.Helpers["boldme"] = func(input string) raymond.SafeString {
+		return raymond.SafeString("<b> " + input + "</b>")
+	}
+
+	// set the template engine
+	iris.UseTemplate(handlebars.New(config)).Directory("./templates", ".html") // or .hbs , whatever you want
+
+	iris.Get("/", func(ctx *iris.Context) {
+		// optionally, set a context  for the template
+		ctx.Render("home.html", map[string]interface{}{"Name": "Iris", "Type": "Web", "Path": "/"})
+
+	})
+
+	// remove the layout for a specific route using iris.NoLayout
+	iris.Get("/nolayout", func(ctx *iris.Context) {
+		if err := ctx.Render("home.html", nil, iris.RenderOptions{"layout": iris.NoLayout}); err != nil {
+			ctx.Write(err.Error())
+		}
+	})
+
+	// set a layout for a party, .Layout should be BEFORE any Get or other Handle party's method
+	my := iris.Party("/my").Layout("layouts/mylayout.html")
+	{
+		my.Get("/", func(ctx *iris.Context) {
+			// .MustRender -> same as .Render but logs the error if any and return status 500 on client
+			ctx.MustRender("home.html", map[string]interface{}{"Name": "Iris", "Type": "Web", "Path": "/my/"})
+		})
+		my.Get("/other", func(ctx *iris.Context) {
+			ctx.MustRender("home.html", map[string]interface{}{"Name": "Iris", "Type": "Web", "Path": "/my/other"})
+		})
+	}
+
+	iris.Listen(":8080")
+}
+
+// Note than you can see more handlebars examples syntax by navigating to https://github.com/aymerick/raymond
 
 
 ```
 
+>  Note than you can see more handlebars examples syntax by navigating [here](https://github.com/aymerick/raymond)
+
+
+** Pug/Jade Template Engine **
 
 ```html
 <!-- ./templates/.html -->
