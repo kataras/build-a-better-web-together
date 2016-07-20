@@ -159,6 +159,11 @@ func (e *CustomTextEngine) Response(val interface{}, options ...map[string]inter
 
 ```
 
+** iris.ResponseString **
+
+
+ResponseString gives you the result of the response engine's work, it doesn't renders to the client but you can use
+this function to collect the end result and send it via e-mail to the user, or anything you can imagine.
 
 
 
