@@ -3,7 +3,16 @@
 Gzip compression is easy.
 
 
-For **auto-gzip** to all rest and template responses, look the Gzip option at the iris.Config().Render.Rest.Gzip and iris.Config().Render.Template.Gzip [here](render.md)
+For **auto-gzip** to all response and template engines, 
+just set the `iris.Config.Gzip = true`, which you can also change for specific render options:
+
+```go
+//...
+context.Render("myfile.html", bindingStruct{}, iris.RenderOptions{"gzip": false})
+context.Render("my-custom-response", iris.Map{"anything":"everything"} , iris.RenderOptions{"gzip": false}) 
+```
+
+look the Gzip option at the iris.Config().Render.Rest.Gzip and iris.Config().Render.Template.Gzip [here](render.md)
 
 ```go
 // WriteGzip writes response with gzipped body to w.
