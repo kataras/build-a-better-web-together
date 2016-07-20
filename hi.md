@@ -89,7 +89,7 @@ func main() {
 }
 
 func hi(ctx *iris.Context){
-   ctx.Render("hi.html", map[string]interface{}{"Name": "iris"}, iris.RenderOptions{"gzip":true})
+   ctx.Render("hi.html", map[string]interface{}{"Name": "iris"},iris.RenderOptions{"gzip":true})
 }
 
 ```
