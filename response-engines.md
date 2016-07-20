@@ -56,10 +56,102 @@ Bellow you will, propably, see how 'good' are my english (joke...), but at the e
 
 
 
+** Text Response Engine**
+
+```go
+
+package main
+
+import "github.com/kataras/iris"
+
+func main() {
+	iris.Config.Charset = "UTF-8" // this is the default, you don't have to set it manually
+
+	myString := "this is just a simple string which you can already render with ctx.Write"
+
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.Text(iris.StatusOK, myString)
+	})
+
+	iris.Get("/alternative_1", func(ctx *iris.Context) {
+		ctx.Render("text/plain", myString)
+	})
+
+	iris.Get("/alternative_2", func(ctx *iris.Context) {
+		ctx.RenderWithStatus(iris.StatusOK, "text/plain", myString)
+	})
+
+	iris.Get("/alternative_3", func(ctx *iris.Context) {
+		ctx.Render("text/plain", myString, iris.RenderOptions{"charset": "UTF-8"}) // default & global charset is UTF-8
+	})
+
+	iris.Get("/alternative_4", func(ctx *iris.Context) {
+		// logs if any error and sends http status '500 internal server error' to the client
+		ctx.MustRender("text/plain", myString)
+	})
+
+	iris.Listen(":8080")
+}
+
+```
 
 
 
+You can create a custom response engine using a func or an interface which implements the
+` iris.ResponseEngine`  which contains a simple function: ` Response(val interface{}, options ...map[string]interface{}) ([]byte, error)` 
 
+A custom engine can be used to register a totally new content writer for a known ContentType or for a custom ContentType  
+
+You can imagine its useful, I will show you one right now.
+
+Let's do a 'trick' here, which works for all other response engines, custom or not:
+
+say for example, that you want a static'footer/suffix' on your content.
+
+IF a response engine has the same key and the same content type then the contents are appended and the final result will be rendered to the client.
+
+Let's do this with ` text/plain` content type, because you can see its results easly, the first engine will use this "text/plain" as key also, the second will use other key but for the same ContentType.
+```go
+
+package main
+
+import (
+	"github.com/iris-contrib/response/text"
+	"github.com/kataras/iris"
+)
+
+func main() {
+	// here we are re-registering the default text/plain,  and after we will register the 'appender' only
+	iris.UseResponse(text.New(), text.ContentType) // it's the key which happens to be a valid content-type also, "text/plain" so this will be used as the ContentType header
+
+	// register by type/raw iris.ResponseEngine implementation
+	iris.UseResponse(&CustomTextEngine{}, text.ContentType)
+	// register almost the same with func
+	iris.UseResponse(iris.ResponseEngineFunc(func(val interface{}, options ...map[string]interface{}) ([]byte, error) {
+		return []byte("\nThis is the static SECOND AND LAST suffix!"), nil
+	}), text.ContentType)
+
+	iris.Get("/", func(ctx *iris.Context) {
+		ctx.Text(iris.StatusOK, "Hello!") // or ctx.Render(text.ContentType," Hello!")
+	})
+
+	iris.Listen(":8080")
+}
+
+// This is the way you create one with raw iris.ResponseEngine implementation:
+
+// CustomTextEngine the response engine which appends a simple string on the default's text engine
+type CustomTextEngine struct{}
+
+// Implement the iris.ResponseEngine
+func (e *CustomTextEngine) Response(val interface{}, options ...map[string]interface{}) ([]byte, error) {
+	// we don't need the val, because we want only to append, so what to do?
+	// just return the []byte we want to be appended after the first registered text/plain engine
+
+	return []byte("\nThis is the static FIRST suffix!"), nil
+}
+
+```
 
 
 
