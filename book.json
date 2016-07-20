@@ -1,3 +1,9 @@
 {
-
-}
+"gitbook": ">=3.0.0-pre.0",
+"links": {
+"sidebar": {
+"Powered by Golang": "http://golang.org",
+"Don't forget to 🌟": "https://github.com/kataras/iris"
+ }
+ }
+} 
