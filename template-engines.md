@@ -16,7 +16,7 @@ Most examples are written for the HTML Template Engine(default and built'n templ
 
 
 ```html
-<!-- ./templates -->
+<!-- ./templates/.html -->
 
 
 ```
