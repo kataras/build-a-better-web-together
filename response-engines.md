@@ -121,7 +121,7 @@ import (
 )
 
 func main() {
-	// here we are re-registering the default text/plain,  and after we will register the 'appender' only
+	// here we are registering the default text/plain,  and after we will register the 'appender' only
 	iris.UseResponse(text.New(), text.ContentType) // it's the key which happens to be a valid content-type also, "text/plain" so this will be used as the ContentType header
 
 	// register by type/raw iris.ResponseEngine implementation
