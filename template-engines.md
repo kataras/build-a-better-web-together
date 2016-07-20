@@ -11,7 +11,7 @@ $ go get -u github.com/iris-contrib/template/$THE_ENGINE
 
 
 
-## Custom template engine
+** Custom template engine** 
 
 Simply, you have to implement only **3  functions**, for load and execute the templates. One optionally (**Funcs() map[string]interface{}**) which is used to register the iris' helpers funcs like `{{ url }}` and `{{ urlpath }}`.
 
@@ -45,6 +45,18 @@ type (
 ```
 
 The simplest implementation, which you can look as example, is the Markdown Engine, which is located [here](https://github.com/iris-contrib/template/tree/master/markdown/markdown.go).
+
+
+
+** iris.TemplateString **
+
+
+Executes and parses the template but instead of rendering to the client, it returns the contents. Useful when you want to send a template via e-mail or anything you can imagine.
+
+
+
+
+
 
 -----
 
