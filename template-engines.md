@@ -693,6 +693,8 @@ func main() {
 
 ```
 
+
+
 ```html
 <!-- ./templates/.html -->
 
@@ -705,11 +707,14 @@ func main() {
 
 ```
 
+>  Note than you can see more Pug/Jade syntax examples by navigating [here](https://github.com/Joker/jade)
+
 ```html
 <!-- ./templates/.html -->
 
 
 ```
+
 
 ```go
 // ./main.go
