@@ -10,7 +10,6 @@ func main() {
         ctx.Write("Hi %s", "iris")
     })
     iris.Listen(":8080")
-    //err := iris.ListenWithErr(":8080")
 }
 
 ```
