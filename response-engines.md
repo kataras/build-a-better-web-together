@@ -122,11 +122,16 @@ import (
 
 func main() {
 	// here we are registering the default text/plain,  and after we will register the 'appender' only
+	// we have to register the default because we will 
+    // add more response engines with the same content,
+	// iris will not register this by-default if 
+    // other response engine with the corresponding ContentType already exists
+
 	iris.UseResponse(text.New(), text.ContentType) // it's the key which happens to be a valid content-type also, "text/plain" so this will be used as the ContentType header
 
-	// register by type/raw iris.ResponseEngine implementation
+	// register a response engine: iris.ResponseEngine 
 	iris.UseResponse(&CustomTextEngine{}, text.ContentType)
-	// register almost the same with func
+	// register a response engine with func
 	iris.UseResponse(iris.ResponseEngineFunc(func(val interface{}, options ...map[string]interface{}) ([]byte, error) {
 		return []byte("\nThis is the static SECOND AND LAST suffix!"), nil
 	}), text.ContentType)
