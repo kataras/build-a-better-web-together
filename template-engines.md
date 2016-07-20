@@ -15,9 +15,14 @@ Most examples are written for the HTML Template Engine(default and built'n templ
 ** HTML Template Engine, and general **
 
 
+```html
+<!-- ./templates -->
+
+
+```
 
 ```go
-
+// ./main.go
 
 
 ```
