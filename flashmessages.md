@@ -19,6 +19,9 @@ SetFlash(key string, value string)
 // if the cookie doesn't exists the string is empty and the error is filled
 // after the request's life the value is removed
 GetFlash(key string) (value string, err error)
+
+// GetFlashes returns all the flash messages for available for this request 
+GetFlashes() map[string]string
 ```
 
 Example
