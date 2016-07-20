@@ -12,8 +12,6 @@ context.Render("mytemplate.html", bindingStruct{}, iris.RenderOptions{"gzip": fa
 context.Render("my-custom-response", iris.Map{"anything":"everything"} , iris.RenderOptions{"gzip": false}) 
 ```
 
-look the Gzip option at the iris.Config().Render.Rest.Gzip and iris.Config().Render.Template.Gzip [here](render.md)
-
 ```go
 // WriteGzip writes response with gzipped body to w.
 //
