@@ -1,3 +1,14 @@
+## Install
+
+Install one response engine and all will be installed.
+
+```sh
+$ go get -u github.com/iris-contrib/response/$THE_ENGINE
+```
+
+
+## How to use
+
 First of all don't be scary about the 'big' article here, a response engine works very simple and is easy to understand how.
 
 Let's see what are the built'n response by content-type context's methods using the defaults only, unchanged, response engines.
