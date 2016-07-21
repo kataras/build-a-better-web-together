@@ -3,7 +3,7 @@
 Install one response engine and all will be installed.
 
 ```sh
-$ go get -u github.com/iris-contrib/response/$THE_ENGINE
+$ go get -u github.com/iris-contrib/response/json
 ```
 
 ## Iris' Station configuration
