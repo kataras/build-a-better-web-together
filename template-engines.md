@@ -3,7 +3,7 @@
 Install one template engine and all will be installed.
 
 ```sh
-$ go get -u github.com/iris-contrib/template/json
+$ go get -u github.com/iris-contrib/template/html
 ```
 
 ## Iris' Station configuration 
