@@ -15,8 +15,7 @@ iris.Config.Gzip = true // compressed gzip contents to the client, the same for 
 iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Template Engines also
 ```
 
-The last two options (Gzip, Charset) can be overriden for specific 'Render' action:
-
+They can be overriden for specific `Render` action: 
 ```go
 func(ctx *iris.Context){
  ctx.Render("any/contentType", anyValue{}, iris.RenderOptions{"gzip":false, "charset": "UTF-8"})
