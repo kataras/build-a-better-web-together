@@ -11,7 +11,6 @@ $ go get -u github.com/iris-contrib/response/$THE_ENGINE
 Remember, when 'station' we mean the default `iris.$CALL ` or `api:= iris.New(); api.$CALL` 
 
 ```go
-iris.Config.IsDevelopment = true // reloads the templates on each request, defaults to false
 iris.Config.Gzip = true // compressed gzip contents to the client, the same for Template Engines also, defaults to false
 iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Template Engines also
 ```
