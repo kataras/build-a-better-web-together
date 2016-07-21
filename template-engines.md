@@ -20,10 +20,7 @@ The last two options (Gzip, Charset) can be overriden for specific 'Render' acti
 
 ```go
 func(ctx *iris.Context){
-    //... for templates
     ctx.Render("templateFile.html", anyBindingStruct{}, iris.RenderOptions{"gzip":false, "charset": "UTF-8"})
-     //... for responses
-     ctx.Render("any/contentType", anyValue{}, iris.RenderOptions{"gzip":false, "charset": "UTF-8"})
 }
 ```
 
