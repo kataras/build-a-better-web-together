@@ -6,6 +6,24 @@ Install one template engine and all will be installed.
 $ go get -u github.com/iris-contrib/template/$THE_ENGINE
 ```
 
+## Iris' Station configuration 
+
+```go
+iris.Config.IsDevelopment = true // reloads the templates on each request, defaults to false
+iris.Config.Gzip  = true // compressed gzip contents to the client, the same for Response Engines also, defaults to false
+iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Response Engines also
+```
+
+The last two options (Gzip, Charset) can be overriden for specific 'Render' action:
+
+```go
+func(ctx *iris.Context){
+    //... for templates
+    ctx.Render("templateFile.html", anyBindingStruct{}, iris.RenderOptions{"gzip":false, "charset": "UTF-8"})
+     //... for responses
+     ctx.Render("any/contentType", anyValue{}, iris.RenderOptions{"gzip":false, "charset": "UTF-8"})
+}
+```
 
 ## How to use
 
