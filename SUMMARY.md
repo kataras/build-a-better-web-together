@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+    * [Why](why.md)
 * [Features](features.md)
 * [Versioning](versioning.md)
 * [Install](install.md)
