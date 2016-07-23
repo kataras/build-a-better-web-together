@@ -50,6 +50,6 @@
 * [Easy Typescript](plugin-typescript.md)
 * [Browser based Editor](plugin-editor.md)
 * [Control panel](plugin-iriscontrol.md)
-* Examples here: https://github.com/iris-contrib/examples
+* [Examples](https://github.com/iris-contrib/examples)
 
 
