@@ -1,7 +1,7 @@
 # Using HandlerFuncs
 
 HandlerFuncs should implement the Serve\(\*Context\) func.
-HandlerFunc is most simple method to register a route or a middleware, but under the hoods it's acts like a Handler. It's implements the Handler interface as well:
+HandlerFunc is most simple method to register a route or a middleware, but under the hood it acts like a Handler. It implements the Handler interface as well:
 
 ```go
 type HandlerFunc func(*Context)
