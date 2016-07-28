@@ -30,7 +30,7 @@ ListenTLS(addr string, certFile string, keyFile string)
 // Limit : https://github.com/iris-contrib/letsencrypt/blob/master/lets.go#L142
 //
 // example: https://github.com/iris-contrib/examples/blob/master/letsencyrpt/main.go
-func ListenTLSAuto(addr string)
+ListenTLSAuto(addr string)
 
 // ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
 //
