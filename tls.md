@@ -60,6 +60,7 @@ Close() error
 iris.Listen(":8080")
 err := iris.ListenTo(config.Server{ListeningAddr: ":8080"})
 ```
+```go
 iris.ListenTLS(":8080", "myCERTfile.cert", "myKEYfile.key")
 err := iris.ListenTo(config.Server{ListeningAddr: ":8080", CertFile: "myCERTfile.cert", KeyFile: "myKEYfile.key"})
 ```
