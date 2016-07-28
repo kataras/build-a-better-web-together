@@ -16,6 +16,7 @@
    * [Using custom struct for a complete API](using-handlerapi.md)
    * [Using native http.Handler](using-native-httphandler.md)
        * [Using native http.Handler via iris.ToHandlerFunc()](using-native-httphandler-via-tohandlerfunc.md)
+   * [Routing and reverse lookups](routing.md)
 * [Middleware](middleware.md)
 * [API](api.md)
 * [Declaration](declaration.md)
