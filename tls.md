@@ -19,6 +19,19 @@ Listen(addr string)
 // ex: err := iris.ListenTo(":8080","yourfile.cert","yourfile.key")
 ListenTLS(addr string, certFile string, keyFile string)
 
+// ListenTLSAuto starts a server listening at the specific nat address
+// using key & certification taken from the letsencrypt.org 's servers
+// it also starts a second 'http' server to redirect all 'http://$ADDR_HOSTNAME:80' to the' https://$ADDR'
+//
+// Notes:
+// if you don't want the last feature you should use this method:
+// iris.ListenTo(config.Server{ListeningAddr: "mydomain.com:443", AutoTLS: true})
+// it's a blocking function
+// Limit : https://github.com/iris-contrib/letsencrypt/blob/master/lets.go#L142
+//
+// example: https://github.com/iris-contrib/examples/blob/master/letsencyrpt/main.go
+func ListenTLSAuto(addr string)
+
 // ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
 //
 // It panics on error if you need a func to return an error, use the ListenTo
