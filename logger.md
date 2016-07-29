@@ -80,7 +80,7 @@ import (
      mLogger "github.com/iris-contrib/middleware/logger"
 )
 
-theLogger := logger.New(config.DefaultLogger())
+theLogger := logger.New(logger.DefaultConfig())
 
 iris.Use(mLogger.New(theLogger))
 ```
