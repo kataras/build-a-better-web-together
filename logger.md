@@ -138,29 +138,32 @@ The configuration struct for the `iris-contrib/logger ` is the `iris-contrib/log
 
 
 ```
+The `logger.DefaultConfig()`  returns `logger.Config` : 
 
-The `logger.DefaultConfig()` returns `logger.Config` :
 ```go
- return Config{
- Out: os.Stdout,
- Prefix: "",
- Disabled: false,
- // foreground colors
- ColorFgDefault: int(color.FgHiWhite),
- ColorFgInfo: int(color.FgHiCyan),
- ColorFgSuccess: int(color.FgHiGreen),
- ColorFgWarning: int(color.FgHiMagenta),
- ColorFgDanger: int(color.FgHiRed),
- ColorFgOther: int(color.FgHiYellow),
- // background colors
- ColorBgDefault: 0,
- ColorBgInfo: 0,
- ColorBgSuccess: 0,
- ColorBgWarning: 0,
- ColorBgDanger: 0,
- ColorBgOther: 0,
- // banner color
- ColorFgBanner: int(color.FgHiBlue),
- }
+	return Config{
+		Out:      os.Stdout,
+		Prefix:   "",
+		Disabled: false,
+		// foreground colors
+		ColorFgDefault: int(color.FgHiWhite),
+		ColorFgInfo:    int(color.FgHiCyan),
+		ColorFgSuccess: int(color.FgHiGreen),
+		ColorFgWarning: int(color.FgHiMagenta),
+		ColorFgDanger:  int(color.FgHiRed),
+		ColorFgOther:   int(color.FgHiYellow),
+		// background colors
+		ColorBgDefault: 0,
+		ColorBgInfo:    0,
+		ColorBgSuccess: 0,
+		ColorBgWarning: 0,
+		ColorBgDanger:  0,
+		ColorBgOther:   0,
+		// banner color
+		ColorFgBanner: int(color.FgHiBlue),
+	}
+
+
 ```
+
 
