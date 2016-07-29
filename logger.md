@@ -76,7 +76,7 @@ You can create your **own Logger** to use
 ```go
 
 import (
-    "github.com/kataras/iris/logger"
+    "github.com/iris-contrib/logger"
      mLogger "github.com/iris-contrib/middleware/logger"
 )
 
@@ -87,7 +87,7 @@ iris.Use(mLogger.New(theLogger))
 
 >Note that: The logger middleware uses the ColorBgOther and ColorFgOther fields.
 
-The configuration struct for the ` iris/logger` is the `iris/config/logger`  
+The configuration struct for the `iris-contrib/logger ` is the `iris-contrib/logger/config.go`  
 
 ```go
 	Logger struct {
