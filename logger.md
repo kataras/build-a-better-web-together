@@ -72,7 +72,7 @@ func main() {
 
 ```
 
-You can create your **own Logger** to use
+You can create your **own [Logger instance](https://github.com/iris-contrib/logger)** to use to use
 ```go
 
 import (
