@@ -72,7 +72,7 @@ func main() {
 
 ```
 
-You can create your **own [Logger instance](https://github.com/iris-contrib/logger)** to use to use
+You can create your **own [Logger instance](https://github.com/iris-contrib/logger)** to use
 ```go
 
 import (
@@ -138,6 +138,8 @@ The configuration struct for the `iris-contrib/logger ` is the `iris-contrib/log
 
 
 ```
+
+
 The `logger.DefaultConfig()`  returns `logger.Config` : 
 
 ```go
@@ -165,5 +167,3 @@ The `logger.DefaultConfig()`  returns `logger.Config` :
 
 
 ```
-
-
