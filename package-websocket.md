@@ -120,7 +120,7 @@ func main() {
 	// the path which the websocket client should listen/registed to ->
 	iris.Config.Websocket.Endpoint = "/my_endpoint"
 	// for Allow origin you can make use of the middleware
-	//iris.Config().Websocket.Headers["Access-Control-Allow-Origin"] = "*"
+	//iris.Config.Websocket.Headers["Access-Control-Allow-Origin"] = "*"
 
 	var myChatRoom = "room1"
 	iris.Websocket.OnConnection(func(c iris.WebsocketConnection) {
@@ -129,7 +129,7 @@ func main() {
 
 		c.On("chat", func(message string) {
 			// to all except this connection ->
-			//c.To(websocket.Broadcast).Emit("chat", "Message from: "+c.ID()+"-> "+message)
+			//c.To(iris.Broadcast).Emit("chat", "Message from: "+c.ID()+"-> "+message)
 
 			// to the client ->
 			//c.Emit("chat", "Message from myself: "+message)
