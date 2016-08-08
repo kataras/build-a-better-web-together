@@ -157,10 +157,10 @@ func main() {
             }
 
             ctx.ServeFile(path, false) // make this true to use gzip compression
-    }
+    })
+    
+    iris.Listen(":8080")
 }
-
-iris.Listen(":8080")
 
 ```
 
