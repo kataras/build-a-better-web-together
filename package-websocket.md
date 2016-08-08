@@ -88,6 +88,8 @@ Leave("anyCustomRoom")
 // Fired when the connection is closed
 OnDisconnect(func(){})
 
+// Force-disconnect the client from the server-side
+Disconnect() error
 ```
 
 ## How to use
