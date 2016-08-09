@@ -16,7 +16,7 @@ Listen(addr string)
 // host:port
 //
 // It panics on error if you need a func to return an error, use the ListenTo
-// ex: err := iris.ListenTo(":8080","yourfile.cert","yourfile.key")
+// ex: err := iris.ListenTo(config.Server{":8080","yourfile.cert","yourfile.key"})
 ListenTLS(addr string, certFile string, keyFile string)
 
 // ListenTLSAuto starts a server listening at the specific nat address
@@ -35,7 +35,7 @@ ListenTLSAuto(addr string)
 // ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
 //
 // It panics on error if you need a func to return an error, use the ListenTo
-// ex: err := iris.ListenTo(":8080", Mode: os.FileMode)
+// ex: err := iris.ListenTo(config.Server{":8080", Mode: os.FileMode})
 ListenUNIX(addr string, mode os.FileMode)
 
 // ListenVirtual is useful only when you want to test Iris, it doesn't starts the server but it configures and returns it
@@ -43,7 +43,7 @@ ListenUNIX(addr string, mode os.FileMode)
 // it is not blocking the app
 ListenVirtual(optionalAddr ...string) *Server
 
-// ListenTo listens to a server but acceots the full server's configuration
+// ListenTo listens to a server but accepts the full server's configuration
 // returns an error, you're responsible to handle that
 // or use the iris.Must(iris.ListenTo(config.Server{}))
 //
