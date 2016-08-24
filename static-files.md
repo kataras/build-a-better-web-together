@@ -189,6 +189,12 @@ func main() {
 
 ```
 
+## Disabling caching
+
+`Static`, `StaticFS` and `StaticWeb` functions automatically cache the given files for a period of time (default 20 seconds). In certain situations you don't want that caching to happen (development etc.). 
+
+Caching can be disabled by setting `github.com/kataras/iris/config`'s `StaticCacheDuration` to `time.Duration(1)` **before calling any of the named functions**. Setting `StaticCacheDuration` to `time.Duration(0)` will reset the cache time to 10 seconds (as specified in fasthttp).
+
 ## Favicon
 
 Imagine that we have a folder named `static` which has subfolder `favicons` and this folder contains a favicon, for example `iris_favicon_32_32.ico`.
