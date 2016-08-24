@@ -189,7 +189,7 @@ func main() {
 
 ```
 
-## Disabling caching
+### Disabling caching
 
 `Static`, `StaticFS` and `StaticWeb` functions automatically cache the given files for a period of time (default 20 seconds). In certain situations you don't want that caching to happen (development etc.). 
 
