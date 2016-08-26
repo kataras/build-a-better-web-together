@@ -3,7 +3,7 @@
 **Quick view**
 
 ```go
-// First point to the static files
+// First mount static files
 iris.Static("/assets", "./public/assets", 1)
 
 // Then declare which middleware to use (custom or not)
@@ -16,7 +16,7 @@ iris.Get("/myroute", func(c *iris.Context) {
 })
 iris.Get("/secondroute", myMiddlewareFunc, myRouteHandlerfunc)
 
-// Now run our server
+// Now run the server
 iris.Listen(":8080")
 
 
@@ -32,7 +32,7 @@ func (m *myMiddleware) Serve(ctx *iris.Context){
 
 ```
 
-Middleware in Iris is not complicated, they are similar to simple Handlers.
+Middlewares in Iris are not complicated to implement, they are similar to simple Handlers.  
 They implement the Handler interface as well:
 
 ```go
@@ -101,9 +101,9 @@ iris.Listen(":8080")
 
 ```
 
-> Note that middleware must come before route declaration.
+> Note that middlewares must come before route declarations.
 
-Make use of the [middleware](https://github.com/iris-contrib/middleware), view practical [examples here](https://github.com/iris-contrib/examples)
+Make use of the [middleware](https://github.com/iris-contrib/middleware) package, view practical [examples here](https://github.com/iris-contrib/examples).
 
 ```go
 package main
@@ -135,22 +135,22 @@ package main
 import "github.com/kataras/iris"
 
 func firstMiddleware(ctx *iris.Context) {
-	ctx.Write("1. This is the first middleware, before any of route's handlers \n")
+	ctx.Write("1. This is the first middleware, before any of route handlers \n")
 	ctx.Next()
 }
 
 func secondMiddleware(ctx *iris.Context) {
-	ctx.Write("2. This is the second middleware, before the / main handler \n")
+	ctx.Write("2. This is the second middleware, before the '/' route handler \n")
 	ctx.Next()
 }
 
 func thirdMiddleware(ctx *iris.Context) {
-	ctx.Write("3. This is the 3rd middleware, after the main handler \n")
+	ctx.Write("3. This is the 3rd middleware, after the '/' route handler \n")
 	ctx.Next()
 }
 
 func lastAlwaysMiddleware(ctx *iris.Context) {
-	ctx.Write("4. This is the ALWAYS LAST Handler \n")
+	ctx.Write("4. This is ALWAYS the last Handler \n")
 }
 
 func main() {
@@ -161,7 +161,8 @@ func main() {
 	iris.Get("/", secondMiddleware, func(ctx *iris.Context) {
 		ctx.Write("Hello from / \n")
 		ctx.Next() // .Next because we 're using the third middleware after that, and lastAlwaysMiddleware also
-	}, thirdMiddleware)
+	}, thirdMiddleware)
+
 	iris.Listen(":8080")
 
 }
@@ -178,22 +179,22 @@ package main
 import "github.com/kataras/iris"
 
 func firstMiddleware(ctx *iris.Context) {
-	ctx.Write("1. This is the first middleware, before any of route's handlers \n")
+	ctx.Write("1. This is the first middleware, before any of route handlers \n")
 	ctx.Next()
 }
 
 func secondMiddleware(ctx *iris.Context) {
-	ctx.Write("2. This is the second middleware, before the / main handler \n")
+	ctx.Write("2. This is the second middleware, before the '/' route handler \n")
 	ctx.Next()
 }
 
 func thirdMiddleware(ctx *iris.Context) {
-	ctx.Write("3. This is the 3rd middleware, after the main handler \n")
+	ctx.Write("3. This is the 3rd middleware, after the '/' route handler \n")
 	ctx.Next()
 }
 
 func lastAlwaysMiddleware(ctx *iris.Context) {
-	ctx.Write("4. This is the ALWAYS LAST Handler \n")
+	ctx.Write("4. This is ALWAYS the last Handler \n")
 }
 
 func main() {
@@ -215,4 +216,4 @@ func main() {
 
 ```
 
-> Done/DoneFuncs are just last-executed handlers, like Use/UseFunc the children party inheritates these 'done/last' handlers also.
+> Done/DoneFuncs are just last-executed handlers, like Use/UseFunc the children party inheritates these 'done/last' handlers too.

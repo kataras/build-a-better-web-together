@@ -1,6 +1,8 @@
 # Templates
 
-Iris gives you the freedom to render templates through  **html\/template**, Django-syntax package **Pongo2**, Raw **Markdown**, **Amber**, **Jade** or **Handlebars**  via ** iris.Config\(\).Render.Template.Engine = iris.\_\_\_Engine**.
+Iris gives you the freedom to render templates through **html/template**, 
+Django-syntax package **Pongo2**, Raw **Markdown**, **Amber**, **Jade** or **Handlebars** 
+via `iris.Config().Render.Template.Engine = iris.\_\_\_Engine`.
 
 * `iris.HTMLEngine` is the [html\/template](https://golang.org/pkg/html/template) 
 * `iris.PongoEngine` is the [flosch\/pongo2](https://github.com/flosch/pongo2)
@@ -15,31 +17,28 @@ Iris gives you the freedom to render templates through  **html\/template**, Djan
 // RenderWithStatus builds up the response from the specified template and bindings.
 RenderWithStatus(status int, name string, binding interface{}, layout ...string) error
 
-// Render same as .RenderWithStatus but with status to iris.StatusOK (200)
+// Render same as .RenderWithStatus but with status iris.StatusOK (200)
 Render(name string, binding interface{}, layout ...string) error 
 
 // TemplateString same as Render but instead of client render, returns the result 
 TemplateString(name string, binding interface{}, layout ...string) (string)
 
-// Render same as .Render but
-// returns 500 internal server error and logs the error if parse failed
+// Render same as .Render but returns 500 internal server error 
+// and logs the error if parse failed
 MustRender(name string, binding interface{}, layout ...string) 
-
 ```
 
 A snippet:
 
 ```go
-
 iris.Get("/default_standar", func(ctx *iris.Context){
   ctx.Render("index.html", nil) // this will render the file ./templates/index.html
 })
 ```
 
-Let's read and learn how to set the configuration now.
+Let's learn how to set the configuration now:
 
 ```go
-
 import (
     "github.com/kataras/iris/config"
     //...
@@ -53,7 +52,7 @@ templateConfig := config.Template {
         Extensions:    []string{".html"},
         ContentType:   "text/html",
         Charset:       "UTF-8",
-        Layout:        "", // currently this is the only config which not working for pongo2 yet but I will find a way
+        Layout:        "", // currently this is the only option which doesn't work with pongo2
         HTMLTemplate:  HTMLTemplate{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
         Jade:          Jade{Left: "{{", Right: "}}", Funcs: make(map[string]interface{}, 0), LayoutFuncs: make(map[string]interface{}, 0)},
         Pongo:         Pongo{Filters: make(map[string]pongo2.FilterFunction, 0), Globals: make(map[string]interface{}, 0)},
@@ -182,7 +181,8 @@ import (
 
 func main() {
 
-    iris.Config.Render.Template.Engine = config.PongoEngine // or iris.PongoEngine without need to import the config
+    // or iris.PongoEngine without the need to import the config
+    iris.Config.Render.Template.Engine = config.PongoEngine
 
     iris.Get("/", func(ctx *iris.Context) {
         ctx.MustRender("index.html", map[string]interface{}{"username": "iris", "is_admin": true})
@@ -235,7 +235,7 @@ func main() {
 
     iris.Get("/", func(ctx *iris.Context) {
 
-        err := ctx.Render("index.md", nil) // doesnt' supports any context binding, just pure markdown
+        err := ctx.Render("index.md", nil) // doesn't support any context binding, just pure markdown
         if err != nil {
             panic(err)
         }
@@ -251,8 +251,6 @@ func main() {
     ## Hello Markdown from Iris
 
     This is an example of Markdown with Iris
-
-
 
     Features
     --------

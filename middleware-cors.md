@@ -1,7 +1,7 @@
 # HTTP access control
 [This is a middleware](https://github.com/kataras/iris/tree/master/middleware/cors).
 
-Some security work for you between the requests.
+Some security work for between you and the requests.
 
 
 Options
@@ -52,7 +52,7 @@ import "github.com/iris-contrib/middleware/cors"
 cors.New(cors.Options{})
 ```
 
-Example
+Example:
 
 ```go
 package main

@@ -22,15 +22,17 @@ import (
 With configs:
 
 errorLogger := logger.New(iris.Logger, logger.Config{
-		EnableColors: false, //enable it to enable colors for all, disable colors by iris.Logger.ResetColors(), defaults to false
-		// Status displays status code
-		Status: true,
-		// IP displays request's remote address
-		IP: true,
-		// Method displays the http method
-		Method: true,
-		// Path displays the request path
-		Path: true,
+	// enable it to enable colors for all, 
+	// disable colors by iris.Logger.ResetColors() (defaults to false)
+	EnableColors: false,
+	// Status displays status code
+	Status: true,
+	// IP displays request's remote address
+	IP: true,
+	// Method displays the http method
+	Method: true,
+	// Path displays the request path
+	Path: true,
 })
 
 iris.Use(errorLogger)
@@ -72,7 +74,7 @@ func main() {
 
 ```
 
-You can create your **own [Logger instance](https://github.com/iris-contrib/logger)** to use
+In order to create your **own [Logger instance](https://github.com/iris-contrib/logger)** use:
 ```go
 
 import (
@@ -87,60 +89,60 @@ iris.Use(mLogger.New(theLogger))
 
 >Note that: The logger middleware uses the ColorBgOther and ColorFgOther fields.
 
-The configuration struct for the `iris-contrib/logger ` is the `iris-contrib/logger/config.go`  
+The configuration struct for the `iris-contrib/logger ` is `iris-contrib/logger/config.go`  
 
 ```go
-	Logger struct {
-		// Out the (file) writer which the messages/logs will printed to
-		// Default is os.Stdout
-		Out *os.File
-		// Prefix the prefix for each message
-		// Default is ""
-		Prefix string
-		// Disabled default is false
-		Disabled bool
+Logger struct {
+	// Out the writer to which messages/logs are written to
+	// Default is os.Stdout
+	Out *os.File
+	// Prefix the prefix for each message
+	// Default is ""
+	Prefix string
+	// Disabled default is false
+	Disabled bool
 
-		// foreground colors single SGR Code
+	// foreground colors single SGR Code
 
-		// ColorFgDefault the foreground color for the normal message bodies
-		ColorFgDefault int
-		// ColorFgInfo the foreground  color for info messages
-		ColorFgInfo int
-		// ColorFgSuccess the foreground color for success messages
-		ColorFgSuccess int
-		// ColorFgWarning the foreground color for warning messages
-		ColorFgWarning int
-		// ColorFgDanger the foreground color for error messages
-		ColorFgDanger int
-		// OtherFgColor the foreground color for the rest of the message types
-		ColorFgOther int
+	// ColorFgDefault the foreground color for the normal message bodies
+	ColorFgDefault int
+	// ColorFgInfo the foreground  color for info messages
+	ColorFgInfo int
+	// ColorFgSuccess the foreground color for success messages
+	ColorFgSuccess int
+	// ColorFgWarning the foreground color for warning messages
+	ColorFgWarning int
+	// ColorFgDanger the foreground color for error messages
+	ColorFgDanger int
+	// OtherFgColor the foreground color for the rest of the message types
+	ColorFgOther int
 
-		// background colors single SGR Code
+	// background colors single SGR Code
 
-		// ColorBgDefault the background color for the normal messages
-		ColorBgDefault int
-		// ColorBgInfo the background  color for info messages
-		ColorBgInfo int
-		// ColorBgSuccess the background color for success messages
-		ColorBgSuccess int
-		// ColorBgWarning the background color for warning messages
-		ColorBgWarning int
-		// ColorBgDanger the background color for error messages
-		ColorBgDanger int
-		// OtherFgColor the background color for the rest of the message types
-		ColorBgOther int
+	// ColorBgDefault the background color for the normal messages
+	ColorBgDefault int
+	// ColorBgInfo the background  color for info messages
+	ColorBgInfo int
+	// ColorBgSuccess the background color for success messages
+	ColorBgSuccess int
+	// ColorBgWarning the background color for warning messages
+	ColorBgWarning int
+	// ColorBgDanger the background color for error messages
+	ColorBgDanger int
+	// OtherFgColor the background color for the rest of the message types
+	ColorBgOther int
 
-		// banners are the force printed/written messages, doesn't care about Disabled field
+	// banners are the force printed/written messages, doesn't care about Disabled field
 
-		// ColorFgBanner the foreground color for the banner
-		ColorFgBanner int
-	}
+	// ColorFgBanner the foreground color for the banner
+	ColorFgBanner int
+}
 
 
 ```
 
 
-The `logger.DefaultConfig()`  returns `logger.Config` : 
+`logger.DefaultConfig()` returns `logger.Config` : 
 
 ```go
 	return Config{

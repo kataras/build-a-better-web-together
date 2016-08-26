@@ -1,6 +1,6 @@
 # Declaration
 
-You have wondered this:
+You might have asked yourself:
 
 * Q: Other frameworks need more lines to start a server, why is Iris different?
 * A: Iris gives you the freedom to choose between three ways to use Iris

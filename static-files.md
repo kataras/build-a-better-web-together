@@ -7,10 +7,10 @@ Serve a static directory
 // StaticHandler returns a HandlerFunc to serve static system directory
 // Accepts 5 parameters
 //
-// first is the systemPath (string)
+// first param is the systemPath (string)
 // Path to the root directory to serve files from.
 //
-// second is the  stripSlashes (int) level
+// second is the stripSlashes (int) level
 // * stripSlashes = 0, original path: "/foo/bar", result: "/foo/bar"
 // * stripSlashes = 1, original path: "/foo/bar", result: "/bar"
 // * stripSlashes = 2, original path: "/foo/bar", result: ""
@@ -85,15 +85,14 @@ StaticWeb(relative string, systemPath string, stripSlashes int)
 // it's the simpliest form of the Static* functions
 // Almost same usage as StaticWeb
 // accepts only one required parameter which is the systemPath 
-// ( the same path will be used to register the GET&HEAD routes)
-// if second parameter is empty, otherwise the requestPath is the second parameter
+// (the same path will be used to register the GET&HEAD routes)
+// if tje second parameter is empty, otherwise the requestPath is the second parameter
 // it uses gzip compression (compression on each request, no file cache)
 StaticServe(systemPath string, requestPath ...string)
 
 ```
 
 ```go
-
 iris.Static("/public", "./static/assets/", 1)
 //-> /public/assets/favicon.ico
 ```
@@ -130,7 +129,6 @@ Serve static individual file
 iris.Get("/txt", func(ctx *iris.Context) {
     ctx.ServeFile("./myfolder/staticfile.txt", false)
 }
-
 ```
 
 For example if you want manual serve static individual files dynamically you can do something like that:
@@ -161,10 +159,9 @@ func main() {
     
     iris.Listen(":8080")
 }
-
 ```
 
-The previous example is almost identical with
+The previous example is almost identical with:
 
 ```go
 StaticServe(systemPath string, requestPath ...string)
@@ -177,7 +174,6 @@ func main() {
   // using gzip compression ( no file cache, for file cache with zipped files use the StaticFS)
   iris.Listen(":8080")
 }
-
 ```
 
 ```go
@@ -186,7 +182,6 @@ func main() {
   // Serves all files inside filesystem path ./static/mywebpage to the GET&HEAD route: 0.0.0.0:8080/webpage
   iris.Listen(":8080")
 }
-
 ```
 
 ### Disabling caching

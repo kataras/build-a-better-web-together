@@ -3,7 +3,7 @@
 [This is a middleware](https://github.com/iris-contrib/middleware/tree/master/recovery).
 
 
-Safety recover the server from panic.
+Safely recover the server from a panic.
 
 ```go
 recovery.New(...*logger.Logger)
@@ -20,7 +20,9 @@ import (
 
 func main() {
 
-	iris.Use(recovery.New(iris.Logger)) // optional parameter is the logger which the stack of the panic will be printed, here we're using the default station's Logger.
+	// optionally use a logger which the stack trace of the panic will be printed to.
+	// here we're using the default station's Logger.
+	iris.Use(recovery.New(iris.Logger))
 
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Write("Hi, let's panic")

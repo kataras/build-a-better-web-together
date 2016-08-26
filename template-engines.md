@@ -32,7 +32,7 @@ Most examples are written for the HTML Template Engine(default and built'n templ
 You will see first the template file's code, after the main.go code
 
 
-** HTML Template Engine, and general **
+**HTML Template Engine, and general**
 
 
 ```html
@@ -46,7 +46,6 @@ You will see first the template file's code, after the main.go code
 	<h1>Hi {{.Name}}
 </body>
 </html>
-
 ```
 
 ```go
@@ -455,8 +454,7 @@ func emptyHandler(ctx *iris.Context) {
 ```
 
 
-** Django Template Engine **
-
+**Django Template Engine**
 
 ```html
 <!-- ./templates/mypage.html -->
@@ -696,7 +694,7 @@ func main() {
 >  Note than you can see more handlebars examples syntax by navigating [here](https://github.com/aymerick/raymond)
 
 
-** Pug/Jade Template Engine **
+**Pug/Jade Template Engine**
 
 ```html
 <!-- ./templates/partials/page1_partial1.jade -->
@@ -928,7 +926,7 @@ func main() {
 ```
 
 
-** Custom template engine** 
+**Custom template engine** 
 
 Simply, you have to implement only **3  functions**, for load and execute the templates. One optionally (**Funcs() map[string]interface{}**) which is used to register the iris' helpers funcs like `{{ url }}` and `{{ urlpath }}`.
 
@@ -965,7 +963,7 @@ The simplest implementation, which you can look as example, is the Markdown Engi
 
 
 
-** iris.TemplateString **
+**iris.TemplateString**
 
 
 Executes and parses the template but instead of rendering to the client, it returns the contents. Useful when you want to send a template via e-mail or anything you can imagine.
@@ -997,7 +995,8 @@ import (
 )
 
 func main() {
-	iris.UseTemplate(django.New()).Directory("./templates", ".html")
+
+	iris.UseTemplate(django.New()).Directory("./templates", ".html")
 
 	iris.Get("/", func(ctx *iris.Context) {
 		// THIS WORKS WITH ALL TEMPLATE ENGINES, but I am not doing the same example for all engines again :) (the same you can do with templates using the iris.ResponseString)

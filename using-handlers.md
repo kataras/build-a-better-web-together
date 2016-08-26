@@ -9,7 +9,7 @@ func (m myHandlerGet) Serve(c *iris.Context) {
     c.Write("From %s", c.PathString())
 }
 
-//and so on
+// and so on
 
 
 iris.Handle("GET", "/get", myHandlerGet{})

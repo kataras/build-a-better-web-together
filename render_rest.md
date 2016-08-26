@@ -7,24 +7,24 @@ Provides functionality for easily rendering JSON, XML, Text, binary data and Mar
 
 ```go
     // Appends the given character set to the Content-Type header. Default is "UTF-8".
-	Charset string
-	// Gzip enable it if you want to render with gzip compression. Default is false
-	Gzip bool
-	// Outputs human readable JSON.
-	IndentJSON bool
-	// Outputs human readable XML. Default is false.
-	IndentXML bool
-	// Prefixes the JSON output with the given bytes. Default is false.
-	PrefixJSON []byte
-	// Prefixes the XML output with the given bytes.
-	PrefixXML []byte
-	// Unescape HTML characters "&<>" to their original values. Default is false.
-	UnEscapeHTML bool
-	// Streams JSON responses instead of marshalling prior to sending. Default is false.
-	StreamingJSON bool
-	// Disables automatic rendering of http.StatusInternalServerError
+    Charset string
+    // Gzip enable it if you want to render with gzip compression. Default is false
+    Gzip bool
+    // Outputs human readable JSON.
+    IndentJSON bool
+    // Outputs human readable XML. Default is false.
+    IndentXML bool
+    // Prefixes the JSON output with the given bytes. Default is false.
+    PrefixJSON []byte
+    // Prefixes the XML output with the given bytes.
+    PrefixXML []byte
+    // Unescape HTML characters "&<>" to their original values. Default is false.
+    UnEscapeHTML bool
+    // Streams JSON responses instead of marshalling prior to sending. Default is false.
+    StreamingJSON bool
+    // Disables automatic rendering of http.StatusInternalServerError
     // when an error occurs. Default is false.
-	DisableHTTPErrorRendering bool
+    DisableHTTPErrorRendering bool
     // MarkdownSanitize sanitizes the markdown. Default is false.
     MarkdownSanitize bool
 
@@ -40,6 +40,7 @@ import (
 //1.
 iris.Config.Render.Rest.IndentJSON = true
 iris.Config.Render.Rest...
+
 //2.
 restConfig:= config.Rest{
 	Charset:                   "UTF-8",
@@ -54,11 +55,10 @@ restConfig:= config.Rest{
 }
 
 iris.Config.Render.Rest = restConfig
-
-
 ```
+
 ### Usage
-The rendering functions simply wraps Go's existing functionality for marshaling and rendering data.
+The rendering functions simply wrap Go's existing functionality for marshaling and rendering data.
 
 - JSON: Uses the [encoding/json](http://golang.org/pkg/encoding/json/) package to marshal data into a JSON-encoded response.
 - XML: Uses the [encoding/xml](http://golang.org/pkg/encoding/xml/) package to marshal data into an XML-encoded response.

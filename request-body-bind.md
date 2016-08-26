@@ -1,6 +1,6 @@
 # Body binder
 
-Body binder reads values from the body and set them to a specific object.
+Body binder reads values from the body and sets them to a specific object.
 
 ```go
 // ReadJSON reads JSON from request's body
@@ -9,11 +9,11 @@ ReadJSON(jsonObject interface{}) error
 // ReadXML reads XML from request's body
 ReadXML(xmlObject interface{}) error
 
-// ReadForm binds the formObject  to the requeste's form data
+// ReadForm binds the formObject to the requeste's form data
 ReadForm(formObject interface{}) error
 ```
 
-How to use
+How to use:
 
 ### JSON
 
@@ -114,7 +114,7 @@ The supported field types in the destination struct are:
 #### Custom Marshaling
 
 
-Is possible unmarshaling data and the key of a map by the `encoding.TextUnmarshaler` interface.
+It's possible to unmarshal data and the key of a map by using the `encoding.TextUnmarshaler` interface.
 
 ----
 
@@ -191,8 +191,8 @@ func main() {
 
 ##### In form html
 
-- Use symbol `.` for access a field/key of a structure or map. (i.e, `struct.key`)
-- Use `[int_here]` for access to index of a slice/array. (i.e, `struct.array[0]`)
+- Use symbol `.` to access a field/key of a structure or map. (i.e., `struct.key`)
+- Use `[int_here]` to access an index of a slice/array. (i.e, `struct.array[0]`)
 
 ```html
 <form method="POST">
@@ -217,7 +217,7 @@ func main() {
 
 ##### Backend
 
-You can use the tag `form` if the name of a input of form starts lowercase.
+You can use the tag `form` if the name of an input or form starts lowercase.
 
 ```go
 package main

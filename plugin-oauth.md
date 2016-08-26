@@ -3,7 +3,7 @@
 
 This is a [plugin](https://github.com/iris-contrib/plugin/tree/master/oauth).
 
-This plugin helps you to be able to connect your clients using famous websites login APIs, it is a bridge to the [goth](https://github.com/markbates/goth).
+This plugin enables you to connect your clients using famous websites login APIs, it is a bridge to the [goth](https://github.com/markbates/goth) library.
 
 ## Supported Providers
 
@@ -40,31 +40,31 @@ This plugin helps you to be able to connect your clients using famous websites l
 
 ## How to use - high level
 ```go
-    configs := oauth.Config{
-      Path: "/auth", //defaults to /auth
+	configs := oauth.Config{
+		Path: "/auth", // defaults to /auth
 
-      GithubKey:    "YOUR_GITHUB_KEY",
-      GithubSecret: "YOUR_GITHUB_SECRET",
-      GithubName:   "github", // defaults to github
+		GithubKey:    "YOUR_GITHUB_KEY",
+		GithubSecret: "YOUR_GITHUB_SECRET",
+		GithubName:   "github", // defaults to github
 
-      FacebookKey:    "YOUR_FACEBOOK_KEY",
-      FacebookSecret: "YOUR_FACEBOOK_KEY",
-      FacebookName:   "facebook", // defaults to facebook
-      //and so on... enable as many as you want
-    }
+		FacebookKey:    "YOUR_FACEBOOK_KEY",
+		FacebookSecret: "YOUR_FACEBOOK_KEY",
+		FacebookName:   "facebook", // defaults to facebook
+		// and so on... enable as many as you want
+	}
 
 	// create the plugin with our configs
 	authentication := oauth.New(configs)
 	// register the plugin to iris
 	iris.Plugins.Add(authentication)
 
-    // came from yourhost:port/configs.Path/theprovidername
-    // this is the handler inside yourhost:port/configs.Path/theprovidername/callback
-    // you can do redirect to the authenticated url or whatever you want to do
+	// came from yourhost:port/configs.Path/theprovidername
+	// this is the handler inside yourhost:port/configs.Path/theprovidername/callback
+	// you can do redirect to the authenticated url or whatever you want to do
 	authentication.Success(func(ctx *iris.Context) {
 		user := authentication.User(ctx) // returns the goth.User
-    })
-    authentication.Fail(func(ctx *iris.Context){})
+	})
+	authentication.Fail(func(ctx *iris.Context){})
 
 ```
 
@@ -82,7 +82,8 @@ import (
 	"github.com/kataras/iris"
 )
 
-// register your auth via configs, providers with non-empty values will be registered to goth automatically by Iris
+// register your auth via configs, providers with non-empty 
+// values will be registered to goth automatically by Iris
 var configs = oauth.Config{
 	Path: "/auth", //defaults to /oauth
 
@@ -120,9 +121,10 @@ func main() {
 
 	providerIndex := &ProviderIndex{Providers: keys, ProvidersMap: m}
 
-	// set a  login success handler( you can use more than one handler)
-	// if user succeed to logged in
-	// client comes here from: localhost:3000/config.RouteName/lowercase_provider_name/callback 's first handler, but the  previous url is the localhost:3000/config.RouteName/lowercase_provider_name
+	// set a login success handler (you can use more than one handler)
+	// if the user succeed to logged in
+	// client comes here from: localhost:3000/config.RouteName/lowercase_provider_name/callback 's first handler, 
+	// but the previous url is the localhost:3000/config.RouteName/lowercase_provider_name
 	authentication.Success(func(ctx *iris.Context) {
 		// if user couldn't validate then server sends StatusUnauthorized, which you can handle by:  authentication.Fail OR iris.OnError(iris.StatusUnauthorized, func(ctx *iris.Context){})
 		user := authentication.User(ctx)
@@ -168,7 +170,7 @@ View:
 
 ## How to use - low level
 
-Low-level is just the [iris-contrib/gothic](https://github.com/iris-contrib/gothic) which is like the original [goth](https://github.com/markbates/goth) but converted to work with Iris.
+Low-level is just [iris-contrib/gothic](https://github.com/iris-contrib/gothic) which is like the original [goth](https://github.com/markbates/goth) but converted to work with Iris.
 
 Example:
 
