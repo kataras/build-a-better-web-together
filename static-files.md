@@ -86,7 +86,7 @@ StaticWeb(relative string, systemPath string, stripSlashes int)
 // Almost same usage as StaticWeb
 // accepts only one required parameter which is the systemPath 
 // (the same path will be used to register the GET&HEAD routes)
-// if tje second parameter is empty, otherwise the requestPath is the second parameter
+// if the second parameter is empty, otherwise the requestPath is the second parameter
 // it uses gzip compression (compression on each request, no file cache)
 StaticServe(systemPath string, requestPath ...string)
 
