@@ -14,7 +14,7 @@ func main() {
 
 ```
 
-The same
+The same:
 
 ```go
 package main
@@ -33,7 +33,7 @@ func hi(ctx *iris.Context){
 
 ```
 
-Rich Hi with **html\/template**
+Rich Hi with **html\/template**:
 
 ```html
 <!-- ./templates/hi.html -->
@@ -61,7 +61,7 @@ func hi(ctx *iris.Context){
 
 ```
 
-Rich Hi with **Django-syntax**
+Rich Hi with **Django-syntax**:
 
 ```html
 <!-- ./mytemplates/hi.html -->
@@ -93,5 +93,5 @@ func hi(ctx *iris.Context){
 
 ```
 
-* More about render and template engines [here](render.md)
+More about render and template engines [here](render.md).
 

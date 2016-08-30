@@ -7,7 +7,7 @@ Sending plain or rich content e-mails is an easy process with Iris.
 **Configuration**
 
 ```go
-// Config keeps the configs for mail sender service
+// Config keeps the options for the mail sender service
 type Config struct {
     // Host is the server mail host, IP or address
     Host string
@@ -45,7 +45,7 @@ import (
 )
 
 func main() {
-    // change these to your settings
+    // change these to your needs
 
     cfg := mail.Config{
         Host:     "smtp.mailgun.org",
@@ -77,13 +77,13 @@ func main() {
         }
     })
 
-    // send a body by template
+    // send a body by renderingt a template
     iris.Get("/send/template", func(ctx *iris.Context) {
         content := iris.TemplateString("body.html", iris.Map{
             "Message": " his is the rich message body sent by a template!!",
             "Footer":  "The footer of this e-mail!",
         }, iris.RenderOptions{"charset" :"UTF-8"}) 
-            // iris.RenderOptions are optional parameter,
+            // iris.RenderOptions is an optional parameter,
             // "charset" defaults to UTF-8 but you can change it for a 
             // particular mail receiver
 

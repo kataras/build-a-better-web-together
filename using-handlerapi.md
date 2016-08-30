@@ -2,11 +2,13 @@
 
 HandlerAPI is any custom struct which has an `*iris.Context` field and known methods signatures.
 
-Before continue I will liked to notice you that this method is slower than `iris.Get, Post..., Handle, HandleFunc`.
+Before continuing I'd like you to note that this method is slower than `iris.Get, Post..., Handle, HandleFunc`.
 
-I know maybe sounds awful but I, my self not using it, I did it because developers used to use frameworks with the 'MVC' pattern, so think it like the 'C\|Controller'. If you don't care about routing performance\(~ms\) and you like to spent some code time, you're free to use it.
+It might sound awful, I'm not using it myself, I did it because there developers used to frameworks 
+with the 'MVC' pattern, so think of it like the 'Controller'. 
+If you don't care about routing performance(~ms) and you like to spend some code time, you're free to use it.
 
-Instead of writing Handlers\/HandlerFuncs for eachone API routes, you can use the `iris.API` function.
+Instead of writing Handlers/HandlerFuncs for each API routes, you can use the `iris.API` function.
 
 ```go
 API(path string, api HandlerAPI, middleware ...HandlerFunc) error
@@ -49,14 +51,13 @@ type UserAPI struct {
 // GET /users
 func (u UserAPI) Get() {
     u.Write("Get from /users")
-    // u.JSON(iris.StatusOK,myDb.AllUsers())
+    // u.JSON(iris.StatusOK, myDb.AllUsers())
 }
 
-// GET /:param1 which its value passed to the id argument
+// GET /:param1 param1's value is the 'id' param
 func (u UserAPI) GetBy(id string) { // id equals to u.Param("param1")
     u.Write("Get from /users/%s", id)
     // u.JSON(iris.StatusOK, myDb.GetUserById(id))
-
 }
 
 // PUT /users
@@ -85,7 +86,6 @@ func main() {
     iris.API("/users", UserAPI{})
     iris.Listen(":8080")
 }
-
 ```
 
 As you saw you can still get other request values via the \*iris.Context, API has all the  flexibility of handler\/handlerfunc.
@@ -116,5 +116,5 @@ func myUsersMiddleware2(ctx *iris.Context) {
 
 ```
 
-Available methods: "GET", "POST", "PUT", "DELETE", "CONNECT", "HEAD", "PATCH", "OPTIONS", "TRACE" should use this **naming conversion**:  **Get\/GetBy, Post\/PostBy, Put\/PutBy** and so on...
+Available methods: "GET", "POST", "PUT", "DELETE", "CONNECT", "HEAD", "PATCH", "OPTIONS", "TRACE" should use this **naming convention**:  **Get/GetBy, Post/PostBy, Put/PutBy** and so on...
 

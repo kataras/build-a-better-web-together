@@ -7,7 +7,8 @@ $ go get -u github.com/kataras/iris/iris
 
 this will update the dependencies also.
 
-- If you are connected to the Internet through **China**, according to [this](https://github.com/kataras/iris/issues/98) you may having problem install Iris. **Follow the below steps**:
+- If you are connected to the internet through **China**, according to [this](https://github.com/kataras/iris/issues/98), you might have problems installing Iris.   
+**Follow the below steps**:
 
 
 1.  https://github.com/northbright/Notes/blob/master/Golang/china/get-golang-packages-on-golang-org-in-china.md 

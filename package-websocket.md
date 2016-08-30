@@ -1,10 +1,13 @@
 # Websockets
 
-**WebSocket is a protocol providing full-duplex communication channels over a single TCP connection**. The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C.
+**WebSocket is a protocol providing full-duplex communication channels over a single TCP connection**.   
+The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C.
 
-WebSocket is designed to be implemented in web browsers and web servers, but it can be used by any client or server application. The WebSocket Protocol is an independent TCP-based protocol. Its only relationship to HTTP is that its handshake is interpreted by HTTP servers as an Upgrade request. The WebSocket protocol makes more interaction between a browser and a website possible, **facilitating the real-time data transfer from and to the server**. 
+WebSocket is designed to be implemented in web browsers and web servers, but it can be used by any client or server application. 
+The WebSocket protocol is an independent TCP-based protocol. Its only relationship to HTTP is that its handshake is interpreted by HTTP servers as an Upgrade request. 
+The WebSocket protocol makes more interaction between a browser and a website possible, **facilitating real-time data transfer from and to the server**. 
 
-[Read more about Websockets via wikipedia](https://en.wikipedia.org/wiki/WebSocket)
+[Read more about Websockets on Wikipedia](https://en.wikipedia.org/wiki/WebSocket).
 
 -----
 
@@ -12,7 +15,7 @@ WebSocket is designed to be implemented in web browsers and web servers, but it 
 
 ```go
 type Websocket struct {
-	// WriteTimeout time allowed to write a message to the connection.
+	// WriteTimeout time allowed to write a message to the connection
 	// Default value is 15 * time.Second
 	WriteTimeout time.Duration
 	// PongTimeout allowed to read the next pong message from the connection
@@ -28,10 +31,10 @@ type Websocket struct {
 	// see https://github.com/kataras/iris/issues/387#issuecomment-243006022 for more
 	// defaults to false
 	BinaryMessages bool
-	// Endpoint is the path which the websocket server will listen for clients/connections
-	// Default value is empty string, if you don't set it the Websocket server is disabled.
+	// Endpoint is the path at which the websocket server will listen for clients/connections
+	// Default value is an empty string, if you don't set it, the Websocket server gets disabled.
 	Endpoint string
-	// Headers  the response headers before upgrader
+	// Headers the response headers before the upgrade
 	// Default is empty
 	Headers map[string]string
 	// ReadBufferSize is the buffer size for the underline reader
@@ -121,7 +124,7 @@ func main() {
 		ctx.Render("client.html", clientPage{"Client Page", ctx.HostString()})
 	})
 
-	// the path which the websocket client should listen/registed to ->
+	// the path at which the websocket client should register itself to
 	iris.Config.Websocket.Endpoint = "/my_endpoint"
 	// for Allow origin you can make use of the middleware
 	//iris.Config.Websocket.Headers["Access-Control-Allow-Origin"] = "*"
@@ -138,8 +141,8 @@ func main() {
 			// to the client ->
 			//c.Emit("chat", "Message from myself: "+message)
 
-			//send the message to the whole room,
-			//all connections are inside this room will receive this message
+			// send the message to the whole room,
+			// all connections which are inside this room will receive this message
 			c.To(myChatRoom).Emit("chat", "From: "+c.ID()+": "+message)
 		})
 
@@ -230,4 +233,4 @@ function appendMessage(messageDiv) {
 ```
 
 
-View a working example by navigating [here](https://github.com/iris-contrib/examples/tree/master/websocket) and if you need more than one websocket server [click here](https://github.com/iris-contrib/examples/tree/master/websocket_unlimited_servers)
+View a working example by navigating [here](https://github.com/iris-contrib/examples/tree/master/websocket) and if you need more than one websocket server [click here](https://github.com/iris-contrib/examples/tree/master/websocket_unlimited_servers).

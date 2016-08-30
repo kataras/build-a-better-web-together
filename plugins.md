@@ -1,64 +1,74 @@
 # Plugins
 
-Plugins are modules that you can build to inject the Iris' flow. Think it like a middleware for the Iris framework itself, not the requests. Middleware starts it's actions after the server listen and executes itself on every request, Plugin on the other hand starts working when you registered it, it has to do with framework's code, it has access to the *iris.Framework, so it can register routes, start a second server, read the iris' configs or edit them and all things you can do with Iris. Look how it's interface looks:
+Plugins are modules which get injected into Iris' flow. They're like middleware for the Iris framework itself. 
+Middlewares start their actions after the server processes requests and get executed on every request, 
+plugins on the other hand start working when you registered them. 
+Plugins work with the framework's code, they have access to the *iris.Framework, so they are able register routes, 
+start a second server, read Iris' configs or edit them and so on. 
+The Plugin interface looks this:
 
 ```go
 type (
 	// Plugin just an empty base for plugins
 	// A Plugin can be added with: .Add(PreListenFunc(func(*Framework))) and so on... or
-	// .Add(myPlugin{},myPlugin2{}) which myPlugin is  a struct with any of the methods below or
-	//.PostListen(func(*Framework)) and so on...
+	// .Add(myPlugin{},myPlugin2{}) myPlugin is a struct with any of the methods below or
+	// .PostListen(func(*Framework)) and so on...
 	Plugin interface {
 	}
 
 	// pluginGetName implements the GetName() string method
 	pluginGetName interface {
-		// GetName has to returns the name of the plugin, a name is unique
+		// GetName has to return the name of the plugin, a name is unique.
 		// name has to be not dependent from other methods of the plugin,
-		// because it is being called even before the Activate
+		// because it is being called even before Activate()
 		GetName() string
 	}
 
 	// pluginGetDescription implements the GetDescription() string method
 	pluginGetDescription interface {
-		// GetDescription has to returns the description of what the plugins is used for
+		// GetDescription has to return the description of what the plugins is used for
 		GetDescription() string
 	}
 
 	// pluginActivate implements the Activate(pluginContainer) error method
 	pluginActivate interface {
 		// Activate called BEFORE the plugin being added to the plugins list,
-		// if Activate returns none nil error then the plugin is not being added to the list
-		// it is being called only one time
+		// if Activate() returns none nil error then the plugin is not being added to the list
+		// it's called only once
 		//
 		// PluginContainer parameter used to add other plugins if that's necessary by the plugin
 		Activate(PluginContainer) error
 	}
+
 	// pluginPreListen implements the PreListen(*Framework) method
 	pluginPreListen interface {
-		// PreListen it's being called only one time, BEFORE the Server is started (if .Listen called)
-		// is used to do work at the time all other things are ready to go
+		// PreListen is called only once, BEFORE the server is started (if .Listen called)
 		//  parameter is the station
 		PreListen(*Framework)
 	}
+
 	// PreListenFunc implements the simple function listener for the PreListen(*Framework)
 	PreListenFunc func(*Framework)
+
 	// pluginPostListen implements the PostListen(*Framework) method
 	pluginPostListen interface {
-		// PostListen it's being called only one time, AFTER the Server is started (if .Listen called)
+		// PostListen is called once, AFTER the server is started (if .Listen called)
 		// parameter is the station
 		PostListen(*Framework)
 	}
+
 	// PostListenFunc implements the simple function listener for the PostListen(*Framework)
 	PostListenFunc func(*Framework)
+
 	// pluginPreClose implements the PreClose(*Framework) method
 	pluginPreClose interface {
-		// PreClose it's being called only one time, BEFORE the Iris .Close method
+		// PreClose is called once, BEFORE the Iris.Close method
 		// any plugin cleanup/clear memory happens here
 		//
 		// The plugin is deactivated after this state
 		PreClose(*Framework)
 	}
+
 	// PreCloseFunc implements the simple function listener for the PreClose(*Framework)
 	PreCloseFunc func(*Framework)
 
@@ -122,7 +132,7 @@ func aHandler(ctx *iris.Context) {
 
 type myPlugin struct{}
 
-// PostListen after a station is listening ( iris.Listen/TLS...)
+// PostListen after a station is listening (iris.Listen/TLS...)
 func (pl myPlugin) PostListen(s *iris.Framework) {
 	fmt.Printf("myPlugin: server is listening on host: %s", s.HTTPServer.Host())
 }
@@ -143,6 +153,7 @@ func (pl myPlugin) PostListen(s *iris.Framework) {
 
 ```
 
-An example of one plugin which is under development is the Iris control, a web interface that gives you control to your server remotely. You can find it's code [here](https://github.com/kataras/iris/tree/master/plugins/iriscontrol).
+An example of one plugin which is under development is Iris control, a web interface that gives you remote control to your Iris web server. 
+You can find it's code [here](https://github.com/kataras/iris/tree/master/plugins/iriscontrol).
 
-Take a look at [the real plugins](https://github.com/iris-contrib/plugin), easy to make your own.
+Take a look at [the real plugins](https://github.com/iris-contrib/plugin), it's easy to make your own plugin.

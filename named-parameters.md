@@ -1,8 +1,9 @@
 # Named Parameters
 
-Named parameters are just custom paths to your routes, you can access them for each request using context's **c.Param("nameoftheparameter")**. Get all, as array (**{Key,Value}**) using **c.Params** property.
+Named parameters are just custom paths for your routes, you can access them for each request 
+using context's `c.Param("nameoftheparameter")`. Use `c.Params` to get all values as an array ({K,V}).
 
-No limit on how long a path can be.
+There's no limit on how long a path can be.
 
 Usage:
 
@@ -17,31 +18,32 @@ import (
 )
 
 func main() {
-	// Match to /hello/iris,  (if PathCorrection:true match also /hello/iris/)
-	// Not match to /hello or /hello/ or /hello/iris/something
+	// Matches /hello/iris,  (if PathCorrection:true match also /hello/iris/)
+	// Doesn't match /hello or /hello/ or /hello/iris/something
 	iris.Get("/hello/:name", func(c *iris.Context) {
 		// Retrieve the parameter name
 		name := c.Param("name")
 		c.Write("Hello %s", name)
 	})
 
-	// Match to /profile/iris/friends/1, (if PathCorrection:true match also /profile/iris/friends/1/)
-	// Not match to /profile/ , /profile/iris ,
-	// Not match to /profile/iris/friends,  /profile/iris/friends ,
-	// Not match to /profile/iris/friends/2/something
+	// Matches /profile/iris/friends/1, (if PathCorrection:true match also /profile/iris/friends/1/)
+	// Doesn't match /profile/ or /profile/iris
+	// Doesn't match /profile/iris/friends or  /profile/iris/friends
+	// Doesn't match /profile/iris/friends/2/something
 	iris.Get("/profile/:fullname/friends/:friendID", func(c *iris.Context) {
 		// Retrieve the parameters fullname and friendID
 		fullname := c.Param("fullname")
 		friendID, err := c.ParamInt("friendID")
 		if err != nil {
 			// Do something with the error
+			return
 		}
 		c.HTML(iris.StatusOK, "<b> Hello </b>"+fullname+"<b> with friends ID </b>"+strconv.Itoa(friendID))
 	})
 
-	/* Example: /posts/:id and /posts/new (dynamic value conficts with the static 'new') for performance reasons and simplicity
-	   but if you need to have them you can do that: */
-
+	// Route Example: 
+	// /posts/:id and /posts/new conflict with each other for performance reasons and simplicity (dynamic value conficts with the static 'new').   
+	// but if you need to have them you can do following: 
 	iris.Get("/posts/*action", func(ctx *iris.Context) {
 		action := ctx.Param("action")
 		if action == "/new" {
@@ -63,9 +65,9 @@ func main() {
 ### Match anything
 
 ```go
-// Will match any request which url's preffix is "/anything/" and has content after that
-iris.Get("/anything/*randomName", func(c *iris.Context) { } )
-// Match: /anything/whateverhere/whateveragain , /anything/blablabla
+// Will match any request which's url prefix is "/anything/" and has content after that
+// Matches /anything/whateverhere/whateveragain or /anything/blablabla
 // c.Param("randomName") will be /whateverhere/whateveragain, blablabla
-// Not Match: /anything , /anything/ , /something
+// Doesn't match /anything or /anything/ or /something
+iris.Get("/anything/*randomName", func(c *iris.Context) { } )
 ```

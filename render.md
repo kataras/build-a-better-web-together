@@ -1,23 +1,25 @@
 # Render
 
-Think the 'Render'  as an action which sends\/responses with a rich content to the client.
+Think of 'Render' as an action which sends/responds with rich content to the client.
 
-The render actions, are separated in two iris-theoretical 'categories'
+The render actions are separated into two categories:
 
-* Response content using Response Engines, by 'Content-Type\/ or Key', you will understand what key is, later.
+* **Responses** send content using `Response Engines` which use the `Content-Type` header or a `Key (explained later)`. (i.e. JSON, XML etc.)
 
-* Templates using Template Engines, by 'filename'.
+* **Templates** send content using `Template Engines` which use file name extensions. (i.e. Markdown, Jade etc.)
 
 
 ### [Response Engines](/response-engines.md)
 
-Easy and fast way to render any type of data. **JSON, JSONP, XML, Text, Data, Markdown** .or any custom type. 
+Easy and fast way to render any type of data. **JSON, JSONP, XML, Text, Data, Markdown** or any custom type. 
 
-- examples are located [here](https://github.com/iris-contrib/examples/tree/master/response_engines/)
+- examples are located [here](https://github.com/iris-contrib/examples/tree/master/response_engines/).
 
 ### [Template Engines](/template-engines.md)
 
-Iris gives you the freedom to render templates through 6+ built'n template engines, you can create your own and 'inject' that to the iris station, you can also use more than one template engines at the same time \(when the file extension is different from the other\). 
+Iris gives you the freedom to render templates through 6+ built-in template engines, 
+you can create your own and 'inject' it to the iris station. 
+You can also use more than one template engines at the same time (when the file extensions are different from each other). 
 
-- examples are located [here](https://github.com/iris-contrib/examples/tree/master/template_engines/) 
+- examples are located [here](https://github.com/iris-contrib/examples/tree/master/template_engines/).
 

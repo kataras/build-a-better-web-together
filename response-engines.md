@@ -8,14 +8,14 @@ $ go get -u github.com/iris-contrib/response/json
 
 ## Iris' Station configuration
 
-Remember, when 'station' we mean the default `iris.$CALL ` or `api:= iris.New(); api.$CALL` 
+Remember, by 'station' we mean the default `iris.$CALL ` or `api:= iris.New(); api.$CALL` 
 
 ```go
-iris.Config.Gzip = true // compressed gzip contents to the client, the same for Template Engines also, defaults to false
-iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Template Engines also
+iris.Config.Gzip = true // compresses/gzips response content to the client (same for Template Engines), defaults to false
+iris.Config.Charset = "UTF-8" // defaults to "UTF-8" (same for Template Engines also)
 ```
 
-They can be overriden for specific `Render` action: 
+They can be overriden for specific `Render` actions: 
 ```go
 func(ctx *iris.Context){
  ctx.Render("any/contentType", anyValue{}, iris.RenderOptions{"gzip":false, "charset": "UTF-8"})
@@ -24,13 +24,11 @@ func(ctx *iris.Context){
 
 ## How to use
 
-First of all don't be scary about the 'big' article here, a response engine works very simple and is easy to understand how.
-
-Let's see what are the built'n response by content-type context's methods using the defaults only, unchanged, response engines.
+First of all don't be scared about the 'big' article, a response engine is very simple and is easy to understand.
+Let's see what built-in response types are available in `iris.Context`.
 
 
 ```go
-
 package main
 
 import (
@@ -76,16 +74,9 @@ func main() {
 
 ```
 
-
-Bellow you will, propably, see how 'good' are my english (joke...), but at the end we're coders and some of us programmers too, so I hope you will be able to understand at least, the code snippets ( a lot of them, you will be tired from this simplicity ).
-
-
-
-
-** Text Response Engine**
+**Text Response Engine**
 
 ```go
-
 package main
 
 import "github.com/kataras/iris"
@@ -112,33 +103,33 @@ func main() {
 	})
 
 	iris.Get("/alternative_4", func(ctx *iris.Context) {
-		// logs if any error and sends http status '500 internal server error' to the client
+		// logs if any error happens and sends a http status '500 internal server error' to the client
 		ctx.MustRender("text/plain", myString)
 	})
 
 	iris.Listen(":8080")
 }
-
 ```
 
-** Custom response engine**
+**Custom response engine**
 
 You can create a custom response engine using a func or an interface which implements the
-` iris.ResponseEngine`  which contains a simple function: ` Response(val interface{}, options ...map[string]interface{}) ([]byte, error)` 
+` iris.ResponseEngine`  which contains a simple function: ` Response(val interface{}, options ...map[string]interface{}) ([]byte, error)
+` 
 
-A custom engine can be used to register a totally new content writer for a known ContentType or for a custom ContentType  
+A custom engine can be used to register a totally new content writer for a known ContentType or for a custom ContentType.  
 
 You can imagine its useful, I will show you one right now.
 
 Let's do a 'trick' here, which works for all other response engines, custom or not:
-
 say for example, that you want a static'footer/suffix' on your content.
 
-IF a response engine has the same key and the same content type then the contents are appended and the final result will be rendered to the client.
+If a response engine has the same key and the same content type then the contents are appended and the final result will be rendered to the client
+.
 
-Let's do this with ` text/plain` content type, because you can see its results easly, the first engine will use this "text/plain" as key, the second & third will use the same, as firsts, key, which is the ContentType also.
+Let's do this with the `text/plain` content type, because you can see its results easly.
+The first engine will use this  as key, the second & third will use the same key the first ("text/plain" is also the ContentType).
 ```go
-
 package main
 
 import (
@@ -147,18 +138,15 @@ import (
 )
 
 func main() {
-	// here we are registering the default text/plain,  and after we will register the 'appender' only
-	// we have to register the default because we will 
-    // add more response engines with the same content,
-	// iris will not register this by-default if 
-    // other response engine with the corresponding ContentType already exists
-
+	// here we are registering the default text/plain, and after that we register the 'appender' only.
+	// we have to register the default because we will add more response engines with the same content,
+	// iris will not register this by-default if other response engines with the same ContentType already exist
 	iris.UseResponse(text.New(), text.ContentType) // it's the key which happens to be a valid content-type also, "text/plain" so this will be used as the ContentType header
 
 	// register a response engine: iris.ResponseEngine 
 	iris.UseResponse(&CustomTextEngine{}, text.ContentType)
 	
-    // register a response engine with func
+	// register a response engine with func
 	iris.UseResponse(iris.ResponseEngineFunc(func(val interface{}, options ...map[string]interface{}) ([]byte, error) {
 		return []byte("\nThis is the static SECOND AND LAST suffix!"), nil
 	}), text.ContentType)
@@ -170,7 +158,7 @@ func main() {
 	iris.Listen(":8080")
 }
 
-// This is the way you create one with raw iris.ResponseEngine implementation:
+// This is a way on how you can create a raw iris.ResponseEngine implementation:
 
 // CustomTextEngine the response engine which appends a simple string on the default's text engine
 type CustomTextEngine struct{}
@@ -185,7 +173,7 @@ func (e *CustomTextEngine) Response(val interface{}, options ...map[string]inter
 
 ```
 
-** iris.ResponseString **
+**iris.ResponseString**
 
 
 ResponseString gives you the result of the response engine's work, it doesn't renders to the client but you can use
@@ -256,19 +244,16 @@ All features of Sundown are supported, including:
 
 	iris.Listen(":8080")
 }
-
-
 ```
 
 
 Now we can continue to the rest of the default & built'n response engines
 
 
-** JSON Response Engine **
+**JSON Response Engine**
 
 
 ```go
-
 package main
 
 import "github.com/kataras/iris"
@@ -325,7 +310,7 @@ type myjson struct {
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, which you can change
 
-	//first example
+	// first example
 	// use the json's Config, we need the import of the json response engine in order to change its internal configs
 	// this is one of the reasons you need to import a default engine,(template engine or response engine)
 	/*
@@ -349,9 +334,9 @@ func main() {
 		ctx.Render("application/json", myjson{Name: "iris"}, iris.RenderOptions{"charset": "8859-1"})
 	}
 
-	//second example,
+	// second example,
 	// imagine that we need the context.JSON to be listening to our "application/json" response engine with a custom prefix (we did that before)
-	// but we also want a different renderer, but again application/json content type, with Indent option setted to true:
+	// but we also want a different renderer, but again application/json content type, with indent option set to true:
 	iris.UseResponse(json.New(json.Config{Indent: true}), "json2")("application/json")
 	// yes the UseResponse returns a function which you can map the content type if it's not declared on the key
 	json2Handler := func(ctx *iris.Context) {
@@ -370,7 +355,7 @@ func main() {
 ```
 
 
-** JSONP Response Engine **
+**JSONP Response Engine**
 
 ```go
 package main
@@ -400,7 +385,7 @@ func main() {
 	})
 
 	iris.Get("/alternative_4", func(ctx *iris.Context) {
-		// logs if any error and sends http status '500 internal server error' to the client
+		// logs if any error happens and sends the http status '500 internal server error' to the client
 		ctx.MustRender("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName", "charset": "UTF-8"}) // UTF-8 is the default.
 	})
 
@@ -411,7 +396,6 @@ func main() {
 
 
 ```go
-
 package main
 
 import (
@@ -426,7 +410,7 @@ type myjson struct {
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, which you can change
 
-	//first example
+	// first example
 	// this is one of the reasons you need to import a default engine,(template engine or response engine)
 	/*
 		type Config struct {
@@ -434,9 +418,7 @@ func main() {
 			Callback string // the callback can be override by the context's options or parameter on context.JSONP
 		}
 	*/
-	iris.UseResponse(jsonp.New(jsonp.Config{
-		Indent: true,
-	}), jsonp.ContentType)
+	iris.UseResponse(jsonp.New(jsonp.Config{Indent: true}), jsonp.ContentType)
 	// you can use anything as the second parameter,
 	// the jsonp.ContentType is the string "application/javascript",
 	// the context.JSONP renders with this engine's key.
@@ -450,10 +432,10 @@ func main() {
 		ctx.Render("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName", "charset": "8859-1"})
 	}
 
-	//second example,
+	// second example,
 	// but we also want a different renderer, but again "application/javascript" as content type, with Callback option setted globaly:
 	iris.UseResponse(jsonp.New(jsonp.Config{Callback: "callbackName"}), "jsonp2")("application/javascript")
-	// yes the UseResponse returns a function which you can map the content type if it's not declared on the key
+	// yes the UseResponse returns a function which you can map the content type with if it's not declared on the key
 	handlerJsonp2 := func(ctx *iris.Context) {
 		ctx.Render("jsonp2", myjson{Name: "My iris"})
 	}
@@ -466,13 +448,11 @@ func main() {
 
 	iris.Listen(":8080")
 }
-
-
 ```
 
 
 
-** XML Response Engine **
+**XML Response Engine**
 
 
 ```go
@@ -509,7 +489,7 @@ func main() {
 	})
 
 	iris.Get("/alternative_5", func(ctx *iris.Context) {
-		// logs if any error and sends http status '500 internal server error' to the client
+		// logs if any error happens and sends the http status '500 internal server error' to the client
 		ctx.MustRender("text/xml", myxml{First: "first attr", Second: "second attr"}, iris.RenderOptions{"charset": "UTF-8"})
 	})
 
@@ -538,7 +518,7 @@ type myxml struct {
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, which you can change
 
-	//first example
+	// first example
 	// this is one of the reasons you need to import a default engine,(template engine or response engine)
 	/*
 		type Config struct {
@@ -546,9 +526,7 @@ func main() {
 			Prefix []byte
 		}
 	*/
-	iris.UseResponse(xml.New(xml.Config{
-		Indent: true,
-	}), xml.ContentType)
+	iris.UseResponse(xml.New(xml.Config{Indent: true}), xml.ContentType)
 	// you can use anything as the second parameter,
 	// the jsonp.ContentType is the string "text/xml",
 	// the context.XML renders with this engine's key.
@@ -562,10 +540,10 @@ func main() {
 		ctx.Render("text/xml", myxml{First: "first attr", Second: "second attr"}, iris.RenderOptions{"charset": "8859-1"})
 	}
 
-	//second example,
-	// but we also want a different renderer, but again "text/xml" as content type, with prefix option setted by configuration:
-	iris.UseResponse(xml.New(xml.Config{Prefix: []byte("")}), "xml2")("text/xml") // if you really use a PREFIX it will be not valid xml, use it only for special cases
-	// yes the UseResponse returns a function which you can map the content type if it's not declared on the key
+	// second example,
+	// but we also want a different renderer, but again "text/xml" as content type, with prefix option set by configuration:
+	iris.UseResponse(xml.New(xml.Config{Prefix: []byte("")}), "xml2")("text/xml") // if you really use a PREFIX it will not be valid xml, use it only for special cases
+	// yes the UseResponse returns a function which you can map the content type with if it's not declared on the key
 	handlerXML2 := func(ctx *iris.Context) {
 		ctx.Render("xml2", myxml{First: "first attr", Second: "second attr"})
 	}
@@ -578,16 +556,13 @@ func main() {
 
 	iris.Listen(":8080")
 }
-
-
 ```
 
 
-** Markdown Response Engine **
+**Markdown Response Engine**
 
 
 ```go
-
 package main
 
 import "github.com/kataras/iris"
@@ -667,7 +642,7 @@ All features of Sundown are supported, including:
 	})
 
 	iris.Get("/alternative_5", func(ctx *iris.Context) {
-		// logs if any error and sends http status '500 internal server error' to the client
+		// logs if any error happens and sends the http status '500 internal server error' to the client
 		ctx.MustRender("text/markdown", markdownContents, iris.RenderOptions{"charset": "UTF-8"}) // UTF-8 is the default.
 	})
 
@@ -767,11 +742,10 @@ All features of Sundown are supported, including:
 
 ```
 
-** Data(Binary) Response Engine **
+**Data(Binary) Response Engine**
 
 
 ```go
-
 package main
 
 import "github.com/kataras/iris"
@@ -808,6 +782,6 @@ func main() {
 
  ----- 
 
- - examples are located [here](https://github.com/iris-contrib/examples/tree/master/response_engines/) 
+ - examples are located [here](https://github.com/iris-contrib/examples/tree/master/response_engines/).
 
-- You can contribute to create more response engines for Iris, click [here](https://github.com/iris-contrib/response) to navigate to the reository.
+- You can contribute response engines to Iris, click [here](https://github.com/iris-contrib/response) to navigate to the reository.

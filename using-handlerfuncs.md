@@ -1,7 +1,7 @@
 # Using HandlerFuncs
 
-HandlerFuncs should implement the Serve\(\*Context\) func.
-HandlerFunc is most simple method to register a route or a middleware, but under the hood it acts like a Handler. It implements the Handler interface as well:
+HandlerFuncs should implement the Serve\(*Context) func.
+HandlerFunc is the most simple method to register a route or a middleware, but under the hood it acts like a Handler. It implements the Handler interface as well:
 
 ```go
 type HandlerFunc func(*Context)
@@ -9,7 +9,6 @@ type HandlerFunc func(*Context)
 func (h HandlerFunc) Serve(c *Context) {
     h(c)
 }
-
 ```
 
 HandlerFuncs shoud have this function signature:
@@ -18,7 +17,6 @@ HandlerFuncs shoud have this function signature:
 func handlerFunc(c *iris.Context)  {
     c.Write("Hello")
 }
-
 
 iris.HandleFunc("GET","/letsgetit",handlerFunc)
 //OR

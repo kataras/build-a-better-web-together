@@ -9,7 +9,7 @@ SetCookie(cookie *fasthttp.Cookie)
 // SetCookieKV adds a cookie, receives just a key(string) and a value(string)
 SetCookieKV(key, value string)
 
-// GetCookie returns cookie's value by it's name
+// GetCookie returns the cookie's value by it's name
 // returns empty string if nothing was found
 GetCookie(name string) string 
 
@@ -19,12 +19,12 @@ RemoveCookie(name string)
 
 // VisitAllCookies takes a visitor which loops on each (request's) cookie key and value
 //
-// Note: the method ctx.Request.Header.VisitAllCookie by fasthttp, has a strange bug which I cannot solve at the moment.
-// This is the reason which this function exists and should be used instead of fasthttp's built'n.
+// Note: the method ctx.Request.Header.VisitAllCookie (by fasthttp) has a strange bug, which I cannot solve at the moment.
+// This is the reason why this function exists and should be used instead of fasthttp's built in function.
 VisitAllCookies(visitor func(key string, value string))
 
 ```
-How to use 
+How to use:
 ```go
 
 iris.Get("/set", func(c *iris.Context){
