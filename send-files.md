@@ -17,10 +17,7 @@ func main() {
 
     iris.Get("/servezip", func(c *iris.Context) {
         file := "./files/first.zip"
-        err := c.SendFile(file, "saveAsName.zip")
-        if err != nil {
-            println("error: " + err.Error())
-        }
+        c.SendFile(file, "saveAsName.zip")
     })
 
     iris.Listen(":8080")
