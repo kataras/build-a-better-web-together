@@ -1,9 +1,9 @@
 ## Install
 
-Install one template engine and all will be installed.
+Install the go-template package.
 
 ```sh
-$ go get -u github.com/iris-contrib/template/html
+$ go get -u github.com/kataras/go-template
 ```
 
 ## Iris' Station configuration 
@@ -32,7 +32,7 @@ Most examples are written for the HTML Template Engine(default and built'n templ
 You will see first the template file's code, after the main.go code
 
 
-**HTML Template Engine, and general**
+**HTML Template Engine, defaulted**
 
 
 ```html
@@ -97,7 +97,7 @@ func hi(ctx *iris.Context) {
 package main
 
 import (
-	"github.com/iris-contrib/template/html"
+	"github.com/kataras/go-template/html"
 	"github.com/kataras/iris"
 )
 
@@ -189,7 +189,7 @@ func main() {
 package main
 
 import (
-	"github.com/iris-contrib/template/html"
+	"github.com/kataras/go-template/html"
 	"github.com/kataras/iris"
 )
 
@@ -270,7 +270,7 @@ func main() {
 package main
 
 import (
-	"github.com/iris-contrib/template/html"
+	"github.com/kataras/go-template/html"
 	"github.com/kataras/iris"
 )
 
@@ -314,7 +314,7 @@ func main() {
 ```go
 // ./main.go
 // Package main an example on how to naming your routes & use the custom 'url' HTML Template Engine, same for other template engines
-// we don't need to import the iris-contrib/template/html because iris uses this as the default engine if no other template engine has been registered.
+// we don't need to import the kataras/go-template/html because iris uses this as the default engine if no other template engine has been registered.
 package main
 
 import (
@@ -477,7 +477,7 @@ func emptyHandler(ctx *iris.Context) {
 package main
 
 import (
-	"github.com/iris-contrib/template/django"
+	"github.com/kataras/go-template/django"
 	"github.com/kataras/iris"
 )
 
@@ -522,7 +522,7 @@ is the subdomain part instead of named parameter-->
 package main
 
 import (
-	"github.com/iris-contrib/template/django"
+	"github.com/kataras/go-template/django"
 	"github.com/kataras/iris"
 )
 
@@ -638,7 +638,7 @@ package main
 
 import (
 	"github.com/aymerick/raymond"
-	"github.com/iris-contrib/template/handlebars"
+	"github.com/kataras/go-template/handlebars"
 	"github.com/kataras/iris"
 )
 
@@ -691,7 +691,7 @@ func main() {
 
 ```
 
->  Note than you can see more handlebars examples syntax by navigating [here](https://github.com/aymerick/raymond)
+>  Note than you can see more handlebars examples syntax by navigating [here](https://github.com/aymerick/raymond)
 
 
 **Pug/Jade Template Engine**
@@ -738,7 +738,7 @@ package main
 import (
 	"html/template"
 
-	"github.com/iris-contrib/template/pug"
+	"github.com/kataras/go-template/pug"
 	"github.com/kataras/iris"
 )
 
@@ -811,7 +811,7 @@ p.
 package main
 
 import (
-	"github.com/iris-contrib/template/pug"
+	"github.com/kataras/go-template/pug"
 	"github.com/kataras/iris"
 )
 
@@ -903,7 +903,7 @@ html
 package main
 
 import (
-	"github.com/iris-contrib/template/amber"
+	"github.com/kataras/go-template/amber"
 	"github.com/kataras/iris"
 )
 
@@ -959,7 +959,7 @@ type (
 
 ```
 
-The simplest implementation, which you can look as example, is the Markdown Engine, which is located [here](https://github.com/iris-contrib/template/tree/master/markdown/markdown.go).
+The simplest implementation, which you can look as example, is the Markdown Engine, which is located [here](https://github.com/kataras/go-template/tree/master/markdown/markdown.go).
 
 
 
@@ -990,7 +990,7 @@ Executes and parses the template but instead of rendering to the client, it retu
 package main
 
 import (
-	"github.com/iris-contrib/template/django"
+	"github.com/kataras/go-template/django"
 	"github.com/kataras/iris"
 )
 
@@ -1011,7 +1011,7 @@ func main() {
 
 ```
 
- > Note that: iris.TemplateString can be called outside of the context also 
+ > Note that: iris.TemplateString can be called outside of the context also
 
 
 
@@ -1021,4 +1021,4 @@ func main() {
 
  - examples are located [here](https://github.com/iris-contrib/examples/tree/master/template_engines/) 
 
-- You can contribute to create more template engines for Iris, click [here](https://github.com/iris-contrib/template) to navigate to the reository. 
+- You can contribute to create more template engines for Iris, click [here](https://github.com/kataras/go-template) to navigate to the repository. 
