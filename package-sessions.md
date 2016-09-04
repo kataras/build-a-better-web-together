@@ -1,11 +1,11 @@
 # Sessions
-If you notice a bug or issue [post it here](https://github.com/kataras/iris/issues).
+If you notice a bug or issue [post it here](https://github.com/kataras/go-sessions).
 
 
 - Cleans the temp memory when a session is idle, and re-allocates it to the temp memory when it's necessary. 
 The most used sessions are optimized to be in the front of the memory's list.
 
-- Supports any type of database, currently only [Redis](https://github.com/iris-contrib/sessiondb/).
+- Supports any type of database, currently only [Redis](https://github.com/kataras/go-sessions/sessiondb/).
 
 
 **A session can be defined as a server-side storage of information that is desired to persist throughout the user's interaction with the web application**.
@@ -95,14 +95,14 @@ func main() {
 
 ```
 
-Example with **Redis session database**, which is located [here](https://github.com/iris-contrib/sessiondb/tree/master/redis).
+Example with **Redis session database**, which is located [here](https://github.com/kataras/go-sessions/tree/master/sessiondb/redis).
 
 ```go
 package main
 
 import (
-	"github.com/iris-contrib/sessiondb/redis"
-	"github.com/iris-contrib/sessiondb/redis/service"
+	"github.com/kataras/go-sessions/sessiondb/redis"
+	"github.com/kataras/go-sessions/sessiondb/redis/service"
 	"github.com/kataras/iris"
 )
 
