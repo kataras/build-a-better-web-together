@@ -146,9 +146,6 @@ func (pl myPlugin) PostListen(s *iris.Framework) {
 	PostListen(*iris.Framework)
 	PreClose(*iris.Framework)
 	PreDownload(thePlugin iris.Plugin, downloadUrl string)
-	// for custom events
-	On(string,...func())
-	Call(string)
 */
 
 ```
@@ -156,4 +153,6 @@ func (pl myPlugin) PostListen(s *iris.Framework) {
 An example of one plugin which is under development is Iris control, a web interface that gives you remote control to your Iris web server. 
 You can find it's code [here](https://github.com/kataras/iris/tree/master/plugins/iriscontrol).
 
-Take a look at [the real plugins](https://github.com/iris-contrib/plugin), it's easy to make your own plugin.
+Take a look at [the plugin.go](https://github.com/iris-contrib/plugin), it's easy to make your own plugin.
+
+Custom callbacks can be maden with third-party package [go-events](https://github.com/kataras/go-events).
