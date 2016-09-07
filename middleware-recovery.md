@@ -20,9 +20,7 @@ import (
 
 func main() {
 
-	// optionally use a logger which the stack trace of the panic will be printed to.
-	// here we're using the default station's Logger.
-	iris.Use(recovery.New(iris.Logger))
+	iris.Use(recovery.Handler)
 
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Write("Hi, let's panic")
