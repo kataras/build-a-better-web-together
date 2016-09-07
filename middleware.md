@@ -117,7 +117,7 @@ type Page struct {
     Title string
 }
 
-iris.Use(logger.New(iris.Logger))
+iris.Use(logger.New())
 
 iris.Get("/", func(c *iris.Context) {
     c.Render("index.html", Page{"My Index Title"})

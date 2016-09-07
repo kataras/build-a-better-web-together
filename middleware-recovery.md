@@ -6,7 +6,7 @@
 Safely recover the server from a panic.
 
 ```go
-recovery.New(...*logger.Logger)
+recovery.Handler
 ```
 
 ```go
