@@ -4,7 +4,7 @@ Gzip compression is easy.
 
 
 Activate **auto-gzip** for all responses and template engines, 
-just set `iris.Config.Gzip = true`. You can also enable gzipping for specific `Render()` calls:
+just set `iris.Config.Gzip = true` or `iris.New(iris.OptionGzip(true))` or `iris.Set(OptionGzip(true))` . You can also enable gzipping for specific `Render()` calls:
 
 ```go
 //...

@@ -33,20 +33,30 @@ func main() {
 	// These are the optional fields to configurate sessions, 
 	// using the station's Config field (iris.Config.Sessions)
 
-	// Cookie string, the session id's cookie name on the client, for example: "irissessionid"
+	// Cookie string, the session's client cookie name, for example: "qsessionid"
 	Cookie string
 	// DecodeCookie set it to true to decode the cookie key with base64 URLEncoding
 	// Defaults to false
 	DecodeCookie bool
-	// Expires the duration at which the cookie expires (created_time.Add(Expires)).
-	// Default unlimited life duration(0)
+
+	// Expires the duration of which the cookie must expires (created_time.Add(Expires)).
+	// If you want to delete the cookie when the browser closes, set it to -1 but in this case, the server side's session duration is up to GcDuration
+	//
+	// Default infinitive/unlimited life duration(0)
 	Expires time.Duration
-	// GcDuration the interval at which unused cookies are cleared from memory.
-	// example: time.Duration(2)*time.Hour, will check every 2 hours if cookie hasn't be used for 2 hours,
-	// deletes it from the backend memory until the user comes back (the session still continues to work as it did before).
+
+	// CookieLength the length of the sessionid's cookie's value, let it to 0 if you don't want to change it
+	// Defaults to 32
+	CookieLength int
+
+	// GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies (GcDuration)
+	// for example: time.Duration(2)*time.Hour. it will check every 2 hours if cookie hasn't be used for 2 hours,
+	// deletes it from backend memory until the user comes back, then the session continue to work as it was
+	//
 	// Default 2 hours
 	GcDuration time.Duration
-	// DisableSubdomainPersistence set it to true in order to dissallow your iris subdomains to have access to the session cookie.
+
+	// DisableSubdomainPersistence set it to true in order dissallow your q subdomains to have access to the session cookie
 	// defaults to false
 	DisableSubdomainPersistence bool
 

@@ -3,14 +3,15 @@
 You might have asked yourself:
 
 * Q: Other frameworks need more lines to start a server, why is Iris different?
-* A: Iris gives you the freedom to choose between three ways to use Iris
+* A: Iris gives you the freedom to choose between four ways to use Iris
 
   1. global **iris.**
   2. declare a new iris station with default config: **iris.New\(\)** 
-  3. declare a new iris station with custom config: ** api := iris.New\(config.Iris{...}\)**
+  3. declare a new iris station with custom config: ** api := iris.New\(iris.Configuration{...}\)**
+  4. declare a new iris station with custom options: ** api := iris.New\(iris.OptionCharset("UTF-8"), iris.OptionSessionsCookie("mycookie"), ...\)**
 
 
-Config can change after declaration with 1&2. `iris.Config.` 3. \/ `api.Config.`
+Config can change after declaration with`$instance.Config.`, \/ `$instance.Set(Option...)`
 
 ```go
 import "github.com/kataras/iris"
@@ -25,6 +26,22 @@ func firstWay() {
 func secondWay() {
 
     api := iris.New()
+    api.Get("/home",func(c *iris.Context){})
+    api.Listen(":8080")
+}
+
+// 1.
+func firstWay() {
+
+    iris.Get("/home",func(c *iris.Context){})
+    iris.Listen(":8080")
+}
+// 3.
+func thirdWay() {
+
+    api := iris.New()
+	api.Set(iris.OptionCharset("UTF-8"))
+	
     api.Get("/home",func(c *iris.Context){})
     api.Listen(":8080")
 }

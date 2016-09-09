@@ -13,6 +13,13 @@ Remember, by 'station' we mean the default `iris.$CALL ` or `api:= iris.New(); a
 ```go
 iris.Config.Gzip = true // compresses/gzips response content to the client (same for Template Engines), defaults to false
 iris.Config.Charset = "UTF-8" // defaults to "UTF-8" (same for Template Engines also)
+
+// or
+iris.Set(iris.OptionGzip(true), iris.OptionCharset("UTF-8"))
+// or
+iris.New(iris.OptionGzip(true), iris.OptionCharset("UTF-8"))
+// or 
+iris.New(iris.Configuration{ Gzip:true, Charset: "UTF-8" })
 ```
 
 They can be overriden for specific `Render` actions: 

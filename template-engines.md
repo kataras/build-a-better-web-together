@@ -14,6 +14,14 @@ Remember, when 'station' we mean the default `iris.$CALL ` or `api:= iris.New();
 iris.Config.IsDevelopment = true // reloads the templates on each request, defaults to false
 iris.Config.Gzip  = true // compressed gzip contents to the client, the same for Response Engines also, defaults to false
 iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Response Engines also
+
+// or
+iris.Set(iris.OptionIsDevelopment(true),iris.OptionGzip(true), iris.OptionCharset("UTF-8"))
+// or
+iris.New(iris.OptionIsDevelopment(true),iris.OptionGzip(true), iris.OptionCharset("UTF-8"))
+// or 
+iris.New(iris.Configuration{IsDevelopment:true, Gzip:true, Charset: "UTF-8" })
+
 ```
 
 The last two options (Gzip, Charset) can be overriden for specific 'Render' action:

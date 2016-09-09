@@ -47,6 +47,10 @@ type Websocket struct {
 
 ```go
 iris.Config.Websocket.Endpoint = "/myEndpoint"
+// or
+iris.Set(iris.OptionWebsocketEndpoint("/myEndpoint")
+// or 
+iris.New(iris.Configuration{Websocket: iris.WebsocketConfiguration{Endpoint: "/myEndpoint"}})
 ```
 
 ## Outline
