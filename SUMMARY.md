@@ -26,7 +26,7 @@
 * [Send files](send-files.md)
 * [Send e-mails](mail.md)
 * [Render](render.md)
-  * [Response Engines](response-engines.md)
+  * [Serializers](serialize-engines.md)
   * [Template Engines](template-engines.md)
 
 * [Gzip](gzip.md)

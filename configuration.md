@@ -72,7 +72,7 @@ OptionIsDevelopment(val bool)
 OptionTimeFormat(val string)
 
 // OptionCharset character encoding for various rendering
-// used for templates and the rest of the responses
+// used for templates and the rest of the responses(via serializer)
 // Default is "UTF-8"
 OptionCharset(val string)
 

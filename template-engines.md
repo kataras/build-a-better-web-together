@@ -12,8 +12,8 @@ Remember, when 'station' we mean the default `iris.$CALL ` or `api:= iris.New();
 
 ```go
 iris.Config.IsDevelopment = true // reloads the templates on each request, defaults to false
-iris.Config.Gzip  = true // compressed gzip contents to the client, the same for Response Engines also, defaults to false
-iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Response Engines also
+iris.Config.Gzip  = true // compressed gzip contents to the client, the same for Serializers also, defaults to false
+iris.Config.Charset = "UTF-8" // defaults to "UTF-8", the same for Serializers also
 
 // or
 iris.Set(iris.OptionIsDevelopment(true),iris.OptionGzip(true), iris.OptionCharset("UTF-8"))
@@ -1007,7 +1007,7 @@ func main() {
 	iris.UseTemplate(django.New()).Directory("./templates", ".html")
 
 	iris.Get("/", func(ctx *iris.Context) {
-		// THIS WORKS WITH ALL TEMPLATE ENGINES, but I am not doing the same example for all engines again :) (the same you can do with templates using the iris.ResponseString)
+		// THIS WORKS WITH ALL TEMPLATE ENGINES, but I am not doing the same example for all engines again :) (the same you can do with templates using the iris.SerializeToString)
 		rawHtmlContents := iris.TemplateString("mypage.html", map[string]interface{}{"username": "iris", "is_admin": true}, iris.RenderOptions{"charset": "UTF-8"}) // defaults to UTF-8 already
 		ctx.Log(rawHtmlContents)
 		ctx.Write("The Raw HTML is:\n%s", rawHtmlContents)

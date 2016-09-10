@@ -1,10 +1,6 @@
 ## Install
 
-Install one response engine and all will be installed.
-
-```sh
-$ go get -u github.com/iris-contrib/response/json
-```
+Default Serializers[*](https://github.com/kataras/go-serializers/) are already installed when Iris has been installed.   
 
 ## Iris' Station configuration
 
@@ -31,7 +27,7 @@ func(ctx *iris.Context){
 
 ## How to use
 
-First of all don't be scared about the 'big' article, a response engine is very simple and is easy to understand.
+First of all don't be scared about the 'big' article, a serialize engine(serializer, old: Serializer) is very simple and is easy to understand.
 Let's see what built-in response types are available in `iris.Context`.
 
 
@@ -81,7 +77,7 @@ func main() {
 
 ```
 
-**Text Response Engine**
+**Text Serializer**
 
 ```go
 package main
@@ -110,53 +106,69 @@ func main() {
 	})
 
 	iris.Get("/alternative_4", func(ctx *iris.Context) {
-		// logs if any error happens and sends a http status '500 internal server error' to the client
+		// logs if any error and sends http status '500 internal server error' to the client
 		ctx.MustRender("text/plain", myString)
 	})
 
 	iris.Listen(":8080")
 }
+
 ```
 
-**Custom response engine**
+**Custom Serializer**
 
-You can create a custom response engine using a func or an interface which implements the
-` iris.ResponseEngine`  which contains a simple function: ` Response(val interface{}, options ...map[string]interface{}) ([]byte, error)
+You can create a custom Serializer using a func or an interface which implements the
+` serializer.Serializer`  which contains a simple function: ` Serialize(val interface{}, options ...map[string]interface{}) ([]byte, error)
 ` 
 
 A custom engine can be used to register a totally new content writer for a known ContentType or for a custom ContentType.  
 
 You can imagine its useful, I will show you one right now.
 
-Let's do a 'trick' here, which works for all other response engines, custom or not:
+Let's do a 'trick' here, which works for all other Serializers, custom or not:
 say for example, that you want a static'footer/suffix' on your content.
 
-If a response engine has the same key and the same content type then the contents are appended and the final result will be rendered to the client
+If a Serializer has the same key and the same content type then the contents are appended and the final result will be rendered to the client
 .
 
 Let's do this with the `text/plain` content type, because you can see its results easly.
-The first engine will use this  as key, the second & third will use the same key the first ("text/plain" is also the ContentType).
 ```go
+// You can create a custom serialize engine(serializer) using a func or an interface which implements the
+// serializer.Serializer which contains a simple function: Serialize(val interface{}, options ...map[string]interface{}) ([]byte, error)
+
+// A custom engine can be used to register a totally new content writer for a known ContentType or for a custom ContentType
+
+// Let's do a 'trick' here, which works for all other serialize engine(serializer)s, custom or not:
+
+// say for example, that you want a static'footer/suffix' on your content, without the need to create & register a middleware for that, per route or globally
+// you want to be even more organised.
+//
+// IF a serialize engine(serializer) has the same key and the same content type then the contents are appended and the final result will be rendered to the client.
+
+// Enough with my 'bad' english, let's code something small:
+
 package main
 
 import (
-	"github.com/iris-contrib/response/text"
+	"github.com/kataras/go-serializer"
+	"github.com/kataras/go-serializer/text"
 	"github.com/kataras/iris"
 )
 
+// Let's do this with ` text/plain` content type, because you can see its results easly, the first engine will use this "text/plain" as key,
+// the second & third will use the same, as firsts, key, which is the ContentType also.
 func main() {
-	// here we are registering the default text/plain, and after that we register the 'appender' only.
-	// we have to register the default because we will add more response engines with the same content,
-	// iris will not register this by-default if other response engines with the same ContentType already exist
-	iris.UseResponse(text.New(), text.ContentType) // it's the key which happens to be a valid content-type also, "text/plain" so this will be used as the ContentType header
+	// we are registering the default text/plain,  and after we will register the 'appender' only
+	// we have to register the default because we will add more serialize engine(serializer)s with the same content,
+	// iris will not register this by-default if other serialize engine(serializer) with the corresponding ContentType already exists
+	iris.UseSerializer(text.ContentType, text.New())
 
-	// register a response engine: iris.ResponseEngine 
-	iris.UseResponse(&CustomTextEngine{}, text.ContentType)
-	
-	// register a response engine with func
-	iris.UseResponse(iris.ResponseEngineFunc(func(val interface{}, options ...map[string]interface{}) ([]byte, error) {
+	// register a serialize engine(serializer) serializer.Serializer
+	iris.UseSerializer(text.ContentType, &CustomTextEngine{})
+	// register a serialize engine(serializer) with func
+	iris.UseSerializer(text.ContentType, serializer.SerializeFunc(func(val interface{}, options ...map[string]interface{}) ([]byte, error) {
 		return []byte("\nThis is the static SECOND AND LAST suffix!"), nil
-	}), text.ContentType)
+	}))
 
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Text(iris.StatusOK, "Hello!") // or ctx.Render(text.ContentType," Hello!")
@@ -165,25 +177,25 @@ func main() {
 	iris.Listen(":8080")
 }
 
-// This is a way on how you can create a raw iris.ResponseEngine implementation:
+// This is the way you create one with raw serialiser.Serializer implementation:
 
-// CustomTextEngine the response engine which appends a simple string on the default's text engine
+// CustomTextEngine the serialize engine(serializer) which appends a simple string on the default's text engine
 type CustomTextEngine struct{}
 
-// Implement the iris.ResponseEngine
-func (e *CustomTextEngine) Response(val interface{}, options ...map[string]interface{}) ([]byte, error) {
+// Implement the serializer.Serializer
+func (e *CustomTextEngine) Serialize(val interface{}, options ...map[string]interface{}) ([]byte, error) {
 	// we don't need the val, because we want only to append, so what we should do?
 	// just return the []byte we want to be appended after the first registered text/plain engine
-
 	return []byte("\nThis is the static FIRST suffix!"), nil
 }
 
+
 ```
 
-**iris.ResponseString**
+**iris.SerializeToString**
 
 
-ResponseString gives you the result of the response engine's work, it doesn't renders to the client but you can use
+SerializeToString gives you the result of the Serializer's work, it doesn't renders to the client but you can use
 this function to collect the end result and send it via e-mail to the user, or anything you can imagine.
 
 
@@ -193,6 +205,12 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
+
+	// SerializeToString gives you the result of the serialize engine(serializer)'s work, it doesn't renders to the client but you can use
+	// this function to collect the end result and send it via e-mail to the user, or anything you can imagine.
+
+	// Note that: iris.SerializeToString is called outside of the context, using your iris $instance (iris. is the default)
+
 	markdownContents := `## Hello Markdown from Iris
 
 This is an example of Markdown with Iris
@@ -242,8 +260,8 @@ All features of Sundown are supported, including:
 	iris.Get("/", func(ctx *iris.Context) {
 		// let's see
 		// convert markdown string to html and print it to the logger
-		// THIS WORKS WITH ALL RESPONSE ENGINES, but I am not doing the same example for all engines again :) (the same you can do with templates using the iris.TemplateString)
-		htmlContents := iris.ResponseString("text/markdown", markdownContents, iris.RenderOptions{"charset": "8859-1"}) // default is the iris.Config.Charset, which is UTF-8
+		// THIS WORKS WITH ALL serialize engine(serializer)S, but I am not doing the same example for all engines again :) (the same you can do with templates using the iris.TemplateString)
+		htmlContents := iris.SerializeToString("text/markdown", markdownContents, iris.RenderOptions{"charset": "8859-1"}) // default is the iris.Config.Charset, which is UTF-8
 
 		ctx.Log(htmlContents)
 		ctx.Write("The Raw HTML is:\n%s", htmlContents)
@@ -251,13 +269,14 @@ All features of Sundown are supported, including:
 
 	iris.Listen(":8080")
 }
+
 ```
 
 
-Now we can continue to the rest of the default & built'n response engines
+Now we can continue to the rest of the default & built'n Serializers
 
 
-**JSON Response Engine**
+**JSON Serializer**
 
 
 ```go
@@ -306,7 +325,7 @@ func main() {
 package main
 
 import (
-	"github.com/iris-contrib/response/json"
+	"github.com/kataras/go-serializer/json"
 	"github.com/kataras/iris"
 )
 
@@ -317,9 +336,9 @@ type myjson struct {
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, which you can change
 
-	// first example
-	// use the json's Config, we need the import of the json response engine in order to change its internal configs
-	// this is one of the reasons you need to import a default engine,(template engine or response engine)
+	//first example
+	// use the json's Config, we need the import of the json serialize engine(serializer) in order to change its internal configs
+	// this is one of the reasons you need to import a default engine,(template engine or serialize engine(serializer))
 	/*
 		type Config struct {
 			Indent        bool
@@ -328,9 +347,9 @@ func main() {
 			StreamingJSON bool
 		}
 	*/
-	iris.UseResponse(json.New(json.Config{
+	iris.UseSerializer(json.ContentType, json.New(json.Config{
 		Prefix: []byte("MYPREFIX"),
-	}), json.ContentType) // you can use anything as the second parameter, the json.ContentType is the string "application/json", the context.JSON renders with this engine's key.
+	})) // you can use anything as the second parameter, the json.ContentType is the string "application/json", the context.JSON renders with this engine's key.
 
 	jsonHandlerSimple := func(ctx *iris.Context) {
 		ctx.JSON(iris.StatusOK, myjson{Name: "iris"})
@@ -341,13 +360,13 @@ func main() {
 		ctx.Render("application/json", myjson{Name: "iris"}, iris.RenderOptions{"charset": "8859-1"})
 	}
 
-	// second example,
-	// imagine that we need the context.JSON to be listening to our "application/json" response engine with a custom prefix (we did that before)
-	// but we also want a different renderer, but again application/json content type, with indent option set to true:
-	iris.UseResponse(json.New(json.Config{Indent: true}), "json2")("application/json")
-	// yes the UseResponse returns a function which you can map the content type if it's not declared on the key
+	//second example,
+	// imagine that we need the context.JSON to be listening to our "application/json" serialize engine(serializer) with a custom prefix (we did that before)
+	// but we also want a different renderer, but again application/json content type, with Indent option setted to true:
+	iris.UseSerializer("json2", json.New(json.Config{Indent: true}))
 	json2Handler := func(ctx *iris.Context) {
 		ctx.Render("json2", myjson{Name: "My iris"})
+		ctx.SetContentType("application/json")
 	}
 
 	iris.Get("/", jsonHandlerSimple)
@@ -359,10 +378,11 @@ func main() {
 	iris.Listen(":8080")
 }
 
+
 ```
 
 
-**JSONP Response Engine**
+**JSONP Serializer**
 
 ```go
 package main
@@ -392,12 +412,13 @@ func main() {
 	})
 
 	iris.Get("/alternative_4", func(ctx *iris.Context) {
-		// logs if any error happens and sends the http status '500 internal server error' to the client
+		// logs if any error and sends http status '500 internal server error' to the client
 		ctx.MustRender("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName", "charset": "UTF-8"}) // UTF-8 is the default.
 	})
 
 	iris.Listen(":8080")
 }
+
 
 ```
 
@@ -406,7 +427,7 @@ func main() {
 package main
 
 import (
-	"github.com/iris-contrib/response/jsonp"
+	"github.com/kataras/go-serializer/jsonp"
 	"github.com/kataras/iris"
 )
 
@@ -417,15 +438,17 @@ type myjson struct {
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, which you can change
 
-	// first example
-	// this is one of the reasons you need to import a default engine,(template engine or response engine)
+	//first example
+	// this is one of the reasons you need to import a default engine,(template engine or serialize engine(serializer))
 	/*
 		type Config struct {
 			Indent   bool
 			Callback string // the callback can be override by the context's options or parameter on context.JSONP
 		}
 	*/
-	iris.UseResponse(jsonp.New(jsonp.Config{Indent: true}), jsonp.ContentType)
+	iris.UseSerializer(jsonp.ContentType, jsonp.New(jsonp.Config{
+		Indent: true,
+	}))
 	// you can use anything as the second parameter,
 	// the jsonp.ContentType is the string "application/javascript",
 	// the context.JSONP renders with this engine's key.
@@ -439,12 +462,13 @@ func main() {
 		ctx.Render("application/javascript", myjson{Name: "iris"}, iris.RenderOptions{"callback": "callbackName", "charset": "8859-1"})
 	}
 
-	// second example,
+	//second example,
 	// but we also want a different renderer, but again "application/javascript" as content type, with Callback option setted globaly:
-	iris.UseResponse(jsonp.New(jsonp.Config{Callback: "callbackName"}), "jsonp2")("application/javascript")
-	// yes the UseResponse returns a function which you can map the content type with if it's not declared on the key
+	iris.UseSerializer("jsonp2", jsonp.New(jsonp.Config{Callback: "callbackName"}))
+	// yes the UseSerializer returns a function which you can map the content type if it's not declared on the key
 	handlerJsonp2 := func(ctx *iris.Context) {
 		ctx.Render("jsonp2", myjson{Name: "My iris"})
+		ctx.SetContentType("application/javascript")
 	}
 
 	iris.Get("/", handlerSimple)
@@ -455,17 +479,21 @@ func main() {
 
 	iris.Listen(":8080")
 }
+
 ```
 
 
 
-**XML Response Engine**
+**XML Serializer**
 
 
 ```go
 package main
 
-import "github.com/kataras/iris"
+import (
+	"encoding/xml"
+	"github.com/kataras/iris"
+)
 
 type myxml struct {
 	XMLName xml.Name `xml:"xml_example"`
@@ -496,12 +524,13 @@ func main() {
 	})
 
 	iris.Get("/alternative_5", func(ctx *iris.Context) {
-		// logs if any error happens and sends the http status '500 internal server error' to the client
+		// logs if any error and sends http status '500 internal server error' to the client
 		ctx.MustRender("text/xml", myxml{First: "first attr", Second: "second attr"}, iris.RenderOptions{"charset": "UTF-8"})
 	})
 
 	iris.Listen(":8080")
 }
+
 
 ```
 
@@ -512,7 +541,7 @@ package main
 import (
 	encodingXML "encoding/xml"
 
-	"github.com/iris-contrib/response/xml"
+	"github.com/kataras/go-serializer/xml"
 	"github.com/kataras/iris"
 )
 
@@ -525,15 +554,17 @@ type myxml struct {
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, which you can change
 
-	// first example
-	// this is one of the reasons you need to import a default engine,(template engine or response engine)
+	//first example
+	// this is one of the reasons you need to import a default engine,(template engine or serialize engine(serializer))
 	/*
 		type Config struct {
 			Indent bool
 			Prefix []byte
 		}
 	*/
-	iris.UseResponse(xml.New(xml.Config{Indent: true}), xml.ContentType)
+	iris.UseSerializer(xml.ContentType, xml.New(xml.Config{
+		Indent: true,
+	}))
 	// you can use anything as the second parameter,
 	// the jsonp.ContentType is the string "text/xml",
 	// the context.XML renders with this engine's key.
@@ -547,12 +578,12 @@ func main() {
 		ctx.Render("text/xml", myxml{First: "first attr", Second: "second attr"}, iris.RenderOptions{"charset": "8859-1"})
 	}
 
-	// second example,
-	// but we also want a different renderer, but again "text/xml" as content type, with prefix option set by configuration:
-	iris.UseResponse(xml.New(xml.Config{Prefix: []byte("")}), "xml2")("text/xml") // if you really use a PREFIX it will not be valid xml, use it only for special cases
-	// yes the UseResponse returns a function which you can map the content type with if it's not declared on the key
+	//second example,
+	// but we also want a different renderer, but again "text/xml" as content type, with prefix option setted by configuration:
+	iris.UseSerializer("xml2", xml.New(xml.Config{Prefix: []byte("")})) // if you really use a PREFIX it will be not valid xml, use it only for special cases
 	handlerXML2 := func(ctx *iris.Context) {
 		ctx.Render("xml2", myxml{First: "first attr", Second: "second attr"})
+		ctx.SetContentType("text/xml; charset=" + iris.Config.Charset)
 	}
 
 	iris.Get("/", handlerSimple)
@@ -563,10 +594,11 @@ func main() {
 
 	iris.Listen(":8080")
 }
+
 ```
 
 
-**Markdown Response Engine**
+**Markdown Serializer**
 
 
 ```go
@@ -634,7 +666,7 @@ All features of Sundown are supported, including:
 		ctx.HTML(iris.StatusOK, htmlContents)
 	})
 
-	// text/markdown is just the key which the markdown response engine and ctx.Markdown communicate,
+	// text/markdown is just the key which the markdown serialize engine(serializer) and ctx.Markdown communicate,
 	// it's real content type is text/html
 	iris.Get("/alternative_2", func(ctx *iris.Context) {
 		ctx.Render("text/markdown", markdownContents)
@@ -649,12 +681,13 @@ All features of Sundown are supported, including:
 	})
 
 	iris.Get("/alternative_5", func(ctx *iris.Context) {
-		// logs if any error happens and sends the http status '500 internal server error' to the client
+		// logs if any error and sends http status '500 internal server error' to the client
 		ctx.MustRender("text/markdown", markdownContents, iris.RenderOptions{"charset": "UTF-8"}) // UTF-8 is the default.
 	})
 
 	iris.Listen(":8080")
 }
+
 
 ```
 
@@ -663,7 +696,7 @@ All features of Sundown are supported, including:
 package main
 
 import (
-	"github.com/iris-contrib/response/markdown"
+	"github.com/kataras/go-serializer/markdown"
 	"github.com/kataras/iris"
 )
 
@@ -715,13 +748,13 @@ All features of Sundown are supported, including:
 	[this is a link](https://github.com/kataras/iris) `
 
 	//first example
-	// this is one of the reasons you need to import a default engine,(template engine or response engine)
+	// this is one of the reasons you need to import a default engine,(template engine or serialize engine(serializer))
 	/*
 		type Config struct {
 			MarkdownSanitize bool
 		}
 	*/
-	iris.UseResponse(markdown.New(), markdown.ContentType)
+	iris.UseSerializer(markdown.ContentType, markdown.New())
 	// you can use anything as the second parameter,
 	// the markdown.ContentType is the string "text/markdown",
 	// the context.Markdown renders with this engine's key.
@@ -732,11 +765,11 @@ All features of Sundown are supported, including:
 	}
 
 	//second example,
-	// but we also want a different renderer, but again "text/markdown" as 'content type' (this is converted to text/html behind the scenes), with MarkdownSanitize option setted to true:
-	iris.UseResponse(markdown.New(markdown.Config{MarkdownSanitize: true}), "markdown2")("text/markdown")
-	// yes the UseResponse returns a function which you can map the content type if it's not declared on the key
+	// but we also want a different renderer, but again "text/html" as 'content type' (this is the real content type we want to render with, at the first ctx.Render the text/markdown key is converted automatically to text/html without need to call SetContentType), with MarkdownSanitize option setted to true:
+	iris.UseSerializer("markdown2", markdown.New(markdown.Config{MarkdownSanitize: true}))
 	handlerMarkdown2 := func(ctx *iris.Context) {
 		ctx.Render("markdown2", markdownContents, iris.RenderOptions{"gzip": true})
+		ctx.SetContentType("text/html")
 	}
 
 	iris.Get("/", handlerWithRender)
@@ -746,10 +779,9 @@ All features of Sundown are supported, including:
 	iris.Listen(":8080")
 }
 
-
 ```
 
-**Data(Binary) Response Engine**
+**Data(Binary) Serializer**
 
 
 ```go
@@ -784,11 +816,12 @@ func main() {
 	iris.Listen(":8080")
 }
 
+
 ```
 
 
  ----- 
 
- - examples are located [here](https://github.com/iris-contrib/examples/tree/master/response_engines/).
+ - examples are located [here](https://github.com/iris-contrib/examples/tree/master/serialize_engines/).
 
-- You can contribute response engines to Iris, click [here](https://github.com/iris-contrib/response) to navigate to the reository.
+- You can contribute to Serializers, click [here](https://github.com/kataras/go-serializer) to navigate to the reository.
