@@ -317,3 +317,44 @@ type Configuration struct {
 > same app, when it's necessary.
 
 
+`.New` **by configuration**
+
+```go
+
+import "github.com/kataras/iris"
+
+//...
+
+
+
+myConfig := iris.Configuration{Charset: "UTF-8", IsDevelopment:true, Sessions: iris.SessionsConfiguration{Cookie:"mycookie"}, Websocket: iris.WebsocketConfiguration{Endpoint: "/my_endpoint"}}
+
+iris.New(myConfig)
+
+```
+
+
+
+`.New` **by options**
+
+
+
+```go
+
+import "github.com/kataras/iris"
+
+//...
+
+
+
+iris.New(iris.OptionCharset("UTF-8"), iris.OptionIsDevelopment(true), 
+iris.OptionSessionsCookie("mycookie"), iris.OptionWebsocketEndpoint("/my_endpoint"))
+
+
+
+// if you want to set configuration after the .New use the .Set:
+
+iris.Set(iris.OptionDisableBanner(true))
+
+```
+
