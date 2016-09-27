@@ -8,7 +8,7 @@ You might have asked yourself:
   1. global **iris.**
   2. declare a new iris station with default config: **iris.New\(\)** 
   3. declare a new iris station with custom config: ** api := iris.New\(iris.Configuration{...}\)**
-  4. declare a new iris station with custom options: ** api := iris.New\(iris.OptionCharset("UTF-8"), iris.OptionSessionsCookie("mycookie"), ...\)**
+  4. declare a new iris station with custom options: ** api := iris.New\(iris.OptionCharset\("UTF-8"\), iris.OptionSessionsCookie\("mycookie"\), ...\)**
 
 
 Config can change after declaration with`$instance.Config.`, \/ `$instance.Set(Option...)`
@@ -40,14 +40,14 @@ func firstWay() {
 func thirdWay() {
 
     api := iris.New()
-	api.Set(iris.OptionCharset("UTF-8"))
-	
+    api.Set(iris.OptionCharset("UTF-8"))
+
     api.Get("/home",func(c *iris.Context){})
     api.Listen(":8080")
 }
 ```
 
-Before looking at the 3rd way, let's take a quick look at the [**config**](configuration.md)**\*\***.Iris\*\*:
+Before looking at the 3rd way, let's take a quick look at the **[config](configuration.md)**
 
 ```go
 type (
