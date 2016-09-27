@@ -39,6 +39,12 @@ ListenUNIX(addr string, mode os.FileMode)
 // if you want to panic on this error use the iris.Must(iris.Close())
 Close() error
 
+
+// Reserve re-starts the server using the last .Serve's listener
+Reserve() error
+
+// IsRunning returns true if server is running
+IsRunning() bool
 ```
 
 ```go
