@@ -49,7 +49,7 @@ func forthWay() {
     api.Listen(":8080")
 }
 
-// after .New, at runtime, also possible because Iris have default values, configuration is TOTALLY OPTIONAL
+// after .New, at runtime, also possible because Iris have default values, configuration is TOTALLY OPTIONALLY
 func main() {
     iris.Config.Websocket.Endpoind = "/ws"
 
@@ -61,7 +61,7 @@ func main() {
 
 ```
 
-Let's take a quick look at the [**iris.Configuration**](configuration.md)
+Let's take a quick look at the **[iris.Configuration](configuration.md)**
 
 ```go
 // Configuration the whole configuration for an iris instance ($instance.Config) or global iris instance (iris.Config)
