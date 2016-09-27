@@ -22,6 +22,7 @@ sharing variables between middleware, render rich content, send files and much m
 * **Full API**: All http methods are supported[*](api.md)
 * **Party**:  Group routes when sharing the same resources or middleware. You can organise a party with domains too! [*](party.md)
 * **Transport Layer Security**: Provide privacy, authenticity and data integrity between your server and the client, you can serve using letsencrypt.org, automatic tls too![*](tls.md)
+
 * **Multi server instances**: Not only does Iris have a default main server, =you can declare as many as you need[*](declaration.md)
 * **Zero configuration**:  No need to configure anything for typical usage.   
 Well-structured default configurations everywhere, which you can change with ease.
