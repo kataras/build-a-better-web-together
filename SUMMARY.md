@@ -17,7 +17,6 @@
 * [Middleware](middleware.md)
 * [API](api.md)
 * [Declaration](declaration.md)
-* [Configuration](configuration.md)
 * [Party](party.md)
 * [Subdomains](subdomains.md)
 * [Named Parameters](named-parameters.md)
