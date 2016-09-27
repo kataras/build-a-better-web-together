@@ -15,7 +15,8 @@ func main() {
     iris.Head("/testHead", testHead)
     iris.Patch("/testPatch", testPatch)
     iris.Options("/testOptions", testOptions)
-
+    iris.Connect("/testConnect", testConnect)
+    iris.Trace("/testTrace", testTrace)
     iris.Listen(":8080")
 }
 
