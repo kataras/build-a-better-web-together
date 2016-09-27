@@ -30,14 +30,17 @@ func secondWay() {
     api.Listen(":8080")
 }
 
-// 1.
-func firstWay() {
-
-    iris.Get("/home",func(c *iris.Context){})
-    iris.Listen(":8080")
-}
 // 3.
 func thirdWay() {
+
+   config := iris.Configuration{IsDevelopment: true}
+   iris.New(config)
+   iris.Get("/home", func(c*iris.Context){})
+   iris.Listen(":8080")
+}
+
+// 4.
+func forthWay() {
 
     api := iris.New()
     api.Set(iris.OptionCharset("UTF-8"))
@@ -47,7 +50,7 @@ func thirdWay() {
 }
 ```
 
-Before looking at the 3rd way, let's take a quick look at the **[config](configuration.md)**
+Before looking at the 3rd way, let's take a quick look at the [**config**](configuration.md)
 
 ```go
 // Configuration the whole configuration for an iris instance ($instance.Config) or global iris instance (iris.Config)
