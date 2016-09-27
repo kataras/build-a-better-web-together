@@ -8,6 +8,7 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
+    // declare the routes
     iris.Get("/home", testGet)
     iris.Post("/login", testPost)
     iris.Put("/add", testPut)
@@ -17,6 +18,8 @@ func main() {
     iris.Options("/testOptions", testOptions)
     iris.Connect("/testConnect", testConnect)
     iris.Trace("/testTrace", testTrace)
+
+    // start the server
     iris.Listen(":8080")
 }
 
