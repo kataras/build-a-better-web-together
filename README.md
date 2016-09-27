@@ -9,7 +9,7 @@
 * [Versioning](versioning.md)
 * [Install](install.md)
 * [Hi](hi.md)
-* [Transport Layer Security](tls.md)
+* [Listen and Serve](tls.md)
 * [Handlers](handlers.md)
    * [Using Handlers](using-handlers.md)
    * [Using HandlerFuncs](using-handlerfuncs.md)
