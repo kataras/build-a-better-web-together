@@ -78,7 +78,7 @@ Rich Hi with **Django-syntax**:
 // ./main.go
 import (
     "github.com/kataras/iris"
-    "github.com/iris-contrib/template/django"
+    "github.com/kataras/go-template/django"
 )
 
 func main() {
