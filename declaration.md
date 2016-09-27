@@ -57,11 +57,11 @@ func main() {
 
    iris.Listen(":8080")
 }
-
-
 ```
 
-Let's take a quick look at the **[iris.Configuration](configuration.md)**
+
+
+Let's take a quick look at the [**iris.Configuration**](configuration.md)
 
 ```go
 // Configuration the whole configuration for an iris instance ($instance.Config) or global iris instance (iris.Config)
@@ -316,7 +316,6 @@ type Configuration struct {
 > Note that with 2.,  3. & 4. you **can serve more than one Iris server** in the
 > same app, when it's necessary.
 
-
 `.New` **by configuration**
 
 ```go
@@ -333,11 +332,7 @@ iris.New(myConfig)
 
 ```
 
-
-
 `.New` **by options**
-
-
 
 ```go
 
