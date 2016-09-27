@@ -313,7 +313,7 @@ type Configuration struct {
 
 ```
 
-> Note that with 2.,  3. & 4. you **can define and Listen with more than one Iris server** in the
+> Note that with 2.,  3. & 4. you **can serve more than one Iris server** in the
 > same app, when it's necessary.
 
 
