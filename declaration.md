@@ -11,7 +11,7 @@ You might have asked yourself:
   4. declare a new iris station with custom options: ** api := iris.New\(iris.OptionCharset\("UTF-8"\), iris.OptionSessionsCookie\("mycookie"\), ...\)**
 
 
-Config can change after declaration with`$instance.Config.`, \/ `$instance.Set(Option...)`
+Configuration is **OPTIONAL  **and can change after declaration with`$instance.Config.`, \/ `$instance.Set(Option...)`
 
 ```go
 import "github.com/kataras/iris"
@@ -48,9 +48,21 @@ func forthWay() {
     api.Get("/home",func(c *iris.Context){})
     api.Listen(":8080")
 }
+
+// after .New, at runtime, also possible because Iris have default values, configuration is TOTALLY OPTIONAL
+
+func main() {
+    iris.Config.Websocket.Endpoind = "/ws"
+
+   //...
+
+   iris.Listen(":8080")
+}
+
+
 ```
 
-Let's take a quick look at the [**iris.Configuration**](configuration.md)
+Let's take a quick look at the **[iris.Configuration](configuration.md)**
 
 ```go
 // Configuration the whole configuration for an iris instance ($instance.Config) or global iris instance (iris.Config)
