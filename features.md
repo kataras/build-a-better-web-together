@@ -27,5 +27,7 @@
   Well-structured default configurations everywhere, which you can change with ease.
 * **Zero allocations**: Iris generates zero garbage
 * **Auto updater**: You're able to turn on the version checker & updater in case you forget to update your iris
-* Iris is one of the most featured web frameworks out there, not all features are here and don't expect from me to write down all of their usages in this gitbook, if you see that I'm missing something please make a PR to the gitbook repository!
+
+
+Iris is one of the most featured web frameworks out there, not all features are here and don't expect from me to write down all of their usages in this gitbook, if you see that I'm missing something please make a PR to the gitbook repository!
 
