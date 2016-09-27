@@ -61,7 +61,7 @@ func main() {
 
 ```
 
-Let's take a quick look at the [**iris.Configuration**](configuration.md)
+Let's take a quick look at the **[iris.Configuration](configuration.md)**
 
 ```go
 // Configuration the whole configuration for an iris instance ($instance.Config) or global iris instance (iris.Config)
@@ -310,43 +310,10 @@ type Configuration struct {
     Other options.Options
 }
 
-```
-
-```go
-// 3.
-package main 
-
-import (
-  "github.com/kataras/iris"
-  "github.com/kataras/iris/config"
-)
-
-func main() {
-    c := config.Iris{
-        ProfilePath:        "/mypath/debug",
-    }
-    // to get the default: c := config.Default()
-
-    api := iris.New(c)
-    api.Listen(":8080")
-}
 
 ```
 
-> Note that with 2. & 3. you **can define and Listen with more than one Iris server** in the
+> Note that with 2.,  3. & 4. you **can define and Listen with more than one Iris server** in the
 > same app, when it's necessary.
-
-For profiling there are eight \(8\) generated routes with pages filled with info:
-
-* \/mypath\/debug\/
-* \/mypath\/debug\/cmdline
-* \/mypath\/debug\/profile
-* \/mypath\/debug\/symbol
-* \/mypath\/debug\/goroutine
-* \/mypath\/debug\/heap
-* \/mypath\/debug\/threadcreate
-* \/mypath\/debug\/pprof\/block
-
-* More about configuration [here](configuration.md)
 
 
