@@ -50,7 +50,7 @@ func forthWay() {
 }
 ```
 
-Before looking at the 3rd way, let's take a quick look at the [**config**](configuration.md)
+Let's take a quick look at the **[config](configuration.md)**
 
 ```go
 // Configuration the whole configuration for an iris instance ($instance.Config) or global iris instance (iris.Config)
