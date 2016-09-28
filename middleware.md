@@ -23,7 +23,7 @@ iris.Get("/secondroute", myMiddlewareFunc, myRouteHandlerfunc)
 iris.Listen(":8080")
 
 
-// executeLast func middleware 
+// executeLast func middleware
 
 func executeLast(ctx *iris.Context){
     println("before close the http request")
@@ -35,7 +35,7 @@ type myMiddleware struct {
   // your 'stateless' fields here
 }
 
-func (m *myMiddleware) Serve(ctx *iris.Context){
+func (m myMiddleware) Serve(ctx *iris.Context){
   // ...
 }
 
@@ -58,7 +58,7 @@ Handler middleware example:
 
 type myMiddleware struct {}
 
-func (m *myMiddleware) Serve(c *iris.Context){
+func (m myMiddleware) Serve(c *iris.Context){
     shouldContinueToTheNextHandler := true
 
     if shouldContinueToTheNextHandler {
@@ -226,4 +226,3 @@ func main() {
 ```
 
 > Done\/DoneFuncs are just last-executed handlers, like Use\/UseFunc the children party inheritates these 'done\/last' handlers too.
-
