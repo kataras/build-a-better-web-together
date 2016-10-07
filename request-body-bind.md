@@ -111,14 +111,10 @@ The supported field types in the destination struct are:
 * a `pointer` to one of the above types
 
 
-#### Custom Marshaling
-
-
-It's possible to unmarshal data and the key of a map by using the `encoding.TextUnmarshaler` interface.
 
 ----
 
-#### Example
+#### Example form
 
 ```go
  //./main.go
@@ -184,8 +180,6 @@ func main() {
 
 ```
 
-
-#### Example
 
 
 
@@ -261,3 +255,31 @@ func main() {
   iris.Listen(":8080")
 }
 ```
+
+### Custom Decoder per Object
+
+`BodyDecoder` gives the ability to set a custom decoder **per passed object** when `context.ReadJSON` and `context.ReadXML` 
+
+```go
+// BodyDecoder is an interface which any struct can implement in order to customize the decode action
+// from ReadJSON and ReadXML
+//
+// Trivial example of this could be:
+// type User struct { Username string }
+//
+// func (u *User) Decode(data []byte) error {
+//	  return json.Unmarshal(data, u)
+// }
+//
+// the 'context.ReadJSON/ReadXML(&User{})' will call the User's
+// Decode option to decode the request body
+//
+// Note: This is totally optionally, the default decoders
+// for ReadJSON is the encoding/json and for ReadXML is the encoding/xml
+type BodyDecoder interface {
+	Decode(data []byte) error
+}
+
+```
+
+> for a usage example go to https://github.com/kataras/iris/blob/master/context_test.go#L262
