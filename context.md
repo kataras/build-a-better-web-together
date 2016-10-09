@@ -1,10 +1,9 @@
 # Context
 
+The context source code can be found [here](https://github.com/kataras/iris/blob/master/context.go). Keep note that many context's functions are not written here, use IDE/Editors with `auto-complete` feature.
+
 ```go
-	IContext interface {
-               // it contains all fasthttp's RequestCtx's functions
-               *fasthttp.RequestCtx
-               // These are the iris' specific 
+        *fasthttp.RequestCtx
 		Param(string) string
 		ParamInt(string) (int, error)
 		ParamInt64(string) (int64, error)
