@@ -144,19 +144,6 @@ OptionWebsocketReadBufferSize(val int)
 
 // OptionWebsocketWriteBufferSize is the buffer size for the underline writer
 OptionWebsocketWriteBufferSize(val int)
-
-// OptionTesterListeningAddr is the virtual server's listening addr (host)
-// Default is "iris-go.com:1993"
-OptionTesterListeningAddr(val string)
-
-// OptionTesterExplicitURL If true then the url (should) be prepended manually, useful when want to test subdomains
-// Default is false
-OptionTesterExplicitURL(val bool)
-
-// OptionTesterDebug if true then debug messages from the httpexpect will be shown when a test runs
-// Default is false
-OptionTesterDebug(val bool)
-
 ```go
 
 
@@ -355,10 +342,6 @@ type Configuration struct {
 	// Websocket contains the configs for Websocket's server integration
 	Websocket WebsocketConfiguration
 
-	// Tester contains the configs for the test framework, so far we have only one because all test framework's configs are setted by the iris itself
-	// You can find example on the https://github.com/kataras/iris/glob/master/context_test.go
-	Tester TesterConfiguration
-
 	// Other are the custom, dynamic options, can be empty
 	// this fill used only by you to set any app's options you want
 	// for each of an Iris instance
@@ -366,4 +349,4 @@ type Configuration struct {
 }
 ```
 
-View all configuration fields and options by navigating to the [kataras/iris/configuration.go source file](https://github.com/kataras/iris/blob/master/configuration.go)
+View all configuration fields and options by navigating to the [kataras/iris/configuration.go source file](https://github.com/kataras/iris/blob/master/configuration.go), to view the testing configuration move [here](https://github.com/kataras/iris/blob/master/httptest/httptest.go)
