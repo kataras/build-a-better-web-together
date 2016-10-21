@@ -26,7 +26,7 @@ ListenTLS(addr string, certFile, keyFile string)
 // ListenLETSENCRYPT starts a server listening at the specific nat address
 // using key & certification taken from the letsencrypt.org 's servers
 // it's also starts a second 'http' server to redirect all 'http://$ADDR_HOSTNAME:80' to the' https://$ADDR'
-// example: https://github.com/iris-contrib/examples/blob/master/letsencyrpt/main.go
+// example: https://github.com/iris-contrib/examples/blob/master/letsencrypt/main.go
 ListenLETSENCRYPT(addr string)
 
 // ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
@@ -48,7 +48,7 @@ IsRunning() bool
 ```
 
 ```go
-// Serve 
+// Serve
 ln, err := net.Listen("tcp4", ":8080")
 if err := iris.Serve(ln); err != nil {
    panic(err)
@@ -81,7 +81,7 @@ func main() {
     })
 
     // This will provide you automatic certification & key from letsencrypt.org's servers
-    // it also starts a second 'http://' server which will redirect all 'http://$PATH' 
+    // it also starts a second 'http://' server which will redirect all 'http://$PATH'
     // requests to 'https://$PATH'
     iris.ListenLETSENCRYPT("127.0.0.1:443")
 }
@@ -94,7 +94,3 @@ Examples:
 * [Listen using a custom net.Listener](https://github.com/iris-contrib/examples/tree/master/custom_net_listener)
 * [Redirect all http://$HOST to https://$HOST using a custom net.Listener](https://github.com/iris-contrib/examples/tree/master/listentls)
 * [Listen using automatic ssl](https://github.com/iris-contrib/examples/tree/master/letsencrypt)
-
-
-
-

@@ -14,7 +14,7 @@
  * [Using Handlers](using-handlers.md)
  * [Using HandlerFuncs](using-handlerfuncs.md)
  * [Using native http.Handler via iris.ToHandlerFunc()](using-native-httphandler-via-tohandlerfunc.md)
- * [Routitg and reverse lookups](routing.md)
+ * [Routing and reverse lookups](routing.md)
 * [Middleware](middleware.md)
 * [Routing API](api.md)
 * [Declaration & Configuartion](declaration.md)
@@ -50,5 +50,3 @@
 * [Browser based Editor](plugin-editor.md)
 * [Control panel](plugin-iriscontrol.md)
 * [Examples](https://github.com/iris-contrib/examples)
-
-
