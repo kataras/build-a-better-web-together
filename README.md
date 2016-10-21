@@ -17,7 +17,7 @@
    * [Routing and reverse lookups](routing.md)
 * [Middleware](middleware.md)
 * [Routing API](api.md)
-* [Declaration & Configuartion](declaration.md)
+* [Declaration & Configuration](declaration.md)
 * [Party](party.md)
 * [Subdomains](subdomains.md)
 * [Named Parameters](named-parameters.md)
