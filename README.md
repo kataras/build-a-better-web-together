@@ -49,6 +49,6 @@
 * [Easy Typescript](plugin-typescript.md)
 * [Browser based Editor](plugin-editor.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https://github.com/iris-contrib/examples)
+* [Examples](https://github.com/iris-contrib/examples/tree/4.0.0)
 
 
