@@ -1,9 +1,9 @@
 # Control panel
 
-[This is a plugin](https://github.com/iris-contrib/plugin/tree/master/iriscontrol) which is working but still work in progress.
+[This is a plugin](https://github.com/iris-contrib/plugin/tree/4.0.0/iriscontrol) which is working but still work in progress.
 
 It gives you access to information/stats about your iris server via a web interface.
-> You need an internet connection the first time you will run this plugin, because the assets don't exist in the repository (but [here](https://github.com/iris-contrib/iris-control-assets)). The plugin will install these for you at the first run.
+> You need an internet connection the first time you will run this plugin, because the assets don't exist in the repository (but [here](https://github.com/iris-contrib/iris-control-assets/tree/4.0.0)). The plugin will install these for you at the first run.
 
 -----
 
@@ -18,8 +18,8 @@ Example
 package main
 
 import (
-    "github.com/kataras/iris"
-    "github.com/iris-contrib/plugin/iriscontrol"
+    "gopkg.in/kataras/iris.v4"
+    "gopkg.in/iris-contrib/plugin.v4/iriscontrol"
 )
 
 func main() {

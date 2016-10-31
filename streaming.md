@@ -22,7 +22,7 @@ StreamWriter(cb func(writer *bufio.Writer))
 package main
 
 import(
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v4"
 	"bufio"
 	"time"
 	"fmt"

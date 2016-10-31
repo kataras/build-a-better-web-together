@@ -1,11 +1,11 @@
 # Sessions
-If you notice a bug or issue [post it here](https://github.com/kataras/go-sessions).
+If you notice a bug or issue [post it here](https://gopkg.in/kataras/go-sessions.v0tree/0.0.5).
 
 
 - Cleans the temp memory when a session is idle, and re-allocates it to the temp memory when it's necessary. 
 The most used sessions are optimized to be in the front of the memory's list.
 
-- Supports any type of database, currently only [Redis](https://github.com/kataras/go-sessions/tree/master/sessiondb/redis) and [LevelDB](https://github.com/kataras/go-sessions/tree/master/sessiondb/leveldb).
+- Supports any type of database, currently only [Redis](https://gopkg.in/kataras/go-sessions.v0tree/0.0.5/sessiondb/redis) and [LevelDB](https://gopkg.in/kataras/go-sessions.v0tree/0.0.5/sessiondb/leveldb).
 
 
 **A session can be defined as a server-side storage of information that is desired to persist throughout the user's interaction with the web application**.
@@ -26,7 +26,7 @@ Here you see two different ways to use the sessions, we are using the first in t
 ```go
 package main
 
-import	"github.com/kataras/iris"
+import	"gopkg.in/kataras/iris.v4"
 
 func main() {
 
@@ -34,31 +34,31 @@ func main() {
 	// using the station's Config field (iris.Config.Sessions)
 
 	// Cookie string, the session's client cookie name, for example: "qsessionid"
-	Cookie string
+	// Cookie string
 	// DecodeCookie set it to true to decode the cookie key with base64 URLEncoding
 	// Defaults to false
-	DecodeCookie bool
+	// DecodeCookie bool
 
 	// Expires the duration of which the cookie must expires (created_time.Add(Expires)).
 	// If you want to delete the cookie when the browser closes, set it to -1 but in this case, the server side's session duration is up to GcDuration
 	//
 	// Default infinitive/unlimited life duration(0)
-	Expires time.Duration
+	// Expires time.Duration
 
 	// CookieLength the length of the sessionid's cookie's value, let it to 0 if you don't want to change it
 	// Defaults to 32
-	CookieLength int
+	// CookieLength int
 
 	// GcDuration every how much duration(GcDuration) the memory should be clear for unused cookies (GcDuration)
 	// for example: time.Duration(2)*time.Hour. it will check every 2 hours if cookie hasn't be used for 2 hours,
 	// deletes it from backend memory until the user comes back, then the session continue to work as it was
 	//
 	// Default 2 hours
-	GcDuration time.Duration
+	// GcDuration time.Duration
 
 	// DisableSubdomainPersistence set it to true in order dissallow your q subdomains to have access to the session cookie
 	// defaults to false
-	DisableSubdomainPersistence bool
+	// DisableSubdomainPersistence bool
 
 	iris.Get("/", func(c *iris.Context) {
 		c.Write("You should navigate to the /set, /get, /delete, /clear,/destroy instead")
@@ -105,15 +105,15 @@ func main() {
 
 ```
 
-Example with **Redis session database**, which is located [here](https://github.com/kataras/go-sessions/tree/master/sessiondb/redis).
+Example with **Redis session database**, which is located [here](https://gopkg.in/kataras/go-sessions.v0tree/0.0.5/sessiondb/redis).
 
 ```go
 package main
 
 import (
-	"github.com/kataras/go-sessions/sessiondb/redis"
-	"github.com/kataras/go-sessions/sessiondb/redis/service"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/go-sessions.v0/sessiondb/redis"
+	"gopkg.in/kataras/go-sessions.v0/sessiondb/redis/service"
+	"gopkg.in/kataras/iris.v4"
 )
 
 func main() {

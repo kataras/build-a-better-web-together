@@ -6,7 +6,7 @@ but if you want to customize iris then pass `iris.New(iris.Configuration{})` or 
 
 `.New` **by configuration**
 ```go
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v4"
 //...
 
 myConfig := iris.Configuration{Charset: "UTF-8", IsDevelopment:true, Sessions: iris.SessionsConfiguration{Cookie:"mycookie"}, Websocket: iris.WebsocketConfiguration{Endpoint: "/my_endpoint"}}
@@ -16,7 +16,7 @@ iris.New(myConfig)
 `.New` **by options**
 
 ```go
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v4"
 //...
 
 iris.New(iris.OptionCharset("UTF-8"), iris.OptionIsDevelopment(true), iris.OptionSessionsCookie("mycookie"), iris.OptionWebsocketEndpoint("/my_endpoint"))
@@ -176,7 +176,7 @@ OptionServerKeyFile(val string)
 // AutoTLS enable to get certifications from the Letsencrypt
 // when this configuration field is true, the CertFile & KeyFile are empty, no need to provide a key.
 //
-// example: https://github.com/iris-contrib/examples/blob/master/letsencyrpt/main.go
+// example: https://github.com/iris-contrib/examples/blob/4.0.0/letsencyrpt/main.go
 OptionServerAutoTLS(val bool)
 
 // Mode this is for unix only
@@ -220,7 +220,7 @@ OptionServerWriteTimeout(val time.Duration)
 // NOTE: the http status is 'StatusMovedPermanently', means one-time-redirect(the browser remembers the new addr and goes to the new address without need to request something from this server
 // which means that if you want to change this address you have to clear your browser's cache in order this to be able to change to the new addr.
 //
-// example: https://github.com/iris-contrib/examples/tree/master/multiserver_listening2
+// example: https://github.com/iris-contrib/examples/tree/4.0.0/multiserver_listening2
 OptionServerRedirectTo(val string)
 
 // OptionServerVirtual If this server is not really listens to a real host, it mostly used in order to achieve testing without system modifications
@@ -349,4 +349,4 @@ type Configuration struct {
 }
 ```
 
-View all configuration fields and options by navigating to the [kataras/iris/configuration.go source file](https://github.com/kataras/iris/blob/master/configuration.go), to view the testing configuration move [here](https://github.com/kataras/iris/blob/master/httptest/httptest.go)
+View all configuration fields and options by navigating to the [kataras/iris/configuration.go source file](https://github.com/kataras/iris/blob/4.0.0/configuration.go), to view the testing configuration move [here](https://github.com/kataras/iris/blob/4.0.0/httptest/httptest.go)

@@ -1,6 +1,6 @@
 # Context
 
-The context source code can be found [here](https://github.com/kataras/iris/blob/master/context.go). Keep note that many context's functions are not written here, use IDE/Editors with `auto-complete` feature.
+The context source code can be found [here](https://github.com/kataras/iris/blob/4.0.0/context.go). Keep note that many context's functions are not written here, use IDE/Editors with `auto-complete` feature.
 
 ```go
         *fasthttp.RequestCtx

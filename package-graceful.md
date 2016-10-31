@@ -1,6 +1,6 @@
 # Graceful
 
-[This is a package](https://github.com/iris-contrib/graceful).
+[This is a package](https://github.com/iris-contrib/graceful/tree/4.0.0).
 
 
 Enables graceful shutdown.
@@ -11,8 +11,8 @@ package main
 
 import (
 	"time"
-	"github.com/kataras/iris"
-	"github.com/iris-contrib/graceful"
+	"gopkg.in/kataras/iris.v4"
+	"gopkg.in/iris-contrib/graceful.v4"
 )
 
 func main() {

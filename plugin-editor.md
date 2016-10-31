@@ -1,6 +1,6 @@
 # Editor
 
-[This is a plugin](https://github.com/iris-contrib/plugin/tree/master/editor).
+[This is a plugin](https://github.com/iris-contrib/plugin/tree/4.0.0/editor).
 
 Editor Plugin is just a bridge between Iris and [alm-tools](http://alm.tools).
 
@@ -19,8 +19,8 @@ This plugin starts it's own server. If Iris server is using TLS then the editor 
 package main
 
 import (
-	"github.com/kataras/iris"
-	"github.com/iris-contrib/plugin/editor"
+	"gopkg.in/kataras/iris.v4"
+	"gopkg.in/iris-contrib/plugin.v4/editor"
 )
 
 func main(){
@@ -43,6 +43,6 @@ Would be readable to anyone who could intercept the HTTP request (if TLS is not 
 
 > The editor can't work if the directory doesn't contain a [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig.json.html).
 
-> If you are using the [typescript plugin](https://github.com/iris-contrib/plugin/tree/master/typescript) you don't have to call the .Dir(...)
+> If you are using the [typescript plugin](https://github.com/iris-contrib/plugin/tree/4.0.0/typescript) you don't have to call the .Dir(...)
 
 

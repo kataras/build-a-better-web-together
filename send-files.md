@@ -11,7 +11,7 @@ SendFile(filename string, destinationName string)
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v4"
 
 func main() {
 
@@ -31,7 +31,7 @@ You can also send bytes manually, which will be downloaded by the user:
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v4"
 
 func main() {
 

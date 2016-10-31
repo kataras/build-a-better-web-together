@@ -1,6 +1,6 @@
 # Recovery
 
-[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/recovery).
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/4.0.0/recovery).
 
 
 Safely recover the server from a panic.
@@ -9,8 +9,8 @@ Safely recover the server from a panic.
 package main
 
 import (
-	"github.com/iris-contrib/middleware/recovery"
-	"github.com/kataras/iris"
+	"gopkg.in/iris-contrib/middleware.v4/recovery"
+	"gopkg.in/kataras/iris.v4"
 )
 
 func main() {

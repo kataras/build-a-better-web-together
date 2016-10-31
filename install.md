@@ -3,7 +3,7 @@
 **Compatible with go1.7+ **
 
 ```sh
-$ go get -u github.com/kataras/iris/iris
+$ go get -u gopkg.in/kataras/iris.v4
 ```
 
 this will update the dependencies also.
@@ -15,5 +15,5 @@ this will update the dependencies also.
 
 1. `$ go get github.com/kataras/iris/iris` **without -u**
 
-* If you have any problems installing Iris, just delete the directory `$GOPATH/src/github.com/kataras/iris` , open your shell and run `go get -u github.com/kataras/iris/iris` .
+* If you have any problems installing Iris, just delete the directory `$GOPATH/src/gopkg.in/kataras/` , open your shell and run `go get -u gopkg.in/kataras/iris.v4` .
 

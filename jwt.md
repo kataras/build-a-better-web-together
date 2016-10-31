@@ -1,7 +1,7 @@
 ## JSON Web Tokens
 
 
-This is a [middleware](https://github.com/iris-contrib/middleware/tree/master/jwt).
+This is a [middleware](https://github.com/iris-contrib/middleware/tree/4.0.0/jwt).
 
 ## What is it?
 
@@ -18,14 +18,16 @@ The part in the middle is the interesting bit. It's called the Claims and contai
 Refer to the RFC for information about reserved keys and the proper way to add your own.
 
 
+**NOTE:** If you can't find a solution here, navigate to the [jwt_test.go](https://github.com/iris-contrib/middleware/tree/4.0.0/jwt/jwt_test.go)
+
 ## Example
 ```go
 package main
 
 import (
 	"github.com/dgrijalva/jwt-go"
-	jwtmiddleware "github.com/iris-contrib/middleware/jwt"
-	"github.com/kataras/iris"
+	jwtmiddleware "gopkg.in/iris-contrib/middleware.v4/jwt"
+	"gopkg.in/kataras/iris.v4"
 )
 
 func main() {

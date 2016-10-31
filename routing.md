@@ -10,7 +10,7 @@ Route naming is easy, since we just call the returned `RouteNameFunc` with a str
 package main
 
 import (
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v4"
 )
 
 func main() {
@@ -59,4 +59,4 @@ We can use the following methods/functions to work with named routes (and their 
 
 ## Examples
 
-Check out the [`template_engines/template_html_4`](https://github.com/iris-contrib/examples/blob/master/template_engines/template_html_4/) example in the `iris-contrib/examples` repository.
+Check out the [`template_engines/template_html_4`](https://github.com/iris-contrib/examples/blob/4.0.0/template_engines/template_html_4/) example in the `iris-contrib/examples` repository.

@@ -138,8 +138,8 @@ package main
 
 import (
     "strings"
-    "github.com/kataras/iris"
-    "github.com/kataras/iris/utils"
+    "gopkg.in/kataras/iris.v4"
+    "gopkg.in/kataras/iris.v4/utils"
 )
 
 func main() {
@@ -198,7 +198,7 @@ Imagine that we have a folder named `static` which has subfolder `favicons` and 
 // ./main.go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v4"
 
 func main() {
     iris.Favicon("./static/favicons/iris_favicon_32_32.ico")
@@ -213,5 +213,5 @@ func main() {
 
 ```
 
-Practical example [here](https://github.com/iris-contrib/examples/tree/master/favicon)
+Practical example [here](https://github.com/iris-contrib/examples/tree/4.0.0/favicon)
 

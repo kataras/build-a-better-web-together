@@ -1,7 +1,7 @@
 # OAuth, OAuth2
 
 
-This is a [plugin](https://github.com/iris-contrib/plugin/tree/master/oauth).
+This is a [plugin](https://github.com/iris-contrib/plugin/tree/4.0.0/oauth).
 
 This plugin enables you to connect your clients using famous websites login APIs, it is a bridge to the [goth](https://github.com/markbates/goth) library.
 
@@ -78,8 +78,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/iris-contrib/plugin/oauth"
-	"github.com/kataras/iris"
+	"gopkg.in/iris-contrib/plugin.v4/oauth"
+	"gopkg.in/kataras/iris.v4"
 )
 
 // register your auth via configs, providers with non-empty 
@@ -184,7 +184,7 @@ import (
 	"sort"
 
 	"github.com/iris-contrib/gothic"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v4"
 	"github.com/markbates/goth"
 	"github.com/markbates/goth/providers/amazon"
 	"github.com/markbates/goth/providers/bitbucket"
