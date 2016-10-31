@@ -1,6 +1,6 @@
 # Send e-mails
 
-This is a [package](https://github.com/iris-contrib/mail).
+This is a [package](https://github.com/kataras/go-mailer).
 
 Sending plain or rich content e-mails is an easy process with Iris.
 
@@ -32,6 +32,10 @@ type Config struct {
 Send(subject string, body string, to ...string) error
 ```
 
+**Installation**
+
+```sh go get -u github.com/kataras/go-mailer ```
+
 **Example**
 
 File: `./main.go`
@@ -40,7 +44,7 @@ File: `./main.go`
 package main
 
 import (
-    "github.com/iris-contrib/mail"
+    "github.com/kataras/go-mailer"
     "github.com/kataras/iris"
 )
 

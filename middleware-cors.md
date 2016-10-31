@@ -1,5 +1,5 @@
 # HTTP access control
-[This is a middleware](https://github.com/kataras/iris/tree/master/middleware/cors).
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/cors).
 
 Some security work for between you and the requests.
 
