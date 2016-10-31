@@ -1,6 +1,8 @@
 # Versioning
 
-Current: **v4.6.0**
+Current: **v5.0.1**
+
+Stable: **[v4 LTS](https://github.com/kataras/iris/tree/4.0.0)**
 
 Read more about Semantic Versioning 2.0.0
 
