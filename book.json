@@ -2,8 +2,8 @@
 "gitbook": ">=3.0.0-pre.0",
 "links": {
 "sidebar": {
-"Free Open Source Project": "https://github.com/kataras/iris/blob/master/DONATIONS.md",
-"Don't forget to 🌟": "https://github.com/kataras/iris"
+"Free Open Source Project": "https://github.com/kataras/iris/blob/4.0.0/DONATIONS.md",
+"Don't forget to 🌟": "https://github.com/kataras/iris/tree/4.0.0"
  }
  }
 } 
