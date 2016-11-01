@@ -1,6 +1,8 @@
 <a href ="https://github.com/kataras/iris"> <img src="http://iris-go.com/assets/book/cover_4.jpg" width="300" /> </a>
 
 
+> NOTE: If you want to view the docs for the most recent stable version, [v4 LTS](https://github.com/kataras/iris/tree/4.0.0), click [here](https://www.gitbook.com/book/kataras/iris-v4) instead
+
 ## Table of Contents
 
 * [Introduction](README.md)
@@ -50,5 +52,3 @@
 * [Browser based Editor](plugin-editor.md)
 * [Control panel](plugin-iriscontrol.md)
 * [Examples](https://github.com/iris-contrib/examples)
-
-> NOTE: If you want to view the docs for the most recent stable version, [v4 LTS](https://github.com/kataras/iris/tree/4.0.0), click [here](https://github.com/iris-contrib/gitbook/tree/4.0.0) instead
