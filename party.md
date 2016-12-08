@@ -8,7 +8,11 @@ package main
 import "github.com/kataras/iris"
 
 func main() {
-    admin := iris.Party("/admin", func(ctx *iris.Context){ ctx.Write("Middleware for all party's routes!") })
+    admin := iris.Party("/admin", 
+	    func(ctx *iris.Context){
+     	   ctx.Write("Middleware for all party's routes!")
+		   ctx.Next();
+		})
     {
         // add a silly middleware
         admin.UseFunc(func(c *iris.Context) {
