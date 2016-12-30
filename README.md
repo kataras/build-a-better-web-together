@@ -1,4 +1,4 @@
-<a href ="https://github.com/kataras/iris/tree/5.0.0"> <img src="http://iris-go.com/assets/book/cover_4.jpg" width="300" /> </a>
+<a href ="https://github.com/kataras/iris/tree/5.0.0"> <img alt="book cover" src="http://iris-go.com/assets/book/cover_4.jpg" width="300" /> </a>
 
 
 > NOTE: If you want to view the docs for the most recent version, click [here](https://docs.iris-go.com) instead.
