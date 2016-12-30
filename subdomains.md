@@ -13,7 +13,7 @@ Iris has the simplest known form for subdomains, simple as [Parties](party.md).
 package main
 
 import (
-    "github.com/kataras/iris"
+    "gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -64,7 +64,7 @@ func main() {
 
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 // first register a dynamic-wildcard subdomain to your server machine(dns/...) (check ./hosts if you use windows).
 // run this file and try to redirect: http://username1.mydomain.com:8080/, http://username2.mydomain.com:8080/, http://username1.mydomain.com/something, http://username1.mydomain.com/something/sadsadsa

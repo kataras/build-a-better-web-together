@@ -1,7 +1,7 @@
 ## JSON Web Tokens
 
 
-This is a [middleware](https://github.com/iris-contrib/middleware/tree/master/jwt).
+This is a [middleware](https://github.com/iris-contrib/middleware/tree/5.0.0/jwt).
 
 ## What is it?
 
@@ -25,7 +25,7 @@ package main
 import (
 	"github.com/dgrijalva/jwt-go"
 	jwtmiddleware "github.com/iris-contrib/middleware/jwt"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {

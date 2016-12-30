@@ -1,5 +1,5 @@
 # HTTP access control
-[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/cors).
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/5.0.0/cors).
 
 Some security work for between you and the requests.
 
@@ -58,7 +58,7 @@ Example:
 package main
 
 import (
-    "github.com/kataras/iris"
+    "gopkg.in/kataras/iris.v5"
     "github.com/iris-contrib/middleware/cors"
 )
 

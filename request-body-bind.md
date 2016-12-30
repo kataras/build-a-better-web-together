@@ -20,7 +20,7 @@ How to use:
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 type Company struct {
    Public     bool      `form:"public"`
@@ -57,7 +57,7 @@ func main() {
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 type Company struct {
    Public     bool      
@@ -124,7 +124,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type Visitor struct {
@@ -282,4 +282,4 @@ type BodyDecoder interface {
 
 ```
 
-> for a usage example go to https://github.com/kataras/iris/blob/master/context_test.go#L262
+> for a usage example go to https://github.com/kataras/iris/blob/5.0.0/context_test.go#L262

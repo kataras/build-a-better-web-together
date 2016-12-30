@@ -11,7 +11,7 @@ package main
 
 import (
 	"time"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 	"github.com/iris-contrib/graceful"
 )
 

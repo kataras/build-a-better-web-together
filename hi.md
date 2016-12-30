@@ -3,7 +3,7 @@
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
     iris.Get("/hi", func(ctx *iris.Context) {
@@ -19,7 +19,7 @@ The same:
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
     api := iris.New()
@@ -48,7 +48,7 @@ Rich Hi with **html\/template**:
 
 ```go
 // ./main.go
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
     iris.Get("/hi", hi)
@@ -77,7 +77,7 @@ Rich Hi with **Django-syntax**:
 ```go
 // ./main.go
 import (
-    "github.com/kataras/iris"
+    "gopkg.in/kataras/iris.v5"
     "github.com/kataras/go-template/django"
 )
 

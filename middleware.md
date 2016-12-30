@@ -119,7 +119,7 @@ Make use of the [middleware](https://github.com/iris-contrib/middleware) package
 package main
 
 import (
- "github.com/kataras/iris"
+ "gopkg.in/kataras/iris.v5"
  "github.com/iris-contrib/middleware/logger"
 )
 
@@ -141,7 +141,7 @@ iris.Listen(":8080")
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func firstMiddleware(ctx *iris.Context) {
     ctx.Write("1. This is the first middleware, before any of route handlers \n")
@@ -185,7 +185,7 @@ func main() {
 // Package main same as middleware_2 but with party
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func firstMiddleware(ctx *iris.Context) {
     ctx.Write("1. This is the first middleware, before any of route handlers \n")

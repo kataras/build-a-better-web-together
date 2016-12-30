@@ -1,6 +1,6 @@
 # Secure
 
-[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/secure)
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/5.0.0/secure)
 
 Secure is an HTTP middleware for Go that facilitates some quick security wins.
 
@@ -17,7 +17,7 @@ Example
 package main
 
 import (
-    "github.com/kataras/iris"
+    "gopkg.in/kataras/iris.v5"
     "github.com/iris-contrib/middleware/secure"
 )
 

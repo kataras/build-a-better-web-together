@@ -26,7 +26,7 @@ Here you see two different ways to use the sessions, we are using the first in t
 ```go
 package main
 
-import	"github.com/kataras/iris"
+import	"gopkg.in/kataras/iris.v5"
 
 func main() {
 
@@ -113,7 +113,7 @@ package main
 import (
 	"github.com/kataras/go-sessions/sessiondb/redis"
 	"github.com/kataras/go-sessions/sessiondb/redis/service"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {

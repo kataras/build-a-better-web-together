@@ -1,6 +1,6 @@
 # Typescript
 
-[This is a plugin](https://github.com/iris-contrib/plugin/tree/master/typescript).
+[This is a plugin](https://github.com/iris-contrib/plugin/tree/5.0.0/typescript).
 
 This is an Iris and typescript bridge plugin.
 
@@ -34,7 +34,7 @@ This is an Iris and typescript bridge plugin.
 package main
 
 import (
-    "github.com/kataras/iris"
+    "gopkg.in/kataras/iris.v5"
     "github.com/iris-contrib/plugin/typescript"
 )
 

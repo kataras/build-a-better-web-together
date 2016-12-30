@@ -37,7 +37,7 @@ package main
 import (
 	"encoding/xml"
 
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type ExampleXml struct {
@@ -82,7 +82,7 @@ func main() {
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
 	iris.Config.Charset = "UTF-8" // this is the default, you don't have to set it manually
@@ -152,7 +152,7 @@ package main
 import (
 	"github.com/kataras/go-serializer"
 	"github.com/kataras/go-serializer/text"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 // Let's do this with ` text/plain` content type, because you can see its results easly, the first engine will use this "text/plain" as key,
@@ -202,7 +202,7 @@ this function to collect the end result and send it via e-mail to the user, or a
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
 
@@ -282,7 +282,7 @@ Now we can continue to the rest of the default & built'n Serializers
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 type myjson struct {
 	Name string `json:"name"`
@@ -326,7 +326,7 @@ package main
 
 import (
 	"github.com/kataras/go-serializer/json"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type myjson struct {
@@ -387,7 +387,7 @@ func main() {
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 type myjson struct {
 	Name string `json:"name"`
@@ -428,7 +428,7 @@ package main
 
 import (
 	"github.com/kataras/go-serializer/jsonp"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type myjson struct {
@@ -492,7 +492,7 @@ package main
 
 import (
 	"encoding/xml"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type myxml struct {
@@ -542,7 +542,7 @@ import (
 	encodingXML "encoding/xml"
 
 	"github.com/kataras/go-serializer/xml"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type myxml struct {
@@ -604,7 +604,7 @@ func main() {
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 type myjson struct {
 	Name string `json:"name"`
@@ -697,7 +697,7 @@ package main
 
 import (
 	"github.com/kataras/go-serializer/markdown"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -787,7 +787,7 @@ All features of Sundown are supported, including:
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
 	myData := []byte("some binary data or a program here which will not be a simple string at the production")
@@ -822,6 +822,6 @@ func main() {
 
  ----- 
 
- - examples are located [here](https://github.com/iris-contrib/examples/tree/master/serialize_engines/).
+ - examples are located [here](https://github.com/iris-contrib/examples/tree/5.0.0/serialize_engines/).
 
 - You can contribute to Serializers, click [here](https://github.com/kataras/go-serializer) to navigate to the reository.

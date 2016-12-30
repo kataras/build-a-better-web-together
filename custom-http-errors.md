@@ -6,7 +6,7 @@ You can define your own handlers when http error occurs.
 package main
 
 import (
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {

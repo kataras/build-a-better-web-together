@@ -97,7 +97,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -151,7 +151,7 @@ func (pl myPlugin) PostListen(s *iris.Framework) {
 ```
 
 An example of one plugin which is under development is Iris control, a web interface that gives you remote control to your Iris web server. 
-You can find it's code [here](https://github.com/iris-contrib/plugin/tree/master/iriscontrol).
+You can find it's code [here](https://github.com/iris-contrib/plugin/tree/5.0.0/iriscontrol).
 
 Take a look at [the plugin.go](https://github.com/iris-contrib/plugin), it's easy to make your own plugin.
 

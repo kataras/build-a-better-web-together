@@ -1,7 +1,7 @@
-<a href ="https://github.com/kataras/iris"> <img src="http://iris-go.com/assets/book/cover_4.jpg" width="300" /> </a>
+<a href ="https://github.com/kataras/iris/tree/5.0.0"> <img src="http://iris-go.com/assets/book/cover_4.jpg" width="300" /> </a>
 
 
-> NOTE: If you want to view the docs for the most recent stable version, [v4 LTS](https://github.com/kataras/iris/tree/4.0.0), click [here](https://www.gitbook.com/book/kataras/iris-v4) instead
+> NOTE: If you want to view the docs for the most recent version, click [here](https://docs.iris-go.com) instead.
 
 ## Table of Contents
 
@@ -51,4 +51,4 @@
 * [Easy Typescript](plugin-typescript.md)
 * [Browser based Editor](plugin-editor.md)
 * [Control panel](plugin-iriscontrol.md)
-* [Examples](https://github.com/iris-contrib/examples)
+* [Examples](https://github.com/iris-contrib/examples/tree/5.0.0)

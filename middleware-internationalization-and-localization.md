@@ -1,6 +1,6 @@
 # Internationalization and Localization
 
-[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/i18n)
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/5.0.0/i18n)
 
 ## Tutorial
 
@@ -26,7 +26,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 	"github.com/iris-contrib/middleware/i18n"
 )
 

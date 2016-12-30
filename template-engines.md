@@ -60,7 +60,7 @@ You will see first the template file's code, after the main.go code
 // ./main.go
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 // nothing to do, defaults to ./templates and .html extension, no need to import any template engine because HTML engine is the default
 // if anything else has been registered
@@ -106,7 +106,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/html"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type mypage struct {
@@ -198,7 +198,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/html"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -279,7 +279,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/html"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -326,7 +326,7 @@ func main() {
 package main
 
 import (
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -417,7 +417,7 @@ I will add hosts files contens only once, here, you can imagine the rest.
 package main
 
 import (
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -486,7 +486,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/django"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -531,7 +531,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/django"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -647,7 +647,7 @@ package main
 import (
 	"github.com/aymerick/raymond"
 	"github.com/kataras/go-template/handlebars"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type mypage struct {
@@ -747,7 +747,7 @@ import (
 	"html/template"
 
 	"github.com/kataras/go-template/pug"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type Person struct {
@@ -820,7 +820,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/pug"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -912,7 +912,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/amber"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type mypage struct {
@@ -999,7 +999,7 @@ package main
 
 import (
 	"github.com/kataras/go-template/django"
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 func main() {
@@ -1027,6 +1027,6 @@ func main() {
 -----
 
 
- - examples are located [here](https://github.com/iris-contrib/examples/tree/master/template_engines/) 
+ - examples are located [here](https://github.com/iris-contrib/examples/tree/5.0.0/template_engines/) 
 
 - You can contribute to create more template engines for Iris, click [here](https://github.com/kataras/go-template) to navigate to the repository. 

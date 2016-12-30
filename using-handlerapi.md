@@ -41,7 +41,7 @@ iris.Delete("/users/:id", ...)
 package main
 
 import (
-    "github.com/kataras/iris"
+    "gopkg.in/kataras/iris.v5"
 )
 
 type UserAPI struct {

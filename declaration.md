@@ -14,7 +14,7 @@ You might have asked yourself:
 Configuration is **OPTIONAL  **and can change after declaration with`$instance.Config.`, \/ `$instance.Set(Option...)`
 
 ```go
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 // 1.
 func firstWay() {
@@ -320,7 +320,7 @@ type Configuration struct {
 
 ```go
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 //...
 
@@ -336,7 +336,7 @@ iris.New(myConfig)
 
 ```go
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 //...
 

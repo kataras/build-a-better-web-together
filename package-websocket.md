@@ -125,7 +125,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 )
 
 type clientPage struct {
@@ -249,4 +249,4 @@ function appendMessage(messageDiv) {
 ```
 
 
-View a working example by navigating [here](https://github.com/iris-contrib/examples/tree/master/websocket) and if you need more than one websocket server [click here](https://github.com/iris-contrib/examples/tree/master/websocket_unlimited_servers).
+View a working example by navigating [here](https://github.com/iris-contrib/examples/tree/5.0.0/websocket) and if you need more than one websocket server [click here](https://github.com/iris-contrib/examples/tree/5.0.0/websocket_unlimited_servers).

@@ -26,7 +26,7 @@ ListenTLS(addr string, certFile, keyFile string)
 // ListenLETSENCRYPT starts a server listening at the specific nat address
 // using key & certification taken from the letsencrypt.org 's servers
 // it's also starts a second 'http' server to redirect all 'http://$ADDR_HOSTNAME:80' to the' https://$ADDR'
-// example: https://github.com/iris-contrib/examples/blob/master/letsencrypt/main.go
+// example: https://github.com/iris-contrib/examples/blob/5.0.0/letsencrypt/main.go
 ListenLETSENCRYPT(addr string)
 
 // ListenUNIX starts the process of listening to the new requests using a 'socket file', this works only on unix
@@ -69,7 +69,7 @@ iris.ListenTLS(":8080", "./ssl/mycert.cert", "./ssl/mykey.key")
 // Package main provide one-line integration with letsencrypt.org
 package main
 
-import "github.com/kataras/iris"
+import "gopkg.in/kataras/iris.v5"
 
 func main() {
     iris.Get("/", func(ctx *iris.Context) {
@@ -89,8 +89,8 @@ func main() {
 
 Examples:
 
-* [Listen using a custom fasthttp server](https://github.com/iris-contrib/examples/tree/master/custom_fasthttp_server)
-* [Serve content using a custom router](https://github.com/iris-contrib/examples/tree/master/custom_fasthttp_router)
-* [Listen using a custom net.Listener](https://github.com/iris-contrib/examples/tree/master/custom_net_listener)
-* [Redirect all http://$HOST to https://$HOST using a custom net.Listener](https://github.com/iris-contrib/examples/tree/master/listentls)
-* [Listen using automatic ssl](https://github.com/iris-contrib/examples/tree/master/letsencrypt)
+* [Listen using a custom fasthttp server](https://github.com/iris-contrib/examples/tree/5.0.0/custom_fasthttp_server)
+* [Serve content using a custom router](https://github.com/iris-contrib/examples/tree/5.0.0/custom_fasthttp_router)
+* [Listen using a custom net.Listener](https://github.com/iris-contrib/examples/tree/5.0.0/custom_net_listener)
+* [Redirect all http://$HOST to https://$HOST using a custom net.Listener](https://github.com/iris-contrib/examples/tree/5.0.0/listentls)
+* [Listen using automatic ssl](https://github.com/iris-contrib/examples/tree/5.0.0/letsencrypt)

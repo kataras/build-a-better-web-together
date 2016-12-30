@@ -1,6 +1,6 @@
 # Logger
 
-[This is a middleware](https://github.com/iris-contrib/middleware/tree/master/logger)
+[This is a middleware](https://github.com/iris-contrib/middleware/tree/5.0.0/logger)
 
 Logs the incoming requests
 
@@ -14,7 +14,7 @@ How to use
 package main
 
 import (
-	"github.com/kataras/iris"
+	"gopkg.in/kataras/iris.v5"
 	"github.com/iris-contrib/middleware/logger"
 )
 
