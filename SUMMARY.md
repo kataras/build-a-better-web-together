@@ -4,7 +4,7 @@
 * [About](about.md)
 * [Benchmarks](benchmarks.md)
 * [Support](support.md)
-* [Installing Iris](installing-iris.md)
+* [Installing Iris](installation.md)
 * [Getting Started](getting-started.md)
 * [Host](host.md)
   * [Automatic Public Domain with TLS](automatic-public-address.md)
