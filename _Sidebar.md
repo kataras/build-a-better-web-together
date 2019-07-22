@@ -1,6 +1,4 @@
-# Table of Contents
-
-* [Home](README.md)
+* [[Home]]
 * [[About]]
 * [[Benchmarks]]
 * [[Support]]
