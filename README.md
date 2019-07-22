@@ -2,6 +2,8 @@ Welcome to **Iris** - the fastest backend web framework for [Go](https://golang.
 
 This book is the main source of documentation for **teams and individuals developers** working with (or contributing to) the Iris project.
 
+## Table of Contents
+
 * [About](About.md)
 * [Benchmarks](Benchmarks.md)
 * [Support](Support.md)
@@ -36,10 +38,4 @@ This book is the main source of documentation for **teams and individuals develo
 * [Publications](Publications.md)
 
 
-
-
-
-
-
-[Project](Project-and-community.md) *|*
-[Technical Docs](https://godoc.org/github.com/kataras/iris) *|* [Documentation terms of use](Documentation-terms-and-conditions.md) *|* Copyright &copy; 2019 Gerasimos Maropoulos.
+[Project](Project-and-community.md) / [Technical Docs](https://godoc.org/github.com/kataras/iris) / [Documentation terms of use](Documentation-terms-and-conditions.md) / Copyright &copy; 2019 [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos).
