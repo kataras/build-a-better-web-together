@@ -43,4 +43,4 @@ However, I strongly believe that we should not respond back with the same coin, 
 
 Nowadays, Iris is more popular than ever. In fact, their posts, unintentionally, made Iris even more popular than it already was and people started to be very supportive to my dream and this is the reason we are still here.
 
-Do you want to find out how supportive Iris is as a return? You can continue reading our [[Support]] section.
+Do you want to find out how supportive Iris is as a return? You can continue reading our [Support](Support.md) section.

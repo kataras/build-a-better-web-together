@@ -1,4 +1,4 @@
-At the [[previous|Host]] section we've learnt about the first input argument of the `app.Run`, here we will take a look of what the second one is.
+At the [previous](Host.md) chapter we've learnt about the first input argument of the `app.Run`, here we will take a look of what the second one is.
 
 Let's start from basics. The `iris.New` function returns an `iris.Application`. This Application value can be configured through its `Configure(...iris.Configurator)` and `Run` methods.
 

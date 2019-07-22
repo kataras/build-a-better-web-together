@@ -18,4 +18,4 @@ require (
 )
 ```
 
-Continue by reading our [[Getting Started]] tutorial.
+Continue by reading our [Getting Started](Getting-Started.md) tutorial.

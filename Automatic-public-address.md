@@ -37,4 +37,4 @@ app.Run(iris.Addr(":8080"), iris.WithConfiguration(
 }))
 ```
 
-Read more about [[Configuration]].
+Read more about [Configuration](Configuration.md).
