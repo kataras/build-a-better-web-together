@@ -1,12 +1,12 @@
-The HTTP referer(originally a misspelling of **referrer**) is an optional HTTP header field that identifies the address of the webpage (i.e. the URI or IRI) which is linked to the resource being requested. By checking the referrer, the new webpage can see where the request originated.
+# HTTP Referer
+
+The HTTP referer\(originally a misspelling of **referrer**\) is an optional HTTP header field that identifies the address of the webpage \(i.e. the URI or IRI\) which is linked to the resource being requested. By checking the referrer, the new webpage can see where the request originated.
 
 Read more at [wikipedia](https://en.wikipedia.org/wiki/HTTP_referer)
 
---------
-
 Iris uses the [Shopify's goreferrer](https://github.com/Shopify/goreferrer/pull/27) package to expose the `Context.GetReferrer()` method.
 
-The `GetReferrer` Context's method extracts and returns the information from the `"Referer"` header as specified in https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy or by the URL `query parameter "referer"`.
+The `GetReferrer` Context's method extracts and returns the information from the `"Referer"` header as specified in [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) or by the URL `query parameter "referer"`.
 
 ```go
 GetReferrer() Referrer
@@ -29,7 +29,7 @@ type (
     }
 ```
 
-The `ReferrerType` is the enum for a Referrer.Type value (indirect, direct, email, search, social). The available types are:
+The `ReferrerType` is the enum for a Referrer.Type value \(indirect, direct, email, search, social\). The available types are:
 
 ```go
 ReferrerInvalid
@@ -77,7 +77,7 @@ func main() {
 
 How to `curl`:
 
-```sh
+```bash
 curl http://localhost:8080?\
 referer=https://twitter.com/Xinterio/status/1023566830974251008
 
@@ -85,3 +85,4 @@ curl http://localhost:8080?\
 referer=https://www.google.com/search?q=Top+6+golang+web+frameworks\
 &oq=Top+6+golang+web+frameworks
 ```
+

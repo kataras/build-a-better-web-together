@@ -1,7 +1,9 @@
+# URL Query Parameters
+
 The Iris Context has two methods that return the `net/http` standard `http.ResponseWriter` and `http.Request` values as we already mention at the previous chapters.
 
-- `Context.Request()`
-- `Context.ResponseWriter()`
+* `Context.Request()`
+* `Context.ResponseWriter()`
 
 However, except the unique Iris features and helpers that Iris Context offers, for easier development, we provide some wrappers of existing `net/http` capabilities as well.
 
@@ -49,10 +51,9 @@ URLParamBool(name string) (bool, error)
 URLParams() map[string]string
 ```
 
-Query string parameters are parsed using the existing underlying request object.
-The request responds to a url matching: _/welcome?firstname=Jane&lastname=Doe_.
+Query string parameters are parsed using the existing underlying request object. The request responds to a url matching: _/welcome?firstname=Jane&lastname=Doe_.
 
-- `ctx.URLParam("lastname")` == `ctx.Request().URL.Query().Get("lastname")`
+* `ctx.URLParam("lastname")` == `ctx.Request().URL.Query().Get("lastname")`
 
 Example Code:
 
@@ -64,3 +65,4 @@ Example Code:
         ctx.Writef("Hello %s %s", firstname, lastname)
     })
 ```
+

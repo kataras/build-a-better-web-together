@@ -1,3 +1,5 @@
+# Override Context
+
 In this section you will learn how to override the existing [Context](https://godoc.org/github.com/kataras/iris/context#Context)'s methods.
 
 The [Context](https://godoc.org/github.com/kataras/iris/context#Context) is an interface. However as you probably know, when using other frameworks you don't have that functionality of overriding even if it's used as an interface. With Iris you can **attach** your implementation to the **context pool** itself using the `app.ContextPool.Attach` method.
@@ -101,3 +103,4 @@ func recordWhichContextForExample(ctx context.Context) {
     ctx.Next()
 }
 ```
+

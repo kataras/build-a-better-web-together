@@ -1,3 +1,5 @@
+# Cookies
+
 Cookies are accessible through the Request instance of Context. The `ctx.Request()` returns a `net/http#Request`.
 
 However the Iris `Context` provides some helpers to make the most common use cases of cookies easier accessible to you and without any custom additional code of yours that would be required if you just using the Request's Cookies methods.
@@ -18,7 +20,7 @@ If you want you can also use the `SetCookieKV` method which does not require an 
 SetCookieKV(name, value string, options ...CookieOption)
 ```
 
-Note that the default expiration for a cookie set by `SetCookieKV` is 365 days. You can either use the `CookieExpires` Cookie Option(see below) or globally by setting the `kataras/iris/Context.SetCookieKVExpiration` package-level variable.
+Note that the default expiration for a cookie set by `SetCookieKV` is 365 days. You can either use the `CookieExpires` Cookie Option\(see below\) or globally by setting the `kataras/iris/Context.SetCookieKVExpiration` package-level variable.
 
 The `CookieOption` is just a type for `func(*http.Cookie)`.
 
@@ -41,7 +43,6 @@ iris.CookieHTTPOnly(httpOnly bool) CookieOption
 ```
 
 > HttpOnly field defaults to true for `RemoveCookie` and `SetCookieKV`.
-
 
 And let's go a bit further with cookie encoding.
 
@@ -95,8 +96,7 @@ CookieDecoder should decode the cookie value.
 CookieDecoder func(cookieName string, cookieValue string, v interface{}) error
 ```
 
-Errors are not printed, so you have to know what you're doing,
-and remember: if you use AES it only supports key sizes of 16, 24 or 32 bytes.
+Errors are not printed, so you have to know what you're doing, and remember: if you use AES it only supports key sizes of 16, 24 or 32 bytes.
 
 You either need to provide exactly that amount or you derive the key from what you type in.
 
@@ -133,3 +133,4 @@ Also, note that the default behavior is to set its `HttpOnly` to true. It perfor
 ```go
 RemoveCookie(name string, options ...CookieOption)
 ```
+

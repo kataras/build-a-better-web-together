@@ -1,18 +1,20 @@
+# Request Authentication
+
 Iris offers request authentication through its [jwt middleware](https://github.com/iris-contrib/middleware/tree/master/jwt). In this chapter you will learn the basics of how to use JWT with Iris.
 
 **1.** Install it by executing the following shell command:
 
-```sh
+```bash
 $ go get github.com/iris-contrib/middleware/jwt
 ```
 
-**2.** To create a new jwt middleware use the `jwt.New` function. This example extracts the token through a `"token"` url parameter. Authenticated clients should be designed to set that with a signed token.  The default jwt middleware's behavior to extract a token value is by the `Authentication: Bearer $TOKEN` header.
+**2.** To create a new jwt middleware use the `jwt.New` function. This example extracts the token through a `"token"` url parameter. Authenticated clients should be designed to set that with a signed token. The default jwt middleware's behavior to extract a token value is by the `Authentication: Bearer $TOKEN` header.
 
 The jwt middleware has three methods to validate tokens.
 
-- The first one is the `Serve` method - it is an `iris.Handler`,
-- the second one is the `CheckJWT(iris.Context) bool` and
-- the third one is a helper to retrieve the validated token - the `Get(iris.Context) *jwt.Token`.
+* The first one is the `Serve` method - it is an `iris.Handler`,
+* the second one is the `CheckJWT(iris.Context) bool` and
+* the third one is a helper to retrieve the validated token - the `Get(iris.Context) *jwt.Token`.
 
 **3.** To register it you simply prepend the jwt `j.Serve` middleware to a specific group of routes, a single route, or globally e.g. `app.Get("/secured", j.Serve, myAuthenticatedHandler)`.
 
@@ -70,3 +72,4 @@ func main(){
 ```
 
 You can use any payload as "claims".
+

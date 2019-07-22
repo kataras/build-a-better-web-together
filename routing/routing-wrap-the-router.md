@@ -1,8 +1,8 @@
-# Wrapping the Router
+# Wrap the Router
 
 You may never need this one but it's here in case.
 
-There are times that you may need to override or decide whether the Router will be executed on an incoming request. If you've any previous experience with the `net/http` and other web frameworks this function will be familiar with you (it has the form of a net/http middleware, but instead of accepting the next handler it accepts the Router as a function to be executed or not).
+There are times that you may need to override or decide whether the Router will be executed on an incoming request. If you've any previous experience with the `net/http` and other web frameworks this function will be familiar with you \(it has the form of a net/http middleware, but instead of accepting the next handler it accepts the Router as a function to be executed or not\).
 
 ```go
 // WrapperFunc is used as an expected input parameter signature
@@ -25,10 +25,7 @@ func WrapRouter(wrapperFunc WrapperFunc)
 
 The Router searches for its routes based on the `Subdomain`, `HTTP Method` and its dynamic `Path`. A Router Wrapper can override that behavior and execute custom code.
 
-In this example you'll just see one use case of .WrapRouter.
-You can use the .WrapRouter to add custom logic when or when not the router should
-be executed in order to execute the registered routes' handlers.
-This is just for the proof of concept, you can skip this tutorial.
+In this example you'll just see one use case of .WrapRouter. You can use the .WrapRouter to add custom logic when or when not the router should be executed in order to execute the registered routes' handlers. This is just for the proof of concept, you can skip this tutorial.
 
 Example Code:
 
@@ -105,3 +102,4 @@ func main() {
 ```
 
 There is not much to say here, it's just a function wrapper which accepts the native response writer and request and the next handler which is the Iris' Router itself, it's being or not executed whether is called or not, **it's a middleware for the whole Router**.
+

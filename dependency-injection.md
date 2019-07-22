@@ -1,4 +1,6 @@
-The subpackage [hero](https://github.com/kataras/iris/tree/master/hero) contains features for binding any object or function that handlers can accept on their input arguments, these are called dependencies. 
+# Dependency Injection
+
+The subpackage [hero](https://github.com/kataras/iris/tree/master/hero) contains features for binding any object or function that handlers can accept on their input arguments, these are called dependencies.
 
 A dependency can be either `Static` for things like Services or `Dynamic` for values that depend on the incoming request.
 
@@ -30,24 +32,24 @@ Below you will see some screenshots designed to facilitate your understanding:
 
 ## 1. Path Parameters - Built-in Dependencies
 
-![_assets/hero-1-monokai.png](_assets/hero-1-monokai.png)
+![\_assets/hero-1-monokai.png](.gitbook/assets/hero-1-monokai.png)
 
 ## 2. Services - Static Dependencies
 
-![_assets/hero-2-monokai.png](_assets/hero-1-monokai.png)
+![\_assets/hero-2-monokai.png](.gitbook/assets/hero-1-monokai%20%281%29.png)
 
 ## 3. Per-Request - Dynamic Dependencies
 
-![_assets/hero-3-monokai.png](_assets/hero-1-monokai.png)
+![\_assets/hero-3-monokai.png](.gitbook/assets/hero-1-monokai%20%282%29.png)
 
 In addition the hero subpackage adds support to send responses through the **output values** of a function, for example:
 
-- if the return value is `string` then it will send that string as the response's body.
-- If it's an `int` then it will send it as a status code.
-- If it's an `error` then it will set a bad request with that error as its reason.
-- If it's an `error` and an `int` then the error code is the output integer instead of 400(bad request).
-- If it's a custom `struct` then it sent as a JSON, when a Content-Type header is not already set.
-- If it's a custom `struct` and a `string` then the second output value, string, it will be the Content-Type and so on.
+* if the return value is `string` then it will send that string as the response's body.
+* If it's an `int` then it will send it as a status code.
+* If it's an `error` then it will set a bad request with that error as its reason.
+* If it's an `error` and an `int` then the error code is the output integer instead of 400\(bad request\).
+* If it's a custom `struct` then it sent as a JSON, when a Content-Type header is not already set.
+* If it's a custom `struct` and a `string` then the second output value, string, it will be the Content-Type and so on.
 
 ```go
 func myHandler(...dependencies) string |
@@ -80,3 +82,4 @@ type Result interface {
 Honestly, `hero funcs` are very easy to understand and when you start using them **you never go back**.
 
 Later on you'll see how this knowledge will help you to craft an application using the MVC architectural pattern which Iris provides wonderful API for it.
+

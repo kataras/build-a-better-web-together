@@ -1,13 +1,14 @@
-Serve static files from a specific directory (system physical or embedded to the application) is done by the `Party.HandleDir` method.
+# File Server
 
-`HandleDir` registers a handler that serves HTTP requests
-with the contents of a file system (physical or embedded).
+Serve static files from a specific directory \(system physical or embedded to the application\) is done by the `Party.HandleDir` method.
+
+`HandleDir` registers a handler that serves HTTP requests with the contents of a file system \(physical or embedded\).
 
 * First parameter  : the route path
 * Second parameter : the system or the embedded directory that needs to be served
 * Third parameter  : not required, the directory options, set fields is optional.
 
-Returns the GET *Route.
+Returns the GET \*Route.
 
 ```go
 HandleDir(requestPath, directory string, opts ...DirOptions) (getRoute *Route)
@@ -55,13 +56,13 @@ Now, if you want to embed the static files to be lived inside the executable bui
 
 Install go-bindata:
 
-```sh
+```bash
 go get -u github.com/go-bindata/go-bindata/...
 ```
 
 Navigate to your program directory, that the `./assets` subdirectory exists and execute:
 
-```sh
+```bash
 $ go-bindata ./assets/...
 ```
 
@@ -80,7 +81,7 @@ app.HandleDir("/static", "./assets", iris.DirOptions {
 
 Build your app:
 
-```sh
+```bash
 $ go build
 ```
 
@@ -105,4 +106,5 @@ handler := iris.FileServer("./assets", iris.DirOptions {
 })
 ```
 
-Examples can be found at: https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server
+Examples can be found at: [https://github.com/kataras/iris/tree/v11.2.0/\_examples/file-server](https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server)
+

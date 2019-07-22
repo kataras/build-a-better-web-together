@@ -1,25 +1,25 @@
+# View
+
 Iris offers support for **6 template parsers out of the box** through its universal [View Engine](https://godoc.org/github.com/kataras/iris/view#Engine). Of course developers can still use various go template parsers as the `Context.ResponseWriter()` completes the `http.ResponseWriter` and `io.Writer`.
 
 Iris puts some common rules and features that their original parsers don't support by default. For example we have support for `yield`, `render`, `render_r`, `current`, `urlpath` template funcs and `Layouts` and `binding` accross middlewares and **embedded template files** for all Engines.
 
-To use unique features of a template engine you have to learn the characteristics and the syntax by reading its documentation (click the links below). Choose what fits your app's needs the most.
+To use unique features of a template engine you have to learn the characteristics and the syntax by reading its documentation \(click the links below\). Choose what fits your app's needs the most.
 
 Let's see the list of the built-in view engines:
 
-| Engine | Declaration | Underline Template Parser
-| -----------|-------------|-------------|
-| std template/html | `iris.HTML(...)`       | [html/template](https://golang.org/pkg/html/template/) package |
-| django        | `iris.Django(...)`     | [flosch/pongo2](https://github.com/flosch/pongo2) package |
-| handlebars    | `iris.Handlebars(...)` | [Joker/jade](https://github.com/Joker/jade) package |
-| amber         | `iris.Amber(...)`      | [aymerick/raymond](https://github.com/aymerick/raymond) package |
-| pug(jade)     | `iris.Pug(...)`        | [eknkc/amber](https://github.com/eknkc/amber) package |
-| jet           | `iris.Jet(...)`        | [CloudyKit/jet](https://github.com/CloudyKit/jet) package |
+| Engine | Declaration | Underline Template Parser |
+| :--- | :--- | :--- |
+| std template/html | `iris.HTML(...)` | [html/template](https://golang.org/pkg/html/template/) package |
+| django | `iris.Django(...)` | [flosch/pongo2](https://github.com/flosch/pongo2) package |
+| handlebars | `iris.Handlebars(...)` | [Joker/jade](https://github.com/Joker/jade) package |
+| amber | `iris.Amber(...)` | [aymerick/raymond](https://github.com/aymerick/raymond) package |
+| pug\(jade\) | `iris.Pug(...)` | [eknkc/amber](https://github.com/eknkc/amber) package |
+| jet | `iris.Jet(...)` | [CloudyKit/jet](https://github.com/CloudyKit/jet) package |
 
 One or more view engines can be registered in the same Application. To **register** a view engine use the `RegisterView(ViewEngine)` method.
 
-Load all templates from the "./views" folder
-where extension is ".html" and parse them
-using the standard `html/template` package.
+Load all templates from the "./views" folder where extension is ".html" and parse them using the standard `html/template` package.
 
 ```go
 // [app := iris.New...]
@@ -43,8 +43,8 @@ ctx.ViewData("message", "Hello world!")
 
 To bind a Go **model** to a view you have two options:
 
-- `ctx.ViewData("user", User{})` - variable binding as `{{.user.Name}}` for example
-- `ctx.View("user-page.html", User{})` - root binding as `{{.Name}}` for example.
+* `ctx.ViewData("user", User{})` - variable binding as `{{.user.Name}}` for example
+* `ctx.View("user-page.html", User{})` - root binding as `{{.Name}}` for example.
 
 To **add a template function** use the `AddFunc` method of the preferred view engine.
 
@@ -118,7 +118,7 @@ func main() {
 }
 ```
 
-```html
+```markup
 <!-- file: ./views/hi.html -->
 <html>
 <head>
@@ -131,11 +131,11 @@ func main() {
 </html>
 ```
 
-Open a browser tab at http://localhost:8080.
+Open a browser tab at [http://localhost:8080](http://localhost:8080).
 
 The **rendered result** will look like this:
 
-```html
+```markup
 <html>
 <head>
     <title>Hi Page</title>
@@ -146,3 +146,4 @@ The **rendered result** will look like this:
 </body>
 </html>
 ```
+

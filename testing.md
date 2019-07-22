@@ -1,3 +1,5 @@
+# Testing
+
 Iris offers an incredible support for the [httpexpect](https://github.com/gavv/httpexpect), a Testing Framework for web applications. The `iris/httptest` subpackage provides helpers for Iris + httpexpect.
 
 if you prefer the Go's standard [net/http/httptest](https://golang.org/pkg/net/http/httptest/) package, you can still use it. Iris as much every http web framework is compatible with any external tool for testing, at the end it's HTTP.
@@ -92,7 +94,7 @@ func TestNewApp(t *testing.T) {
 
 **3.** Open your command line and execute:
 
-```sh
+```bash
 $ go test -v
 ```
 
@@ -137,8 +139,9 @@ func TestCookiesBasic(t *testing.T) {
 }
 ```
 
-```sh
+```bash
 $ go test -v -run=TestCookiesBasic$
 ```
 
-Iris web framework itself uses this package to test itself. In the [_examples repository directory](https://github.com/kataras/iris/tree/master/_examples) you will find some useful tests as well. For more information please take a look and read the [httpexpect's documentation](https://github.com/gavv/httpexpect).
+Iris web framework itself uses this package to test itself. In the [\_examples repository directory](https://github.com/kataras/iris/tree/master/_examples) you will find some useful tests as well. For more information please take a look and read the [httpexpect's documentation](https://github.com/gavv/httpexpect).
+

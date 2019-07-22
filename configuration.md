@@ -1,4 +1,6 @@
-At the [previous](host.md) section we've learnt about the first input argument of the `app.Run`, here we will take a look of what the second one is.
+# Configuration
+
+At the [previous](host/) section we've learnt about the first input argument of the `app.Run`, here we will take a look of what the second one is.
 
 Let's start from basics. The `iris.New` function returns an `iris.Application`. This Application value can be configured through its `Configure(...iris.Configurator)` and `Run` methods.
 
@@ -12,7 +14,7 @@ Each “module” like the iris view engine, websockets, sessions and each middl
 
 The only one configuration structure is the `iris.Configuration`. Let's start by that one which can be passed on the `iris.WithConfiguration` function to make it an `iris.Configurator`.
 
-All of the `iris.Configuration` fields are defaulted to the most common use cases. Iris doesn’t need any configuration before its `app.Run` but if you want to make use of a custom `iris.Configurator` before the server runs then you can use the `app.Configure` method to pass the configurator(s) there.
+All of the `iris.Configuration` fields are defaulted to the most common use cases. Iris doesn’t need any configuration before its `app.Run` but if you want to make use of a custom `iris.Configurator` before the server runs then you can use the `app.Configure` method to pass the configurator\(s\) there.
 
 ```go
 config := iris.WithConfiguration(iris.Configuration {
@@ -50,7 +52,7 @@ Using the `iris.TOML("path")`.
 
 File: **iris.tml**
 
-```toml
+```text
 FireMethodNotAllowed = true
 DisableBodyConsumptionOnUnmarshal = false
 TimeFormat = "Mon, 01 Jan 2006 15:04:05 GMT"
@@ -82,9 +84,7 @@ app.Run(iris.Addr(":8080"), iris.WithoutInterruptHandler,
 )
 ```
 
-Good when you want to change some of the configuration's field.
-Prefix: "With" or "Without", code editors will help you navigate through all
-configuration options without even a glitch to the documentation.
+Good when you want to change some of the configuration's field. Prefix: "With" or "Without", code editors will help you navigate through all configuration options without even a glitch to the documentation.
 
 ## Custom values
 
@@ -111,3 +111,4 @@ Inside a handler, retrieve those fields using the following:
 ```go
 ctx.Application().ConfigurationReadOnly()
 ```
+

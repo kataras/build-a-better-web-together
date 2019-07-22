@@ -1,8 +1,10 @@
+# Model Validation
+
 Iris does not contain built-in method for validating request data such as "Models". However, you are not limited. In this example we will learn how to use the [**go-playground/validator.v9**](https://github.com/go-playground/validator) for request values validation.
 
 Check the full docs on tags usage [here](http://godoc.org/gopkg.in/go-playground/validator.v9#hdr-Baked_In_Validators_and_Tags).
 
-```sh
+```bash
 $ go get gopkg.in/go-playground/validator.v9
 ```
 
@@ -106,7 +108,7 @@ func UserStructLevelValidation(sl validator.StructLevel) {
 
 Example request of JSON form:
 
-```json
+```javascript
 {
     "fname": "",
     "lname": "",
@@ -122,4 +124,5 @@ Example request of JSON form:
 }
 ```
 
-Example can be found at: <https://github.com/kataras/iris/tree/master/_examples/http_request/read-json-struct-validation/main.go>.
+Example can be found at: [https://github.com/kataras/iris/tree/master/\_examples/http\_request/read-json-struct-validation/main.go](https://github.com/kataras/iris/tree/master/_examples/http_request/read-json-struct-validation/main.go).
+

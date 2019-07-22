@@ -1,3 +1,5 @@
+# Getting Started
+
 Iris has an expressive syntax for routing which feels like home. The routing algorithm is powered by the [muxie project](https://github.com/kataras/muxie) which handles requests and matches routes faster than its alternatives like httprouter and gin or echo.
 
 Let's get started without any hassle.
@@ -30,7 +32,7 @@ func myMiddleware(ctx iris.Context) {
 
 Start a terminal session and execute the following.
 
-```
+```text
 # run example.go and visit http://localhost:8080/ping on browser
 $ go run example.go
 ```
@@ -79,7 +81,7 @@ func main() {
 }
 ```
 
-```html
+```markup
 <!-- file: ./views/hello.html -->
 <html>
 <head>
@@ -95,6 +97,5 @@ func main() {
 
 > Wanna re-start your app automatically when source code changes happens? Install the [rizla](https://github.com/kataras/rizla) tool and execute `rizla main.go` instead of `go run main.go`.
 
-----------------
+At the next section we will learn more about [Routing](routing/).
 
-At the next section we will learn more about [Routing](routing.md).

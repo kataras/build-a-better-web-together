@@ -1,3 +1,5 @@
+# Forms
+
 Form, post data and uploaded files can be retrieved using the following Context's methods.
 
 ```go
@@ -103,7 +105,7 @@ func main() {
 
 ## Another example: query + post form
 
-```sh
+```bash
 POST /post?id=1234&page=1 HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
@@ -129,32 +131,23 @@ func main() {
 }
 ```
 
-```sh
+```bash
 id: 1234; page: 1; name: manu; message: this_is_great
 ```
 
 ## Upload files
 
-Iris Context offers a helper for uploading files (saving files to host system's hard disk from request file data). Read more about the `Context.UploadFormFiles` method below.
+Iris Context offers a helper for uploading files \(saving files to host system's hard disk from request file data\). Read more about the `Context.UploadFormFiles` method below.
 
-UploadFormFiles uploads any received file(s) from the client
-to the system physical location "destDirectory".
+UploadFormFiles uploads any received file\(s\) from the client to the system physical location "destDirectory".
 
-The second optional argument "before" gives caller the chance to
-modify the *miltipart.FileHeader before saving to the disk,
-it can be used to change a file's name based on the current request,
-all FileHeader's options can be changed. You can ignore it if
-you don't need to use this capability before saving a file to the disk.
+The second optional argument "before" gives caller the chance to modify the \*miltipart.FileHeader before saving to the disk, it can be used to change a file's name based on the current request, all FileHeader's options can be changed. You can ignore it if you don't need to use this capability before saving a file to the disk.
 
 Note that it doesn't check if request body streamed.
 
-Returns the copied length as int64 and
-a not nil error if at least one new file
-can't be created due to the operating system's permissions or
-`net/http.ErrMissingFile` if no file received.
+Returns the copied length as int64 and a not nil error if at least one new file can't be created due to the operating system's permissions or `net/http.ErrMissingFile` if no file received.
 
-If you want to receive & accept files and manage them manually you can use the `Context.FormFile`
-instead and create a copy function that suits your needs, the below is for generic usage.
+If you want to receive & accept files and manage them manually you can use the `Context.FormFile` instead and create a copy function that suits your needs, the below is for generic usage.
 
 The default form's memory maximum size is 32MB, it can be changed by the `iris#WithPostMaxMemory` configurator at main configuration passed on `app.Run`'s second argument.
 
@@ -195,7 +188,7 @@ func beforeSave(ctx iris.Context, file *multipart.FileHeader) {
 
     // you can use the time.Now, to prefix or suffix the files
     // based on the current time as well, as an exercise.
-    // i.e unixTime :=	time.Now().Unix()
+    // i.e unixTime :=    time.Now().Unix()
     // prefix the Filename with the $IP-
     // no need for more actions, internal uploader will use this
     // name to save the file into the "./uploads" folder.
@@ -205,11 +198,12 @@ func beforeSave(ctx iris.Context, file *multipart.FileHeader) {
 
 How to `curl`:
 
-```sh
+```bash
 curl -X POST http://localhost:8080/upload \
   -F "files[]=@./myfile.zip" \
   -F "files[]=@./mysecondfile.zip" \
   -H "Content-Type: multipart/form-data"
 ```
 
-More examples can be found at <https://github.com/kataras/iris/tree/master/_examples/http_request>. 
+More examples can be found at [https://github.com/kataras/iris/tree/master/\_examples/http\_request](https://github.com/kataras/iris/tree/master/_examples/http_request).
+

@@ -1,11 +1,10 @@
+# Host
+
 ## Listen and Serve
 
-You can start the server(s) listening to any type of `net.Listener` or even `http.Server` instance.
-The method for initialization of the server should be passed at the end, via `Run` function.
+You can start the server\(s\) listening to any type of `net.Listener` or even `http.Server` instance. The method for initialization of the server should be passed at the end, via `Run` function.
 
-The most common method that Go developers are use to serve their servers are
-by passing a network address with form of "hostname:ip". With Iris
-we use the `iris.Addr` which is an `iris.Runner` type
+The most common method that Go developers are use to serve their servers are by passing a network address with form of "hostname:ip". With Iris we use the `iris.Addr` which is an `iris.Runner` type
 
 ```go
 // Listening on tcp with network address 0.0.0.0:8080
@@ -30,7 +29,7 @@ if err != nil {
 app.Run(iris.Listener(l))
 ```
 
-A more complete example, using the unix-only socket files feature 
+A more complete example, using the unix-only socket files feature
 
 ```go
 package main
@@ -120,7 +119,7 @@ If you have signed file keys you can use the `iris.TLS` to serve `https` based o
 app.Run(iris.TLS("127.0.0.1:443", "mycert.cert", "mykey.key"))
 ```
 
-The method you should use when your app is ready for **production** is the `iris.AutoTLS` which starts a secure server with automated certifications provided by https://letsencrypt.org for **free**
+The method you should use when your app is ready for **production** is the `iris.AutoTLS` which starts a secure server with automated certifications provided by [https://letsencrypt.org](https://letsencrypt.org) for **free**
 
 ```go
 // Automatic TLS
@@ -143,8 +142,7 @@ app.Run(iris.Raw(&http.Server{Addr:":8080"}).ListenAndServe)
 
 All the above forms of listening are accepting a last, variadic argument of `func(*iris.Supervisor)`. This is used to add configurators for that specific host you passed via those functions.
 
-For example let's say that we want to add a callback which is fired when
-the server is shutdown
+For example let's say that we want to add a callback which is fired when the server is shutdown
 
 ```go
 app.Run(iris.Addr(":8080", func(h *iris.Supervisor) {
@@ -154,8 +152,7 @@ app.Run(iris.Addr(":8080", func(h *iris.Supervisor) {
 }))
 ```
 
-You can even do that before `app.Run` method, but the difference is that
-these host configurators will be executed to all hosts that you may use to serve your web app (via `app.NewHost` we'll see that in a minute)
+You can even do that before `app.Run` method, but the difference is that these host configurators will be executed to all hosts that you may use to serve your web app \(via `app.NewHost` we'll see that in a minute\)
 
 ```go
 app := iris.New()
@@ -167,15 +164,11 @@ app.ConfigureHost(func(h *iris.Supervisor) {
 app.Run(iris.Addr(":8080"))
 ```
 
-Access to all hosts that serve your application can be provided by
-the `Application#Hosts` field, after the `Run` method.
+Access to all hosts that serve your application can be provided by the `Application#Hosts` field, after the `Run` method.
 
-But the most common scenario is that you may need access to the host before the `app.Run` method,
-there are two ways of gain access to the host supervisor, read below.
+But the most common scenario is that you may need access to the host before the `app.Run` method, there are two ways of gain access to the host supervisor, read below.
 
-We have already saw how to configure all application's hosts by second argument of `app.Run` or `app.ConfigureHost`. There is one more way which suits better for simple scenarios and that is to use the `app.NewHost` to create a new host
-and use one of its `Serve` or `Listen` functions
-to start the application via the `iris#Raw` Runner.
+We have already saw how to configure all application's hosts by second argument of `app.Run` or `app.ConfigureHost`. There is one more way which suits better for simple scenarios and that is to use the `app.NewHost` to create a new host and use one of its `Serve` or `Listen` functions to start the application via the `iris#Raw` Runner.
 
 Note that this way needs an extra import of the `net/http` package.
 
@@ -205,16 +198,13 @@ go app.Run(iris.Addr(":8080"))
 app.NewHost(&http.Server{Addr:":9090"}).ListenAndServe()
 ```
 
-## Shutdown (Gracefully)
+## Shutdown \(Gracefully\)
 
 Let's continue by learning how to catch CONTROL+C/COMMAND+C or unix kill command and shutdown the server gracefully.
 
 > Gracefully Shutdown on CONTROL+C/COMMAND+C or when kill command sent is ENABLED BY-DEFAULT.
 
-In order to manually manage what to do when app is interrupted,
-we have to disable the default behavior with the option `WithoutInterruptHandler`
-and register a new interrupt handler (globally, across all possible hosts).
-
+In order to manually manage what to do when app is interrupted, we have to disable the default behavior with the option `WithoutInterruptHandler` and register a new interrupt handler \(globally, across all possible hosts\).
 
 Example code:
 
@@ -248,4 +238,5 @@ func main() {
 }
 ```
 
-Continue reading the [Configuration](configuration.md) section to learn about `app.Run`'s second variadic argument.
+Continue reading the [Configuration](../configuration.md) section to learn about `app.Run`'s second variadic argument.
+

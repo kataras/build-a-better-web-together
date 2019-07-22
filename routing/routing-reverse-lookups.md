@@ -1,6 +1,6 @@
 # Reverse Lookups
 
-As mentioned in the [Routing](routing.md) chapter, Iris provides several handler registration methods, each of which returns a [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance.
+As mentioned in the [Routing](./) chapter, Iris provides several handler registration methods, each of which returns a [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance.
 
 ## Route naming
 
@@ -31,9 +31,9 @@ func main() {
 
 ## Route reversing AKA generating URLs from the route name
 
-When we register the handlers for a specific path, we get the ability to create URLs based on the structured data we pass to Iris. In the example above, we've named three routers, one of which even takes parameters. If we're using the default `html/template` view engine, we can use a simple action to reverse the routes (and generae actual URLs):
+When we register the handlers for a specific path, we get the ability to create URLs based on the structured data we pass to Iris. In the example above, we've named three routers, one of which even takes parameters. If we're using the default `html/template` view engine, we can use a simple action to reverse the routes \(and generae actual URLs\):
 
-```sh
+```bash
 Home: {{ urlpath "home" }}
 About: {{ urlpath "about" }}
 Page 17: {{ urlpath "page" "17" }}
@@ -41,7 +41,7 @@ Page 17: {{ urlpath "page" "17" }}
 
 Above code would generate the following output:
 
-```sh
+```bash
 Home: http://localhost:8080/ 
 About: http://localhost:8080/about
 Page 17: http://localhost:8080/page/17
@@ -49,9 +49,10 @@ Page 17: http://localhost:8080/page/17
 
 ## Using route names in code
 
-We can use the following methods/functions to work with named routes (and their parameters):
+We can use the following methods/functions to work with named routes \(and their parameters\):
 
 * [`GetRoutes`](https://godoc.org/github.com/kataras/iris/core/router#APIBuilder.GetRoutes) function to get all registered routes
 * [`GetRoute(routeName string)`](https://godoc.org/github.com/kataras/iris/core/router#APIBuilder.GetRoute) method to retrieve a route by name
 * [`URL(routeName string, paramValues ...interface{})`](https://godoc.org/github.com/kataras/iris/core/router#RoutePathReverser.URL) method to generate url string based on supplied parameters
-* [`Path(routeName string, paramValues ...interface{}`](https://godoc.org/github.com/kataras/iris/core/router#RoutePathReverser.Path) method to generate just the path (without host and protocol) portion of the URL based on provided values
+* [`Path(routeName string, paramValues ...interface{}`](https://godoc.org/github.com/kataras/iris/core/router#RoutePathReverser.Path) method to generate just the path \(without host and protocol\) portion of the URL based on provided values
+

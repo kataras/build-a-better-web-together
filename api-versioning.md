@@ -1,7 +1,8 @@
+# API Versioning
+
 The [versioning](https://github.com/kataras/iris/tree/master/versioning) subpackage provides [semver](https://semver.org/) versioning for your APIs. It implements all the suggestions written at [api-guidelines](https://github.com/byrondover/api-guidelines/blob/master/Guidelines.md#versioning) and more.
 
 The version comparison is done by the [go-version](https://github.com/hashicorp/go-version) package. It supports matching over patterns like `">= 1.0, < 3"` and etc.
-
 
 ```go
 import (
@@ -14,24 +15,24 @@ import (
 
 ## Features
 
-- per route version matching, a normal iris handler with "switch" cases via Map for version => handler
-- per group versioned routes and deprecation API
-- version matching like ">= 1.0, < 2.0" or just "2.0.1" and etc.
-- version not found handler (can be customized by simply adding the versioning.NotFound: customNotMatchVersionHandler on the Map)
-- version is retrieved from the "Accept" and "Accept-Version" headers (can be customized via middleware)
-- respond with "X-API-Version" header, if version found.
-- deprecation options with customizable "X-API-Warn", "X-API-Deprecation-Date", "X-API-Deprecation-Info" headers via `Deprecated` wrapper.
+* per route version matching, a normal iris handler with "switch" cases via Map for version =&gt; handler
+* per group versioned routes and deprecation API
+* version matching like "&gt;= 1.0, &lt; 2.0" or just "2.0.1" and etc.
+* version not found handler \(can be customized by simply adding the versioning.NotFound: customNotMatchVersionHandler on the Map\)
+* version is retrieved from the "Accept" and "Accept-Version" headers \(can be customized via middleware\)
+* respond with "X-API-Version" header, if version found.
+* deprecation options with customizable "X-API-Warn", "X-API-Deprecation-Date", "X-API-Deprecation-Info" headers via `Deprecated` wrapper.
 
 ## Get version
 
 Current request version is retrieved by `versioning.GetVersion(ctx)`.
 
 By default the `GetVersion` will try to read from:
-- `Accept` header, i.e `Accept: "application/json; version=1.0"`
-- `Accept-Version` header, i.e `Accept-Version: "1.0"`
 
-You can also set a custom version for a handler via a middleware by using the context's store values.
-For example:
+* `Accept` header, i.e `Accept: "application/json; version=1.0"`
+* `Accept-Version` header, i.e `Accept-Version: "1.0"`
+
+You can also set a custom version for a handler via a middleware by using the context's store values. For example:
 
 ```go
 func(ctx iris.Context) {
@@ -70,7 +71,6 @@ userAPI.Get("/", myMiddleware, versioning.NewMatcher(versioning.Map{
 
 Using the `versioning.Deprecated(handler iris.Handler, options versioning.DeprecationOptions) iris.Handler` function you can mark a specific handler version as deprecated.
 
-
 ```go
 v10Handler := versioning.Deprecated(sendHandler(v10Response), versioning.DeprecationOptions{
     // if empty defaults to: "WARNING! You are using a deprecated version of this API."
@@ -87,9 +87,9 @@ userAPI.Get("/", versioning.NewMatcher(versioning.Map{
 
 This will make the handler to send these headers to the client:
 
-- `"X-API-Warn": options.WarnMessage`
-- `"X-API-Deprecation-Date": context.FormatTime(ctx, options.DeprecationDate))`
-- `"X-API-Deprecation-Info": options.DeprecationInfo`
+* `"X-API-Warn": options.WarnMessage`
+* `"X-API-Deprecation-Date": context.FormatTime(ctx, options.DeprecationDate))`
+* `"X-API-Deprecation-Info": options.DeprecationInfo`
 
 > versioning.DefaultDeprecationOptions can be passed instead if you don't care about Date and Info.
 
@@ -97,8 +97,7 @@ This will make the handler to send these headers to the client:
 
 Grouping routes by version is possible as well.
 
-Using the `versioning.NewGroup(version string) *versioning.Group` function you can create a group to register your versioned routes.
-The `versioning.RegisterGroups(r iris.Party, versionNotFoundHandler iris.Handler, groups ...*versioning.Group)` must be called in the end in order to register the routes to a specific `Party`.
+Using the `versioning.NewGroup(version string) *versioning.Group` function you can create a group to register your versioned routes. The `versioning.RegisterGroups(r iris.Party, versionNotFoundHandler iris.Handler, groups ...*versioning.Group)` must be called in the end in order to register the routes to a specific `Party`.
 
 ```go
 app := iris.New()
@@ -148,3 +147,4 @@ app.Get("/api/user", func(ctx iris.Context) {
     }
 })
 ```
+

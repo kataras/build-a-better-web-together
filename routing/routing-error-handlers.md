@@ -1,4 +1,4 @@
-# Error handlers
+# Handle HTTP errors
 
 You can define your own handlers when a specific http error code occurs.
 
@@ -37,3 +37,4 @@ func index(ctx context.Context) {
     ctx.View("index.html")
 }
 ```
+
