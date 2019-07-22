@@ -1,2 +1,0 @@
-# Path Parameter Types
-
