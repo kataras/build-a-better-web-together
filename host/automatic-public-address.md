@@ -14,7 +14,7 @@ Follow the steps below to, temporarily, convert your local Iris web server to a 
 
 [![tunneling/_screenshot](https://user-images.githubusercontent.com/22900943/61413905-50596300-a8f5-11e9-8be0-7e806846d52f.png)](https://www.facebook.com/iris.framework/photos/a.2420499271295384/3261189020559734/?type=3&theater)
 
-* `ctx.Application().ConfigurationReadOnly().GetVHost()` returns the public domain value. Rarely useful but it's there for you. Most of the times you use relative url paths instead of absolute\(or you should to\).
+* `ctx.Application().ConfigurationReadOnly().GetVHost()` returns the public domain value. Rarely useful but it's there for you. Most of the times you use relative url paths instead of absolute(or you should to).
 * It doesn't matter if ngrok is already running or not, Iris framework is smart enough to use ngrok's [web API](https://ngrok.com/docs) to create a tunnel.
 
 Full `Tunneling` configuration:

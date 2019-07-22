@@ -20,7 +20,7 @@ If you want you can also use the `SetCookieKV` method which does not require an 
 SetCookieKV(name, value string, options ...CookieOption)
 ```
 
-Note that the default expiration for a cookie set by `SetCookieKV` is 365 days. You can either use the `CookieExpires` Cookie Option\(see below\) or globally by setting the `kataras/iris/Context.SetCookieKVExpiration` package-level variable.
+Note that the default expiration for a cookie set by `SetCookieKV` is 365 days. You can either use the `CookieExpires` Cookie Option(see below) or globally by setting the `kataras/iris/Context.SetCookieKVExpiration` package-level variable.
 
 The `CookieOption` is just a type for `func(*http.Cookie)`.
 

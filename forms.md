@@ -137,11 +137,11 @@ id: 1234; page: 1; name: manu; message: this_is_great
 
 ## Upload files
 
-Iris Context offers a helper for uploading files \(saving files to host system's hard disk from request file data\). Read more about the `Context.UploadFormFiles` method below.
+Iris Context offers a helper for uploading files (saving files to host system's hard disk from request file data). Read more about the `Context.UploadFormFiles` method below.
 
-UploadFormFiles uploads any received file\(s\) from the client to the system physical location "destDirectory".
+UploadFormFiles uploads any received file(s) from the client to the system physical location "destDirectory".
 
-The second optional argument "before" gives caller the chance to modify the \*miltipart.FileHeader before saving to the disk, it can be used to change a file's name based on the current request, all FileHeader's options can be changed. You can ignore it if you don't need to use this capability before saving a file to the disk.
+The second optional argument "before" gives caller the chance to modify the *miltipart.FileHeader before saving to the disk, it can be used to change a file's name based on the current request, all FileHeader's options can be changed. You can ignore it if you don't need to use this capability before saving a file to the disk.
 
 Note that it doesn't check if request body streamed.
 
@@ -205,5 +205,5 @@ curl -X POST http://localhost:8080/upload \
   -H "Content-Type: multipart/form-data"
 ```
 
-More examples can be found at [https://github.com/kataras/iris/tree/master/\_examples/http\_request](https://github.com/kataras/iris/tree/master/_examples/http_request).
+More examples can be found at [https://github.com/kataras/iris/tree/master/_examples/http_request](https://github.com/kataras/iris/tree/master/_examples/http_request).
 

@@ -47,7 +47,7 @@ In addition the hero subpackage adds support to send responses through the **out
 * if the return value is `string` then it will send that string as the response's body.
 * If it's an `int` then it will send it as a status code.
 * If it's an `error` then it will set a bad request with that error as its reason.
-* If it's an `error` and an `int` then the error code is the output integer instead of 400\(bad request\).
+* If it's an `error` and an `int` then the error code is the output integer instead of 400(bad request).
 * If it's a custom `struct` then it sent as a JSON, when a Content-Type header is not already set.
 * If it's a custom `struct` and a `string` then the second output value, string, it will be the Content-Type and so on.
 

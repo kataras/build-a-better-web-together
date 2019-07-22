@@ -16,7 +16,7 @@ Iris does not force you to use any specific ORM or template engine. With support
 
 Go is a great technology stack for building scalable, web-based, back-end systems for web applications.
 
-When you think about building web applications and web APIs, or simply building HTTP servers in Go, does your mind go to the standard net/http package? Then you have to deal with some common situations like dynamic routing \(a.k.a parameterized\), security and authentication, real-time communication and many other issues that net/http doesn't solve.
+When you think about building web applications and web APIs, or simply building HTTP servers in Go, does your mind go to the standard net/http package? Then you have to deal with some common situations like dynamic routing (a.k.a parameterized), security and authentication, real-time communication and many other issues that net/http doesn't solve.
 
 The net/http package is not complete enough to quickly build well-designed back-end web systems. When you realize this, you might be thinking along these lines:
 
@@ -31,11 +31,11 @@ I started wondering if Golang wasn't as fast for net or http applications as I w
 
 > Makis, don't lose hope, give at least a chance to Golang. Try to build something totally new without basing it off the "slow" code you saw earlier; learn the secrets of this language and make _others_ follow your steps!
 
-These are the words I told myself that day \[**13 March 2016**\].
+These are the words I told myself that day [**13 March 2016**].
 
 The same day, later the night, I was reading a book about Greek mythology. I saw an ancient goddess name there and I was immediately inspired to give her name to this new web framework I was already started to design and code - **Iris**.
 
-Some weeks later, Iris was trending on position \#1 in Github for **all languages**, this is very rare phenomenon especially for a new personal project, back then, with such a young developer behind it. After that, as was reasonable, competitors who couldn't handle their losses, and individuals  began to pull out themselves and their jealousy about the success of others, started to randomly throw defamations and fake news around. Of course they never even thought to argument on the fact that Iris the fastest and greatest in terms of performance and features because numbers never lie and their whole narrative would fall very fast. Instead they tried to bullying me through my personality, they tried to put me down in order to stop the active development of Iris. 
+Some weeks later, Iris was trending on position #1 in Github for **all languages**, this is very rare phenomenon especially for a new personal project, back then, with such a young developer behind it. After that, as was reasonable, competitors who couldn't handle their losses, and individuals  began to pull out themselves and their jealousy about the success of others, started to randomly throw defamations and fake news around. Of course they never even thought to argument on the fact that Iris the fastest and greatest in terms of performance and features because numbers never lie and their whole narrative would fall very fast. Instead they tried to bullying me through my personality, they tried to put me down in order to stop the active development of Iris. 
 
 However, I strongly believe that we should not respond back with the same coin, instead, I think we should prove them that compassion and love live inside each one of us, by forgiving them and their actions and look forward for a better place to express ourselves without fear and racism.
 

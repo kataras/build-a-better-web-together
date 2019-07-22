@@ -2,7 +2,7 @@
 
 ## Listen and Serve
 
-You can start the server\(s\) listening to any type of `net.Listener` or even `http.Server` instance. The method for initialization of the server should be passed at the end, via `Run` function.
+You can start the server(s) listening to any type of `net.Listener` or even `http.Server` instance. The method for initialization of the server should be passed at the end, via `Run` function.
 
 The most common method that Go developers are use to serve their servers are by passing a network address with form of "hostname:ip". With Iris we use the `iris.Addr` which is an `iris.Runner` type
 
@@ -152,7 +152,7 @@ app.Run(iris.Addr(":8080", func(h *iris.Supervisor) {
 }))
 ```
 
-You can even do that before `app.Run` method, but the difference is that these host configurators will be executed to all hosts that you may use to serve your web app \(via `app.NewHost` we'll see that in a minute\)
+You can even do that before `app.Run` method, but the difference is that these host configurators will be executed to all hosts that you may use to serve your web app (via `app.NewHost` we'll see that in a minute)
 
 ```go
 app := iris.New()
@@ -198,13 +198,13 @@ go app.Run(iris.Addr(":8080"))
 app.NewHost(&http.Server{Addr:":9090"}).ListenAndServe()
 ```
 
-## Shutdown \(Gracefully\)
+## Shutdown (Gracefully)
 
 Let's continue by learning how to catch CONTROL+C/COMMAND+C or unix kill command and shutdown the server gracefully.
 
 > Gracefully Shutdown on CONTROL+C/COMMAND+C or when kill command sent is ENABLED BY-DEFAULT.
 
-In order to manually manage what to do when app is interrupted, we have to disable the default behavior with the option `WithoutInterruptHandler` and register a new interrupt handler \(globally, across all possible hosts\).
+In order to manually manage what to do when app is interrupted, we have to disable the default behavior with the option `WithoutInterruptHandler` and register a new interrupt handler (globally, across all possible hosts).
 
 Example code:
 

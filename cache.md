@@ -61,17 +61,17 @@ A middleware, which is a simple Handler, can be called inside another handler as
 
 ## Cache304
 
-`Cache304` returns a middleware sends a `StatusNotModified` \(304\) whenever the "If-Modified-Since" request header \(time\) is before the time.Now\(\) + expiresEvery \(always compared to their UTC values\).
+`Cache304` returns a middleware sends a `StatusNotModified` (304) whenever the "If-Modified-Since" request header (time) is before the time.Now() + expiresEvery (always compared to their UTC values).
 
-Clients that are compatible with the HTTP RCF \(all browsers are and tools like postman\) will correctly handle the caching.
+Clients that are compatible with the HTTP RCF (all browsers are and tools like postman) will correctly handle the caching.
 
 The only disadvantage of using that instead of server-side caching is that this method will send a 304 status code instead of 200, So, if you use it side by side with other micro services you have to check for that status code as well for a valid response.
 
-Developers are free to extend this method's behavior by watching system directories changes manually and use of the `ctx.WriteWithExpiration` with a "modtime" based on the file modified date, similar to the `HandleDir`\(which sends status OK\(200\) and browser disk caching instead of 304\).
+Developers are free to extend this method's behavior by watching system directories changes manually and use of the `ctx.WriteWithExpiration` with a "modtime" based on the file modified date, similar to the `HandleDir`(which sends status OK(200) and browser disk caching instead of 304).
 
 ```go
 func Cache304(expiresEvery time.Duration) Handler
 ```
 
-Examples can be found at: [https://github.com/kataras/iris/tree/master/\_examples/cache](https://github.com/kataras/iris/tree/master/_examples/cache).
+Examples can be found at: [https://github.com/kataras/iris/tree/master/_examples/cache](https://github.com/kataras/iris/tree/master/_examples/cache).
 

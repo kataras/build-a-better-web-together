@@ -18,8 +18,8 @@ import (
 * per route version matching, a normal iris handler with "switch" cases via Map for version =&gt; handler
 * per group versioned routes and deprecation API
 * version matching like "&gt;= 1.0, &lt; 2.0" or just "2.0.1" and etc.
-* version not found handler \(can be customized by simply adding the versioning.NotFound: customNotMatchVersionHandler on the Map\)
-* version is retrieved from the "Accept" and "Accept-Version" headers \(can be customized via middleware\)
+* version not found handler (can be customized by simply adding the versioning.NotFound: customNotMatchVersionHandler on the Map)
+* version is retrieved from the "Accept" and "Accept-Version" headers (can be customized via middleware)
 * respond with "X-API-Version" header, if version found.
 * deprecation options with customizable "X-API-Warn", "X-API-Deprecation-Date", "X-API-Deprecation-Info" headers via `Deprecated` wrapper.
 

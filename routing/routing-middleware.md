@@ -124,9 +124,9 @@ Iris, unlike others, is 100% compatible with the standards and that's why the ma
 
 Any third-party middleware that written for `net/http` is compatible with Iris using the `iris.FromStd(aThirdPartyMiddleware)`. Remember, `ctx.ResponseWriter()` and `ctx.Request()` returns the same `net/http` input arguments of an [http.Handler](https://golang.org/pkg/net/http/#Handler).
 
-* [From func\(w http.ResponseWriter, r \*http.Request, next http.HandlerFunc\)](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/convert-handlers/negroni-like/main.go)
+* [From func(w http.ResponseWriter, r \*http.Request, next http.HandlerFunc)](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/convert-handlers/negroni-like/main.go)
 * [From http.Handler or http.HandlerFunc](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/convert-handlers/nethttp/main.go)
-* [From func\(http.HandlerFunc\) http.HandlerFunc](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/convert-handlers/real-usecase-raven/writing-middleware/main.go)
+* [From func(http.HandlerFunc) http.HandlerFunc](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/convert-handlers/real-usecase-raven/writing-middleware/main.go)
 
 Here is a list of some handlers made specifically for Iris:
 
@@ -134,12 +134,12 @@ Here is a list of some handlers made specifically for Iris:
 
 | Middleware | Example |
 | :--- | :--- |
-| [basic authentication](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/basicauth/README.md) | [iris/\_examples/authentication/basicauth](https://github.com/kataras/iris/tree/master/_examples/authentication/basicauth) |
-| [Google reCAPTCHA](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/recaptcha/README.md) | [iris/\_examples/miscellaneous/recaptcha](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recaptcha) |
-| [localization and internationalization](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/i18n/README.md) | [iris/\_examples/miscellaneous/i81n](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/i18n) |
-| [request logger](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/logger/README.md) | [iris/\_examples/http\_request/request-logger](https://github.com/kataras/iris/tree/master/_examples/http_request/request-logger) |
-| [profiling \(pprof\)](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/pprof/README.md) | [iris/\_examples/miscellaneous/pprof](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/pprof) |
-| [recovery](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/recover/README.md) | [iris/\_examples/miscellaneous/recover](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recover) |
+| [basic authentication](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/basicauth/README.md) | [iris/_examples/authentication/basicauth](https://github.com/kataras/iris/tree/master/_examples/authentication/basicauth) |
+| [Google reCAPTCHA](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/recaptcha/README.md) | [iris/_examples/miscellaneous/recaptcha](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recaptcha) |
+| [localization and internationalization](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/i18n/README.md) | [iris/_examples/miscellaneous/i81n](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/i18n) |
+| [request logger](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/logger/README.md) | [iris/_examples/http\_request/request-logger](https://github.com/kataras/iris/tree/master/_examples/http_request/request-logger) |
+| [profiling (pprof)](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/pprof/README.md) | [iris/_examples/miscellaneous/pprof](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/pprof) |
+| [recovery](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/recover/README.md) | [iris/_examples/miscellaneous/recover](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recover) |
 
 ## Community made
 
@@ -147,14 +147,14 @@ Most of the experimental handlers are ported to work with _iris_'s handler form,
 
 | Middleware | Description | Example |
 | :--- | :--- | :--- |
-| [jwt](https://github.com/iris-contrib/middleware/tree/master/jwt) | Middleware checks for a JWT on the `Authorization` header on incoming requests and decodes it. | [iris-contrib/middleware/jwt/\_example](https://github.com/iris-contrib/middleware/tree/master/jwt/_example) |
-| [cors](https://github.com/iris-contrib/middleware/tree/master/cors) | HTTP Access Control. | [iris-contrib/middleware/cors/\_example](https://github.com/iris-contrib/middleware/tree/master/cors/_example) |
-| [secure](https://github.com/iris-contrib/middleware/tree/master/secure) | Middleware that implements a few quick security wins. | [iris-contrib/middleware/secure/\_example](https://github.com/iris-contrib/middleware/tree/master/secure/_example/main.go) |
-| [tollbooth](https://github.com/iris-contrib/middleware/tree/master/tollboothic) | Generic middleware to rate-limit HTTP requests. | [iris-contrib/middleware/tollbooth/\_examples/limit-handler](https://github.com/iris-contrib/middleware/tree/master/tollbooth/_examples/limit-handler) |
-| [cloudwatch](https://github.com/iris-contrib/middleware/tree/master/cloudwatch) | AWS cloudwatch metrics middleware. | [iris-contrib/middleware/cloudwatch/\_example](https://github.com/iris-contrib/middleware/tree/master/cloudwatch/_example) |
-| [new relic](https://github.com/iris-contrib/middleware/tree/master/newrelic) | Official [New Relic Go Agent](https://github.com/newrelic/go-agent). | [iris-contrib/middleware/newrelic/\_example](https://github.com/iris-contrib/middleware/tree/master/newrelic/_example) |
-| [prometheus](https://github.com/iris-contrib/middleware/tree/master/prometheus) | Easily create metrics endpoint for the [prometheus](http://prometheus.io) instrumentation tool | [iris-contrib/middleware/prometheus/\_example](https://github.com/iris-contrib/middleware/tree/master/prometheus/_example) |
-| [casbin](https://github.com/iris-contrib/middleware/tree/master/casbin) | An authorization library that supports access control models like ACL, RBAC, ABAC | [iris-contrib/middleware/casbin/\_examples](https://github.com/iris-contrib/middleware/tree/master/casbin/_examples) |
-| [raven](https://github.com/iris-contrib/middleware/tree/master/raven) | Sentry client in Go | [iris-contrib/middleware/raven/\_example](https://github.com/iris-contrib/middleware/blob/master/raven/_example/main.go) |
-| [csrf](https://github.com/iris-contrib/middleware/tree/master/csrf) | Cross-Site Request Forgery Protection | [iris-contrib/middleware/csrf/\_example](https://github.com/iris-contrib/middleware/blob/master/csrf/_example/main.go) |
+| [jwt](https://github.com/iris-contrib/middleware/tree/master/jwt) | Middleware checks for a JWT on the `Authorization` header on incoming requests and decodes it. | [iris-contrib/middleware/jwt/_example](https://github.com/iris-contrib/middleware/tree/master/jwt/_example) |
+| [cors](https://github.com/iris-contrib/middleware/tree/master/cors) | HTTP Access Control. | [iris-contrib/middleware/cors/_example](https://github.com/iris-contrib/middleware/tree/master/cors/_example) |
+| [secure](https://github.com/iris-contrib/middleware/tree/master/secure) | Middleware that implements a few quick security wins. | [iris-contrib/middleware/secure/_example](https://github.com/iris-contrib/middleware/tree/master/secure/_example/main.go) |
+| [tollbooth](https://github.com/iris-contrib/middleware/tree/master/tollboothic) | Generic middleware to rate-limit HTTP requests. | [iris-contrib/middleware/tollbooth/_examples/limit-handler](https://github.com/iris-contrib/middleware/tree/master/tollbooth/_examples/limit-handler) |
+| [cloudwatch](https://github.com/iris-contrib/middleware/tree/master/cloudwatch) | AWS cloudwatch metrics middleware. | [iris-contrib/middleware/cloudwatch/_example](https://github.com/iris-contrib/middleware/tree/master/cloudwatch/_example) |
+| [new relic](https://github.com/iris-contrib/middleware/tree/master/newrelic) | Official [New Relic Go Agent](https://github.com/newrelic/go-agent). | [iris-contrib/middleware/newrelic/_example](https://github.com/iris-contrib/middleware/tree/master/newrelic/_example) |
+| [prometheus](https://github.com/iris-contrib/middleware/tree/master/prometheus) | Easily create metrics endpoint for the [prometheus](http://prometheus.io) instrumentation tool | [iris-contrib/middleware/prometheus/_example](https://github.com/iris-contrib/middleware/tree/master/prometheus/_example) |
+| [casbin](https://github.com/iris-contrib/middleware/tree/master/casbin) | An authorization library that supports access control models like ACL, RBAC, ABAC | [iris-contrib/middleware/casbin/_examples](https://github.com/iris-contrib/middleware/tree/master/casbin/_examples) |
+| [raven](https://github.com/iris-contrib/middleware/tree/master/raven) | Sentry client in Go | [iris-contrib/middleware/raven/_example](https://github.com/iris-contrib/middleware/blob/master/raven/_example/main.go) |
+| [csrf](https://github.com/iris-contrib/middleware/tree/master/csrf) | Cross-Site Request Forgery Protection | [iris-contrib/middleware/csrf/_example](https://github.com/iris-contrib/middleware/blob/master/csrf/_example/main.go) |
 

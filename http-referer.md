@@ -1,6 +1,6 @@
 # HTTP Referer
 
-The HTTP referer\(originally a misspelling of **referrer**\) is an optional HTTP header field that identifies the address of the webpage \(i.e. the URI or IRI\) which is linked to the resource being requested. By checking the referrer, the new webpage can see where the request originated.
+The HTTP referer(originally a misspelling of **referrer**) is an optional HTTP header field that identifies the address of the webpage (i.e. the URI or IRI) which is linked to the resource being requested. By checking the referrer, the new webpage can see where the request originated.
 
 Read more at [wikipedia](https://en.wikipedia.org/wiki/HTTP_referer)
 
@@ -29,7 +29,7 @@ type (
     }
 ```
 
-The `ReferrerType` is the enum for a Referrer.Type value \(indirect, direct, email, search, social\). The available types are:
+The `ReferrerType` is the enum for a Referrer.Type value (indirect, direct, email, search, social). The available types are:
 
 ```go
 ReferrerInvalid

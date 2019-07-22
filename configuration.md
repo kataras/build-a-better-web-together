@@ -14,7 +14,7 @@ Each “module” like the iris view engine, websockets, sessions and each middl
 
 The only one configuration structure is the `iris.Configuration`. Let's start by that one which can be passed on the `iris.WithConfiguration` function to make it an `iris.Configurator`.
 
-All of the `iris.Configuration` fields are defaulted to the most common use cases. Iris doesn’t need any configuration before its `app.Run` but if you want to make use of a custom `iris.Configurator` before the server runs then you can use the `app.Configure` method to pass the configurator\(s\) there.
+All of the `iris.Configuration` fields are defaulted to the most common use cases. Iris doesn’t need any configuration before its `app.Run` but if you want to make use of a custom `iris.Configurator` before the server runs then you can use the `app.Configure` method to pass the configurator(s) there.
 
 ```go
 config := iris.WithConfiguration(iris.Configuration {

@@ -2,7 +2,7 @@
 
 You may never need this one but it's here in case.
 
-There are times that you may need to override or decide whether the Router will be executed on an incoming request. If you've any previous experience with the `net/http` and other web frameworks this function will be familiar with you \(it has the form of a net/http middleware, but instead of accepting the next handler it accepts the Router as a function to be executed or not\).
+There are times that you may need to override or decide whether the Router will be executed on an incoming request. If you've any previous experience with the `net/http` and other web frameworks this function will be familiar with you (it has the form of a net/http middleware, but instead of accepting the next handler it accepts the Router as a function to be executed or not).
 
 ```go
 // WrapperFunc is used as an expected input parameter signature

@@ -2,7 +2,7 @@
 
 ## Iris vs .NET Core vs Expressjs
 
-[![Iris vs .NET Core\(C\#\) vs Node.js \(Express\)](https://github.com/kataras/iris/raw/master/_benchmarks/benchmarks_graph_22_october_2018_gray.png)](https://github.com/kataras/iris/blob/master/_benchmarks/README.md)
+[![Iris vs .NET Core(C#) vs Node.js (Express)](https://github.com/kataras/iris/raw/master/_benchmarks/benchmarks_graph_22_october_2018_gray.png)](https://github.com/kataras/iris/blob/master/_benchmarks/README.md)
 
 _Updated at:_ [_Monday, 22 October 2018_](https://github.com/kataras/iris/blob/master/_benchmarks/README.md)
 

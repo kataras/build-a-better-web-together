@@ -124,5 +124,5 @@ Example request of JSON form:
 }
 ```
 
-Example can be found at: [https://github.com/kataras/iris/tree/master/\_examples/http\_request/read-json-struct-validation/main.go](https://github.com/kataras/iris/tree/master/_examples/http_request/read-json-struct-validation/main.go).
+Example can be found at: [https://github.com/kataras/iris/tree/master/_examples/http_request/read-json-struct-validation/main.go](https://github.com/kataras/iris/tree/master/_examples/http_request/read-json-struct-validation/main.go).
 

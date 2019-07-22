@@ -2,7 +2,7 @@
 
 Welcome to **Iris** - the fastest backend web framework for [Go](https://golang.org).
 
-This book is the main source of documentation for **teams and individuals developers** working with \(or contributing to\) the Iris project.
+This book is the main source of documentation for **teams and individuals developers** working with (or contributing to) the Iris project.
 
 ## Table of Contents
 

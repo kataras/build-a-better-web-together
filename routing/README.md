@@ -4,13 +4,13 @@
 
 A Handler, as the name implies, handle requests.
 
-A Handler responds to an HTTP request. It writes reply headers and data to the Context.ResponseWriter\(\) and then return. Returning signals that the request is finished; it is not valid to use the Context after or concurrently with the completion of the Handler call.
+A Handler responds to an HTTP request. It writes reply headers and data to the Context.ResponseWriter() and then return. Returning signals that the request is finished; it is not valid to use the Context after or concurrently with the completion of the Handler call.
 
-Depending on the HTTP client software, HTTP protocol version, and any intermediaries between the client and the iris server, it may not be possible to read from the Context.Request\(\).Body after writing to the context.ResponseWriter\(\). Cautious handlers should read the Context.Request\(\).Body first, and then reply.
+Depending on the HTTP client software, HTTP protocol version, and any intermediaries between the client and the iris server, it may not be possible to read from the Context.Request().Body after writing to the context.ResponseWriter(). Cautious handlers should read the Context.Request().Body first, and then reply.
 
 Except for reading the body, handlers should not modify the provided Context.
 
-If Handler panics, the server \(the caller of Handler\) assumes that the effect of the panic was isolated to the active request. It recovers the panic, logs a stack trace to the server error log and hangs up the connection.
+If Handler panics, the server (the caller of Handler) assumes that the effect of the panic was isolated to the active request. It recovers the panic, logs a stack trace to the server error log and hangs up the connection.
 
 ```go
 type Handler func(iris.Context)
@@ -31,7 +31,7 @@ However, if you want to **disable path correction** for the requested resources 
 app.Run(iris.Addr(":8080"), iris.WithoutPathCorrection)
 ```
 
-If you want to keep the same handler and route for `/api/user` and `/api/user/` paths **without redirection**\(common scenario\) use just the `iris.WithoutPathCorrectionRedirection` option instead:
+If you want to keep the same handler and route for `/api/user` and `/api/user/` paths **without redirection**(common scenario) use just the `iris.WithoutPathCorrectionRedirection` option instead:
 
 ```go
 app.Run(iris.Addr(":8080"), iris.WithoutPathCorrectionRedirection)
@@ -160,9 +160,9 @@ func main() {
 
 ## Grouping Routes
 
-A set of routes that are being groupped by path prefix can \(optionally\) share the same middleware handlers and template layout. A group can have a nested group too.
+A set of routes that are being groupped by path prefix can (optionally) share the same middleware handlers and template layout. A group can have a nested group too.
 
-`.Party` is being used to group routes, developers can declare an unlimited number of \(nested\) groups.
+`.Party` is being used to group routes, developers can declare an unlimited number of (nested) groups.
 
 Example code:
 
@@ -177,7 +177,7 @@ users.Get("/{id:uint64}/profile", userProfileHandler)
 users.Get("/messages/{id:uint64}", userMessageHandler)
 ```
 
-The same could be also written using the `PartyFunc` method which accepts the child router\(the Party\).
+The same could be also written using the `PartyFunc` method which accepts the child router(the Party).
 
 ```go
 app := iris.New()
@@ -232,11 +232,11 @@ Matches all DELETE requests prefixed with `/users/` and following by a number wh
 app.Delete("/user/{userid:int min(1)}", deleteUserHandler)
 ```
 
-Matches all GET requests except the ones that are already handled by other routes. For example in this case by the above routes; `/`, `/assets/{asset:path}`, `/profile/{username}`, `"/profile/me"`, `/user/{userid:int ...}`. It does not conflict with the rest of the routes\(!\).
+Matches all GET requests except the ones that are already handled by other routes. For example in this case by the above routes; `/`, `/assets/{asset:path}`, `/profile/{username}`, `"/profile/me"`, `/user/{userid:int ...}`. It does not conflict with the rest of the routes(!).
 
 ```go
 app.Get("{root:path}", rootWildcardHandler)
 ```
 
-You may wonder what the `{id:uint64}` or `:path` or `min(1)` are. They are \(typed\) dynamic path parameters and functions can be registered on them. Learn more by reading the [Path Parameter Types](routing-path-parameter-types.md).
+You may wonder what the `{id:uint64}` or `:path` or `min(1)` are. They are (typed) dynamic path parameters and functions can be registered on them. Learn more by reading the [Path Parameter Types](routing-path-parameter-types.md).
 

@@ -1,8 +1,8 @@
 # File Server
 
-Serve static files from a specific directory \(system physical or embedded to the application\) is done by the `Party.HandleDir` method.
+Serve static files from a specific directory (system physical or embedded to the application) is done by the `Party.HandleDir` method.
 
-`HandleDir` registers a handler that serves HTTP requests with the contents of a file system \(physical or embedded\).
+`HandleDir` registers a handler that serves HTTP requests with the contents of a file system (physical or embedded).
 
 * First parameter  : the route path
 * Second parameter : the system or the embedded directory that needs to be served
@@ -106,5 +106,5 @@ handler := iris.FileServer("./assets", iris.DirOptions {
 })
 ```
 
-Examples can be found at: [https://github.com/kataras/iris/tree/v11.2.0/\_examples/file-server](https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server)
+Examples can be found at: [https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server](https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server)
 

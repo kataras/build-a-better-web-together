@@ -143,5 +143,5 @@ func TestCookiesBasic(t *testing.T) {
 $ go test -v -run=TestCookiesBasic$
 ```
 
-Iris web framework itself uses this package to test itself. In the [\_examples repository directory](https://github.com/kataras/iris/tree/master/_examples) you will find some useful tests as well. For more information please take a look and read the [httpexpect's documentation](https://github.com/gavv/httpexpect).
+Iris web framework itself uses this package to test itself. In the [_examples repository directory](https://github.com/kataras/iris/tree/master/_examples) you will find some useful tests as well. For more information please take a look and read the [httpexpect's documentation](https://github.com/gavv/httpexpect).
 

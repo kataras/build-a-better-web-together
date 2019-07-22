@@ -2,9 +2,9 @@
 
 Iris has the easiest and the most powerful routing process you have ever met.
 
-Iris has its own interpeter for route's path syntax, parsing and evaluation \(yes, like a programming language!\).
+Iris has its own interpeter for route's path syntax, parsing and evaluation (yes, like a programming language!).
 
-It's fast, how? It calculates its needs and if not any special regexp needed then it just registers the route with the low-level path syntax, otherwise it pre-compiles the regexp and adds the necessary middleware\(s\). That means that you have zero performance cost compared to other routers or web frameworks.
+It's fast, how? It calculates its needs and if not any special regexp needed then it just registers the route with the low-level path syntax, otherwise it pre-compiles the regexp and adds the necessary middleware(s). That means that you have zero performance cost compared to other routers or web frameworks.
 
 ## Parameters
 
@@ -13,27 +13,27 @@ A path parameter's name should contain only alphabetical letters. Numbers or sym
 Do not confuse `ctx.Params()` with `ctx.Values()`.
 
 * Path parameter's values can be retrieved from `ctx.Params()`.
-* Context's local storage that can be used to communicate between handlers and middleware\(s\) can be stored to `ctx.Values()`.
+* Context's local storage that can be used to communicate between handlers and middleware(s) can be stored to `ctx.Values()`.
 
 The built-in available parameter types can be found at the following table.
 
 | Param Type | Go Type | Validation | Retrieve Helper |
 | :--- | :--- | :--- | :--- |
-| `:string` | string | anything \(single path segment\) | `Params().Get` |
-| `:int` | int | -9223372036854775808 to 9223372036854775807 \(x64\) or -2147483648 to 2147483647 \(x32\), depends on the host arch | `Params().GetInt` |
+| `:string` | string | anything (single path segment) | `Params().Get` |
+| `:int` | int | -9223372036854775808 to 9223372036854775807 (x64) or -2147483648 to 2147483647 (x32), depends on the host arch | `Params().GetInt` |
 | `:int8` | int8 | -128 to 127 | `Params().GetInt8` |
 | `:int16` | int16 | -32768 to 32767 | `Params().GetInt16` |
 | `:int32` | int32 | -2147483648 to 2147483647 | `Params().GetInt32` |
 | `:int64` | int64 | -9223372036854775808 to 9223372036854775807 | `Params().GetInt64` |
-| `:uint` | uint | 0 to 18446744073709551615 \(x64\) or 0 to 4294967295 \(x32\), depends on the host arch | `Params().GetUint` |
+| `:uint` | uint | 0 to 18446744073709551615 (x64) or 0 to 4294967295 (x32), depends on the host arch | `Params().GetUint` |
 | `:uint8` | uint8 | 0 to 255 | `Params().GetUint8` |
 | `:uint16` | uint16 | 0 to 65535 | `Params().GetUint16` |
 | `:uint32` | uint32 | 0 to 4294967295 | `Params().GetUint32` |
 | `:uint64` | uint64 | 0 to 18446744073709551615 | `Params().GetUint64` |
 | `:bool` | bool | "1" or "t" or "T" or "TRUE" or "true" or "True" or "0" or "f" or "F" or "FALSE" or "false" or "False" | `Params().GetBool` |
 | `:alphabetical` | string | lowercase or uppercase letters | `Params().Get` |
-| `:file` | string | lowercase or uppercase letters, numbers, underscore \(\_\), dash \(-\), point \(.\) and no spaces or other special characters that are not valid for filenames | `Params().Get` |
-| `:path` | string | anything, can be separated by slashes \(path segments\) but should be the last part of the route path | `Params().Get` |
+| `:file` | string | lowercase or uppercase letters, numbers, underscore (\_), dash (-), point (.) and no spaces or other special characters that are not valid for filenames | `Params().Get` |
+| `:path` | string | anything, can be separated by slashes (path segments) but should be the last part of the route path | `Params().Get` |
 
 **Usage**:
 
@@ -46,13 +46,13 @@ app.Get("/users/{id:uint64}", func(ctx iris.Context){
 
 | Built-in Func | Param Types |
 | :--- | :--- |
-| `regexp`\(expr string\) | :string |
-| `prefix`\(prefix string\) | :string |
-| `suffix`\(suffix string\) | :string |
-| `contains`\(s string\) | :string |
-| `min`\(minValue int or int8 or int16 or int32 or int64 or uint8 or uint16 or uint32 or uint64  or float32 or float64\) | :string\(char length\), :int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64 |
-| `max`\(maxValue int or int8 or int16 or int32 or int64 or uint8 or uint16 or uint32 or uint64 or float32 or float64\) | :string\(char length\), :int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64 |
-| `range`\(minValue, maxValue int or int8 or int16 or int32 or int64 or uint8 or uint16 or uint32 or uint64 or float32 or float64\) | :int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64 |
+| `regexp`(expr string) | :string |
+| `prefix`(prefix string) | :string |
+| `suffix`(suffix string) | :string |
+| `contains`(s string) | :string |
+| `min`(minValue int or int8 or int16 or int32 or int64 or uint8 or uint16 or uint32 or uint64  or float32 or float64) | :string(char length), :int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64 |
+| `max`(maxValue int or int8 or int16 or int32 or int64 or uint8 or uint16 or uint32 or uint64 or float32 or float64) | :string(char length), :int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64 |
+| `range`(minValue, maxValue int or int8 or int16 or int32 or int64 or uint8 or uint16 or uint32 or uint64 or float32 or float64) | :int, :int8, :int16, :int32, :int64, :uint, :uint8, :uint16, :uint32, :uint64 |
 
 **Usage**:
 

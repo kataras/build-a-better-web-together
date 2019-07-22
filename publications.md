@@ -2,8 +2,8 @@
 
 Prepare a cup of coffee or tea, whatever pleases you the most, and read some articles we found for you.
 
-* [A URL Shortener Service using Go, Iris and Bolt \(Updated\)](https://bit.ly/2KeP6pE)
-* [CRUD REST API in Iris \(a framework for golang\)](https://bit.ly/2X9EsXl)
+* [A URL Shortener Service using Go, Iris and Bolt (Updated)](https://bit.ly/2KeP6pE)
+* [CRUD REST API in Iris (a framework for golang)](https://bit.ly/2X9EsXl)
 * [A Todo MVC Application using Iris and Vue.js](https://bit.ly/2KgEarI)
 * [A Hasura starter project with a ready to deploy Golang hello-world web app with IRIS](https://bit.ly/2Kfdsjf)
 * [Top 6 web frameworks for Go as of 2017](https://bit.ly/2wMi9YY)

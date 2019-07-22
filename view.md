@@ -4,7 +4,7 @@ Iris offers support for **6 template parsers out of the box** through its univer
 
 Iris puts some common rules and features that their original parsers don't support by default. For example we have support for `yield`, `render`, `render_r`, `current`, `urlpath` template funcs and `Layouts` and `binding` accross middlewares and **embedded template files** for all Engines.
 
-To use unique features of a template engine you have to learn the characteristics and the syntax by reading its documentation \(click the links below\). Choose what fits your app's needs the most.
+To use unique features of a template engine you have to learn the characteristics and the syntax by reading its documentation (click the links below). Choose what fits your app's needs the most.
 
 Let's see the list of the built-in view engines:
 
@@ -14,7 +14,7 @@ Let's see the list of the built-in view engines:
 | django | `iris.Django(...)` | [flosch/pongo2](https://github.com/flosch/pongo2) package |
 | handlebars | `iris.Handlebars(...)` | [Joker/jade](https://github.com/Joker/jade) package |
 | amber | `iris.Amber(...)` | [aymerick/raymond](https://github.com/aymerick/raymond) package |
-| pug\(jade\) | `iris.Pug(...)` | [eknkc/amber](https://github.com/eknkc/amber) package |
+| pug(jade) | `iris.Pug(...)` | [eknkc/amber](https://github.com/eknkc/amber) package |
 | jet | `iris.Jet(...)` | [CloudyKit/jet](https://github.com/CloudyKit/jet) package |
 
 One or more view engines can be registered in the same Application. To **register** a view engine use the `RegisterView(ViewEngine)` method.
