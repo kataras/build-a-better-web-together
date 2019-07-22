@@ -248,4 +248,4 @@ func main() {
 }
 ```
 
-Continue reading the [Configuration](Configuration.md) chapter to learn about `app.Run`'s second variadic argument.
+Continue reading the [Configuration](configuration.md) chapter to learn about `app.Run`'s second variadic argument.

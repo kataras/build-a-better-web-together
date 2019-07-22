@@ -1,6 +1,6 @@
 # Reverse Lookups
 
-As mentioned in the [Routing](Routing.md) chapter, Iris provides several handler registration methods, each of which returns a [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance.
+As mentioned in the [Routing](routing.md) chapter, Iris provides several handler registration methods, each of which returns a [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance.
 
 ## Route naming
 

@@ -26,13 +26,13 @@ and hangs up the connection.
 type Handler func(iris.Context)
 ```
 
-Once the handler is registered, we can use the returned [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance to give a name to the handler registration for easier debugging or match relative paths in views. For more information, checkout the [Reverse lookups](Routing-reverse-lookups.md) section.
+Once the handler is registered, we can use the returned [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance to give a name to the handler registration for easier debugging or match relative paths in views. For more information, checkout the [Reverse lookups](routing-reverse-lookups.md) section.
 
 ## Behavior
 
 Iris' default behavior is to accept and register routes with paths like `/api/user`, without a trailing slash. If a client tries to reach `$your_host/api/user/` then the Iris router will automatically permant redirect this to `$your_host/api/user` in order to be handled by the registered route. This is the modern way to design APIs.
 
-However, if you want to **disable path correction** for the requested resources you can pass the `iris.WithoutPathCorrection` option of the iris [Configuration](Configuration.md) to your `app.Run`. Example:
+However, if you want to **disable path correction** for the requested resources you can pass the `iris.WithoutPathCorrection` option of the iris [Configuration](configuration.md) to your `app.Run`. Example:
 
 ```go
 // [app := iris.New...]
@@ -262,4 +262,4 @@ Matches all GET requests except the ones that are already handled by other route
 app.Get("{root:path}", rootWildcardHandler)
 ```
 
-You may wonder what the `{id:uint64}` or `:path` or `min(1)` are. They are (typed) dynamic path parameters and functions can be registered on them. Learn more by reading the [Path Parameter Types](Routing-path-parameter-types.md) section.
+You may wonder what the `{id:uint64}` or `:path` or `min(1)` are. They are (typed) dynamic path parameters and functions can be registered on them. Learn more by reading the [Path Parameter Types](routing-path-parameter-types.md) section.
