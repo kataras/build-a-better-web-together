@@ -38,4 +38,10 @@ This book is the main source of documentation for **teams and individuals develo
 * [Publications](Publications.md)
 
 
-[Project](Project-and-community.md) / [Technical Docs](https://godoc.org/github.com/kataras/iris) / [Documentation terms of use](Documentation-terms-and-conditions.md) / Copyright &copy; 2019 [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos).
+
+
+
+
+
+
+[Project](Project-and-community.md) / [Technical Docs](https://godoc.org/github.com/kataras/iris) / [Documentation terms of use](Documentation-terms-and-conditions.md) / Copyright &copy; 2019 [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos)
