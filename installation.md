@@ -1,3 +1,5 @@
+# Installing Iris
+
 Iris is a cross-platform software.
 
 The only requirement is the [Go Programming Language](https://golang.org/dl/), version 1.12 and above.
