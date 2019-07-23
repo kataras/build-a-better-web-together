@@ -36,11 +36,11 @@ Below you will see some screenshots designed to facilitate your understanding:
 
 ## 2. Services - Static Dependencies
 
-![\_assets/hero-2-monokai.png](.gitbook/assets/hero-1-monokai%20%281%29.png)
+![\_assets/hero-2-monokai.png](.gitbook/assets/hero-2-monokai.png)
 
 ## 3. Per-Request - Dynamic Dependencies
 
-![\_assets/hero-3-monokai.png](.gitbook/assets/hero-1-monokai%20%282%29.png)
+![\_assets/hero-3-monokai.png](.gitbook/assets/hero-3-monokai.png)
 
 In addition the hero subpackage adds support to send responses through the **output values** of a function, for example:
 
