@@ -106,5 +106,5 @@ handler := iris.FileServer("./assets", iris.DirOptions {
 })
 ```
 
-Examples can be found at: [https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server](https://github.com/kataras/iris/tree/v11.2.0/_examples/file-server)
+Examples can be found at: [https://github.com/kataras/iris/tree/master/_examples/file-server](https://github.com/kataras/iris/tree/master/_examples/file-server)
 

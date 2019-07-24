@@ -130,6 +130,19 @@ func main() {
         app.RefreshRouter()
     })
 
+    app.Get("/change", func(ctx iris.Context) {
+
+        if none.IsOnline() {
+            none.Method = iris.MethodNone
+        } else {
+            none.Method = iris.MethodGet
+        }
+
+        // refresh re-builds the router at serve-time in order to
+        // be notified for its new routes.
+        app.RefreshRouter()
+    })
+
     app.Get("/execute", func(ctx iris.Context) {
         if !none.IsOnline() {
             ctx.Values().Set("from", "/execute with offline access")
@@ -137,9 +150,12 @@ func main() {
             return
         }
 
-        // same as navigating to "http://localhost:8080/invisible/iris" when /change has being invoked and route state changed
+        // same as navigating to "http://localhost:8080/invisible/iris"
+        // when /change has being invoked and route state changed
         // from "offline" to "online"
-        ctx.Values().Set("from", "/execute") // values and session can be shared when calling Exec from a "foreign" context.
+        ctx.Values().Set("from", "/execute")
+        // values and session can be
+        // shared when calling Exec from a "foreign" context.
         // 	ctx.Exec("NONE", "/invisible/iris")
         // or after "/change":
         ctx.Exec("GET", "/invisible/iris")
