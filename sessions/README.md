@@ -199,6 +199,29 @@ $ curl -s --cookie "mysessionid=MTQ4NzE5Mz..." http://localhost:8080/secret
 The cake is a lie!
 ```
 
+## Midddleware
+
+When you want to use the `Session` in the same request handler and life cycle(chain of handlers, middlewares), you can
+optionally register it as a middleware and use the package-level `sessions.Get` to retrieve the stored-to-context session.
+
+The `Sessions` struct value contains the `Handler` method which can be used to return an `iris.Handler` to be registered as middleware. 
+
+```go
+import "github.com/kataras/iris/sessions"
+
+sess := sessions.New(sessions.Config{...})
+
+app := iris.New()
+app.Use(sess.Handler())
+
+app.Get("/path", func(ctx iris.Context){
+    session := sessions.Get(ctx)
+    // [use session...]
+})
+```
+
+Also, if the sessions manager's `Config.AllowReclaim` is `true` then you can still call `sess.Start` as many times as you want in the same request life cycle without the need of registering it as a middleware.
+
 Navigate to <https://github.com/kataras/iris/tree/master/_examples/sessions> for more examples about the sessions subpackage.
 
 Continue by reading the [Flash Messages](Sessions-flash-messages) section.

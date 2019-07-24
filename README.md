@@ -22,6 +22,7 @@ This book is the main source of documentation for **teams and individuals develo
   * [Subdomains](routing/routing-subdomains.md)
   * [Wrap the Router](routing/routing-wrap-the-router.md)
   * [Override Context](routing/routing-override-context.md)
+  * [Context Methods](routing/routing-context-methods.md)
 * [API Versioning](api-versioning.md)
 * [HTTP Referer](http-referer.md)
 * [Request Authentication](request-authentication.md)
