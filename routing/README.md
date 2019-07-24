@@ -97,11 +97,10 @@ func handler(ctx iris.Context){
 
 ### Offline Routes
 
-There is one special method in Iris that you can use too. It's called `None` and you can use it to hide a route from outsiders but still able to call it from other route's handlers through the `Context.Exec` method. Each API Handle method returns the Route value back. A Route contains two methods to retrieve the state: `IsOffline()` and `IsOnline()`. You can change the **state** of the route from **offline** to **online** and visa-versa through its `Route.Method` field's value. Of course each change of the router at serve-time requires an `app.RefreshRouter()` call which is safe to use. Take a look below a more complete example:
+There is one special method in Iris that you can use too. It's called `None` and you can use it to hide a route from outsiders but still able to call it from other route's handlers through the `Context.Exec` method. Each API Handle method returns the Route value back. A Route the `IsOnline` method which reports back the current state of that route. You can change the **state** of the route from **offline** to **online** and visa-versa through its `Route.Method` field's value. Of course each change of the router at serve-time requires an `app.RefreshRouter()` call which is safe to use. Take a look below a more complete example:
 
 ```go
 // file: main.go
-
 package main
 
 import (
@@ -111,7 +110,7 @@ import (
 func main() {
     app := iris.New()
 
-    invisibleRoute := app.None("/invisible/{username}", func(ctx iris.Context) {
+    none := app.None("/invisible/{username}", func(ctx iris.Context) {
         ctx.Writef("Hello %s with method: %s", ctx.Params().Get("username"), ctx.Method())
 
         if from := ctx.Values().GetString("from"); from != "" {
@@ -121,30 +120,29 @@ func main() {
 
     app.Get("/change", func(ctx iris.Context) {
 
-        if invisibleRoute.IsOnline() {
-            invisibleRoute.Method = iris.MethodNone
+        if none.IsOnline() {
+            none.Method = iris.MethodNone
         } else {
-            invisibleRoute.Method = iris.MethodGet
+            none.Method = iris.MethodGet
         }
 
-        // Refresh re-builds the router at serve-time
-        // in order to be notified for its new routes.
+        // refresh re-builds the router at serve-time in order to be notified for its new routes.
         app.RefreshRouter()
     })
 
     app.Get("/execute", func(ctx iris.Context) {
-        // Same as navigating to "http://localhost:8080/invisible/iris"
-        // when /change has being invoked and route state changed
-        // from "offline" to "online"
-        // Values and session can be shared when calling Exec from a "foreign" context.
-        ctx.Values().Set("from", "/execute")
-
-        if invisibleRoute.IsOffline() {
+        if !none.IsOnline() {
+            ctx.Values().Set("from", "/execute with offline access")
             ctx.Exec("NONE", "/invisible/iris")
-        }else{
-            // or after "/change":
-            ctx.Exec("GET", "/invisible/iris")
+            return
         }
+
+        // same as navigating to "http://localhost:8080/invisible/iris" when /change has being invoked and route state changed
+        // from "offline" to "online"
+        ctx.Values().Set("from", "/execute") // values and session can be shared when calling Exec from a "foreign" context.
+        // 	ctx.Exec("NONE", "/invisible/iris")
+        // or after "/change":
+        ctx.Exec("GET", "/invisible/iris")
     })
 
     app.Run(iris.Addr(":8080"))
