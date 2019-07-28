@@ -81,14 +81,14 @@ func main() {
 }
 ```
 
-```markup
+```html
 <!-- file: ./views/hello.html -->
 <html>
 <head>
     <title>Hello Page</title>
 </head>
 <body>
-    <h1>{{.message}}</h1>
+    <h1>{{ .message }}</h1>
 </body>
 </html>
 ```
