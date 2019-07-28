@@ -20,5 +20,13 @@ require (
 )
 ```
 
+## How to update
+
+Here is the go-get command to get the latest and greatest Iris version. Master branch is usually stable enough.
+
+```bash
+$ go get -u github.com/kataras/iris@master
+```
+
 Continue by reading our [Getting Started](getting-started.md) tutorial.
 
