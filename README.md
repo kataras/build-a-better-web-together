@@ -24,6 +24,7 @@ This book is the main source of documentation for **teams and individuals develo
   * [Override Context](routing/routing-override-context.md)
   * [Context Methods](routing/routing-context-methods.md)
 * [API Versioning](api-versioning.md)
+* [Content Negotiation](content-negotiation.md)
 * [HTTP Referer](http-referer.md)
 * [Request Authentication](request-authentication.md)
 * [URL Query Parameters](url-query-parameters.md)

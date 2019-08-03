@@ -133,4 +133,3 @@ Also, note that the default behavior is to set its `HttpOnly` to true. It perfor
 ```go
 RemoveCookie(name string, options ...CookieOption)
 ```
-
