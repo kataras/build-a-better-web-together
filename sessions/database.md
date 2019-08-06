@@ -22,7 +22,8 @@ import (
 )
 
 // 2. Initialize the database.
-// Replace with your running redis' server settings:
+// These are the default values,
+// you can replace them based on your running redis' server settings:
 db := redis.New(redis.Config{
     Network:   "tcp",
     Addr:      "127.0.0.1:6379",
@@ -31,7 +32,16 @@ db := redis.New(redis.Config{
     Password:  "",
     Database:  "",
     Prefix:    "",
+    Delim:     "-",
+    Driver:    redis.Redigo(), // redis.Radix() can be used instead.
 })
+
+// Optionally configure the underline driver:
+// driver := redis.Redigo()
+// driver.MaxIdle = ...
+// driver.IdleTimeout = ...
+// driver.Wait = ...
+// redis.Config {Driver: driver}
 
 // Close connection when control+C/cmd+C
 iris.RegisterOnInterrupt(func() {
