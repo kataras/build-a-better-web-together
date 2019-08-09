@@ -20,6 +20,7 @@
   * [Context Methods](routing/routing-context-methods.md)
 * [API Versioning](api-versioning.md)
 * [Content Negotiation](content-negotiation.md)
+* [Response Recorder](response-recorder.md)
 * [HTTP Referer](http-referer.md)
 * [Request Authentication](request-authentication.md)
 * [URL Query Parameters](url-query-parameters.md)
