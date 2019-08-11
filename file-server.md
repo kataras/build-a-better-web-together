@@ -30,7 +30,7 @@ type DirOptions struct {
     ShowList bool
     // If `ShowList` is true then this function will be used instead
     // of the default one to show the list of files of a current requested directory(dir).
-    DirList func(ctx context.Context, dirName string, dir http.File) error
+    DirList func(ctx iris.Context, dirName string, dir http.File) error
 
     // When embedded.
     Asset      func(name string) ([]byte, error)   
@@ -38,7 +38,7 @@ type DirOptions struct {
     AssetNames func() []string
 
     // Optional validator that loops through each found requested resource.
-    AssetValidator func(ctx context.Context, name string) bool
+    AssetValidator func(ctx iris.Context, name string) bool
 }
 ```
 

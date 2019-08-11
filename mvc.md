@@ -142,7 +142,7 @@ Where `mvc.Result` is a `hero.Result` type alias, which is this interface one:
 ```go
 type Result interface {
     // Dispatch should sends the response to the context's response writer.
-    Dispatch(ctx context.Context)
+    Dispatch(ctx iris.Context)
 }
 ```
 

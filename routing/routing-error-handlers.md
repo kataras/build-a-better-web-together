@@ -33,7 +33,7 @@ func internalServerError(ctx iris.Context) {
     ctx.WriteString("Oups something went wrong, try again")
 }
 
-func index(ctx context.Context) {
+func index(ctx iris.Context) {
     ctx.View("index.html")
 }
 ```

@@ -27,14 +27,14 @@ import (
 // 2.
 // Create your own custom Context, put any fields you'll need.
 type MyContext struct {
-    // Embed the `context.Context` - 
+    // Embed the `iris.Context` - 
     // It's totally optional but you will need this if you
     // don't want to override all the context's methods!
-    context.Context
+    iris.Context
 }
 
-// Optionally: validate MyContext implements context.Context on compile-time.
-var _ context.Context = &MyContext{}
+// Optionally: validate MyContext implements iris.Context on compile-time.
+var _ iris.Context = &MyContext{}
 
 // 3.
 func (ctx *MyContext) Do(handlers context.Handlers) {
@@ -61,7 +61,7 @@ func main() {
     app := iris.New()
 
     // 4.
-    app.ContextPool.Attach(func() context.Context {
+    app.ContextPool.Attach(func() iris.Context {
         return &MyContext{
             // If you use the embedded Context,
             // call the `context.NewContext` to create one:
@@ -74,7 +74,7 @@ func main() {
 
     // Register your route, as you normally do
     app.Handle("GET", "/", recordWhichContextForExample,
-    func(ctx context.Context) {
+    func(ctx iris.Context) {
         // use the context's overridden HTML method.
         ctx.HTML("<h1> Hello from my custom context's HTML! </h1>")
     })
@@ -83,7 +83,7 @@ func main() {
     // MyContext.Context embedded default context
     // when MyContext is not directly define the View function by itself.
     app.Handle("GET", "/hi/{firstname:alphabetical}",recordWhichContextForExample,
-    func(ctx context.Context) {
+    func(ctx iris.Context) {
         firstname := ctx.Values().GetString("firstname")
 
         ctx.ViewData("firstname", firstname)
@@ -96,7 +96,7 @@ func main() {
 }
 
 // Should always print "($PATH) Handler is executing from 'MyContext'"
-func recordWhichContextForExample(ctx context.Context) {
+func recordWhichContextForExample(ctx iris.Context) {
     ctx.Application().Logger().Infof("(%s) Handler is executing from: '%s'",
         ctx.Path(), reflect.TypeOf(ctx).Elem().Name())
 

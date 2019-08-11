@@ -180,7 +180,7 @@ type Context interface {
     // Next calls all the next handler from the handlers chain,
     // it should be used inside a middleware.
     //
-    // Note: Custom context should override this method in order to be able to pass its own context.Context implementation.
+    // Note: Custom context should override this method in order to be able to pass its own iris.Context implementation.
     Next()
     // NextOr checks if chain has a next handler, if so then it executes it
     // otherwise it sets a new chain assigned to this Context based on the given handler(s)
@@ -514,7 +514,7 @@ type Context interface {
     // to be executed. Next handlers are being executed on iris because you can alt the
     // error code and change it to a more specific one, i.e
     // users := app.Party("/users")
-    // users.Done(func(ctx context.Context){ if ctx.StatusCode() == 400 { /*  custom error code for /users */ }})
+    // users.Done(func(ctx iris.Context){ if ctx.StatusCode() == 400 { /*  custom error code for /users */ }})
     NotFound()
 
     //  +------------------------------------------------------------+
