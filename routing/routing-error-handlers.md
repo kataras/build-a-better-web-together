@@ -38,3 +38,47 @@ func index(ctx iris.Context) {
 }
 ```
 
+> Learn more about [View](../view.md).
+
+## The Problem type
+
+Iris has builtin support for the [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
+
+The `Context.Problem` method sends a response like `Context.JSON` does but with indent of "  " and
+a content type of "application/problem+json" instead.
+
+```go
+func newProductProblem(productName, detail string) iris.Problem {
+    return iris.NewProblem().
+        // The type URI, if relative it automatically convert to absolute.
+        Type("/product-error"). 
+        // The title, if empty then it gets it from the status code.
+        Title("Product validation problem").
+        // Any optional details.
+        Detail(detail).
+        // The status error code, required.
+        Status(iris.StatusBadRequest).
+        // Any custom key-value pair.
+        Key("productName", productName)
+        // Optional cause of the problem, chain of Problems.
+        // .Cause(other iris.Problem)
+}
+
+func fireProblem(ctx iris.Context) {
+    ctx.Problem(newProductProblem("product name", "problem error details"))
+}
+```
+
+**Outputs "application/problem+json"**
+
+```json
+{
+  "type": "https://host.domain/product-error",
+  "status": 400,
+  "title": "Product validation problem",
+  "detail": "problem error details",
+  "productName": "product name"
+}
+```
+
+Full example can be found at [_examples/routing/http-errors](https://github.com/kataras/iris/blob/master/_examples/routing/http-errors/main.go).
