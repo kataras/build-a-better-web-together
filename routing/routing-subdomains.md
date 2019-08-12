@@ -1,6 +1,6 @@
 # Subdomains
 
-Iris has the simplest known form for subdomains registration to a single application. Of course you can always use nginx or caddy for managment in production.
+Iris has the simplest known form for subdomains registration to a single application. Of course you can always use nginx or caddy for management in production.
 
 Subdomains are separated into two categories: **static** and **dynamic/wildcard**.
 

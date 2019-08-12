@@ -2,7 +2,7 @@
 
 Iris offers support for **6 template parsers out of the box** through its universal [View Engine](https://godoc.org/github.com/kataras/iris/view#Engine). Of course developers can still use various go template parsers as the `Context.ResponseWriter()` completes the `http.ResponseWriter` and `io.Writer`.
 
-Iris puts some common rules and features that their original parsers don't support by default. For example we have support for `yield`, `render`, `render_r`, `current`, `urlpath` template funcs and `Layouts` and `binding` accross middlewares and **embedded template files** for all Engines.
+Iris puts some common rules and features that their original parsers don't support by default. For example we have support for `yield`, `render`, `render_r`, `current`, `urlpath` template funcs and `Layouts` and `binding` across middlewares and **embedded template files** for all Engines.
 
 To use unique features of a template engine you have to learn the characteristics and the syntax by reading its documentation (click the links below). Choose what fits your app's needs the most.
 
