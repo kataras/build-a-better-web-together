@@ -5,7 +5,7 @@ Iris is a cross-platform software.
 The only requirement is the [Go Programming Language](https://golang.org/dl/), version 1.12 and above.
 
 ```bash
-$ go get github.com/kataras/iris@v11.2.5
+$ go get github.com/kataras/iris@v11.2.6
 ```
 
 Or inside your `go.mod` file:
@@ -16,7 +16,7 @@ module your_project_name
 go 1.12
 
 require (
-    github.com/kataras/iris v11.2.5
+    github.com/kataras/iris v11.2.6
 )
 ```
 
