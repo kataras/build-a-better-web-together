@@ -252,5 +252,37 @@ Matches all GET requests except the ones that are already handled by other route
 app.Get("{root:path}", rootWildcardHandler)
 ```
 
+Matches all GET requests of:
+
+1. /u/abcd maps to :alphabetical (if :alphabetical registered otherwise :string)
+2. /u/42 maps to :uint (if :uint registered otherwise :int)
+3. /u/-1 maps to :int (if :int registered otherwise :string)
+4. /u/abcd123 maps to :string
+
+```go
+app.Get("/u/{username:string}", func(ctx iris.Context) {
+	ctx.Writef("username (string): %s", ctx.Params().Get("username"))
+})
+
+app.Get("/u/{id:int}", func(ctx iris.Context) {
+	ctx.Writef("id (int): %d", ctx.Params().GetIntDefault("id", 0))
+})
+
+app.Get("/u/{uid:uint}", func(ctx iris.Context) {
+	ctx.Writef("uid (uint): %d", ctx.Params().GetUintDefault("uid", 0))
+})
+
+app.Get("/u/{firstname:alphabetical}", func(ctx iris.Context) {
+	ctx.Writef("firstname (alphabetical): %s", ctx.Params().Get("firstname"))
+})
+```
+
+Matches all GET requests of `/abctenchars.xml` and `/abcdtenchars` respectfully.
+
+```go
+app.Get("/{alias:string regexp(^[a-z0-9]{1,10}\\.xml$)}", PanoXML)
+app.Get("/{alias:string regexp(^[a-z0-9]{1,10}$)}", Tour)
+```
+
 You may wonder what the `{id:uint64}` or `:path` or `min(1)` are. They are (typed) dynamic path parameters and functions can be registered on them. Learn more by reading the [Path Parameter Types](routing-path-parameter-types.md).
 
