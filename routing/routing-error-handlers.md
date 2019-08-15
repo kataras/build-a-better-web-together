@@ -67,7 +67,7 @@ func newProductProblem(productName, detail string) iris.Problem {
 func fireProblem(ctx iris.Context) {
     // Response like JSON but with indent of "  " and
     // content type of "application/problem+json"
-    ctx.Problem(newProductProblem("product name", "problem error details"), iris.ProblemOptions{
+    ctx.Problem(newProductProblem("product name", "problem details"), iris.ProblemOptions{
         // Optional JSON renderer settings.
         JSON: iris.JSON{
             Indent: "  ",
