@@ -44,8 +44,10 @@ func index(ctx iris.Context) {
 
 Iris has builtin support for the [Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807).
 
-The `Context.Problem` method sends a response like `Context.JSON` does but with indent of "  " and
-a content type of "application/problem+json" instead.
+The `Context.Problem` writes a JSON or XML problem response. Behaves exactly like `Context.JSON` but with default ProblemOptions.JSON indent of " " and a response content type of "application/problem+json" instead.
+
+Use the options.RenderXML and XML fields to change this behavior and
+send a response of content type "application/problem+xml" instead.
 
 ```go
 func newProductProblem(productName, detail string) iris.Problem {
@@ -67,28 +69,34 @@ func newProductProblem(productName, detail string) iris.Problem {
 func fireProblem(ctx iris.Context) {
     // Response like JSON but with indent of "  " and
     // content type of "application/problem+json"
-    ctx.Problem(newProductProblem("product name", "details"), iris.ProblemOptions{
-        // Optional JSON renderer settings.
-        JSON: iris.JSON{
-            Indent: "  ",
-        },
-        // Sets the "Retry-After" response header.
-        //
-        // Can accept:
-        // time.Time for HTTP-Date,
-        // time.Duration, int64, float64, int for seconds
-        // or string for date or duration.
-        // Examples:
-        // time.Now().Add(5 * time.Minute),
-        // 300 * time.Second,
-        // "5m",
-        //
-        RetryAfter: 300,
-        // A function that, if specified, can dynamically set
-        // retry-after based on the request. Useful for ProblemOptions reusability.
-        // Overrides the RetryAfter field.
-        //
-        // RetryAfterFunc: func(iris.Context) interface{} { [...] }
+    ctx.Problem(newProductProblem("product name", "problem details"),
+        iris.ProblemOptions{
+            // Optional JSON renderer settings.
+            JSON: iris.JSON{
+                Indent: "  ",
+            },
+            // OR
+            // Render as XML:
+            // RenderXML: true,
+            // XML:       iris.XML{Indent: "  "},
+            // Sets the "Retry-After" response header.
+            //
+            // Can accept:
+            // time.Time for HTTP-Date,
+            // time.Duration, int64, float64, int for seconds
+            // or string for date or duration.
+            // Examples:
+            // time.Now().Add(5 * time.Minute),
+            // 300 * time.Second,
+            // "5m",
+            //
+            RetryAfter: 300,
+            // A function that, if specified, can dynamically set
+            // retry-after based on the request.
+            // Useful for ProblemOptions reusability.
+            // Overrides the RetryAfter field.
+            //
+            // RetryAfterFunc: func(iris.Context) interface{} { [...] }
     })
 }
 ```
@@ -103,6 +111,20 @@ func fireProblem(ctx iris.Context) {
   "detail": "problem error details",
   "productName": "product name"
 }
+```
+
+When `RenderXML` is set to `true` then the response will look be rendered as XML instead.
+
+**Outputs "application/problem+xml"**
+
+```xml
+<Problem>
+    <Type>https://host.domain/product-error</Type>
+    <Status>400</Status>
+    <Title>Product validation problem</Title>
+    <Detail>problem error details</Detail>
+    <ProductName>product name</ProductName>
+</Problem>
 ```
 
 Full example can be found at [_examples/routing/http-errors](https://github.com/kataras/iris/blob/master/_examples/routing/http-errors/main.go).
