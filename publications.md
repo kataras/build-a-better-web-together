@@ -1,7 +1,7 @@
-# Publications
-
 Prepare a cup of coffee or tea, whatever pleases you the most, and read some articles we found for you.
 
+* [Golang Iris Web Course 2019](https://bit.ly/web-course-2019)
+* [Iris version 11.2 released](https://bit.ly/iris112)
 * [A URL Shortener Service using Go, Iris and Bolt (Updated)](https://bit.ly/2KeP6pE)
 * [CRUD REST API in Iris (a framework for golang)](https://bit.ly/2X9EsXl)
 * [Monitor APIs in realtime using Go and Iris](https://pusher.com/tutorials/monitor-api-go)
@@ -19,15 +19,17 @@ Prepare a cup of coffee or tea, whatever pleases you the most, and read some art
 ## Video Courses
 
 | Description | Link | Author | Year |
-| :--- | :--- | :--- | :--- |
-| Installing Iris | [https://bit.ly/2KhgB1J](https://bit.ly/2KhgB1J) | WarnabiruTV | 2018 |
-| Iris & Mongo DB Complete | [https://bit.ly/2IcXZOu](https://bit.ly/2IcXZOu) | Musobar Media | 2018 |
-| Quick Start with Iris | [https://bit.ly/2wQIrJw](https://bit.ly/2wQIrJw) | J-Secur1ty | **2019** |
-| Getting Started with Iris | [https://bit.ly/2XGafMv](https://bit.ly/2XGafMv) | stephgdesign | 2018 |
+| -----------|-------------|-------------|-----|
+| Web Course | https://bit.ly/web-course-2019 | TechMaster | **2019** |
+| Quick Start with Iris | https://bit.ly/2wQIrJw | J-Secur1ty | **2019** |
+| Installing Iris | https://bit.ly/2KhgB1J | WarnabiruTV | 2018 |
+| Iris & Mongo DB Complete | https://bit.ly/2IcXZOu | Musobar Media | 2018 |
+| Getting Started with Iris | https://bit.ly/2XGafMv | stephgdesign | 2018 |
+
+-------
 
 Contact via [e-mail](mailto:kataras2006@hotmail.com?subject=Iris%20Web%20Framework%20Press) to help you out.
 
-* Do you want to write an Article about Iris but you neeed a kind of assistance or help?
-* Have you already written one that's not listed here?
-* Did you create a video course about Iris that it's not listed here?
-
+- Do you want to write an Article about Iris but you neeed a kind of assistance or help?
+- Have you already written one that's not listed here?
+- Did you create a video course about Iris that it's not listed here?
