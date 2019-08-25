@@ -5,6 +5,7 @@ Iris is a cross-platform software.
 The only requirement is the [Go Programming Language](https://golang.org/dl/), version 1.12 and above.
 
 ```bash
+$ export GO111MODULE=on
 $ go get github.com/kataras/iris@v11.2.8
 ```
 
