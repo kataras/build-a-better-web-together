@@ -1,32 +1,38 @@
-# Installing Iris
-
 Iris is a cross-platform software.
 
-The only requirement is the [Go Programming Language](https://golang.org/dl/), version 1.12 and above.
+The only requirement is the [Go Programming Language](https://golang.org/dl/), version 1.13 and above.
 
-```bash
+```sh
+$ cd $YOUR_PROJECT_PATH
 $ export GO111MODULE=on
-$ go get github.com/kataras/iris@v11.2.8
 ```
 
-Or inside your `go.mod` file:
+## Install
 
-```bash
+```sh
+$ go get github.com/kataras/iris@master
+```
+
+Or edit your project's `go.mod` file, add the following [pseudo-version](https://golang.org/cmd/go/#hdr-Pseudo_versions) and execute `$ go build`.
+
+```sh
 module your_project_name
 
-go 1.12
+go 1.13
 
 require (
-    github.com/kataras/iris v11.2.8
+    github.com/kataras/iris v0.0.0-20191005193354-55afd07befa8
 )
 ```
+
+> `$ go build`
 
 ## How to update
 
 Here is the go-get command to get the latest and greatest Iris version. Master branch is usually stable enough.
 
 ```bash
-$ go get github.com/kataras/iris@master
+$ go get -u github.com/kataras/iris
 ```
 
-Continue by reading our [Getting Started](getting-started.md) tutorial.
+Continue by reading our [[Getting Started]] tutorial.
