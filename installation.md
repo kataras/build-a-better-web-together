@@ -35,4 +35,4 @@ Here is the go-get command to get the latest and greatest Iris version. Master b
 $ go get -u github.com/kataras/iris
 ```
 
-Continue by reading our [[Getting Started]] tutorial.
+Continue by reading our [Getting Started](getting-started.md) tutorial.

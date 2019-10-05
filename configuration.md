@@ -111,4 +111,3 @@ Inside a handler, retrieve those fields using the following:
 ```go
 ctx.Application().ConfigurationReadOnly()
 ```
-
