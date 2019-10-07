@@ -35,4 +35,8 @@ Here is the go-get command to get the latest and greatest Iris version. Master b
 $ go get -u github.com/kataras/iris
 ```
 
+## Troubleshooting
+
+If you get a network error during installation please make sure you set a valid [GOPROXY environment variable](https://github.com/golang/go/wiki/Modules#are-there-always-on-module-repositories-and-enterprise-proxies) e.g. `GOPROXY=https://goproxy.io` or `GOPROXY=https://goproxy.cn`.
+
 Continue by reading our [Getting Started](getting-started.md) tutorial.
