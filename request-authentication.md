@@ -24,7 +24,7 @@ The jwt middleware has three methods to validate tokens.
 
 ```go
 import (
-    "github.com/kataras/iris"
+    "github.com/kataras/iris/v12"
     "github.com/iris-contrib/middleware/jwt"
 )
 

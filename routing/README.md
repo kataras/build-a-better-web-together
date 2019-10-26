@@ -104,7 +104,7 @@ There is one special method in Iris that you can use too. It's called `None` and
 package main
 
 import (
-    "github.com/kataras/iris"
+    "github.com/kataras/iris/v12"
 )
 
 func main() {

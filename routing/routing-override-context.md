@@ -4,7 +4,7 @@ In this section you will learn how to override the existing [Context](https://go
 
 The [Context](https://godoc.org/github.com/kataras/iris/context#Context) is an interface. However as you probably know, when using other frameworks you don't have that functionality of overriding even if it's used as an interface. With Iris you can **attach** your implementation to the **context pool** itself using the `app.ContextPool.Attach` method.
 
-1. Let's get started by importing the `"github.com/kataras/iris/context"` which is required here.
+1. Let's get started by importing the `"github.com/kataras/iris/v12/context"` which is required here.
 2. Secondly, create your own Context implementation.
 3. Add the `Do` and `Next` methods where they just call the `context.Do` and `context.Next` package-level functions.
 4. Use the Application's `ContextPool` to set it as the Context implementation that should be used for the route's handlers.
@@ -19,9 +19,9 @@ package main
 import (
     "reflect"
 
-    "github.com/kataras/iris"
+    "github.com/kataras/iris/v12"
     // 1.
-    "github.com/kataras/iris/context"
+    "github.com/kataras/iris/v12/context"
 )
 
 // 2.

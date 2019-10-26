@@ -44,7 +44,7 @@ func Handler(s *neffos.Server, IDGenerator ...IDGenerator) Handler
 ```go
 import (
     "github.com/kataras/neffos"
-    "github.com/kataras/iris/websocket"
+    "github.com/kataras/iris/v12/websocket"
 )
 
 // [...]
@@ -115,7 +115,7 @@ Iris is smart enough to catch the `Namespace string` struct field to use it to r
 ```go
 import (
     // [...]
-    "github.com/kataras/iris/mvc"
+    "github.com/kataras/iris/v12/mvc"
 )
 // [app := iris.New...]
 

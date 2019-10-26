@@ -16,7 +16,7 @@ package main
 import (
     "fmt"
 
-    "github.com/kataras/iris"
+    "github.com/kataras/iris/v12"
 
     "gopkg.in/go-playground/validator.v9"
 )

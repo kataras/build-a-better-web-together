@@ -14,11 +14,11 @@ For example, to register the redis session database:
 
 ```go
 import (
-    "github.com/kataras/iris"
-    "github.com/kataras/iris/sessions"
+    "github.com/kataras/iris/v12"
+    "github.com/kataras/iris/v12/sessions"
 
     // 1. Import the session database.
-    "github.com/kataras/iris/sessions/sessiondb/redis"
+    "github.com/kataras/iris/v12/sessions/sessiondb/redis"
 )
 
 // 2. Initialize the database.
@@ -63,7 +63,7 @@ sess.UseDatabase(db)
 
 ```go
 import "os"
-import "github.com/kataras/iris/sessions/sessiondb/boltdb"
+import "github.com/kataras/iris/v12/sessions/sessiondb/boltdb"
 
 db, err := boltdb.New("./sessions.db", os.FileMode(0750))
 ```
@@ -71,7 +71,7 @@ db, err := boltdb.New("./sessions.db", os.FileMode(0750))
 **badger**
 
 ```go
-import "github.com/kataras/iris/sessions/sessiondb/badger"
+import "github.com/kataras/iris/v12/sessions/sessiondb/badger"
 
 db, err := badger.New("./data")
 ```

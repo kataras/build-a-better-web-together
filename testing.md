@@ -14,8 +14,8 @@ In our first example we will use the `iris/httptest` to test Basic Authenticatio
 package main
 
 import (
-    "github.com/kataras/iris"
-    "github.com/kataras/iris/middleware/basicauth"
+    "github.com/kataras/iris/v12"
+    "github.com/kataras/iris/v12/middleware/basicauth"
 )
 
 func newApp() *iris.Application {
@@ -65,7 +65,7 @@ package main
 import (
     "testing"
 
-    "github.com/kataras/iris/httptest"
+    "github.com/kataras/iris/v12/httptest"
 )
 
 func TestNewApp(t *testing.T) {
@@ -107,7 +107,7 @@ import (
     "fmt"
     "testing"
 
-    "github.com/kataras/iris/httptest"
+    "github.com/kataras/iris/v12/httptest"
 )
 
 func TestCookiesBasic(t *testing.T) {

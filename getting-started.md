@@ -9,7 +9,7 @@ Create an empty file, let's assume its name is `example.go`, then open it and co
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func main() {
     app := iris.Default()
@@ -44,7 +44,7 @@ Let's take a small overview of how easy is to get up and running.
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func main() {
     app := iris.New()

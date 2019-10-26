@@ -13,7 +13,7 @@ To use this feature you should import the hero subpackage:
 ```go
 import (
     // [...]
-    "github.com/kataras/iris/hero"
+    "github.com/kataras/iris/v12/hero"
 )
 ```
 

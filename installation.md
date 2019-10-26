@@ -10,10 +10,10 @@ $ export GO111MODULE=on
 ## Install
 
 ```sh
-$ go get github.com/kataras/iris@master
+$ go get github.com/kataras/iris/v12@latest
 ```
 
-Or edit your project's `go.mod` file, add the following [pseudo-version](https://golang.org/cmd/go/#hdr-Pseudo_versions) and execute `$ go build`.
+Or edit your project's `go.mod` file.
 
 ```sh
 module your_project_name
@@ -21,7 +21,7 @@ module your_project_name
 go 1.13
 
 require (
-    github.com/kataras/iris v0.0.0-20191005193354-55afd07befa8
+    github.com/kataras/iris/v12 v12.0.0
 )
 ```
 
@@ -32,11 +32,11 @@ require (
 Here is the go-get command to get the latest and greatest Iris version. Master branch is usually stable enough.
 
 ```bash
-$ go get -u github.com/kataras/iris
+$ go get -u github.com/kataras/iris/v12@latest
 ```
 
 ## Troubleshooting
 
 If you get a network error during installation please make sure you set a valid [GOPROXY environment variable](https://github.com/golang/go/wiki/Modules#are-there-always-on-module-repositories-and-enterprise-proxies) e.g. `GOPROXY=https://goproxy.io` or `GOPROXY=https://goproxy.cn`.
 
-Continue by reading our [Getting Started](getting-started.md) tutorial.
+Continue by reading our [[Getting Started]] tutorial.

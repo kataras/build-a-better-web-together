@@ -9,7 +9,7 @@ Route naming is easy, since we just call the returned `*Route` with a `Name` fie
 ```go
 package main
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 func main() {
     app := iris.New()

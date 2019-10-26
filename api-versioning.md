@@ -8,8 +8,8 @@ The version comparison is done by the [go-version](https://github.com/hashicorp/
 import (
     // [...]
 
-    "github.com/kataras/iris"
-    "github.com/kataras/iris/versioning"
+    "github.com/kataras/iris/v12"
+    "github.com/kataras/iris/v12/versioning"
 )
 ```
 

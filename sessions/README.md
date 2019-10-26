@@ -22,7 +22,7 @@ Session variables are set with the `Session.Set` method and retrieved by the `Se
 The sessions manager is created using the `New` package-level function.
 
 ```go
-import "github.com/kataras/iris/sessions"
+import "github.com/kataras/iris/v12/sessions"
 
 sess := sessions.New(sessions.Config{Cookie: "cookieName", ...})
 ```
@@ -133,9 +133,9 @@ In this example we will only allow authenticated users to view our secret messag
 package main
 
 import (
-    "github.com/kataras/iris"
+    "github.com/kataras/iris/v12"
 
-    "github.com/kataras/iris/sessions"
+    "github.com/kataras/iris/v12/sessions"
 )
 
 var (
@@ -207,7 +207,7 @@ optionally register it as a middleware and use the package-level `sessions.Get` 
 The `Sessions` struct value contains the `Handler` method which can be used to return an `iris.Handler` to be registered as middleware. 
 
 ```go
-import "github.com/kataras/iris/sessions"
+import "github.com/kataras/iris/v12/sessions"
 
 sess := sessions.New(sessions.Config{...})
 

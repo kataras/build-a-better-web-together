@@ -5,7 +5,7 @@ Sometimes you need to temporarily store data between requests of the same user, 
 As we've seen the [Sessions](sessions/README.md) chapter, you initialize a session like this:
 
 ```go
-import "github.com/kataras/iris/sessions"
+import "github.com/kataras/iris/v12/sessions"
 
 sess := sessions.New(sessions.Config{Cookie: "cookieName", ...})
 ```

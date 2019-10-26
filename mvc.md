@@ -10,7 +10,7 @@ Iris has **first-class support for the MVC (Model View Controller) architectural
 these stuff anywhere else in the Go world. You will have to import the [iris/mvc](https://github.com/kataras/iris/tree/master/mvc) subpackage.
 
 ```go
-import "github.com/kataras/iris/mvc"
+import "github.com/kataras/iris/v12/mvc"
 ```
 
 Iris web framework supports Request data, Models, Persistence Data and Binding
@@ -28,8 +28,8 @@ Serve custom controller's struct's methods as handlers with custom paths(even wi
 
 ```go
 import (
-    "github.com/kataras/iris"
-    "github.com/kataras/iris/mvc"
+    "github.com/kataras/iris/v12"
+    "github.com/kataras/iris/v12/mvc"
 )
 
 func main() {
@@ -172,11 +172,11 @@ or high-level controllers: easier to maintain and smaller codebase on large appl
 package main
 
 import (
-	"github.com/kataras/iris"
-	"github.com/kataras/iris/mvc"
+	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/mvc"
 
-	"github.com/kataras/iris/middleware/logger"
-	"github.com/kataras/iris/middleware/recover"
+	"github.com/kataras/iris/v12/middleware/logger"
+	"github.com/kataras/iris/v12/middleware/recover"
 )
 
 func main() {
