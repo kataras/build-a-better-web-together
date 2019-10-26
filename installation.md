@@ -21,7 +21,7 @@ module your_project_name
 go 1.13
 
 require (
-    github.com/kataras/iris/v12 v12.0.0
+    github.com/kataras/iris/v12 v12.0.1
 )
 ```
 
