@@ -1,7 +1,9 @@
 Prepare a cup of coffee or tea, whatever pleases you the most, and read some articles we found for you.
 
 * [Golang Iris Web Course 2019](https://bit.ly/web-course-2019)
-* [Iris version 11.2 released](https://bit.ly/iris112)
+* [How to write a Go API Part 1: A Webserver With Iris](https://bit.ly/32xmf4Q)
+* [How to write a Go API Part 2: Database Integration With GORM](https://bit.ly/34PvKxR)
+* [How to write a Go API Part 3: Testing With Dockertest](https://bit.ly/2NoZziF)
 * [A URL Shortener Service using Go, Iris and Bolt (Updated)](https://bit.ly/2KeP6pE)
 * [CRUD REST API in Iris (a framework for golang)](https://bit.ly/2X9EsXl)
 * [Monitor APIs in realtime using Go and Iris](https://pusher.com/tutorials/monitor-api-go)
