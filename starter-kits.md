@@ -3,6 +3,7 @@
 | Project | Description | Stars | Author |
 | :--- | :--- | :--- | :--- |
 | [peterq/pan-light](https://bit.ly/33qfKlt) | Baidu network disk unlimited speed client, golang + qt5, cross-platform graphical interface | 9083 | @peterq |
+| [mlogclub/bbs-go](https://bit.ly/2PXcgmp) | Golang-based community system | 349 | @mlogclub |
 | [snowlyg/IrisApiProject](https://bit.ly/2IaL1R6) | Iris + gorm + JWT + sqlite3 | 282 | @snowlyg |
 | [mohuishou/scuplus-go](https://bit.ly/34H6Jol) | WeChat applet Backend API | 58 | @mohuishou |
 | [zuoyanart/pizzaCmsApi](https://bit.ly/36EPYvD) | RESTful power by Iris | 37 | @zuoyanart |
