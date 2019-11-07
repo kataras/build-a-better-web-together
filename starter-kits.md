@@ -4,6 +4,7 @@
 | :--- | :--- | :--- | :--- |
 | [peterq/pan-light](https://bit.ly/33qfKlt) | Baidu network disk unlimited speed client, golang + qt5, cross-platform graphical interface | 9083 | @peterq |
 | [snowlyg/IrisApiProject](https://bit.ly/2IaL1R6) | Iris + gorm + JWT + sqlite3 | 282 | @snowlyg |
+| [mohuishou/scuplus-go](https://bit.ly/34H6Jol) | WeChat applet Backend API | 58 | @mohuishou |
 | [zuoyanart/pizzaCmsApi](https://bit.ly/36EPYvD) | RESTful power by Iris | 37 | @zuoyanart |
 | [wx85278161/go-iris-vue](https://bit.ly/2C0mgmS) | Iris + Vue + Casbin + JWT | 46 | @wx85278161 |
 | [yz124/superstar](https://bit.ly/2WF4ZfK) | Iris + xorm to implement the star library | 91 | @yz124 |
