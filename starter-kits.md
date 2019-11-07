@@ -2,6 +2,7 @@
 
 | Project | Description | Stars | Author |
 | :--- | :--- | :--- | :--- |
+| [peterq/pan-light](https://bit.ly/33qfKlt) | Baidu network disk unlimited speed client, golang + qt5, cross-platform graphical interface | 9083 | @peterq |
 | [snowlyg/IrisApiProject](https://bit.ly/2IaL1R6) | Iris + gorm + JWT + sqlite3 | 282 | @snowlyg |
 | [zuoyanart/pizzaCmsApi](https://bit.ly/36EPYvD) | RESTful power by Iris | 37 | @zuoyanart |
 | [wx85278161/go-iris-vue](https://bit.ly/2C0mgmS) | Iris + Vue + Casbin + JWT | 46 | @wx85278161 |
