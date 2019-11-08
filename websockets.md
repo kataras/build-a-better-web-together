@@ -9,7 +9,7 @@ First of all, read the **[kataras/neffos wiki](https://github.com/kataras/neffos
 It comes pre-installed with Iris, however you can install it separately by executing the following shell command.
 
 ```sh
-$ go get github.com/kataras/neffos@v0.0.8
+$ go get github.com/kataras/neffos@latest
 ```
 
 Continue by reading how you can register the neffos websocket server into your Iris application.
