@@ -1,0 +1,22 @@
+{
+    "styles": {
+        "website": "styles/website.css",
+        "ebook": "styles/ebook.css",
+        "pdf": "styles/pdf.css",
+        "mobi": "styles/mobi.css",
+        "epub": "styles/epub.css"
+    },
+    "pdf": {
+        "pageNumbers": false,
+        "fontSize": 20,
+        "paperSize": "a2",
+        "margin": {
+            "right": 0,
+            "left": 0,
+            "top": 14,
+            "bottom": 14
+        },
+        "headerTemplate": null,
+        "footerTemplate": null
+    }
+}

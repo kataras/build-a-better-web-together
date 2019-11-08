@@ -43,8 +43,21 @@ ctx.ViewData("message", "Hello world!")
 
 To bind a Go **model** to a view you have two options:
 
-* `ctx.ViewData("user", User{})` - variable binding as `{{.user.Name}}` for example
-* `ctx.View("user-page.html", User{})` - root binding as `{{.Name}}` for example.
+**1.**
+
+```go
+ctx.ViewData("user", User{})
+
+// variable binding as {{.user.Name}}
+```
+
+**2.**
+
+```go
+ctx.View("user-page.html", User{})
+
+// root binding as {{.Name}}
+```
 
 To **add a template function** use the `AddFunc` method of the preferred view engine.
 
