@@ -133,13 +133,14 @@ Here is a list of some handlers made specifically for Iris:
 ## Built-in
 
 | Middleware | Example |
-| :--- | :--- |
-| [basic authentication](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/basicauth/README.md) | [iris/_examples/authentication/basicauth](https://github.com/kataras/iris/tree/master/_examples/authentication/basicauth) |
-| [Google reCAPTCHA](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/recaptcha/README.md) | [iris/_examples/miscellaneous/recaptcha](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recaptcha) |
-| [localization and internationalization](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/i18n/README.md) | [iris/_examples/miscellaneous/i81n](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/i18n) |
-| [request logger](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/logger/README.md) | [iris/_examples/http\_request/request-logger](https://github.com/kataras/iris/tree/master/_examples/http_request/request-logger) |
-| [profiling (pprof)](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/pprof/README.md) | [iris/_examples/miscellaneous/pprof](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/pprof) |
-| [recovery](https://github.com/kataras/iris-book/tree/f075c6886f1b95775f59ccea004d1c5e1f783a7a/recover/README.md) | [iris/_examples/miscellaneous/recover](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recover) |
+| -----------|-------------|
+| [basic authentication](https://github.com/kataras/iris/tree/master/middleware/basicauth) | [iris/_examples/authentication/basicauth](https://github.com/kataras/iris/tree/master/_examples/authentication/basicauth) |
+| [localization and internationalization](https://github.com/kataras/iris/tree/master/middleware/i18n) | [iris/_examples/miscellaneous/i81n](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/i18n) |
+| [request logger](https://github.com/kataras/iris/tree/master/middleware/logger) | [iris/_examples/http_request/request-logger](https://github.com/kataras/iris/tree/master/_examples/http_request/request-logger) |
+| [HTTP method override](https://github.com/kataras/iris/tree/master/middleware/methodoverride) | [iris/middleware/methodoverride/methodoverride_test.go](https://github.com/kataras/iris/blob/master/middleware/methodoverride/methodoverride_test.go) |
+| [profiling (pprof)](https://github.com/kataras/iris/tree/master/middleware/pprof) | [iris/_examples/miscellaneous/pprof](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/pprof) |
+| [Google reCAPTCHA](https://github.com/kataras/iris/tree/master/middleware/recaptcha) | [iris/_examples/miscellaneous/recaptcha](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recaptcha) |
+| [recovery](https://github.com/kataras/iris/tree/master/middleware/recover) | [iris/_examples/miscellaneous/recover](https://github.com/kataras/iris/tree/master/_examples/miscellaneous/recover) |
 
 ## Community made
 
