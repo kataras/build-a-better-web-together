@@ -18,6 +18,7 @@
   * [Wrap the Router](routing/routing-wrap-the-router.md)
   * [Override Context](routing/routing-override-context.md)
   * [Context Methods](routing/routing-context-methods.md)
+* [HTTP Method Override](http-method-override.md)
 * [API Versioning](api-versioning.md)
 * [Content Negotiation](content-negotiation.md)
 * [Response Recorder](response-recorder.md)
