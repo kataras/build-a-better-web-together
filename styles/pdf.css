@@ -256,7 +256,8 @@ body {
     margin: 0;
     overflow: initial;
     line-height: inherit;
-    font-size: 1.25em;
+   /* font-size: 1.25em; */
+    font-size: 1em;
     white-space: pre;
     background: 0 0
 }
@@ -269,7 +270,7 @@ body {
 .page .section code {
     padding: .2em;
     margin: 0;
-    font-size: 1.25em;
+    font-size: 1em;
     background-color: #f7f7f7
 }
 

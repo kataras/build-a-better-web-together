@@ -13,7 +13,6 @@ Prepare a cup of coffee or tea, whatever pleases you the most, and read some art
 * [Iris Go Framework + MongoDB](https://bit.ly/2WDOsZF)
 * [How to build a file upload form using DropzoneJS and Go](https://bit.ly/2ygMMqn)
 * [How to display existing files on server using DropzoneJS and Go](https://bit.ly/2yjrckQ)
-* [Iris, a modular web framework](https://bit.ly/2KHm6q0)
 * [Go vs .NET Core in terms of HTTP performance](https://bit.ly/2Kh7ezl)
 * [Iris Go vs .NET Core Kestrel in terms of HTTP performance](https://bit.ly/2yo2v6J)
 * [How to Turn an Android Device into a Web Server](https://bit.ly/2Icl5EM)
