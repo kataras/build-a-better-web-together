@@ -63,20 +63,8 @@ Each file should contain keys with translated text or template values.
 hi: "Hi %s"
 ```
 
-### Templates Style
+![](_assets/localization_templatesstyle_inisections.png)
 
-```yaml
-hi: "Hi {{ .Name }}"
-# Template functions are supported too
-# hi: "Hi {{sayHi .Name}}
-```
-
-### INI Sections
-
-```ini
-[cart]
-checkout = ολοκλήρωση παραγγελίας - {{.Param}}
-```
 > YAML, TOML, JSON, INI files.
 
 ## Determining The Current Locale
@@ -143,9 +131,7 @@ func(ctx iris.Context) {
 }
 ```
 
-```html
-{{ call .tr "hi" "John Doe" }}
-```
+![](_assets/localization_insideviews.png)
 
 ## [Example](https://github.com/kataras/iris/tree/master/_examples/i18n)
 
@@ -184,7 +170,7 @@ func newApp() *iris.Application {
 		ctx.Writef("%s", ctx.Tr("hi", "iris"))
 	})
 
-	app.Get("/multi", func(ctx iris.Context) {
+	app.Get("/other", func(ctx iris.Context) {
 		language := ctx.GetLocale().Language()
 
 		fromFirstFileValue := ctx.Tr("key1")
@@ -210,7 +196,7 @@ func newApp() *iris.Application {
         // the only differene is the way you call
         // it inside your templates and
         // that it accepts a language code as
-        // its first argument: {{ tr "el-GR" "hi" "iris"}}
+        // its first argument.
 	})
 	//
 
@@ -235,9 +221,9 @@ func main() {
 	// or http://localhost:8080 (default is en-US)
 	// or http://localhost:8080/?lang=zh-CN
 	//
-	// go to http://localhost:8080/multi?lang=el-GR
-	// or http://localhost:8080/multi (default is en-US)
-	// or http://localhost:8080/multi?lang=en-US
+	// go to http://localhost:8080/other?lang=el-GR
+	// or http://localhost:8080/other (default is en-US)
+	// or http://localhost:8080/other?lang=en-US
 	//
 	// or use cookies to set the language.
 	app.Run(iris.Addr(":8080"), iris.WithSitemap("http://localhost:8080"))
@@ -270,10 +256,10 @@ GET http://localhost:8080/sitemap.xml
         <xhtml:link rel="alternate" hreflang="zh-CN" href="http://localhost:8080/zh-CN/some-path"></xhtml:link>
     </url>
     <url>
-        <loc>http://localhost:8080/multi</loc>
-        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:8080/multi"></xhtml:link>
-        <xhtml:link rel="alternate" hreflang="el-GR" href="http://localhost:8080/el-GR/multi"></xhtml:link>
-        <xhtml:link rel="alternate" hreflang="zh-CN" href="http://localhost:8080/zh-CN/multi"></xhtml:link>
+        <loc>http://localhost:8080/other</loc>
+        <xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:8080/other"></xhtml:link>
+        <xhtml:link rel="alternate" hreflang="el-GR" href="http://localhost:8080/el-GR/other"></xhtml:link>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="http://localhost:8080/zh-CN/other"></xhtml:link>
     </url>
     <url>
         <loc>http://localhost:8080/templates</loc>
