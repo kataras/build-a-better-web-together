@@ -218,14 +218,14 @@ func main() {
     // or http://localhost:8080/some-path?lang=el-GR
     // ^ (by url parameter)
     //
-	// or http://localhost:8080 (default is en-US)
-	// or http://localhost:8080/?lang=zh-CN
-	//
-	// go to http://localhost:8080/other?lang=el-GR
-	// or http://localhost:8080/other (default is en-US)
-	// or http://localhost:8080/other?lang=en-US
-	//
-	// or use cookies to set the language.
+    // or http://localhost:8080 (default is en-US)
+    // or http://localhost:8080/?lang=zh-CN
+    //
+    // go to http://localhost:8080/other?lang=el-GR
+    // or http://localhost:8080/other (default is en-US)
+    // or http://localhost:8080/other?lang=en-US
+    //
+    // or use cookies to set the language.
 	app.Run(iris.Addr(":8080"), iris.WithSitemap("http://localhost:8080"))
 }
 ```
