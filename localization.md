@@ -138,15 +138,16 @@ func(ctx iris.Context) {
 ```go
 package main
 
-import "github.com/kataras/iris/v12"
+import (
+	"github.com/kataras/iris/v12"
+)
 
 func newApp() *iris.Application {
 	app := iris.New()
 
 	// Configure i18n.
 	// First parameter: Glob filpath patern,
-    // Second variadic parameter: Optional language tags,
-    // the first one is the default/fallback one.
+	// Second variadic parameter: Optional language tags, the first one is the default/fallback one.
 	app.I18n.Load("./locales/*/*.ini", "en-US", "el-GR", "zh-CN")
 	// app.I18n.LoadAssets for go-bindata.
 
@@ -175,8 +176,7 @@ func newApp() *iris.Application {
 
 		fromFirstFileValue := ctx.Tr("key1")
 		fromSecondFileValue := ctx.Tr("key2")
-        ctx.Writef("From the language: %s,
-            translated output:\n%s=%s\n%s=%s",
+		ctx.Writef("From the language: %s, translated output:\n%s=%s\n%s=%s",
 			language, "key1", fromFirstFileValue,
 			"key2", fromSecondFileValue)
 	})
@@ -191,12 +191,9 @@ func newApp() *iris.Application {
 		})
 
 		// Note that,
-        // Iris automatically adds a "tr" global
-        // template function as well,
-        // the only differene is the way you call
-        // it inside your templates and
-        // that it accepts a language code as
-        // its first argument.
+		// Iris automatically adds a "tr" global template function as well,
+		// the only differene is the way you call it inside your templates and
+		// that it accepts a language code as its first argument: {{ tr "el-GR" "hi" "iris"}}
 	})
 	//
 
@@ -206,26 +203,26 @@ func newApp() *iris.Application {
 func main() {
 	app := newApp()
 
-    // go to http://localhost:8080/el-gr/some-path
-    // ^ (by path prefix)
-    //
-    // or http://el.mydomain.com8080/some-path
-    // ^ (by subdomain - test locally with the hosts file)
-    //
-    // or http://localhost:8080/zh-CN/templates
-    // ^ (by path prefix with uppercase)
-    //
-    // or http://localhost:8080/some-path?lang=el-GR
-    // ^ (by url parameter)
-    //
-    // or http://localhost:8080 (default is en-US)
-    // or http://localhost:8080/?lang=zh-CN
-    //
-    // go to http://localhost:8080/other?lang=el-GR
-    // or http://localhost:8080/other (default is en-US)
-    // or http://localhost:8080/other?lang=en-US
-    //
-    // or use cookies to set the language.
+	// go to http://localhost:8080/el-gr/some-path
+	// ^ (by path prefix)
+	//
+	// or http://el.mydomain.com8080/some-path
+	// ^ (by subdomain - test locally with the hosts file)
+	//
+	// or http://localhost:8080/zh-CN/templates
+	// ^ (by path prefix with uppercase)
+	//
+	// or http://localhost:8080/some-path?lang=el-GR
+	// ^ (by url parameter)
+	//
+	// or http://localhost:8080 (default is en-US)
+	// or http://localhost:8080/?lang=zh-CN
+	//
+	// go to http://localhost:8080/other?lang=el-GR
+	// or http://localhost:8080/other (default is en-US)
+	// or http://localhost:8080/other?lang=en-US
+	//
+	// or use cookies to set the language.
 	app.Run(iris.Addr(":8080"), iris.WithSitemap("http://localhost:8080"))
 }
 ```
