@@ -21,19 +21,19 @@ module your_project_name
 go 1.13
 
 require (
-    github.com/kataras/iris/v12 v12.0.1
+    github.com/kataras/iris/v12 v12.1.0
 )
 ```
 
 > `$ go build`
 
-## How to update
+<!-- ## How to update
 
 Here is the go-get command to get the latest and greatest Iris version. Master branch is usually stable enough.
 
 ```bash
 $ go get -u github.com/kataras/iris/v12@latest
-```
+``` -->
 
 ## Troubleshooting
 

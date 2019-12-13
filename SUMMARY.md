@@ -37,6 +37,8 @@
 * [Websockets](websockets.md)
 * [Dependency Injection](dependency-injection.md)
 * [MVC](mvc.md)
+* [Sitemap](sitemap.md)
+* [Localization](localization.md)
 * [Testing](testing.md)
 * [Examples](https://github.com/kataras/iris/tree/master/_examples)
 * [Starter Kits](starter-kits.md)

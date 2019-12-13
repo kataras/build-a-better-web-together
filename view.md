@@ -11,7 +11,7 @@ Let's see the list of the built-in view engines:
 | Engine | Declaration | Underline Template Parser |
 | :--- | :--- | :--- |
 | std template/html | `iris.HTML(...)` | [html/template](https://golang.org/pkg/html/template/) package |
-| django | `iris.Django(...)` | [flosch/pongo2](https://github.com/flosch/pongo2) package |
+| django | `iris.Django(...)` | [iris-contrib/pongo2](https://github.com/iris-contrib/pongo2) package |
 | handlebars | `iris.Handlebars(...)` | [Joker/jade](https://github.com/Joker/jade) package |
 | amber | `iris.Amber(...)` | [aymerick/raymond](https://github.com/aymerick/raymond) package |
 | pug(jade) | `iris.Pug(...)` | [eknkc/amber](https://github.com/eknkc/amber) package |
