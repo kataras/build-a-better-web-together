@@ -88,4 +88,5 @@ $ go run main.go
 Now, open your browser's developer tools and click the `Network` tab. Navigate to https://127.0.0.1/,  the `main.js` _Initiator_ should be `Push / (index)` as shown below:
 
 ![](../.gitbook/assets/http2push.png)
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

@@ -61,4 +61,5 @@ fetch("/path", {
  })).catch((err)=> { console.error(err) })
 ```
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

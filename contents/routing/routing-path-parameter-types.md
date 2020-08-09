@@ -158,4 +158,5 @@ func main() {
 
 > When parameter type is missing then it defaults to the `string` one, therefore `{name:string}` and `{name}` refers to the same exactly thing.
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

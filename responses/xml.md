@@ -57,4 +57,5 @@ func handler(ctx iris.Context) {
 References:
 - [Specification](https://www.w3.org/TR/REC-xml/)
 - [SOAP vs REST vs JSON - a 2020 comparison](https://raygun.com/blog/soap-vs-rest-vs-json/)
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

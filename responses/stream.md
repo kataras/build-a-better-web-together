@@ -122,4 +122,5 @@ func handler(ctx iris.Context) {
 ![](../.gitbook/assets/iris-stream-writer.gif)
 
 That's all. As you've noticed, the client receives messages while loading. Check the next chapter (Server-Sent Events) to see an alternative way of sending messages to the client with connection-alive and loaded page.
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

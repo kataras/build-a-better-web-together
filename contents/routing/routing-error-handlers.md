@@ -154,4 +154,5 @@ When `RenderXML` is set to `true` then the response will look be rendered as XML
 
 Full example can be found at [\_examples/routing/http-errors](https://github.com/kataras/iris/blob/master/_examples/routing/http-errors/main.go).
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

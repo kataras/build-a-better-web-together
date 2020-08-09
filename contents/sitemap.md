@@ -23,4 +23,5 @@ See it in action, download and run the **example** from: [https://github.com/kat
 
 If the application **is localized** then `iris.WithSitemap` will add `xhtml:link` XML elements to the sitemap file for each translation language as recommended at: [https://support.google.com/webmasters/answer/189077?hl=en](https://support.google.com/webmasters/answer/189077?hl=en). Read more about it at the [Localization](localization.md) section.
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

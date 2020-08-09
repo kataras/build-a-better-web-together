@@ -361,4 +361,5 @@ func deleteUser(db *sql.DB, id uint64) *response {
 
 Later on you'll see how this knowledge will help you to craft an application using the MVC architectural pattern which Iris provides wonderful API for it.
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

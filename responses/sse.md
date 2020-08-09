@@ -59,4 +59,5 @@ func handler(ctx iris.Context) {
 * Specify that the page should not cache
 * Output the data to send (**Always** start with `"data: "`)
 * `Flush` the output data back to the web page
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

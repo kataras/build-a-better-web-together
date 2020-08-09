@@ -76,4 +76,5 @@ import "github.com/kataras/iris/v12/sessions/sessiondb/badger"
 db, err := badger.New("./data")
 ```
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

@@ -136,4 +136,5 @@ Also, note that the default behavior is to set its `HttpOnly` to true. It perfor
 RemoveCookie(name string, options ...CookieOption)
 ```
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

@@ -243,4 +243,5 @@ The **./views/upload.html** is a simple html form, looks like that:
 
 </html>
 ```
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

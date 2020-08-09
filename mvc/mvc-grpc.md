@@ -136,4 +136,5 @@ Both HTTP Client and gRPC client will be able to communicate with our Iris+gRPC 
 
 Full Server, Clients and Testing Code can be found at: [https://github.com/kataras/iris/tree/master/\_examples/mvc/grpc-compatible](https://github.com/kataras/iris/tree/master/_examples/mvc/grpc-compatible).
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

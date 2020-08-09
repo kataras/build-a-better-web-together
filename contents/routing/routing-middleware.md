@@ -166,4 +166,5 @@ Here is a list of some handlers made specifically for Iris:
 
 Iris has its own middleware form of `func(ctx iris.Context)` but it's also compatible with all `net/http` middleware forms. See [here](https://github.com/kataras/iris/tree/master/_examples/convert-handlers).
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

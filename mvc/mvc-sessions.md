@@ -66,4 +66,5 @@ $ go run main.go
 3. refresh the page some times
 4. close the browser
 5. re-open the browser (if it wasn't in private mode) and re-play 2.
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

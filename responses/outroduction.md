@@ -40,4 +40,5 @@ WriteNotModified()
 // leave the client-side render the cached content.
 WriteWithExpiration(body []byte, modtime time.Time) (int, error)
 ```
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

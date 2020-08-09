@@ -286,4 +286,5 @@ app.Get("/{alias:string regexp(^[a-z0-9]{1,10}$)}", Tour)
 
 You may wonder what the `{id:uint64}` or `:path` or `min(1)` are. They are (typed) dynamic path parameters and functions can be registered on them. Learn more by reading the [Path Parameter Types](routing-path-parameter-types.md).
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

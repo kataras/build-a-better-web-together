@@ -24,4 +24,5 @@
 | [nanobox.io](https://bit.ly/2wMkdjG) | Quickstart for Iris with Nanobox | 9 | @nanobox-io |
 | [hasura.io](https://bit.ly/2Kfdsjf) | A Hasura starter project with a ready to deploy Golang hello-world web app with Iris | [9](https://github.com/k8s-platform-hub/hello-golang-iris) | @k8s-platform-hub |
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

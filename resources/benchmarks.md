@@ -10,4 +10,5 @@
 
 > Last updated at: 01 March of 2019. Click to the image to view all results. You can run this in your own hardware by following the [steps here](https://github.com/iris-contrib/third-party-benchmarks#usage).
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->

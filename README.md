@@ -1,6 +1,8 @@
-# What is Iris
+Please navigate to [GitHub Wiki](https://github.com/kataras/iris/wiki) for the complete documentation of the Iris latest stable release. This page is currently under construction.
 
-## Docs under construction for v12.2.0
+----
+
+# What is Iris
 
 **Iris** is a free, open-source [Go](https://golang.org) web framework, created by [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos) and intended for the development of modern web applications.
 
@@ -12,4 +14,5 @@
 
 The source code of Iris is hosted on [GitHub ](https://github.com/kataras/iris) and licensed under the terms of [BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause), like the [Go project](https://github.com/golang/go) itself.
 
-<!-- slide:break-80 -->
+
+<!-- slide:break-100 -->
