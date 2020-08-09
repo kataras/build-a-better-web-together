@@ -225,3 +225,4 @@ Also, if the sessions manager's `Config.AllowReclaim` is `true` then you can sti
 Navigate to <https://github.com/kataras/iris/tree/master/_examples/sessions> for more examples about the sessions subpackage.
 
 Continue by reading the [Flash Messages](Sessions-flash-messages) section.
+<!-- slide:break-80 -->

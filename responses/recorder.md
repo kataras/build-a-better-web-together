@@ -105,3 +105,4 @@ app.Get("/data", func(ctx iris.Context) {
 ```
 
 In addition to that, Iris provides a comprehensive API for **Transactions**. Learn more about it by running an [example](https://github.com/kataras/iris/blob/master/_examples/response-writer/transactions/main.go).
+<!-- slide:break-80 -->

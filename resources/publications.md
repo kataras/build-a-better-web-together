@@ -35,3 +35,4 @@ Contact via [e-mail](mailto:kataras2006@hotmail.com?subject=Iris%20Web%20Framewo
 * Have you already written one that's not listed here?
 * Did you create a video course about Iris that it's not listed here?
 
+<!-- slide:break-80 -->

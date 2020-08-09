@@ -20,3 +20,4 @@ Navigate through the Iris github [repository](https://github.com/kataras/iris) t
 
 * Do you have any questions or need to speak with someone experienced enough to solve a problem at real-time? Join us to the [Community Chat](https://chat.iris-go.com).
 
+<!-- slide:break-80 -->

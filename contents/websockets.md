@@ -61,3 +61,4 @@ ws := neffos.New(websocket.DefaultGorillaUpgrader, neffos.Namespaces{
 })
 app.Get("/websocket_endpoint", websocket.Handler(ws))
 ```
+<!-- slide:break-80 -->

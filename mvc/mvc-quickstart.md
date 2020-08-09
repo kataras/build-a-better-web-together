@@ -378,3 +378,4 @@ $ docker-compose up
 Visit [http://localhost:8080?name=kataras](http://localhost:8080?name=kataras).
 
 Optionally, replace the `main.go`'s `app.Register(environment.DEV` with `environment.PROD`, restart the application and refresh. You will see that a new database (`sqlite`) and another service of (`greeterWithLogging`) will be binded to the `GreetController`. With **a single change** you achieve to completety change the result.
+<!-- slide:break-80 -->

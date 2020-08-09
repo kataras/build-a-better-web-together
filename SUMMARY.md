@@ -97,3 +97,4 @@
   * [Sitemap](contents/sitemap.md)
   * [Localization](contents/localization.md)
   * [Testing](contents/testing.md)
+<!-- slide:break-80 -->

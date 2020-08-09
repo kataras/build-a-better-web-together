@@ -36,3 +36,4 @@ If you get a network error during installation please make sure you set a valid 
 go env -w GOPROXY=https://goproxy.cn,https://gocenter.io,https://goproxy.io,direct
 ```
 
+<!-- slide:break-80 -->

@@ -39,3 +39,4 @@ The method names are self-explained. For example, if you need to get a message a
 
 > Flash messages are not stored in a database.
 
+<!-- slide:break-80 -->

@@ -12,3 +12,4 @@
 
 The source code of Iris is hosted on [GitHub ](https://github.com/kataras/iris) and licensed under the terms of [BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause), like the [Go project](https://github.com/golang/go) itself.
 
+<!-- slide:break-80 -->

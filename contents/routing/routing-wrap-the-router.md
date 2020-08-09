@@ -103,3 +103,4 @@ func main() {
 
 There is not much to say here, it's just a function wrapper which accepts the native response writer and request and the next handler which is the Iris' Router itself, it's being or not executed whether is called or not, **it's a middleware for the whole Router**.
 
+<!-- slide:break-80 -->

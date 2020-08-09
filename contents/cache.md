@@ -75,3 +75,4 @@ func Cache304(expiresEvery time.Duration) Handler
 
 Examples can be found at: [https://github.com/kataras/iris/tree/master/\_examples/response-writer/cache](https://github.com/kataras/iris/tree/master/_examples/response-writer/cache).
 
+<!-- slide:break-80 -->

@@ -81,3 +81,4 @@ websocketServer := neffos.New(websocket.DefaultGorillaUpgrader, mvcApp)
 ```go
 mvcApp.Router.Get("/", websocket.Handler(websocketServer))
 ```
+<!-- slide:break-80 -->

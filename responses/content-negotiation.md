@@ -230,3 +230,4 @@ func handler(ctx iris.Context) {
 ```
 
 That's all, read the examples for a comprehensive understanding in practise.
+<!-- slide:break-80 -->

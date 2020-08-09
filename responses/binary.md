@@ -17,3 +17,4 @@ func handler(ctx iris.Context) {
 You may also want to see the following methods for serving files:
 
 > Reference: [Context-File-Server](../file-server/context-file-server.md)
+<!-- slide:break-80 -->

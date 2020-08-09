@@ -18,3 +18,4 @@ Hello, <strong>World!</strong>
 ```
 
 > If you want to learn how to render template files or embedded views please head over to the [View](../view) chapter instead.
+<!-- slide:break-80 -->
