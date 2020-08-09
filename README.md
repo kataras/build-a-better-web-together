@@ -1,53 +1,14 @@
-# Home
+# What is Iris
 
-Welcome to **Iris** - the fastest backend web framework for [Go](https://golang.org).
+## Docs under construction for v12.2.0
 
-This book is the main source of documentation for **teams and individuals developers** working with (or contributing to) the Iris project.
+**Iris** is a free, open-source [Go](https://golang.org) web framework, created by [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos) and intended for the development of modern web applications.
 
-## Table of Contents
+**Iris** helps back-end developers to quickly create extremely fast web applications in Go with minimal effort.
 
-* [About](about.md)
-* [Benchmarks](benchmarks.md)
-* [Support](support.md)
-* [Installing Iris](installation.md)
-* [Getting Started](getting-started.md)
-* [Host](host/README.md)
-  * [Automatic Public Domain with TLS](host/automatic-public-address.md)
-* [Configuration](configuration.md)
-* [Routing](routing/README.md)
-  * [Path Parameter Types](routing/routing-path-parameter-types.md)
-  * [Reverse Lookups](routing/routing-reverse-lookups.md)
-  * [Middleware](routing/routing-middleware.md)
-  * [Handle HTTP errors](routing/routing-error-handlers.md)
-  * [Subdomains](routing/routing-subdomains.md)
-  * [Wrap the Router](routing/routing-wrap-the-router.md)
-  * [Override Context](routing/routing-override-context.md)
-  * [Context Methods](routing/routing-context-methods.md)
-* [HTTP Method Override](http-method-override.md)
-* [API Versioning](api-versioning.md)
-* [Content Negotiation](content-negotiation.md)
-* [Response Recorder](response-recorder.md)
-* [HTTP Referer](http-referer.md)
-* [Request Authentication](request-authentication.md)
-* [URL Query Parameters](url-query-parameters.md)
-* [Forms](forms.md)
-* [Model Validation](model-validation.md)
-* [Cache](cache.md)
-* [File Server](file-server.md)
-* [View](view.md)
-* [Cookies](cookies.md)
-* [Sessions](sessions/README.md)
-    * [Database](sessions/database.md)
-    * [Flash Messages](sessions/flashmessages.md)
-* [Websockets](websockets.md)
-* [Dependency Injection](dependency-injection.md)
-* [MVC](mvc.md)
-* [Sitemap](sitemap.md)
-* [Localization](localization.md)
-* [Testing](testing.md)
-* [Examples](https://github.com/kataras/iris/tree/master/_examples)
-* [Starter Kits](starter-kits.md)
-* [Publications](publications.md)
+**Iris** is the only one Go module with **first-class** support to develop web applications following the model-view-controller [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) architectural pattern.
 
-[Technical Docs](https://godoc.org/github.com/kataras/iris) / Copyright © 2019 [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos)
+**Iris** can be used as a web port for [gRPC](https://grpc.io/). REST API for gRPC services.
+
+The source code of Iris is hosted on [GitHub ](https://github.com/kataras/iris) and licensed under the terms of [BSD 3-clause License](https://opensource.org/licenses/BSD-3-Clause), like the [Go project](https://github.com/golang/go) itself.
 
